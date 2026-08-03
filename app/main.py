@@ -328,13 +328,13 @@ async def kernel_chat(request: dict[str, Any]) -> StreamingResponse:
             return
 
         panel = proof_kernel.verified_panel(chosen, bars)
-        verdict = panel["data"]["verification"]["status"]
+        headline = panel["data"]["verification"]["assurance_headline"]
         yield _sse({"type": "text-start", "id": "t0"})
         yield _sse({
             "type": "text-delta", "id": "t0",
             "delta": (
                 f"Signal at bar {chosen} on {proof_kernel.SYMBOL}. "
-                f"Independent replay says {verdict}."
+                f"{headline}."
             ),
         })
         yield _sse({"type": "text-end", "id": "t0"})

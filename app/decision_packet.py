@@ -3,7 +3,7 @@
 It proves exactly one claim:
 
     This signal was produced from these exact facts, every fact was knowable at
-    the declared timestamp, and an independent implementation reproduced it.
+    the declared timestamp, and a differential implementation reproduced it.
 
 The packet is the unit of authority. Everything downstream -- trade intent, risk
 gate, execution -- references a packet by id. Nothing downstream may restate a
@@ -17,7 +17,7 @@ Two rules govern this module and neither is negotiable:
    decide what SPY traded at.
 
 2. A check with no evidence is NOT_RUN, never PASS. Four of the seven release
-   conditions cannot be judged from the packet alone -- they need an independent
+   conditions cannot be judged from the packet alone -- they need a differential
    implementation and two mutation runs. When that evidence is absent the packet
    reports NOT_RUN and the overall status is FAIL. A gate that passes when it did
    not run is worse than no gate, because it launders absence into approval.
@@ -29,7 +29,7 @@ import hashlib
 import json
 from datetime import datetime
 from enum import Enum
-from typing import Annotated, Any
+from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, Field, model_validator
 
@@ -75,17 +75,49 @@ class Fact(BaseModel):
     receipt: FactReceipt | None = None
 
 
-class Rule(BaseModel):
-    """One clause of the strategy, and the facts it read.
+Comparison = Literal["<", "<=", ">", ">=", "==", "!="]
 
-    `fact_refs` is what makes the packet auditable: a rule that fired without
-    naming its inputs is an assertion, not evidence.
+_OPS: dict[str, Any] = {
+    "<": lambda a, b: a < b,
+    "<=": lambda a, b: a <= b,
+    ">": lambda a, b: a > b,
+    ">=": lambda a, b: a >= b,
+    "==": lambda a, b: a == b,
+    "!=": lambda a, b: a != b,
+}
+
+
+class Rule(BaseModel):
+    """One clause of the strategy, expressed so it can be RECOMPUTED.
+
+    `result` used to be a free boolean the builder asserted. It was the one
+    displayed value in the packet with no receipt and no check -- a packet could
+    render "uptrend: true" while its own facts said the fast average was below
+    the slow one, and nothing caught it.
+
+    So a rule now carries its operands and its operator. `result` is still on the
+    wire, because the renderer needs it, but it is no longer testimony: the
+    verifier re-evaluates the comparison against the packet's own facts and fails
+    the packet when the two disagree.
+
+    `rhs` is a fact id when it names one, otherwise a literal.
     """
 
     rule_id: Annotated[str, Field(min_length=1, max_length=120)]
     label: Annotated[str, Field(min_length=1, max_length=200)]
-    fact_refs: list[str] = Field(default_factory=list)
+    lhs: Annotated[str, Field(min_length=1, max_length=120)]
+    op: Comparison
+    rhs: str | float
     result: bool
+
+    @property
+    def fact_refs(self) -> list[str]:
+        """Operands that name facts. Derived, so it cannot drift from the rule."""
+
+        refs = [self.lhs]
+        if isinstance(self.rhs, str):
+            refs.append(self.rhs)
+        return refs
 
 
 class Strategy(BaseModel):
@@ -111,12 +143,42 @@ class Signal(BaseModel):
         return self
 
 
-class OracleResult(BaseModel):
-    """What a second, independent implementation concluded.
+class OracleIndependence(str, Enum):
+    """How much a matching replay is actually worth.
 
-    Supplied by the runner, not by this module. Its whole purpose is to have been
-    written without reference to the primary implementation, so agreement means
-    something.
+    Ordered weakest to strongest. The distinction is the whole point: a second
+    implementation by the same author catches transcription and arithmetic
+    drift, and cannot catch a misconception both copies share. Recording which
+    rung the evidence sits on stops a green check from implying the top one.
+    """
+
+    SAME_AUTHOR_DIVERSE_IMPLEMENTATION = "same_author_diverse_implementation"
+    SEPARATE_AGENT_FROM_FROZEN_SPEC = "separate_agent_from_frozen_spec"
+    INDEPENDENT_AUTHOR = "independent_author"
+    EXTERNAL_REFERENCE = "external_reference"
+
+
+class EvidenceClass(str, Enum):
+    """What corpus the verdict was earned against.
+
+    A kernel that passes on a closed-form fixture has proved the verifier. It
+    has proved nothing about market data, which arrives with gaps, halts,
+    splits, late prints and revisions. Naming the corpus on the wire keeps those
+    two claims from being read as one.
+    """
+
+    SYNTHETIC_KERNEL = "SYNTHETIC_KERNEL"
+    REAL_BAR_REPLAY = "REAL_BAR_REPLAY"
+    POINT_IN_TIME_MARKET_REPLAY = "POINT_IN_TIME_MARKET_REPLAY"
+
+
+class OracleResult(BaseModel):
+    """What a second implementation concluded.
+
+    Deliberately NOT called independent. It is a differential replay: written to
+    a different shape, by the same author, against the same understanding of
+    what the numbers mean. `independence` records that honestly rather than
+    letting a matching result imply more than it earned.
     """
 
     values: dict[str, float | str]
@@ -124,6 +186,7 @@ class OracleResult(BaseModel):
     signal_at_utc: datetime
     direction: Direction
     entry_eligible: bool
+    independence: OracleIndependence = OracleIndependence.SAME_AUTHOR_DIVERSE_IMPLEMENTATION
 
 
 class MutationEvidence(BaseModel):
@@ -144,9 +207,37 @@ class Check(BaseModel):
     detail: str = ""
 
 
+class Assurance(BaseModel):
+    """What class of claim the verdict actually supports.
+
+    A single green PASS is the overclaim this exists to prevent. Three separate
+    statuses, because they can and do differ: the verifier can be sound while
+    the corpus is synthetic and the replay is only differential. Today that is
+    exactly the state -- verifier PASS, market-data conformance NOT_RUN,
+    semantic independence LIMITED -- and a reader is entitled to see it.
+    """
+
+    verifier_integrity: CheckStatus
+    market_data_conformance: CheckStatus
+    semantic_independence: Literal["STRONG", "LIMITED", "NOT_RUN"]
+    evidence_class: EvidenceClass
+
+    @property
+    def headline(self) -> str:
+        """What the badge should say. Never a bare PASS."""
+
+        scope = {
+            EvidenceClass.SYNTHETIC_KERNEL: "VERIFIER KERNEL",
+            EvidenceClass.REAL_BAR_REPLAY: "REAL BAR REPLAY",
+            EvidenceClass.POINT_IN_TIME_MARKET_REPLAY: "POINT-IN-TIME REPLAY",
+        }[self.evidence_class]
+        return f"{scope} {self.verifier_integrity.value}"
+
+
 class Verification(BaseModel):
     status: CheckStatus
     checks: list[Check]
+    assurance: Assurance
 
     @property
     def failed(self) -> list[Check]:
@@ -177,12 +268,16 @@ class DecisionPacket(BaseModel):
 
 
 def canonical_hash(packet: DecisionPacket) -> str:
-    """Content hash over sorted keys.
+    """Content hash over sorted dict KEYS. List order is significant.
 
-    Sorted keys because dict ordering is not part of the packet's meaning, and a
-    hash that changes when a field moves cannot detect the thing we care about:
-    whether a *value* changed. Datetimes serialise to ISO-8601 so two runs on
-    different machines agree.
+    Keys are sorted because field ordering is not part of the packet's meaning.
+    List order deliberately is: reordering `facts` changes the hash, because the
+    sequence a strategy read its inputs in is part of what happened. Do not
+    describe this as "order-independent" -- an adversarial pass caught that
+    phrasing, and a hash whose contract is misdescribed is one somebody will
+    eventually rely on wrongly.
+
+    Datetimes serialise to ISO-8601 so two runs on different machines agree.
 
     `packet_hash` is deliberately not a field on `DecisionPacket` -- a hash that
     covered itself could not be computed. It is attached at the panel boundary.
@@ -221,6 +316,39 @@ def _check_no_dangling_refs(packet: DecisionPacket) -> Check:
     )
 
 
+def _check_rule_evaluation(packet: DecisionPacket) -> Check:
+    """Re-evaluate every rule against the packet's own facts.
+
+    This is the check that stops `result` from being testimony. Without it a
+    packet can display "uptrend: true" beside facts that say otherwise, which is
+    exactly the state the adversarial pass found at bar 200.
+    """
+
+    values = {f.fact_id: f.value for f in packet.facts}
+    wrong: list[str] = []
+    for rule in packet.rules:
+        if rule.lhs not in values:
+            wrong.append(f"{rule.rule_id} (lhs {rule.lhs} absent)")
+            continue
+        rhs = values.get(rule.rhs) if isinstance(rule.rhs, str) else rule.rhs
+        if rhs is None:
+            wrong.append(f"{rule.rule_id} (rhs {rule.rhs} absent)")
+            continue
+        try:
+            recomputed = bool(_OPS[rule.op](values[rule.lhs], rhs))
+        except TypeError:
+            wrong.append(f"{rule.rule_id} (operands not comparable)")
+            continue
+        if recomputed != rule.result:
+            wrong.append(f"{rule.rule_id} (claims {rule.result}, recomputes {recomputed})")
+    return Check(
+        check_id="rule_evaluation",
+        label="Every rule result recomputes from the packet's own facts",
+        status=CheckStatus.FAIL if wrong else CheckStatus.PASS,
+        detail="; ".join(wrong),
+    )
+
+
 def _check_admissibility(packet: DecisionPacket) -> Check:
     """No input may postdate the decision it informed."""
 
@@ -239,8 +367,8 @@ def _check_admissibility(packet: DecisionPacket) -> Check:
 def _check_recomputation(packet: DecisionPacket, oracle: OracleResult | None) -> Check:
     if oracle is None:
         return Check(
-            check_id="recomputation",
-            label="An independent implementation reproduced every value",
+            check_id="differential_replay",
+            label="A differential implementation reproduced every value",
             status=CheckStatus.NOT_RUN,
             detail="no oracle supplied",
         )
@@ -253,8 +381,8 @@ def _check_recomputation(packet: DecisionPacket, oracle: OracleResult | None) ->
                 f"{fact.fact_id} ({fact.value!r} vs {oracle.values[fact.fact_id]!r})"
             )
     return Check(
-        check_id="recomputation",
-        label="An independent implementation reproduced every value",
+        check_id="differential_replay",
+        label="A differential implementation reproduced every value",
         status=CheckStatus.FAIL if mismatches else CheckStatus.PASS,
         detail=f"{len(mismatches)} mismatch(es): {mismatches}" if mismatches else "",
     )
@@ -268,6 +396,10 @@ def _values_agree(primary: float | str, independent: float | str) -> bool:
     train everyone to ignore the check.
     """
 
+    # bool is an int subclass, so without this guard True would agree with 1.0.
+    # A boolean and a price are never the same measurement.
+    if isinstance(primary, bool) or isinstance(independent, bool):
+        return primary is independent
     if isinstance(primary, (int, float)) and isinstance(independent, (int, float)):
         return round(float(primary), 9) == round(float(independent), 9)
     return primary == independent
@@ -341,6 +473,7 @@ def verify(
     packet: DecisionPacket,
     oracle: OracleResult | None = None,
     mutation: MutationEvidence | None = None,
+    evidence_class: EvidenceClass = EvidenceClass.SYNTHETIC_KERNEL,
 ) -> Verification:
     """Run all seven conditions. PASS only when every one of them passed.
 
@@ -353,6 +486,7 @@ def verify(
     checks = [
         _check_receipts(packet),
         _check_no_dangling_refs(packet),
+        _check_rule_evaluation(packet),
         _check_admissibility(packet),
         _check_recomputation(packet, oracle),
         _check_agreement(packet, oracle),
@@ -363,7 +497,27 @@ def verify(
         if all(c.status is CheckStatus.PASS for c in checks)
         else CheckStatus.FAIL
     )
-    return Verification(status=overall, checks=checks)
+    strong = {
+        OracleIndependence.INDEPENDENT_AUTHOR,
+        OracleIndependence.EXTERNAL_REFERENCE,
+    }
+    return Verification(
+        status=overall,
+        checks=checks,
+        assurance=Assurance(
+            verifier_integrity=overall,
+            # There is no market-data conformance run yet: no gap, halt, split,
+            # late-print or revision handling exists to check. NOT_RUN is the
+            # honest value and must not be quietly promoted when real bars land.
+            market_data_conformance=CheckStatus.NOT_RUN,
+            semantic_independence=(
+                "NOT_RUN"
+                if oracle is None
+                else ("STRONG" if oracle.independence in strong else "LIMITED")
+            ),
+            evidence_class=evidence_class,
+        ),
+    )
 
 
 def to_panel(
@@ -376,14 +530,30 @@ def to_panel(
     The hash and the verdict are computed here rather than accepted from a
     caller, so a packet cannot arrive at the frontend claiming a PASS it was
     handed.
+
+    The oracle values and the two mutation hashes go on the wire as well. They
+    are what the verdict was computed FROM, and a surface whose claim is "an
+    independent replay says PASS" is worthless if the reviewer has to take that
+    on trust -- shipping the verdict without its evidence just relocates the
+    assertion. With them present a client can recompute the comparison itself.
     """
 
+    result = verify(packet, oracle, mutation)
     return {
         "name": "decision-packet",
         "data": {
             **packet.model_dump(mode="json"),
             "packet_hash": canonical_hash(packet),
-            "verification": verify(packet, oracle, mutation).model_dump(mode="json"),
+            "verification": {
+                **result.model_dump(mode="json"),
+                # Precomputed so the renderer cannot invent a friendlier headline
+                # than the evidence supports.
+                "assurance_headline": result.assurance.headline,
+            },
+            "evidence": {
+                "oracle": oracle.model_dump(mode="json") if oracle else None,
+                "mutation": mutation.model_dump(mode="json") if mutation else None,
+            },
         },
     }
 
@@ -410,7 +580,10 @@ def demo() -> None:
             decision_at_utc=t0,
             earliest_execution_at_utc=t0 + timedelta(seconds=60),
         ),
-        rules=[Rule(rule_id="r1", label="pullback", fact_refs=["f1"], result=True)],
+        rules=[
+            Rule(rule_id="r1", label="last below cap", lhs="f1", op="<", rhs=700.0,
+                 result=True)
+        ],
         facts=[
             Fact(
                 fact_id="f1",
@@ -430,7 +603,7 @@ def demo() -> None:
     v = verify(packet)
     assert v.status is CheckStatus.FAIL, "unrun checks must never yield PASS"
     not_run = {c.check_id for c in v.checks if c.status is CheckStatus.NOT_RUN}
-    assert not_run == {"recomputation", "signal_agreement", "future_delete", "future_poison"}
+    assert not_run == {"differential_replay", "signal_agreement", "future_delete", "future_poison"}
 
     # Full evidence -> PASS.
     oracle = OracleResult(
@@ -451,8 +624,15 @@ def demo() -> None:
 
     # A rule citing a fact that is not present is unsupported.
     dangling = packet.model_copy(deep=True)
-    dangling.rules[0].fact_refs = ["f-missing"]
+    dangling.rules[0].lhs = "f-missing"
     assert _check_no_dangling_refs(dangling).status is CheckStatus.FAIL
+
+    # A rule whose result its own facts contradict must fail. 631.42 < 700 is
+    # true, so claiming false is a lie the packet carries about itself.
+    lying = packet.model_copy(deep=True)
+    lying.rules[0].result = False
+    assert _check_rule_evaluation(lying).status is CheckStatus.FAIL
+    assert verify(lying, oracle, mutation).status is CheckStatus.FAIL
 
     # A fact with no receipt cannot be displayed.
     unreceipted = packet.model_copy(deep=True)

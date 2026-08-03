@@ -101,17 +101,57 @@ def _sma(bars: list[Bar], end_index: int, window: int) -> float:
     return round(sum(b.close for b in bars[lo : end_index + 1]) / window, 9)
 
 
-def _fires_at(bars: list[Bar], i: int) -> bool:
-    """Long pullback in an uptrend: fast above slow, price dipped below fast.
+def _facts_and_rules(bars: list[Bar], i: int) -> tuple[list[Fact], list[Rule]] | None:
+    """The strategy, stated once, as facts plus rules over those facts.
 
-    Reads bars[:i+1] only. That restriction is the whole point -- it is what the
-    delete and poison runs verify rather than trust.
+    This is the single definition. `_fires_at` evaluates it and `build_packet`
+    serialises it, so the firing decision and the packet cannot describe
+    different strategies.
+
+    That mattered: an adversarial pass found the two used to be independent.
+    `build_packet` computed the three fact values while `_fires_at` decided
+    separately, so a strategy that read tomorrow's bar in its ENTRY LOGIC while
+    leaving its fact values honest was invisible to the delete and poison runs --
+    they only ever saw the facts. Routing both through here forces any input the
+    decision uses to appear as a fact, which is what the mutation runs check.
+
+    ponytail: this makes the correct implementation the easy one; it does not
+    make the wrong one impossible. Someone editing `_fires_at` to consult a bar
+    directly would still escape. The gate against that is `signal_agreement`
+    plus review, not this structure.
     """
 
     if i < SLOW:
-        return False
-    fast, slow = _sma(bars, i, FAST), _sma(bars, i, SLOW)
-    return fast > slow and bars[i].close < fast
+        return None
+
+    close = bars[i].close
+    fast = _sma(bars, i, FAST)
+    slow = _sma(bars, i, SLOW)
+    known_at = bars[i].ts
+    receipt = FactReceipt(probe_id=PROBE, source="fixture", retrieved_at_utc=known_at)
+
+    facts = [
+        Fact(fact_id="close", label=f"{SYMBOL} close", value=close, unit="USD",
+             known_at_utc=known_at, receipt=receipt),
+        Fact(fact_id="sma_fast", label=f"SMA({FAST})", value=fast, unit="USD",
+             known_at_utc=known_at, receipt=receipt),
+        Fact(fact_id="sma_slow", label=f"SMA({SLOW})", value=slow, unit="USD",
+             known_at_utc=known_at, receipt=receipt),
+    ]
+    rules = [
+        Rule(rule_id="uptrend", label=f"SMA({FAST}) > SMA({SLOW})",
+             lhs="sma_fast", op=">", rhs="sma_slow", result=fast > slow),
+        Rule(rule_id="pullback", label=f"close < SMA({FAST})",
+             lhs="close", op="<", rhs="sma_fast", result=close < fast),
+    ]
+    return facts, rules
+
+
+def _fires_at(bars: list[Bar], i: int) -> bool:
+    """Fires when every rule holds. Reads bars[:i+1] only, via `_facts_and_rules`."""
+
+    built = _facts_and_rules(bars, i)
+    return built is not None and all(rule.result for rule in built[1])
 
 
 def detect(bars: list[Bar]) -> list[int]:
@@ -137,23 +177,12 @@ def build_packet(bars: list[Bar], i: int) -> DecisionPacket:
 
     bar = bars[i]
     decision_at = bar.ts + timedelta(seconds=1)
-    known_at = bar.ts
-    receipt = FactReceipt(probe_id=PROBE, source="fixture", retrieved_at_utc=known_at)
 
-    facts = [
-        Fact(fact_id="close", label=f"{SYMBOL} close", value=bar.close, unit="USD",
-             known_at_utc=known_at, receipt=receipt),
-        Fact(fact_id="sma_fast", label=f"SMA({FAST})", value=_sma(bars, i, FAST),
-             unit="USD", known_at_utc=known_at, receipt=receipt),
-        Fact(fact_id="sma_slow", label=f"SMA({SLOW})", value=_sma(bars, i, SLOW),
-             unit="USD", known_at_utc=known_at, receipt=receipt),
-    ]
-    rules = [
-        Rule(rule_id="uptrend", label=f"SMA({FAST}) > SMA({SLOW})",
-             fact_refs=["sma_fast", "sma_slow"], result=True),
-        Rule(rule_id="pullback", label=f"close < SMA({FAST})",
-             fact_refs=["close", "sma_fast"], result=True),
-    ]
+    built = _facts_and_rules(bars, i)
+    if built is None:
+        raise ValueError(f"not enough history to build a packet at bar {i}")
+    facts, rules = built
+
     return DecisionPacket(
         packet_id=f"pkt-{SYMBOL.lower()}-{i}",
         strategy=STRATEGY,
@@ -263,7 +292,7 @@ def run_gate(limit: int = 25, bars: list[Bar] | None = None) -> dict:
         "futurePoisonChanges": 0, "signalMismatches": 0, "unsupportedFacts": 0,
     }
     by_check = {
-        "recomputation": "factMismatches", "admissibility": "postAsOfInputs",
+        "differential_replay": "factMismatches", "admissibility": "postAsOfInputs",
         "future_delete": "futureDeleteChanges", "future_poison": "futurePoisonChanges",
         "signal_agreement": "signalMismatches", "unsupported_facts": "unsupportedFacts",
         "fact_receipts": "unsupportedFacts",
@@ -321,21 +350,40 @@ def demo() -> None:
     b = [canonical_hash(p) for p in packets(25)]
     assert a == b, "packet hashes are not reproducible"
 
-    # The gate must actually catch lookahead. A strategy that peeks one bar ahead
-    # is hash-unstable under deletion, so future_delete has to fail. If this
-    # assertion ever stops holding, the whole kernel is decorative.
+    # The gate must catch a strategy that READS the future, which is not the same
+    # as catching a packet that merely differs from a rebuild. The earlier version
+    # of this check appended an extra Fact and asserted the mutation runs caught
+    # it -- but an adversarial pass showed a cosmetic relabel fails identically,
+    # so that assertion demonstrated rebuild-inequality and nothing about
+    # lookahead. Real attack instead: make the fact computation itself read one
+    # bar ahead, leaving the packet's shape untouched.
     i = signals[0]
-    peeking = build_packet(bars, i)
-    peeking.facts.append(
-        Fact(fact_id="tomorrow", label="next bar close", value=bars[i + 1].close,
-             known_at_utc=bars[i].ts, receipt=FactReceipt(
-                 probe_id=PROBE, source="fixture", retrieved_at_utc=bars[i].ts))
-    )
-    leaked = verify(peeking, oracle(bars, i), mutation_evidence(bars, i))
-    assert leaked.status is CheckStatus.FAIL, "a peeking packet must not pass"
+    real_sma = globals()["_sma"]
+
+    def peeking_sma(series: list[Bar], end_index: int, window: int) -> float:
+        ahead = min(end_index + 1, len(series) - 1)
+        return real_sma(series, ahead, window)
+
+    globals()["_sma"] = peeking_sma
+    try:
+        leaked = verify(build_packet(bars, i), oracle(bars, i), mutation_evidence(bars, i))
+    finally:
+        globals()["_sma"] = real_sma
+
+    assert leaked.status is CheckStatus.FAIL, "a strategy reading tomorrow must not pass"
     assert {c.check_id for c in leaked.failed} & {"future_delete", "future_poison"}, (
-        "the mutation runs must be what catches the peek"
+        f"the mutation runs must catch a genuine future read; failed: "
+        f"{[c.check_id for c in leaked.failed]}"
     )
+
+    # And the rules must recompute. A packet asserting a result its own facts
+    # contradict is the one displayed value that used to go unchecked.
+    lying = build_packet(bars, i)
+    lying.rules[0].result = not lying.rules[0].result
+    assert verify(lying, oracle(bars, i), mutation_evidence(bars, i)).status is CheckStatus.FAIL
+    assert "rule_evaluation" in {
+        c.check_id for c in verify(lying, oracle(bars, i), mutation_evidence(bars, i)).failed
+    }
 
     # An input stamped after the decision is inadmissible.
     late = build_packet(bars, i)

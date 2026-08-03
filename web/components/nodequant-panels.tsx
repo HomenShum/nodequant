@@ -51,7 +51,9 @@ type Fact = {
 type Rule = {
   rule_id: string;
   label: string;
-  fact_refs: string[];
+  lhs: string;
+  op: string;
+  rhs: string | number;
   result: boolean;
 };
 
@@ -68,7 +70,17 @@ type DecisionPacketData = {
   };
   rules: Rule[];
   facts: Fact[];
-  verification: { status: CheckStatus; checks: Check[] };
+  verification: {
+    status: CheckStatus;
+    checks: Check[];
+    assurance_headline: string;
+    assurance: {
+      verifier_integrity: CheckStatus;
+      market_data_conformance: CheckStatus;
+      semantic_independence: "STRONG" | "LIMITED" | "NOT_RUN";
+      evidence_class: string;
+    };
+  };
 };
 
 const clock = (iso: string) =>
@@ -108,11 +120,16 @@ export const DecisionPacketUI = makeAssistantDataUI<DecisionPacketData>({
           <h3 className="text-sm font-semibold">
             {data.signal.symbol} {data.signal.direction} · {data.signal.signal_id}
           </h3>
+          {/* Scoped, never a bare PASS. "PASS" alone reads as "this is true of
+              the market"; what was actually established is that the verifier is
+              sound over a synthetic corpus, with a differential — not
+              independent — replay. The headline is computed server-side so the
+              renderer cannot invent a friendlier one. */}
           <span
             className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${STATUS_STYLE[verdict]}`}
             data-testid="decision-packet-verdict"
           >
-            {STATUS_MARK[verdict]}
+            {v.assurance_headline ?? STATUS_MARK[verdict]}
           </span>
           <span className="text-muted-foreground ml-auto font-mono text-[10px]">
             {data.strategy.id}@{data.strategy.version}
@@ -144,6 +161,25 @@ export const DecisionPacketUI = makeAssistantDataUI<DecisionPacketData>({
           ))}
         </ol>
 
+        {/* What class of claim the verdict supports. Kept adjacent to the
+            checklist because a reader who sees seven green rows will otherwise
+            generalise from them, and two of these three are not green. */}
+        {v.assurance && (
+          <dl
+            className="text-muted-foreground mb-4 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-[10px]"
+            data-testid="decision-packet-assurance"
+            data-evidence-class={v.assurance.evidence_class}
+            data-semantic-independence={v.assurance.semantic_independence}
+          >
+            <dt>corpus</dt>
+            <dd className="font-mono">{v.assurance.evidence_class}</dd>
+            <dt>market-data conformance</dt>
+            <dd className="font-mono">{v.assurance.market_data_conformance}</dd>
+            <dt>semantic independence</dt>
+            <dd className="font-mono">{v.assurance.semantic_independence}</dd>
+          </dl>
+        )}
+
         {unresolved > 0 && (
           <p
             className="mb-4 border-l-2 border-[var(--ts-warn)] pl-2 text-xs"
@@ -160,11 +196,20 @@ export const DecisionPacketUI = makeAssistantDataUI<DecisionPacketData>({
           </h4>
           <ul className="space-y-1">
             {data.rules.map((r: Rule) => (
-              <li key={r.rule_id} className="flex items-baseline gap-2 text-xs">
+              <li
+                key={r.rule_id}
+                className="flex items-baseline gap-2 text-xs"
+                data-rule={r.rule_id}
+                data-result={String(r.result)}
+              >
                 <span className="font-mono text-[10px]">{r.result ? "true" : "false"}</span>
                 <span className="flex-1">{r.label}</span>
+                {/* The comparison, not a list of citations. A reader can check
+                    this against the facts table below without trusting the
+                    boolean -- which is the whole reason `result` stopped being
+                    a free-standing claim. */}
                 <span className="text-muted-foreground font-mono text-[10px]">
-                  {r.fact_refs.join(", ")}
+                  {r.lhs} {r.op} {r.rhs}
                 </span>
               </li>
             ))}

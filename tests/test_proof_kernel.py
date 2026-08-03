@@ -65,30 +65,83 @@ def test_fixture_is_not_market_data_and_says_so():
 # --------------------------------------------------------------------------
 
 
-def test_a_packet_that_reads_one_bar_ahead_is_caught_by_the_mutation_runs(bars):
-    """The central claim. Remove this guarantee and the kernel proves nothing."""
+def test_a_strategy_that_reads_tomorrow_is_caught_by_the_mutation_runs(bars, monkeypatch):
+    """The central claim, tested by actually reading the future.
+
+    An earlier version of this test appended an extra Fact and asserted the
+    mutation runs caught it. An adversarial pass showed a purely cosmetic change
+    -- relabelling a fact, reading nothing -- fails those checks identically. So
+    that test demonstrated "this packet differs from a rebuild" and established
+    nothing whatsoever about lookahead.
+
+    This one moves the future read into the fact computation itself, leaving the
+    packet's shape untouched, which is the thing the checks are supposed to be
+    for.
+    """
 
     i = pk.detect(bars)[0]
-    peeking = pk.build_packet(bars, i)
-    peeking.facts.append(
-        Fact(
-            fact_id="tomorrow",
-            label="next bar close",
-            value=bars[i + 1].close,
-            known_at_utc=bars[i].ts,
-            receipt=FactReceipt(
-                probe_id=pk.PROBE, source="fixture", retrieved_at_utc=bars[i].ts
-            ),
-        )
-    )
+    real_sma = pk._sma
 
-    result = verify(peeking, pk.oracle(bars, i), pk.mutation_evidence(bars, i))
+    def peeking_sma(series, end_index, window):
+        return real_sma(series, min(end_index + 1, len(series) - 1), window)
+
+    monkeypatch.setattr(pk, "_sma", peeking_sma)
+    result = verify(
+        pk.build_packet(bars, i), pk.oracle(bars, i), pk.mutation_evidence(bars, i)
+    )
 
     assert result.status is CheckStatus.FAIL
     caught_by = {c.check_id for c in result.failed}
-    assert {"future_delete", "future_poison"} <= caught_by, (
-        f"the mutation runs must be what catches lookahead, got {caught_by}"
+    assert {"future_delete", "future_poison"} & caught_by, (
+        f"the mutation runs must catch a genuine future read, got {caught_by}"
     )
+
+
+def test_a_cosmetic_change_is_not_mistaken_for_lookahead(bars):
+    """The complement, and the reason the test above was rewritten.
+
+    Relabelling a fact changes the packet without reading anything. It still
+    fails, because the mutation runs compare against a fresh rebuild -- but this
+    pins the fact that hash-inequality is what they detect, so nobody reads a
+    future_delete failure as proof of a future read again.
+    """
+
+    i = pk.detect(bars)[0]
+    relabelled = pk.build_packet(bars, i)
+    relabelled.facts[0].label = "SPY close (relabelled)"
+
+    failed = {
+        c.check_id
+        for c in verify(
+            relabelled, pk.oracle(bars, i), pk.mutation_evidence(bars, i)
+        ).failed
+    }
+    assert {"future_delete", "future_poison"} & failed
+
+
+def test_a_rule_result_its_own_facts_contradict_is_caught(bars):
+    """`result` used to be an unchecked boolean rendered straight to the user."""
+
+    i = pk.detect(bars)[0]
+    lying = pk.build_packet(bars, i)
+    lying.rules[0].result = not lying.rules[0].result
+
+    result = verify(lying, pk.oracle(bars, i), pk.mutation_evidence(bars, i))
+
+    assert result.status is CheckStatus.FAIL
+    assert "rule_evaluation" in {c.check_id for c in result.failed}
+
+
+def test_every_rule_recomputes_on_every_shipped_packet(bars):
+    """Not just the tampered one: the honest packets must recompute too, or the
+    check is passing for the wrong reason."""
+
+    for packet in pk.packets(25, bars):
+        values = {f.fact_id: f.value for f in packet.facts}
+        for rule in packet.rules:
+            rhs = values[rule.rhs] if isinstance(rule.rhs, str) else rule.rhs
+            expected = {"<": values[rule.lhs] < rhs, ">": values[rule.lhs] > rhs}[rule.op]
+            assert rule.result == expected, f"{packet.packet_id}/{rule.rule_id}"
 
 
 def test_an_input_stamped_after_the_decision_is_inadmissible(bars):
@@ -113,7 +166,7 @@ def test_a_disagreeing_oracle_fails_the_packet(bars):
     result = verify(packet, wrong, pk.mutation_evidence(bars, i))
 
     assert result.status is CheckStatus.FAIL
-    assert "recomputation" in {c.check_id for c in result.failed}
+    assert "differential_replay" in {c.check_id for c in result.failed}
 
 
 def test_missing_evidence_is_never_a_pass(bars):
@@ -127,7 +180,7 @@ def test_missing_evidence_is_never_a_pass(bars):
 
     assert result.status is CheckStatus.FAIL
     assert {c.check_id for c in result.checks if c.status is CheckStatus.NOT_RUN} == {
-        "recomputation",
+        "differential_replay",
         "signal_agreement",
         "future_delete",
         "future_poison",
@@ -188,6 +241,8 @@ def test_route_emits_a_decision_packet_panel_carrying_its_own_verdict():
     assert data["verification"]["status"] == "PASS"
     assert data["signal"]["symbol"] == "SPY"
     assert len(data["facts"]) == 3
+    assert data["evidence"]["oracle"] is not None
+    assert data["evidence"]["mutation"] is not None
     assert all(f["receipt"] is not None for f in data["facts"])
 
     # Only one panel type exists in v0. If a second appears, the closed
