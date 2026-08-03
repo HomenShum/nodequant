@@ -420,8 +420,8 @@ export const BacktestReviewUI = makeAssistantDataUI<BacktestReviewData>({
 
         <footer className="text-muted-foreground mt-3 border-t border-border pt-2 font-mono text-[10px]">
           <div>
-            curve matched {String(data.receipt.full_curve_matched)} · residual{" "}
-            {data.receipt.max_accounting_residual_micros} micros ·{" "}
+            curve matched {String(data.receipt.full_curve_matched)} · price
+            mismatches {String(data.receipt.price_mismatches)} ·{" "}
             {data.receipt.event_count} events
           </div>
           <div className="break-all">policy {promo.policy_hash}</div>

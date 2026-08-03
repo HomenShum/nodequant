@@ -24,7 +24,7 @@ def bars():
 
 @pytest.fixture(scope="module")
 def receipt(bars):
-    return lg.curve_receipt(lg.build_ledger(bars, list(pk.packets(25, bars))))
+    return lg.curve_receipt(lg.build_ledger(bars, list(pk.packets(25, bars))), bars)
 
 
 @pytest.fixture(scope="module")
@@ -104,7 +104,7 @@ def test_an_unacceptable_ledger_blocks_promotion(bars, kernel_gate):
     broken[fill].position_delta += 5
 
     gate = _evaluate(
-        lg.curve_receipt(broken),
+        lg.curve_receipt(broken, bars),
         kernel_gate,
         evidence_class=EvidenceClass.REAL_BAR_REPLAY,
         oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
@@ -163,3 +163,110 @@ def test_review_route_leads_with_the_gate():
     # The spoken summary must not claim promotability.
     text = "".join(f.get("delta", "") for f in frames if f.get("type") == "text-delta")
     assert "BLOCKED" in text
+
+
+# --------------------------------------------------------------------------
+# Attacks that previously reached PROMOTABLE
+# --------------------------------------------------------------------------
+
+
+def test_a_bare_kernel_gate_dict_cannot_promote(receipt):
+    """`{"status": "PASS"}` with no counters used to clear the gate, because
+    `.get(field, 0)` treated every missing counter as zero. Absence is not
+    evidence of zero."""
+
+    gate = pm.evaluate(
+        kernel_gate={"status": "PASS"},
+        receipt=receipt,
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+    )
+    assert not gate.promotable
+    assert "KERNEL_COUNTER_MISSING" in {b.code for b in gate.blockers}
+
+
+def test_an_empty_ledger_cannot_promote(kernel_gate, bars):
+    """A strategy that never traded used to clear every check vacuously."""
+
+    gate = pm.evaluate(
+        kernel_gate=kernel_gate,
+        receipt=lg.curve_receipt([], bars),
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+    )
+    assert not gate.promotable
+    assert "EMPTY_LEDGER" in {b.code for b in gate.blockers}
+
+
+def test_a_ledger_whose_prices_were_never_checked_cannot_promote(bars, kernel_gate):
+    """The P0: a fabricated ledger worth $1,098,843 passed because no price was
+    ever resolved back to its bar, and the unrun check reported clean."""
+
+    events = lg.build_ledger(bars, list(pk.packets(25, bars)))
+    gate = pm.evaluate(
+        kernel_gate=kernel_gate,
+        receipt=lg.curve_receipt(events),  # no bars
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+    )
+    assert not gate.promotable
+    assert "PRICE_PROVENANCE_NOT_RUN" in {b.code for b in gate.blockers}
+
+
+def test_a_forged_price_blocks_promotion(bars, kernel_gate):
+    events = lg.build_ledger(bars, list(pk.packets(25, bars)))
+    forged = [e.model_copy(deep=True) for e in events]
+    i = next(j for j, e in enumerate(forged) if e.type is lg.EventType.ORDER_FILL)
+    forged[i].price_micros *= 3
+    forged[i].cash_delta_micros = -forged[i].position_delta * forged[i].price_micros
+
+    gate = pm.evaluate(
+        kernel_gate=kernel_gate,
+        receipt=lg.curve_receipt(forged, bars),
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+    )
+    assert not gate.promotable
+    assert "LEDGER_price_mismatches" in {b.code for b in gate.blockers}
+
+
+def test_evidence_class_is_an_allowlist_not_a_denylist(receipt, kernel_gate):
+    """Only named classes may promote. The previous version blocked exactly one,
+    so anything new defaulted to acceptable."""
+
+    for cls in EvidenceClass:
+        gate = pm.evaluate(
+            kernel_gate=kernel_gate,
+            receipt=receipt,
+            evidence_class=cls,
+            oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+            market_data_conformance=CheckStatus.PASS,
+        )
+        assert gate.promotable is (cls in pm.PROMOTABLE_EVIDENCE), cls
+
+
+def test_zero_packets_verified_cannot_promote(receipt):
+    gate = pm.evaluate(
+        kernel_gate={
+            "status": "PASS", "packetsPassed": 0,
+            **{k: 0 for k in pm.KERNEL_COUNTERS},
+        },
+        receipt=receipt,
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+    )
+    assert not gate.promotable
+    assert "NO_PACKETS_VERIFIED" in {b.code for b in gate.blockers}
+
+
+def test_every_policy_counter_names_a_field_that_exists(receipt):
+    """6 of 13 names in the old POLICY referred to fields that did not exist, so
+    the hash covered a policy nobody executed."""
+
+    for name in pm.LEDGER_COUNTERS:
+        assert hasattr(receipt, name), f"POLICY names a missing receipt field: {name}"

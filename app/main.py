@@ -319,7 +319,7 @@ async def kernel_review(request: dict[str, Any]) -> StreamingResponse:
         packets = list(proof_kernel.packets(25, bars))
         events = build_ledger(bars, packets)
         points = reduce_curve(events)
-        receipt = curve_receipt(events)
+        receipt = curve_receipt(events, bars)
         kernel_gate = proof_kernel.run_gate(25, bars)
         gate = evaluate(
             kernel_gate=kernel_gate,

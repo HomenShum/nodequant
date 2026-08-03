@@ -28,8 +28,8 @@ def events(bars):
 # --------------------------------------------------------------------------
 
 
-def test_the_receipt_is_acceptable(events):
-    receipt = lg.curve_receipt(events)
+def test_the_receipt_is_acceptable(events, bars):
+    receipt = lg.curve_receipt(events, bars)
     assert receipt.acceptable, receipt.model_dump()
     assert receipt.full_curve_matched
     assert receipt.primary_curve_hash == receipt.oracle_curve_hash
@@ -114,7 +114,7 @@ def test_buy_then_sell_at_the_same_price_costs_exactly_the_fees(bars):
     points = lg.reduce_curve(events)
     assert points[-1].equity_micros == lg.STARTING_CAPITAL_MICROS - 2 * lg.FEE_MICROS
     assert points[-1].realised_pnl_micros == 0
-    assert lg.curve_receipt(events).acceptable
+    assert lg.curve_receipt(events, bars).acceptable
 
 
 def test_drawdown_is_never_positive(events):
@@ -126,7 +126,7 @@ def test_drawdown_is_never_positive(events):
 # --------------------------------------------------------------------------
 
 
-def test_a_tampered_cash_delta_is_caught_by_conservation_not_by_the_oracle(events):
+def test_a_tampered_cash_delta_is_caught_by_conservation_not_by_the_oracle(events, bars):
     """States precisely which mechanism catches this, because the obvious guess
     is wrong.
 
@@ -140,8 +140,8 @@ def test_a_tampered_cash_delta_is_caught_by_conservation_not_by_the_oracle(event
     fill = next(i for i, e in enumerate(tampered) if e.type is lg.EventType.ORDER_FILL)
     tampered[fill].cash_delta_micros += 5_000_000
 
-    receipt = lg.curve_receipt(tampered)
-    honest = lg.curve_receipt(events)
+    receipt = lg.curve_receipt(tampered, bars)
+    honest = lg.curve_receipt(events, bars)
 
     assert receipt.full_curve_matched, "the oracle cannot see ledger tampering"
     assert receipt.inconsistent_events > 0, "conservation must see it"
@@ -179,7 +179,6 @@ def test_shares_appearing_from_nowhere_are_caught(events):
 
     receipt = lg.curve_receipt(broken)
 
-    assert receipt.max_accounting_residual_micros == 0, "the identity cannot see this"
     assert receipt.full_curve_matched, "the oracle cannot see this either"
     assert receipt.inconsistent_events > 0, "conservation is what must catch it"
     assert not receipt.acceptable
@@ -211,3 +210,45 @@ def test_money_never_becomes_a_float(events):
     for p in lg.reduce_curve(events):
         assert isinstance(p.equity_micros, int)
         assert isinstance(p.cash_micros, int)
+
+
+def test_a_fabricated_price_is_caught_only_by_bar_conformance(events, bars):
+    """The P0 an adversarial pass found.
+
+    Inventing a price and re-deriving cash_delta satisfies conservation exactly
+    -- cash still moved by qty x price. Both reducers agree, the identity holds,
+    every counter is zero. A ledger worth $1,098,843 passed. What catches it is
+    resolving the price back to the bar the event claims to come from.
+    """
+
+    forged = [e.model_copy(deep=True) for e in events]
+    i = next(j for j, e in enumerate(forged) if e.type is lg.EventType.ORDER_FILL)
+    forged[i].price_micros *= 3
+    forged[i].cash_delta_micros = -forged[i].position_delta * forged[i].price_micros
+
+    blind = lg.curve_receipt(forged)            # no bars supplied
+    seeing = lg.curve_receipt(forged, bars)     # bars supplied
+
+    assert blind.inconsistent_events == 0, "conservation cannot see a forged price"
+    assert blind.full_curve_matched, "the oracle cannot see it either"
+    assert seeing.price_mismatches == 1
+    assert not seeing.acceptable
+
+
+def test_a_receipt_without_bars_is_never_acceptable(events):
+    """A check that did not run must not read as clean. This is exactly how a
+    fabricated ledger reached PROMOTABLE."""
+
+    blind = lg.curve_receipt(events)
+    assert blind.price_mismatches is None
+    assert not blind.bars_checked
+    assert not blind.acceptable
+
+
+def test_timestamps_running_backwards_are_caught(events, bars):
+    from datetime import timedelta
+
+    shuffled = [e.model_copy(deep=True) for e in events]
+    shuffled[10].at_utc = shuffled[0].at_utc - timedelta(days=1)
+    assert lg.curve_receipt(shuffled, bars).non_monotonic_timestamps > 0
+    assert not lg.curve_receipt(shuffled, bars).acceptable

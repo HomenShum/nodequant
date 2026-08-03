@@ -58,26 +58,43 @@ class PromotionGate(BaseModel):
         return self.verdict is Verdict.PROMOTABLE and not self.blockers
 
 
+# The counter names the gate actually reads. These are the real field names on
+# the kernel gate dict and the CurveReductionReceipt -- an adversarial pass found
+# 6 of 13 names in the old POLICY document referred to fields that do not exist,
+# so the hash covered a policy nobody executed.
+KERNEL_COUNTERS = (
+    "factMismatches",
+    "postAsOfInputs",
+    "futureDeleteChanges",
+    "futurePoisonChanges",
+    "signalMismatches",
+    "unsupportedFacts",
+)
+
+LEDGER_COUNTERS = (
+    "curve_point_mismatches",
+    "missing_event_receipts",
+    "sequence_gaps",
+    "duplicate_event_ids",
+    "inconsistent_events",
+    "negative_position_points",
+    "non_monotonic_timestamps",
+    "price_mismatches",
+    "unpriced_events",
+)
+
+# Evidence classes that may promote. An ALLOWLIST: the previous version blocked
+# only SYNTHETIC_KERNEL, so any future class defaulted to acceptable.
+PROMOTABLE_EVIDENCE = {EvidenceClass.REAL_BAR_REPLAY, EvidenceClass.POINT_IN_TIME_MARKET_REPLAY}
+
 POLICY = {
     "target": TARGET,
     "real_market_data_required": True,
     "market_data_conformance": "PASS",
     "verifier_integrity": "PASS",
-    "zero_tolerance_counters": [
-        "decision_packet_failures",
-        "unsupported_facts",
-        "post_as_of_inputs",
-        "future_delete_changes",
-        "future_poison_changes",
-        "signal_mismatches",
-        "missing_event_receipts",
-        "ledger_sequence_gaps",
-        "duplicate_event_ids",
-        "curve_point_mismatches",
-        "inconsistent_events",
-        "negative_position_points",
-        "maximum_accounting_residual_micros",
-    ],
+    "promotable_evidence_classes": sorted(x.value for x in PROMOTABLE_EVIDENCE),
+    "kernel_zero_tolerance_counters": list(KERNEL_COUNTERS),
+    "ledger_zero_tolerance_counters": list(LEDGER_COUNTERS),
     "minimum_oracle_independence": sorted(x.value for x in ACCEPTABLE_INDEPENDENCE),
     "split_discipline": {
         "candidate_frozen_before_test": True,
@@ -108,7 +125,7 @@ def evaluate(
 
     blockers: list[Blocker] = []
 
-    if evidence_class is EvidenceClass.SYNTHETIC_KERNEL:
+    if evidence_class not in PROMOTABLE_EVIDENCE:
         blockers.append(
             Blocker(
                 code="SYNTHETIC_CORPUS",
@@ -142,20 +159,48 @@ def evaluate(
         blockers.append(
             Blocker(code="KERNEL_GATE_FAILED", detail=f"kernel gate: {kernel_gate}")
         )
-    for field in (
-        "factMismatches", "postAsOfInputs", "futureDeleteChanges",
-        "futurePoisonChanges", "signalMismatches", "unsupportedFacts",
-    ):
-        if kernel_gate.get(field, 0):
+    # Absence is a blocker, not a zero. `kernel_gate.get(field, 0)` let a bare
+    # {"status": "PASS"} clear the gate by omitting every counter -- an
+    # adversarial pass promoted on exactly that.
+    for field in KERNEL_COUNTERS:
+        if field not in kernel_gate:
+            blockers.append(
+                Blocker(
+                    code="KERNEL_COUNTER_MISSING",
+                    detail=f"{field} absent from the kernel gate; absence is not zero.",
+                )
+            )
+        elif kernel_gate[field]:
             blockers.append(
                 Blocker(code=f"KERNEL_{field}", detail=f"{field}={kernel_gate[field]}")
             )
+    if kernel_gate.get("packetsPassed", 0) <= 0:
+        blockers.append(
+            Blocker(
+                code="NO_PACKETS_VERIFIED",
+                detail="zero packets passed; a strategy that never decided cannot promote.",
+            )
+        )
+    if receipt.event_count == 0:
+        blockers.append(
+            Blocker(
+                code="EMPTY_LEDGER",
+                detail="the ledger is empty; a strategy that never traded cannot promote.",
+            )
+        )
+    if not receipt.bars_checked:
+        blockers.append(
+            Blocker(
+                code="PRICE_PROVENANCE_NOT_RUN",
+                detail=(
+                    "no bars were supplied, so no event price was resolved back to "
+                    "the bar it claims to come from. A fabricated price satisfies "
+                    "every other ledger check."
+                ),
+            )
+        )
     if not receipt.acceptable:
-        for name in (
-            "curve_point_mismatches", "missing_event_receipts", "sequence_gaps",
-            "duplicate_event_ids", "inconsistent_events", "negative_position_points",
-            "max_accounting_residual_micros",
-        ):
+        for name in LEDGER_COUNTERS:
             value = getattr(receipt, name)
             if value:
                 blockers.append(Blocker(code=f"LEDGER_{name}", detail=f"{name}={value}"))
@@ -191,7 +236,7 @@ def demo() -> None:
     from app.proof_kernel import fixture_bars, packets, run_gate
 
     bars = fixture_bars()
-    receipt = curve_receipt(build_ledger(bars, list(packets(25, bars))))
+    receipt = curve_receipt(build_ledger(bars, list(packets(25, bars))), bars)
     gate = evaluate(
         kernel_gate=run_gate(25, bars),
         receipt=receipt,

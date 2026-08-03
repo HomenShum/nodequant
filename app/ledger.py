@@ -115,24 +115,46 @@ class CurveReductionReceipt(BaseModel):
     curve_point_count: int
     full_curve_matched: bool
     curve_point_mismatches: int
-    max_accounting_residual_micros: int
     missing_event_receipts: int
     sequence_gaps: int
     duplicate_event_ids: int
     inconsistent_events: int
     negative_position_points: int
+    non_monotonic_timestamps: int
+    # None means the check did not run -- never silently zero. An adversarial
+    # pass promoted a ledger with $1,000,000 of fabricated equity because a
+    # missing counter defaulted to 0 and read as "clean".
+    price_mismatches: int | None = None
+    unpriced_events: int | None = None
+
+    @property
+    def bars_checked(self) -> bool:
+        return self.price_mismatches is not None
 
     @property
     def acceptable(self) -> bool:
+        """Acceptable requires the bar check to have RUN.
+
+        `max_accounting_residual_micros` used to be here and was removed: the
+        reducer computes `equity = cash + position * mark` and the residual was
+        `abs(equity - (cash + position_value))` from the same three locals, so it
+        was zero by construction. 200 fully randomised ledgers produced a maximum
+        residual of 0. Displaying it as evidence was the tautology this project
+        is supposed to catch.
+        """
+
         return (
             self.full_curve_matched
             and self.curve_point_mismatches == 0
-            and self.max_accounting_residual_micros == 0
             and self.missing_event_receipts == 0
             and self.sequence_gaps == 0
             and self.duplicate_event_ids == 0
             and self.inconsistent_events == 0
             and self.negative_position_points == 0
+            and self.non_monotonic_timestamps == 0
+            and self.event_count > 0
+            and self.price_mismatches == 0
+            and self.unpriced_events == 0
         )
 
 
@@ -322,7 +344,39 @@ def _reduce_curve_oracle(events: list[LedgerEvent]) -> list[int]:
     return out
 
 
-def curve_receipt(events: list[LedgerEvent]) -> CurveReductionReceipt:
+def _bar_conformance(
+    events: list[LedgerEvent], bars: list[Bar] | None
+) -> tuple[int | None, int | None]:
+    """Does every priced event quote the bar it claims to come from?
+
+    This is the check whose absence let an adversarial pass fabricate a ledger
+    worth $1,098,843 that passed every other test. `_inconsistent` validates an
+    event against ITSELF -- cash moved by qty x price -- so re-deriving
+    `cash_delta` after inventing a price satisfies it perfectly. Nothing resolved
+    the receipt's `probe_id` back to the bars.
+
+    Returns (mismatches, unpriced) or (None, None) when no bars were supplied,
+    because a check that did not run must never report zero.
+    """
+
+    if bars is None:
+        return None, None
+    by_ts = {b.ts: b for b in bars}
+    mismatches = unpriced = 0
+    for event in events:
+        if event.type not in (EventType.ORDER_FILL, EventType.MARK):
+            continue
+        bar = by_ts.get(event.at_utc)
+        if bar is None:
+            unpriced += 1
+        elif event.price_micros != to_micros(bar.close):
+            mismatches += 1
+    return mismatches, unpriced
+
+
+def curve_receipt(
+    events: list[LedgerEvent], bars: list[Bar] | None = None
+) -> CurveReductionReceipt:
     points = reduce_curve(events)
     oracle = _reduce_curve_oracle(events)
 
@@ -330,13 +384,9 @@ def curve_receipt(events: list[LedgerEvent]) -> CurveReductionReceipt:
         1 for p, o in zip(points, oracle) if p.equity_micros != o
     ) + abs(len(points) - len(oracle))
 
-    residual = max(
-        (
-            abs(p.equity_micros - (p.cash_micros + p.position_value_micros))
-            for p in points
-        ),
-        default=0,
-    )
+    price_mismatches, unpriced = _bar_conformance(events, bars)
+    stamps = [e.at_utc for e in events]
+    non_monotonic = sum(1 for a, b in zip(stamps, stamps[1:]) if b < a)
     seqs = [e.seq for e in events]
     ids = [e.event_id for e in events]
 
@@ -356,8 +406,10 @@ def curve_receipt(events: list[LedgerEvent]) -> CurveReductionReceipt:
         curve_point_count=len(points),
         full_curve_matched=mismatches == 0,
         curve_point_mismatches=mismatches,
-        max_accounting_residual_micros=residual,
         missing_event_receipts=sum(1 for e in events if e.receipt is None),
+        non_monotonic_timestamps=non_monotonic,
+        price_mismatches=price_mismatches,
+        unpriced_events=unpriced,
         sequence_gaps=sum(1 for a, b in zip(seqs, seqs[1:]) if b != a + 1),
         duplicate_event_ids=len(ids) - len(set(ids)),
         inconsistent_events=sum(1 for e in events if _inconsistent(e)),
@@ -393,7 +445,7 @@ def demo() -> None:
     bars = fixture_bars()
     events = build_ledger(bars, list(kernel_packets(25, bars)))
     points = reduce_curve(events)
-    receipt = curve_receipt(events)
+    receipt = curve_receipt(events, bars)
 
     assert events and points
     assert receipt.acceptable, receipt.model_dump()
@@ -416,7 +468,7 @@ def demo() -> None:
 
     print(f"ledger: {len(events)} events, {len(points)} points")
     print(f"  {summary(points)}")
-    print(f"  receipt acceptable={receipt.acceptable} residual={receipt.max_accounting_residual_micros}")
+    print(f"  acceptable={receipt.acceptable} price_mismatches={receipt.price_mismatches}")
 
 
 if __name__ == "__main__":
