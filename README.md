@@ -8,7 +8,9 @@ deterministic probe or a deterministic computation, carries a receipt, and is re
 independent implementation. The language model chooses what to look at, what to doubt, and what to
 propose. It does not produce the arithmetic, and it cannot invent a way to display it.
 
-Status: **early.** The design is settled ([DESIGN.md](DESIGN.md)); Proof Kernel v0 is in progress.
+Status: **early.** Design settled ([DESIGN.md](DESIGN.md)); Proof Kernel v0 and the
+backtest review surface are built. Picking this up? Start with
+[HANDOFF.md](HANDOFF.md).
 
 ## Why
 
