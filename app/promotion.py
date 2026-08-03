@@ -96,6 +96,7 @@ POLICY = {
     "kernel_zero_tolerance_counters": list(KERNEL_COUNTERS),
     "ledger_zero_tolerance_counters": list(LEDGER_COUNTERS),
     "minimum_oracle_independence": sorted(x.value for x in ACCEPTABLE_INDEPENDENCE),
+    "cost_model_required": ["spread", "slippage"],
     "split_discipline": {
         "candidate_frozen_before_test": True,
         "optimizer_had_test_access": False,
@@ -116,6 +117,8 @@ def evaluate(
     market_data_conformance: CheckStatus,
     candidate_frozen_before_test: bool = True,
     optimizer_had_test_access: bool = False,
+    models_spread: bool = False,
+    models_slippage: bool = False,
 ) -> PromotionGate:
     """Collect every reason this cannot be promoted. All of them, not the first.
 
@@ -208,6 +211,31 @@ def evaluate(
             blockers.append(
                 Blocker(code="CURVE_NOT_MATCHED", detail="reducers disagree on the curve")
             )
+    # Costs that are absent bias the curve in one direction only: upward. A
+    # strategy can look promotable purely because it was never charged the
+    # spread it would actually cross, so their absence is a blocker rather than
+    # a caveat.
+    if not models_spread:
+        blockers.append(
+            Blocker(
+                code="NO_SPREAD_MODEL",
+                detail=(
+                    "fills execute at the bar close, so the strategy never crosses "
+                    "a spread. Every trade is priced better than it could have been."
+                ),
+            )
+        )
+    if not models_slippage:
+        blockers.append(
+            Blocker(
+                code="NO_SLIPPAGE_MODEL",
+                detail=(
+                    "no market impact or queue position is modelled; a signal that "
+                    "fires because price moved assumes it can trade at the price "
+                    "that moved."
+                ),
+            )
+        )
     if not candidate_frozen_before_test:
         blockers.append(
             Blocker(
@@ -254,6 +282,8 @@ def demo() -> None:
         "SYNTHETIC_CORPUS",
         "MARKET_DATA_CONFORMANCE_NOT_RUN",
         "ORACLE_NOT_INDEPENDENT_ENOUGH",
+        "NO_SPREAD_MODEL",
+        "NO_SLIPPAGE_MODEL",
     }, codes
 
     # With real bars, a conformance run and a stronger oracle, it clears -- so
@@ -264,6 +294,8 @@ def demo() -> None:
         evidence_class=EvidenceClass.REAL_BAR_REPLAY,
         oracle_independence=OracleIndependence.SEPARATE_AGENT_FROM_FROZEN_SPEC,
         market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
     )
     assert cleared.promotable, [b.code for b in cleared.blockers]
 
@@ -274,6 +306,8 @@ def demo() -> None:
         evidence_class=EvidenceClass.REAL_BAR_REPLAY,
         oracle_independence=OracleIndependence.SEPARATE_AGENT_FROM_FROZEN_SPEC,
         market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
         optimizer_had_test_access=True,
     )
     assert not peeked.promotable

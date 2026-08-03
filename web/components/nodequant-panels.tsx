@@ -306,7 +306,15 @@ function Curve({ points }: { points: BacktestReviewData["curve"] }) {
   const lo = Math.min(...eq);
   const hi = Math.max(...eq);
   const span = hi - lo || 1;
-  const x = (i: number) => (i / (points.length - 1)) * W;
+
+  // X is TIME, not index. Index-spacing rendered a 30-bar hold and a
+  // zero-second gap between a mark and its fill at the same width, so the
+  // curve's shape was not a function of time — a chart that misstates when
+  // something happened is as wrong as one that misstates how much.
+  const t = points.map((p) => Date.parse(p.at_utc));
+  const t0 = t[0];
+  const tSpan = t[t.length - 1] - t0 || 1;
+  const x = (i: number) => ((t[i] - t0) / tSpan) * W;
   const y = (v: number) => H - ((v - lo) / span) * H;
 
   const equityPath = points.map((p, i) => `${x(i)},${y(p.equity_micros)}`).join(" ");

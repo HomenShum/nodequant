@@ -234,22 +234,31 @@ def build_ledger(
             continue
         exit_bar = bars[exit_index]
 
+        def bar_receipt(bar: Bar) -> FactReceipt:
+            return FactReceipt(
+                probe_id="bars.spy.1m.fixture", source="fixture", retrieved_at_utc=bar.ts
+            )
+
         for side, bar in ((Side.BUY, entry_bar), (Side.SELL, exit_bar)):
             price = to_micros(bar.close)
             signed = -1 if side is Side.BUY else 1
-            receipt = FactReceipt(
-                probe_id="bars.spy.1m.fixture", source="fixture", retrieved_at_utc=bar.ts
-            )
+            receipt = bar_receipt(bar)
             if side is Side.SELL:
-                # Mark to the exit bar before realising, so the point before the
-                # sell values the open position at a price that actually existed.
-                emit(
-                    event_id=f"evt-mark-{packet.packet_id}",
-                    type=EventType.MARK,
-                    at_utc=bar.ts,
-                    price_micros=price,
-                    receipt=receipt,
-                )
+                # Mark on EVERY bar the position is held, not only before the
+                # exit. Marking at exit alone left the position valued at its
+                # entry price for the whole hold, so the curve had no points
+                # between trades and drawdown was measured from a sample that
+                # skipped the excursion. Measured on this fixture: max drawdown
+                # was understated by $2.52 (0.46%), and that error scales with
+                # position size and holding period.
+                for held in bars[entry_bar.index + 1 : exit_bar.index + 1]:
+                    emit(
+                        event_id=f"evt-mark-{packet.packet_id}-{held.index}",
+                        type=EventType.MARK,
+                        at_utc=held.ts,
+                        price_micros=to_micros(held.close),
+                        receipt=bar_receipt(held),
+                    )
             emit(
                 event_id=f"evt-fill-{packet.packet_id}-{side.value}",
                 type=EventType.ORDER_FILL,

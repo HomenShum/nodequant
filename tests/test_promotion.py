@@ -39,6 +39,8 @@ def _evaluate(receipt, kernel_gate, **kw):
         evidence_class=EvidenceClass.SYNTHETIC_KERNEL,
         oracle_independence=OracleIndependence.SAME_AUTHOR_DIVERSE_IMPLEMENTATION,
         market_data_conformance=CheckStatus.NOT_RUN,
+        models_spread=True,
+        models_slippage=True,
     )
     args.update(kw)
     return pm.evaluate(**args)
@@ -109,6 +111,8 @@ def test_an_unacceptable_ledger_blocks_promotion(bars, kernel_gate):
         evidence_class=EvidenceClass.REAL_BAR_REPLAY,
         oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
         market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
     )
     assert not gate.promotable
     assert any(b.code.startswith("LEDGER_") for b in gate.blockers)
@@ -152,7 +156,8 @@ def test_review_route_leads_with_the_gate():
 
     data = panels[0]["data"]
     assert data["promotion"]["verdict"] == "BLOCKED"
-    assert len(data["promotion"]["blockers"]) == 3
+    # Five now: the two cost-model blockers joined the original three.
+    assert len(data["promotion"]["blockers"]) == 5
     assert data["receipt"]["full_curve_matched"] is True
     assert data["curve"] and len(data["curve"]) == data["receipt"]["event_count"]
 
@@ -181,6 +186,8 @@ def test_a_bare_kernel_gate_dict_cannot_promote(receipt):
         evidence_class=EvidenceClass.REAL_BAR_REPLAY,
         oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
         market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
     )
     assert not gate.promotable
     assert "KERNEL_COUNTER_MISSING" in {b.code for b in gate.blockers}
@@ -195,6 +202,8 @@ def test_an_empty_ledger_cannot_promote(kernel_gate, bars):
         evidence_class=EvidenceClass.REAL_BAR_REPLAY,
         oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
         market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
     )
     assert not gate.promotable
     assert "EMPTY_LEDGER" in {b.code for b in gate.blockers}
@@ -211,6 +220,8 @@ def test_a_ledger_whose_prices_were_never_checked_cannot_promote(bars, kernel_ga
         evidence_class=EvidenceClass.REAL_BAR_REPLAY,
         oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
         market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
     )
     assert not gate.promotable
     assert "PRICE_PROVENANCE_NOT_RUN" in {b.code for b in gate.blockers}
@@ -229,6 +240,8 @@ def test_a_forged_price_blocks_promotion(bars, kernel_gate):
         evidence_class=EvidenceClass.REAL_BAR_REPLAY,
         oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
         market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
     )
     assert not gate.promotable
     assert "LEDGER_price_mismatches" in {b.code for b in gate.blockers}
@@ -245,6 +258,8 @@ def test_evidence_class_is_an_allowlist_not_a_denylist(receipt, kernel_gate):
             evidence_class=cls,
             oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
             market_data_conformance=CheckStatus.PASS,
+            models_spread=True,
+            models_slippage=True,
         )
         assert gate.promotable is (cls in pm.PROMOTABLE_EVIDENCE), cls
 
@@ -259,6 +274,8 @@ def test_zero_packets_verified_cannot_promote(receipt):
         evidence_class=EvidenceClass.REAL_BAR_REPLAY,
         oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
         market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
     )
     assert not gate.promotable
     assert "NO_PACKETS_VERIFIED" in {b.code for b in gate.blockers}
