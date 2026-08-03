@@ -77,17 +77,11 @@ export const Assistant = () => {
               <Breadcrumb>
                 <BreadcrumbList>
                   <BreadcrumbItem className="hidden md:block">
-                    <BreadcrumbLink
-                      href="https://clinicaltrials.gov/data-api/api"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ClinicalTrials.gov API
-                    </BreadcrumbLink>
+                    <BreadcrumbLink href="/">NodeQuant</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbSeparator className="hidden md:block" />
                   <BreadcrumbItem>
-                    <BreadcrumbPage>TrialScope</BreadcrumbPage>
+                    <BreadcrumbPage>Proof Kernel v0</BreadcrumbPage>
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>

@@ -174,15 +174,19 @@
   --ts-gen: #6d4fbb;
   --ts-gen-bg: #f6f3fd;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ts-accent: #5ec6c0;
-    --ts-accent-2: #a58ce8;
-    --ts-null: #6a6963;
-    --ts-sponsor: #a58ce8;
-    --ts-warn: #e0a44a;
-    --ts-warn-bg: #2a2318;
-    --ts-gen: #a58ce8;
-    --ts-gen-bg: #1e1a2a;
-  }
+/* Tracks `.dark`, NOT prefers-color-scheme, because the shadcn tokens around
+   these (bg-card, border-border) are class-based via `@custom-variant dark`.
+   Keying these to the OS preference instead put dark-tuned accents on a light
+   card for anyone whose system was in dark mode: the PASS badge measured 2.04
+   contrast against white, below WCAG AA, on a surface whose whole job is being
+   believed. Measured with check-contrast.mjs; light was 5.92 and unaffected. */
+:root.dark {
+  --ts-accent: #5ec6c0;
+  --ts-accent-2: #a58ce8;
+  --ts-null: #6a6963;
+  --ts-sponsor: #a58ce8;
+  --ts-warn: #e0a44a;
+  --ts-warn-bg: #2a2318;
+  --ts-gen: #a58ce8;
+  --ts-gen-bg: #1e1a2a;
 }
