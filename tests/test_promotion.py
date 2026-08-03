@@ -1,0 +1,165 @@
+"""The promotion gate, and the review surface that leads with it.
+
+The gate exists to be failed. These tests mostly assert that it says no, and
+that it says no for the right reasons -- a gate that blocks for the wrong reason
+is as useless as one that passes.
+"""
+
+from __future__ import annotations
+
+import json
+
+import pytest
+
+from app import ledger as lg
+from app import promotion as pm
+from app import proof_kernel as pk
+from app.decision_packet import CheckStatus, EvidenceClass, OracleIndependence
+
+
+@pytest.fixture(scope="module")
+def bars():
+    return pk.fixture_bars()
+
+
+@pytest.fixture(scope="module")
+def receipt(bars):
+    return lg.curve_receipt(lg.build_ledger(bars, list(pk.packets(25, bars))))
+
+
+@pytest.fixture(scope="module")
+def kernel_gate(bars):
+    return pk.run_gate(25, bars)
+
+
+def _evaluate(receipt, kernel_gate, **kw):
+    args = dict(
+        kernel_gate=kernel_gate,
+        receipt=receipt,
+        evidence_class=EvidenceClass.SYNTHETIC_KERNEL,
+        oracle_independence=OracleIndependence.SAME_AUTHOR_DIVERSE_IMPLEMENTATION,
+        market_data_conformance=CheckStatus.NOT_RUN,
+    )
+    args.update(kw)
+    return pm.evaluate(**args)
+
+
+def test_todays_honest_answer_is_blocked(receipt, kernel_gate):
+    """Every kernel check is green and the strategy still cannot be promoted.
+    That gap is the entire point of the gate."""
+
+    gate = _evaluate(receipt, kernel_gate)
+    assert kernel_gate["status"] == "PASS"
+    assert receipt.acceptable
+    assert gate.verdict is pm.Verdict.BLOCKED
+    assert {b.code for b in gate.blockers} == {
+        "SYNTHETIC_CORPUS",
+        "MARKET_DATA_CONFORMANCE_NOT_RUN",
+        "ORACLE_NOT_INDEPENDENT_ENOUGH",
+    }
+
+
+def test_the_gate_is_not_permanently_red(receipt, kernel_gate):
+    """A gate that can never pass teaches people to ignore it."""
+
+    gate = _evaluate(
+        receipt,
+        kernel_gate,
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.SEPARATE_AGENT_FROM_FROZEN_SPEC,
+        market_data_conformance=CheckStatus.PASS,
+    )
+    assert gate.promotable, [b.code for b in gate.blockers]
+
+
+def test_same_author_diversity_is_not_enough(receipt, kernel_gate):
+    gate = _evaluate(
+        receipt,
+        kernel_gate,
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        market_data_conformance=CheckStatus.PASS,
+        oracle_independence=OracleIndependence.SAME_AUTHOR_DIVERSE_IMPLEMENTATION,
+    )
+    assert not gate.promotable
+    assert "ORACLE_NOT_INDEPENDENT_ENOUGH" in {b.code for b in gate.blockers}
+
+
+def test_a_peeked_test_split_blocks_promotion(receipt, kernel_gate):
+    gate = _evaluate(
+        receipt,
+        kernel_gate,
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+        optimizer_had_test_access=True,
+    )
+    assert not gate.promotable
+    assert "OPTIMIZER_SAW_TEST" in {b.code for b in gate.blockers}
+
+
+def test_an_unacceptable_ledger_blocks_promotion(bars, kernel_gate):
+    events = lg.build_ledger(bars, list(pk.packets(25, bars)))
+    broken = [e.model_copy(deep=True) for e in events]
+    fill = next(i for i, e in enumerate(broken) if e.type is lg.EventType.ORDER_FILL)
+    broken[fill].position_delta += 5
+
+    gate = _evaluate(
+        lg.curve_receipt(broken),
+        kernel_gate,
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+    )
+    assert not gate.promotable
+    assert any(b.code.startswith("LEDGER_") for b in gate.blockers)
+
+
+def test_all_blockers_are_reported_not_just_the_first(receipt, kernel_gate):
+    """Returning after the first would let someone fix one thing, re-run, and
+    discover the next -- which reads as progress when nothing moved."""
+
+    assert len(_evaluate(receipt, kernel_gate).blockers) == 3
+
+
+def test_the_policy_hash_is_stable_and_covers_the_thresholds():
+    first = pm.policy_hash()
+    assert first == pm.policy_hash()
+    original = pm.POLICY["minimum_oracle_independence"]
+    try:
+        pm.POLICY["minimum_oracle_independence"] = ["anything_goes"]
+        assert pm.policy_hash() != first, "the hash must cover the thresholds"
+    finally:
+        pm.POLICY["minimum_oracle_independence"] = original
+    assert pm.policy_hash() == first
+
+
+# --------------------------------------------------------------------------
+# The wire
+# --------------------------------------------------------------------------
+
+
+def test_review_route_leads_with_the_gate():
+    from fastapi.testclient import TestClient
+
+    from app.main import app
+
+    with TestClient(app) as http:
+        raw = http.post("/api/kernel/review", json={}).text
+
+    frames = [json.loads(l[6:]) for l in raw.splitlines() if l.startswith("data: ")]
+    panels = [f for f in frames if f.get("type") == "data-backtest-review"]
+    assert len(panels) == 1
+
+    data = panels[0]["data"]
+    assert data["promotion"]["verdict"] == "BLOCKED"
+    assert len(data["promotion"]["blockers"]) == 3
+    assert data["receipt"]["full_curve_matched"] is True
+    assert data["curve"] and len(data["curve"]) == data["receipt"]["event_count"]
+
+    # Money crosses the wire as integer micros, never a float.
+    for point in data["curve"]:
+        assert isinstance(point["equity_micros"], int)
+
+    # The spoken summary must not claim promotability.
+    text = "".join(f.get("delta", "") for f in frames if f.get("type") == "text-delta")
+    assert "BLOCKED" in text

@@ -270,8 +270,170 @@ export const DecisionPacketUI = makeAssistantDataUI<DecisionPacketData>({
   },
 });
 
+/* ----------------------------------------------------- backtest review */
+
+type Blocker = { code: string; detail: string };
+
+type BacktestReviewData = {
+  strategy: { id: string; version: string; config_hash: string };
+  promotion: { target: string; policy_hash: string; verdict: string; blockers: Blocker[] };
+  receipt: Record<string, string | number | boolean>;
+  summary: Record<string, number>;
+  curve: {
+    at_utc: string;
+    equity_micros: number;
+    drawdown_micros: number;
+    through_event_seq: number;
+  }[];
+};
+
+/** Money, and never a non-zero amount shown as zero.
+ *
+ *  A value under half a cent formats as "$0.00" at two decimals, which reads as
+ *  "there were no fees" when there were. Small non-zero amounts get enough
+ *  precision to stay visibly non-zero. */
+const usd = (micros: number) => {
+  const value = micros / 1_000_000;
+  const digits = micros !== 0 && Math.abs(value) < 0.005 ? 6 : 2;
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: digits,
+  });
+};
+
+/** Equity and drawdown as two SVG polylines.
+ *
+ *  ponytail: no chart library. This is a static curve from a typed array, and a
+ *  polyline is ~15 lines against ~370KB for ECharts. Reach for a real chart the
+ *  moment this needs zoom, crosshair, or linked panning — not before. */
+function Curve({ points }: { points: BacktestReviewData["curve"] }) {
+  if (points.length < 2) return null;
+  const W = 640;
+  const H = 120;
+  const eq = points.map((p) => p.equity_micros);
+  const lo = Math.min(...eq);
+  const hi = Math.max(...eq);
+  const span = hi - lo || 1;
+  const x = (i: number) => (i / (points.length - 1)) * W;
+  const y = (v: number) => H - ((v - lo) / span) * H;
+
+  const equityPath = points.map((p, i) => `${x(i)},${y(p.equity_micros)}`).join(" ");
+  const ddLo = Math.min(...points.map((p) => p.drawdown_micros));
+  const ddPath = points
+    .map((p, i) => `${x(i)},${40 - (p.drawdown_micros / (ddLo || -1)) * 40}`)
+    .join(" ");
+
+  return (
+    <div className="overflow-x-auto">
+      <svg
+        viewBox={`0 0 ${W} ${H + 56}`}
+        className="w-full"
+        role="img"
+        aria-label="Equity curve with drawdown"
+        data-testid="backtest-curve"
+      >
+        <polyline
+          points={equityPath}
+          fill="none"
+          stroke="var(--ts-accent)"
+          strokeWidth="1.5"
+        />
+        <g transform={`translate(0 ${H + 8})`}>
+          <polyline
+            points={ddPath}
+            fill="none"
+            stroke="var(--ts-warn)"
+            strokeWidth="1"
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+export const BacktestReviewUI = makeAssistantDataUI<BacktestReviewData>({
+  name: "backtest-review",
+  render: ({ data }) => {
+    const promo = data.promotion;
+    const blocked = promo.verdict !== "PROMOTABLE";
+    return (
+      <section
+        className="my-3 rounded-lg border border-border bg-card p-4"
+        data-testid="backtest-review"
+        data-verdict={promo.verdict}
+        data-blockers={String(promo.blockers?.length ?? 0)}
+      >
+        <header className="mb-3 flex flex-wrap items-baseline gap-x-3">
+          <h3 className="text-sm font-semibold">Backtest review</h3>
+          {/* The gate first. A curve shown first reads as the result; the gate
+              is the result. */}
+          <span
+            className={`rounded-full border px-2 py-0.5 font-mono text-[10px] ${
+              blocked ? STATUS_STYLE.FAIL : STATUS_STYLE.PASS
+            }`}
+            data-testid="promotion-verdict"
+          >
+            {promo.verdict} → {promo.target}
+          </span>
+          <span className="text-muted-foreground ml-auto font-mono text-[10px]">
+            {data.strategy.id}@{data.strategy.version}
+          </span>
+        </header>
+
+        {blocked && (
+          <ul className="mb-4 space-y-1" data-testid="promotion-blockers">
+            {promo.blockers.map((b: Blocker) => (
+              <li
+                key={b.code}
+                className="border-l-2 border-[var(--ts-warn)] pl-2 text-xs"
+                data-blocker={b.code}
+              >
+                <span className="font-mono text-[10px]">{b.code}</span>
+                <p className="text-muted-foreground">{b.detail}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <Curve points={data.curve} />
+
+        <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-[11px]">
+          <dt className="text-muted-foreground">final equity</dt>
+          <dd className="font-mono tabular-nums">
+            {usd(data.summary.final_equity_micros)}
+          </dd>
+          <dt className="text-muted-foreground">realised P&amp;L</dt>
+          <dd className="font-mono tabular-nums">
+            {usd(data.summary.realised_pnl_micros)}
+          </dd>
+          <dt className="text-muted-foreground">max drawdown</dt>
+          <dd className="font-mono tabular-nums">
+            {usd(data.summary.max_drawdown_micros)}
+          </dd>
+          <dt className="text-muted-foreground">fees</dt>
+          <dd className="font-mono tabular-nums">
+            {usd(data.summary.cumulative_fees_micros)}
+          </dd>
+        </dl>
+
+        <footer className="text-muted-foreground mt-3 border-t border-border pt-2 font-mono text-[10px]">
+          <div>
+            curve matched {String(data.receipt.full_curve_matched)} · residual{" "}
+            {data.receipt.max_accounting_residual_micros} micros ·{" "}
+            {data.receipt.event_count} events
+          </div>
+          <div className="break-all">policy {promo.policy_hash}</div>
+        </footer>
+      </section>
+    );
+  },
+});
+
 export const NodeQuantPanels = () => (
   <>
     <DecisionPacketUI />
+    <BacktestReviewUI />
   </>
 );

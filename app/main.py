@@ -298,6 +298,76 @@ def _sse(frame: dict[str, Any]) -> str:
     return f"data: {json.dumps(frame, separators=(',', ':'))}\n\n"
 
 
+@app.post("/api/kernel/review")
+async def kernel_review(request: dict[str, Any]) -> StreamingResponse:
+    """The backtest review surface: `data-backtest-review`.
+
+    Leads with the promotion gate rather than the equity curve. A curve shown
+    first is read as the result; the gate is the result, and today it is BLOCKED
+    for reasons the curve cannot express.
+    """
+
+    async def frames() -> AsyncIterator[str]:
+        yield _sse({"type": "start", "messageId": "review-0"})
+        yield _sse({"type": "start-step"})
+
+        from .decision_packet import CheckStatus, EvidenceClass, OracleIndependence
+        from .ledger import build_ledger, curve_receipt, drawdown_micros, reduce_curve, summary
+        from .promotion import evaluate
+
+        bars = proof_kernel.fixture_bars()
+        packets = list(proof_kernel.packets(25, bars))
+        events = build_ledger(bars, packets)
+        points = reduce_curve(events)
+        receipt = curve_receipt(events)
+        kernel_gate = proof_kernel.run_gate(25, bars)
+        gate = evaluate(
+            kernel_gate=kernel_gate,
+            receipt=receipt,
+            evidence_class=EvidenceClass.SYNTHETIC_KERNEL,
+            oracle_independence=OracleIndependence.SAME_AUTHOR_DIVERSE_IMPLEMENTATION,
+            market_data_conformance=CheckStatus.NOT_RUN,
+        )
+
+        yield _sse({"type": "text-start", "id": "t0"})
+        yield _sse({
+            "type": "text-delta", "id": "t0",
+            "delta": (
+                f"{len(packets)} packets, {len(events)} ledger events. "
+                f"Promotion to paper: {gate.verdict.value}"
+                + (f" ({len(gate.blockers)} blockers)." if gate.blockers else ".")
+            ),
+        })
+        yield _sse({"type": "text-end", "id": "t0"})
+        yield _sse({
+            "type": "data-backtest-review",
+            "data": {
+                "strategy": packets[0].strategy.model_dump(mode="json"),
+                "promotion": gate.model_dump(mode="json"),
+                "receipt": receipt.model_dump(mode="json"),
+                "kernel_gate": kernel_gate,
+                "summary": summary(points),
+                "curve": [
+                    {
+                        "at_utc": p.at_utc.isoformat(),
+                        "equity_micros": p.equity_micros,
+                        "drawdown_micros": d,
+                        "through_event_seq": p.through_event_seq,
+                    }
+                    for p, d in zip(points, drawdown_micros(points))
+                ],
+            },
+        })
+        yield _sse({"type": "finish-step"})
+        yield _sse({"type": "finish", "finishReason": "stop"})
+
+    return StreamingResponse(
+        frames(),
+        media_type="text/event-stream",
+        headers={"x-vercel-ai-ui-message-stream": "v1", "cache-control": "no-cache"},
+    )
+
+
 @app.post("/api/kernel/chat")
 async def kernel_chat(request: dict[str, Any]) -> StreamingResponse:
     """Proof Kernel v0's surface: one panel, `data-decision-packet`.

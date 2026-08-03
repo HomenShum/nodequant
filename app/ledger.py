@@ -47,7 +47,13 @@ from app.proof_kernel import Bar
 
 MICROS = 1_000_000
 STARTING_CAPITAL_MICROS = 100_000 * MICROS
-FEE_MICROS = 100  # $0.0001 per fill; small, non-zero, so fee handling is exercised
+# $1.00 per fill. The first value here was $0.0001 -- non-zero, so the accounting
+# tests passed, but it rendered as "$0.00" in the review panel. A real number
+# displayed as zero is the precise failure this project exists to prevent, and a
+# formatter tweak would have hidden it rather than fixed it. A commission that
+# rounds away is also not a commission: costs are the difference between a
+# strategy that looks profitable and one that is.
+FEE_MICROS = 1 * MICROS
 HOLD_BARS = 30
 QTY = 1
 
