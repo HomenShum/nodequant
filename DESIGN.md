@@ -238,6 +238,42 @@ needs, because the agent is forbidden from authoring them:
 So the answer to "can we bootstrap UI from it" is no — but it supplies the second implementation the
 replay checks require, which is the harder half.
 
+## 8d. What shipped, and what the reviews changed
+
+Proof Kernel v0 and the review surface are built. Two adversarial passes and the
+design thread each overturned something, and the corrections are more useful than
+the original design:
+
+- **`Rule.result` was testimony.** Hardcoded `true`, rendered to the user, checked
+  by nothing — at bar 200 the panel showed "uptrend: true" while its own facts
+  said otherwise. Rules now carry `lhs/op/rhs` and are recomputed against the
+  packet's facts.
+- **The lookahead check was vacuous.** It appended a Fact and asserted the
+  mutation runs caught it, but a cosmetic relabel fails identically. The mutation
+  runs detect *rebuild inequality*; proving they catch lookahead needs an actual
+  future read, which is now what the test does.
+- **The firing decision was outside the packet.** `build_packet` never called the
+  predicate, so lookahead in entry logic was invisible to the mutation runs. Both
+  now derive from one definition.
+- **"Independent replay" was not independent.** It is a *differential* replay:
+  same author, different shape. Renamed, and the panel now carries an assurance
+  block — corpus, market-data conformance, semantic independence — with the badge
+  reading `VERIFIER KERNEL PASS`, never a bare `PASS`.
+- **Floats were financial truth.** Replaced with an integer-microdollar
+  append-only ledger. The accounting identity now holds exactly at every point,
+  not within a tolerance.
+- **Conservation, not the oracle, catches fabrication.** Injecting position with
+  no cash movement passed both the identity and the differential oracle, because
+  both reducers read the same fabricated event. Event-consistency and
+  negative-position checks close it.
+- **The panel found a bug the tests could not.** Fees rendered `$0.00` while
+  being 3,400 micros. Fixed at the root (a realistic fee), not in the formatter.
+
+**The promotion gate is the honest headline: BLOCKED.** Every kernel check is
+green and the strategy still cannot be promoted, for three computed reasons —
+synthetic corpus, market-data conformance never run, and an oracle that is only
+same-author. That gap is the product.
+
 ## 9. Build order
 
 The architecture is two-tier; **the first shipped version behaves like closed-only.**
