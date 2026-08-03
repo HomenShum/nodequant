@@ -350,3 +350,51 @@ def test_a_null_counter_does_not_promote(receipt):
         models_slippage=True,
     )
     assert not gate.promotable
+
+
+def test_an_unacceptable_receipt_can_never_promote(receipt, kernel_gate, bars):
+    """The worst gap of the session, found by an external reviewer's code trace.
+
+    `if not receipt.acceptable:` entered the per-counter loop, but that loop used
+    truthiness -- and None is falsey. A receipt whose authority counters were
+    never computed emitted NO blocker at all, so an unacceptable receipt returned
+    promotable=True with an EMPTY blocker list. The gate's verdict silently
+    disagreed with the receipt's own.
+    """
+
+    events = lg.build_ledger(bars, list(pk.packets(25, bars)))
+    blind = lg.curve_receipt(events, bars)  # bars but no packets
+    assert not blind.acceptable
+
+    gate = pm.evaluate(
+        kernel_gate=kernel_gate,
+        receipt=blind,
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
+    )
+    assert not gate.promotable
+    assert "LEDGER_UNACCEPTABLE" in {b.code for b in gate.blockers}
+    assert "AUTHORITY_NOT_RUN" in {b.code for b in gate.blockers}
+
+
+def test_the_gate_never_disagrees_with_the_receipt(receipt, kernel_gate):
+    """Invariant, not an instance: acceptable=False must always yield blockers."""
+
+    for name in ("unauthorized_fills", "early_entries", "price_mismatches"):
+        broken = receipt.model_copy(deep=True)
+        setattr(broken, name, None)
+        gate = pm.evaluate(
+            kernel_gate=kernel_gate,
+            receipt=broken,
+            evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+            oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+            market_data_conformance=CheckStatus.PASS,
+            models_spread=True,
+            models_slippage=True,
+        )
+        assert not broken.acceptable
+        assert gate.blockers, f"{name}=None produced no blocker"
+        assert not gate.promotable

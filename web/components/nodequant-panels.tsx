@@ -19,7 +19,7 @@
  *      state, because the failure mode that matters is a reader skimming a wall
  *      of neutral rows and reading absence as approval.
  *   3. The verdict is a named checklist, not a score. A single composite number
- *      invites deference; seven named checks stay falsifiable one at a time.
+ *      invites deference; eight named checks stay falsifiable one at a time.
  */
 
 import { makeAssistantDataUI } from "@assistant-ui/react";
@@ -138,7 +138,7 @@ export const DecisionPacketUI = makeAssistantDataUI<DecisionPacketData>({
           </span>
         </header>
 
-        {/* The verdict, as seven named checks. Deliberately above the data:
+        {/* The verdict, as eight named checks. Deliberately above the data:
             whether to believe the numbers is the prior question. */}
         <ol className="mb-4 space-y-1" data-testid="decision-packet-checks">
           {v.checks.map((c: Check) => (

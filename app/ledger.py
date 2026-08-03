@@ -230,7 +230,14 @@ def _inconsistent(event: LedgerEvent) -> bool:
             or event.cash_delta_micros != -event.position_delta * event.price_micros
         )
     if event.type is EventType.FEE:
-        return event.position_delta != 0 or event.cash_delta_micros >= 0
+        # The AMOUNT matters, not just the sign. A fee of -1 microdollar
+        # satisfied "is it negative" while charging nothing -- costs are the
+        # difference between a strategy that looks profitable and one that is.
+        return (
+            event.position_delta != 0
+            or event.cash_delta_micros >= 0
+            or -event.cash_delta_micros < FEE_MICROS
+        )
     if event.type is EventType.MARK:
         return event.position_delta != 0 or event.cash_delta_micros != 0
     if event.type is EventType.INITIAL_CAPITAL:
@@ -396,8 +403,21 @@ def _reduce_curve_oracle(events: list[LedgerEvent]) -> list[int]:
     out: list[int] = []
     for i in range(len(events)):
         window = events[: i + 1]
-        cash = sum(posting(e)[1] for e in window)
-        position = sum(posting(e)[0] for e in window)
+        # Derived here rather than via `posting()`. Sharing that helper with the
+        # primary reducer was a regression introduced while fixing the
+        # duplicate-quantity bug: it made the two reducers agree BY
+        # CONSTRUCTION about the one thing they exist to cross-check. An
+        # external review caught it. Kept deliberately verbose so the two
+        # derivations can diverge if either is wrong.
+        cash = 0
+        position = 0
+        for e in window:
+            if e.type is EventType.ORDER_FILL:
+                units = e.qty if e.side is Side.BUY else -e.qty
+                position += units
+                cash -= units * e.price_micros
+            else:
+                cash += e.cash_delta_micros
         prices = [e.price_micros for e in window if e.price_micros]
         mark = prices[-1] if prices else 0
         out.append(cash + position * mark)

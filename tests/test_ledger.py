@@ -403,3 +403,40 @@ def test_a_claimed_posting_cannot_move_the_curve(bars, packets, events):
         p.equity_micros for p in honest_curve
     ], "a claimed posting must not be able to move equity"
     assert lg.curve_receipt(forged, bars, packets).inconsistent_events > 0
+
+
+def test_a_token_fee_is_caught(bars, packets, events):
+    """A fee of -1 microdollar satisfied "is it negative" while charging nothing.
+    The amount matters, not just the sign."""
+
+    cheap = [e.model_copy(deep=True) for e in events]
+    for e in cheap:
+        if e.type is lg.EventType.FEE:
+            e.cash_delta_micros = -1
+
+    receipt = lg.curve_receipt(cheap, bars, packets)
+    assert receipt.uncosted_fills == 0, "a FEE event does exist for every fill"
+    assert receipt.inconsistent_events > 0, "the amount is what must catch it"
+    assert not receipt.acceptable
+
+
+def test_the_two_reducers_do_not_share_their_derivation(bars, packets, events):
+    """Guards a regression I introduced and an external review caught.
+
+    Routing both reducers through `posting()` made them agree BY CONSTRUCTION
+    about the one thing they exist to cross-check. The oracle now derives
+    independently, so the agreement is evidence rather than a tautology.
+    """
+
+    import inspect
+
+    # Strip comments: the first version of this assertion matched the comment
+    # explaining the fix and would have failed forever on prose.
+    code = "\n".join(
+        line.split("#")[0] for line in inspect.getsource(lg._reduce_curve_oracle).splitlines()
+    )
+    assert "posting(" not in code, "the oracle must not share the primary's derivation"
+    assert "posting(" in "\n".join(
+        line.split("#")[0] for line in inspect.getsource(lg.reduce_curve).splitlines()
+    ), "the primary must use the canonical derivation"
+    assert lg.curve_receipt(events, bars, packets).full_curve_matched

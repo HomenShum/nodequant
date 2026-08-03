@@ -16,7 +16,7 @@ Two rules govern this module and neither is negotiable:
    it. The model may decide *which* signal is worth investigating; it may not
    decide what SPY traded at.
 
-2. A check with no evidence is NOT_RUN, never PASS. Four of the seven release
+2. A check with no evidence is NOT_RUN, never PASS. Four of the eight release
    conditions cannot be judged from the packet alone -- they need a differential
    implementation and two mutation runs. When that evidence is absent the packet
    reports NOT_RUN and the overall status is FAIL. A gate that passes when it did
@@ -475,7 +475,7 @@ def verify(
     mutation: MutationEvidence | None = None,
     evidence_class: EvidenceClass = EvidenceClass.SYNTHETIC_KERNEL,
 ) -> Verification:
-    """Run all seven conditions. PASS only when every one of them passed.
+    """Run all eight conditions. PASS only when every one of them passed.
 
     Note what this deliberately does not do: it does not average, score, or
     weight. One FAIL or one NOT_RUN is a FAIL overall, because the panel's whole

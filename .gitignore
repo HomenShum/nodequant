@@ -16,3 +16,5 @@ web/dbg*.mjs
 artifacts/*.html
 artifacts/*.svg
 artifacts/
+.serena/
+.review-uv-*/

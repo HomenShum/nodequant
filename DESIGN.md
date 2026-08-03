@@ -120,7 +120,7 @@ Payload carries `packetId` + `packetHash`; `strategy{id, version, configHash}`;
 `signal{signalId, symbol, direction, decisionAtUtc, earliestExecutionAtUtc}`; `rules[]` with
 `factRefs` and boolean results; `facts[]` each with a receipt.
 
-**PASS is displayed only when all seven hold:** every displayed value has a FactReceipt; the
+**PASS is displayed only when all eight hold:** every displayed value has a FactReceipt; the
 independent implementation reproduces every value under canonical rounding; `maximumKnownAtUtc <
 decisionAtUtc` for every input; deleting all post-decision data leaves the packet hash unchanged;
 poisoning all post-decision data leaves it unchanged; primary and independent implementations agree

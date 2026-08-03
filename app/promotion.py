@@ -233,10 +233,35 @@ def evaluate(
                 ),
             )
         )
+    if not receipt.packets_checked:
+        blockers.append(
+            Blocker(
+                code="AUTHORITY_NOT_RUN",
+                detail=(
+                    "no packets were supplied, so no fill was resolved back to the "
+                    "decision that authorised it. A ghost trade satisfies every "
+                    "other ledger check."
+                ),
+            )
+        )
     if not receipt.acceptable:
+        # A catch-all FIRST. The per-counter loop below uses truthiness, so a
+        # counter of None -- an unrun check -- emitted no blocker at all, and an
+        # unacceptable receipt promoted with an EMPTY blocker list. Never let the
+        # gate's verdict disagree with the receipt's own.
+        blockers.append(
+            Blocker(
+                code="LEDGER_UNACCEPTABLE",
+                detail="the curve reduction receipt is not acceptable; see the counters.",
+            )
+        )
         for name in LEDGER_COUNTERS:
             value = getattr(receipt, name)
-            if value:
+            if value is None:
+                blockers.append(
+                    Blocker(code=f"LEDGER_{name}_NOT_RUN", detail=f"{name} was never computed.")
+                )
+            elif value:
                 blockers.append(Blocker(code=f"LEDGER_{name}", detail=f"{name}={value}"))
         if not receipt.full_curve_matched:
             blockers.append(
