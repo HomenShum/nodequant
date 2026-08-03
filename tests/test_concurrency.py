@@ -344,10 +344,44 @@ def test_sessions_are_isolated_end_to_end_over_api_chat(
     import app.ctgov as ctgov_mod
     monkeypatch.setattr(ctgov_mod, "MIN_REQUEST_INTERVAL_S", 0.0)
 
-    monkeypatch.delenv("OPENAI_API_KEY", raising=False)  # deterministic planner
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)  # force the no-LLM path
     monkeypatch.setenv("DATABASE_URL", "")               # no L2
 
     from app.main import app
+
+    # The planner is stubbed rather than run, because this test is about session
+    # KEYING, not about extraction. The shipped keyword fallback resolves only a
+    # dimension and returns drug_name=None, so asserting on an extracted drug
+    # name needs a live LLM -- which is exactly why this test used to pass on a
+    # machine with a .env and fail on a fresh clone. A fixed mapping keeps the
+    # isolation property under test and takes the network out of it.
+    import app.main as main_mod
+    from app.models import TrialPhase, VizType
+    from app.planner import Dimension, PlanFilters, QueryPlan
+
+    def stub_plan(request):
+        text = request.query.lower()
+        if "pembrolizumab" in text:
+            return QueryPlan(
+                dimension=Dimension.PHASE, viz_type=VizType.BAR_CHART,
+                title="pembrolizumab trials by phase", interpretation="stubbed plan",
+                filters=PlanFilters(drug_name="Pembrolizumab"),
+            )
+        if "melanoma" in text:
+            return QueryPlan(
+                dimension=Dimension.COUNTRY, viz_type=VizType.BAR_CHART,
+                title="melanoma trials by country", interpretation="stubbed plan",
+                filters=PlanFilters(condition="melanoma"),
+            )
+        # The follow-up names a phase and no drug on purpose: the drug can only
+        # come from Alice's own memory, which is the property under test.
+        return QueryPlan(
+            dimension=Dimension.PHASE, viz_type=VizType.BAR_CHART,
+            title="phase 3", interpretation="stubbed plan",
+            filters=PlanFilters(phase=[TrialPhase.PHASE3]),
+        )
+
+    monkeypatch.setattr(main_mod, "fallback_plan", stub_plan)
 
     def handler(request: httpx.Request) -> httpx.Response:
         if "countTotal" in str(request.url):
