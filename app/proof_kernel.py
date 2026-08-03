@@ -258,18 +258,29 @@ def mutation_evidence(bars: list[Bar], i: int) -> MutationEvidence:
 
 
 def _rebuild(series: list[Bar], i: int) -> DecisionPacket:
-    """Rebuild at `i`, holding `earliest_execution_at_utc` to the real next bar.
+    """Rebuild at `i`, padding a synthetic next bar when the tail was truncated.
 
-    Without this the truncated run would have no bar `i+1` and would fall back to
-    a synthetic execution time, changing the hash for a reason that has nothing
-    to do with lookahead -- a false failure, which is as damaging as a false pass.
+    The pad exists so the truncated run still has a bar `i+1` to name as the
+    execution time; without it the packet falls back to a different value and the
+    hash moves for a reason unrelated to lookahead -- a false failure, which is
+    as damaging as a false pass.
+
+    There used to be a line here forcing `earliest_execution_at_utc` to
+    `EPOCH + (i+1) minutes`. It was pure liability: correct only for a series
+    starting at this fixture's exact epoch with exact 1-minute spacing, and an
+    audit showed the same closes shifted seven days produced
+    futureDeleteChanges=25 -- a false FAIL on every packet. It would have
+    detonated on REAL_BAR_REPLAY, which is the only path to promotion. Deleting
+    it leaves the fixture passing and fixes the shifted case.
     """
 
-    packet = build_packet(series if i + 1 < len(series) else series + [
-        Bar(index=i + 1, ts=series[i].ts + timedelta(minutes=1), close=series[i].close)
-    ], i)
-    packet.signal.earliest_execution_at_utc = EPOCH + timedelta(minutes=i + 1)
-    return packet
+    return build_packet(
+        series
+        if i + 1 < len(series)
+        else series
+        + [Bar(index=i + 1, ts=series[i].ts + timedelta(minutes=1), close=series[i].close)],
+        i,
+    )
 
 
 # --------------------------------------------------------------------------
@@ -290,12 +301,13 @@ def run_gate(limit: int = 25, bars: list[Bar] | None = None) -> dict:
     tally = {
         "factMismatches": 0, "postAsOfInputs": 0, "futureDeleteChanges": 0,
         "futurePoisonChanges": 0, "signalMismatches": 0, "unsupportedFacts": 0,
+        "ruleMismatches": 0, "unmappedCheckFailures": 0,
     }
     by_check = {
         "differential_replay": "factMismatches", "admissibility": "postAsOfInputs",
         "future_delete": "futureDeleteChanges", "future_poison": "futurePoisonChanges",
         "signal_agreement": "signalMismatches", "unsupported_facts": "unsupportedFacts",
-        "fact_receipts": "unsupportedFacts",
+        "fact_receipts": "unsupportedFacts", "rule_evaluation": "ruleMismatches",
     }
 
     passed = 0
@@ -305,7 +317,12 @@ def run_gate(limit: int = 25, bars: list[Bar] | None = None) -> dict:
         if result.status is CheckStatus.PASS:
             passed += 1
         for check in result.failed:
-            tally[by_check[check.check_id]] += 1
+            # A check the gate does not know how to count must not vanish, and
+            # must not crash the gate either. `rule_evaluation` was added to the
+            # verifier and never to this map: the release gate raised KeyError on
+            # the one check that catches a rule contradicting its own facts, and
+            # no test reached the line because they all call verify() directly.
+            tally[by_check.get(check.check_id, "unmappedCheckFailures")] += 1
 
     return {
         "status": "PASS" if passed == len(indices) == limit else "FAIL",

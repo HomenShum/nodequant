@@ -319,7 +319,7 @@ async def kernel_review(request: dict[str, Any]) -> StreamingResponse:
         packets = list(proof_kernel.packets(25, bars))
         events = build_ledger(bars, packets)
         points = reduce_curve(events)
-        receipt = curve_receipt(events, bars)
+        receipt = curve_receipt(events, bars, packets)
         kernel_gate = proof_kernel.run_gate(25, bars)
         gate = evaluate(
             kernel_gate=kernel_gate,
@@ -390,7 +390,23 @@ async def kernel_chat(request: dict[str, Any]) -> StreamingResponse:
 
         bars = proof_kernel.fixture_bars()
         signals = proof_kernel.detect(bars)
-        chosen = int(index) if isinstance(index, (int, str)) and str(index).isdigit() else signals[0]
+        # `str(index).isdigit()` silently substituted bar 137 for "3.0", "-1",
+        # [3] and "abc" -- a request for one thing answered with another.
+        if index is None:
+            chosen = signals[0]
+        elif isinstance(index, bool) or not isinstance(index, (int, str)):
+            yield _sse({"type": "error", "errorText": f"index must be an integer, got {type(index).__name__}"})
+            yield _sse({"type": "finish-step"})
+            yield _sse({"type": "finish", "finishReason": "error"})
+            return
+        else:
+            try:
+                chosen = int(str(index).strip())
+            except ValueError:
+                yield _sse({"type": "error", "errorText": f"index is not an integer: {index!r}"})
+                yield _sse({"type": "finish-step"})
+                yield _sse({"type": "finish", "finishReason": "error"})
+                return
         if chosen not in signals:
             yield _sse({"type": "error", "errorText": f"no signal at bar {chosen}"})
             yield _sse({"type": "finish-step"})

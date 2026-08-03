@@ -115,7 +115,6 @@ class CurveReductionReceipt(BaseModel):
     curve_point_count: int
     full_curve_matched: bool
     curve_point_mismatches: int
-    missing_event_receipts: int
     sequence_gaps: int
     duplicate_event_ids: int
     inconsistent_events: int
@@ -127,9 +126,31 @@ class CurveReductionReceipt(BaseModel):
     price_mismatches: int | None = None
     unpriced_events: int | None = None
 
+    # Capital and solvency. A second INITIAL_CAPITAL conjured $1,000,000 mid-run,
+    # passed every counter, and IMPROVED reported max drawdown by $264 because it
+    # reset the running peak -- fabrication that makes the risk number look better.
+    capital_event_violations: int = 0
+    uncosted_fills: int = 0
+    negative_cash_points: int = 0
+    negative_equity_points: int = 0
+    # Realised minus fees must equal the equity change once flat. Unlike the
+    # deleted accounting residual, these two sides come from DISJOINT inputs:
+    # realised accumulates per closed trade, equity from cash plus marked
+    # position. Same-accumulator subtraction is decoration; this one can fail.
+    flat_pnl_residual_micros: int | None = None
+
+    # Authority. None means the packets were never supplied, so the check did
+    # not run -- and an unrun check is never clean.
+    unauthorized_fills: int | None = None
+    early_entries: int | None = None
+
     @property
     def bars_checked(self) -> bool:
         return self.price_mismatches is not None
+
+    @property
+    def packets_checked(self) -> bool:
+        return self.unauthorized_fills is not None
 
     @property
     def acceptable(self) -> bool:
@@ -146,7 +167,6 @@ class CurveReductionReceipt(BaseModel):
         return (
             self.full_curve_matched
             and self.curve_point_mismatches == 0
-            and self.missing_event_receipts == 0
             and self.sequence_gaps == 0
             and self.duplicate_event_ids == 0
             and self.inconsistent_events == 0
@@ -155,6 +175,13 @@ class CurveReductionReceipt(BaseModel):
             and self.event_count > 0
             and self.price_mismatches == 0
             and self.unpriced_events == 0
+            and self.capital_event_violations == 0
+            and self.uncosted_fills == 0
+            and self.negative_cash_points == 0
+            and self.negative_equity_points == 0
+            and self.flat_pnl_residual_micros == 0
+            and self.unauthorized_fills == 0
+            and self.early_entries == 0
         )
 
 
@@ -383,8 +410,84 @@ def _bar_conformance(
     return mismatches, unpriced
 
 
+def _authority(
+    events: list[LedgerEvent], packets: list[DecisionPacket] | None
+) -> tuple[int | None, int | None]:
+    """Was every fill authorised by a decision, and did it wait for its bar?
+
+    THE finding of the audit, and the product claim failing directly. The agent
+    may never author a number -- but it could author the entire trade. A
+    perfect-foresight BUY at the series low and SELL at the high, with
+    `packet_id=None`, returned acceptable=True with every counter at zero, and
+    the promotion blocker set was byte-identical to an honest run.
+
+    `build_ledger` already looks the entry bar up via
+    `earliest_execution_at_utc`, and its docstring calls executing at the signal
+    bar's own close "the classic way a backtest invents profit". But that guard
+    lives only in the PRODUCER. The receipt is the artifact a stranger checks,
+    and it contained zero occurrences of the word `packet`, so the guard
+    protected nothing anyone could verify. Bar conformance did not help: it
+    resolves each event's own timestamp to a bar, so a fill relocated onto any
+    other real bar is perfectly conformant.
+    """
+
+    if packets is None:
+        return None, None
+    by_id = {p.packet_id: p for p in packets}
+    unauthorized = early = 0
+    for event in events:
+        if event.type is not EventType.ORDER_FILL:
+            continue
+        packet = by_id.get(event.packet_id or "")
+        if packet is None:
+            unauthorized += 1
+        elif event.side is Side.BUY and event.at_utc != packet.signal.earliest_execution_at_utc:
+            early += 1
+    return unauthorized, early
+
+
+def _uncosted_fills(events: list[LedgerEvent]) -> int:
+    """Every ORDER_FILL must be accompanied by a FEE at the same instant.
+
+    Deleting every FEE inflated equity by $34.00 and improved drawdown by
+    $32.43 while passing every counter, including the flat P&L residual --
+    because that residual reads `cumulative_fees_micros` from the reduced curve,
+    which drops to zero along with the events. Both sides moved together, which
+    is the same failure mode as the two tautologies already deleted.
+
+    Completeness cannot be checked from the reduction. It has to be checked
+    against the event stream.
+    """
+
+    fee_stamps: dict = {}
+    for e in events:
+        if e.type is EventType.FEE:
+            fee_stamps[(e.at_utc, e.packet_id)] = fee_stamps.get((e.at_utc, e.packet_id), 0) + 1
+    uncosted = 0
+    for e in events:
+        if e.type is not EventType.ORDER_FILL:
+            continue
+        key = (e.at_utc, e.packet_id)
+        if fee_stamps.get(key, 0) <= 0:
+            uncosted += 1
+        else:
+            fee_stamps[key] -= 1
+    return uncosted
+
+
+def _capital_violations(events: list[LedgerEvent]) -> int:
+    """Exactly one INITIAL_CAPITAL, and it opens the ledger."""
+
+    capital = [i for i, e in enumerate(events) if e.type is EventType.INITIAL_CAPITAL]
+    if capital == [0]:
+        return 0
+    return max(len(capital), 1)
+
+
 def curve_receipt(
-    events: list[LedgerEvent], bars: list[Bar] | None = None
+    events: list[LedgerEvent],
+    bars: list[Bar] | None = None,
+    packets: list[DecisionPacket] | None = None,
 ) -> CurveReductionReceipt:
     points = reduce_curve(events)
     oracle = _reduce_curve_oracle(events)
@@ -406,6 +509,26 @@ def curve_receipt(
         if running < 0:
             negative += 1
 
+    unauthorized, early = _authority(events, packets)
+
+    # Long-only was enforced in SHARES and unenforced in DOLLARS: rewriting every
+    # fill to qty=500 drove cash to -$460,911 on $100,000 of capital with
+    # inconsistent_events=0.
+    negative_cash = sum(1 for p in points if p.cash_micros < 0)
+    negative_equity = sum(1 for p in points if p.equity_micros < 0)
+
+    # Only meaningful once flat, because unrealised P&L is legitimately absent
+    # from `realised`. Ends flat here by construction (every BUY has its SELL).
+    flat = sum(e.position_delta for e in events) == 0
+    flat_residual = (
+        abs(
+            (points[-1].realised_pnl_micros - points[-1].cumulative_fees_micros)
+            - (points[-1].equity_micros - STARTING_CAPITAL_MICROS)
+        )
+        if flat and points
+        else None
+    )
+
     return CurveReductionReceipt(
         ledger_root_hash=ledger_root_hash(events),
         event_count=len(events),
@@ -415,10 +538,16 @@ def curve_receipt(
         curve_point_count=len(points),
         full_curve_matched=mismatches == 0,
         curve_point_mismatches=mismatches,
-        missing_event_receipts=sum(1 for e in events if e.receipt is None),
         non_monotonic_timestamps=non_monotonic,
         price_mismatches=price_mismatches,
         unpriced_events=unpriced,
+        capital_event_violations=_capital_violations(events),
+        uncosted_fills=_uncosted_fills(events),
+        negative_cash_points=negative_cash,
+        negative_equity_points=negative_equity,
+        flat_pnl_residual_micros=flat_residual,
+        unauthorized_fills=unauthorized,
+        early_entries=early,
         sequence_gaps=sum(1 for a, b in zip(seqs, seqs[1:]) if b != a + 1),
         duplicate_event_ids=len(ids) - len(set(ids)),
         inconsistent_events=sum(1 for e in events if _inconsistent(e)),
@@ -452,9 +581,10 @@ def demo() -> None:
     from app.proof_kernel import fixture_bars, packets as kernel_packets
 
     bars = fixture_bars()
-    events = build_ledger(bars, list(kernel_packets(25, bars)))
+    pkts = list(kernel_packets(25, bars))
+    events = build_ledger(bars, pkts)
     points = reduce_curve(events)
-    receipt = curve_receipt(events, bars)
+    receipt = curve_receipt(events, bars, pkts)
 
     assert events and points
     assert receipt.acceptable, receipt.model_dump()

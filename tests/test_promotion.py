@@ -24,7 +24,8 @@ def bars():
 
 @pytest.fixture(scope="module")
 def receipt(bars):
-    return lg.curve_receipt(lg.build_ledger(bars, list(pk.packets(25, bars))), bars)
+    pkts = list(pk.packets(25, bars))
+    return lg.curve_receipt(lg.build_ledger(bars, pkts), bars, pkts)
 
 
 @pytest.fixture(scope="module")
@@ -287,3 +288,65 @@ def test_every_policy_counter_names_a_field_that_exists(receipt):
 
     for name in pm.LEDGER_COUNTERS:
         assert hasattr(receipt, name), f"POLICY names a missing receipt field: {name}"
+
+
+def test_the_policy_hash_covers_the_gate_itself_not_just_the_document():
+    """POLICY was a description nobody executed: evaluate() read zero keys from
+    it, so an audit changed the gate's verdict ten ways without moving this
+    hash. The hash now covers evaluate's source as well."""
+
+    import inspect
+
+    assert "inspect.getsource(evaluate)" in inspect.getsource(pm.policy_hash)
+    first = pm.policy_hash()
+    assert first == pm.policy_hash()
+    # POLICY snapshots the thresholds at import, so editing a constant in the
+    # source -- the actual threat, someone loosening a bound after seeing the
+    # test split -- shows up as a changed POLICY. Runtime mutation of the set
+    # object does NOT move the hash, which is a real limit worth stating: this
+    # seal defends against edits, not against monkeypatching a running process.
+    original = pm.POLICY["minimum_oracle_independence"]
+    try:
+        pm.POLICY["minimum_oracle_independence"] = ["anything_goes"]
+        assert pm.policy_hash() != first, "loosening a threshold must move the seal"
+    finally:
+        pm.POLICY["minimum_oracle_independence"] = original
+    assert pm.policy_hash() == first
+
+
+def test_a_partial_packet_run_cannot_promote(receipt):
+    """1-of-25 with status PASS returned PROMOTABLE with no blockers at all.
+    packetsExpected was transmitted, displayed, and never read."""
+
+    gate = pm.evaluate(
+        kernel_gate={
+            "status": "PASS", "packetsExpected": 25, "packetsPassed": 1,
+            **{k: 0 for k in pm.KERNEL_COUNTERS},
+        },
+        receipt=receipt,
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
+    )
+    assert not gate.promotable
+    assert "PACKETS_INCOMPLETE" in {b.code for b in gate.blockers}
+
+
+def test_a_null_counter_does_not_promote(receipt):
+    """`elif kernel_gate[field]:` was a truthiness test one line under a comment
+    saying absence is a blocker, not a zero. None is falsey."""
+
+    counters = {k: 0 for k in pm.KERNEL_COUNTERS}
+    counters["factMismatches"] = None
+    gate = pm.evaluate(
+        kernel_gate={"status": "PASS", "packetsExpected": 25, "packetsPassed": 25, **counters},
+        receipt=receipt,
+        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
+        oracle_independence=OracleIndependence.INDEPENDENT_AUTHOR,
+        market_data_conformance=CheckStatus.PASS,
+        models_spread=True,
+        models_slippage=True,
+    )
+    assert not gate.promotable

@@ -38,6 +38,10 @@ def test_gate_passes_all_twentyfive_with_zero_of_every_failure_mode(bars):
         "futurePoisonChanges": 0,
         "signalMismatches": 0,
         "unsupportedFacts": 0,
+        "ruleMismatches": 0,
+        # A check the gate cannot map must be counted, not dropped and not
+        # crashed on: rule_evaluation was unmapped and raised KeyError.
+        "unmappedCheckFailures": 0,
     }
 
 

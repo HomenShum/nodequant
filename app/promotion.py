@@ -73,7 +73,13 @@ KERNEL_COUNTERS = (
 
 LEDGER_COUNTERS = (
     "curve_point_mismatches",
-    "missing_event_receipts",
+    "unauthorized_fills",
+    "early_entries",
+    "capital_event_violations",
+    "uncosted_fills",
+    "negative_cash_points",
+    "negative_equity_points",
+    "flat_pnl_residual_micros",
     "sequence_gaps",
     "duplicate_event_ids",
     "inconsistent_events",
@@ -105,8 +111,22 @@ POLICY = {
 
 
 def policy_hash() -> str:
+    """Hash the thresholds AND the function that applies them.
+
+    POLICY alone was a description nobody executed: `evaluate()` read zero keys
+    from it, so setting `POLICY = {}` left all sixteen verdicts byte-identical,
+    and an audit changed the gate's verdict ten different ways without moving
+    this hash. A seal over a document that does not drive the code seals
+    nothing. Including the source means editing a threshold moves the hash,
+    which is the whole point of freezing it before seeing the test split.
+    """
+
+    import inspect
+
     encoded = json.dumps(POLICY, sort_keys=True, separators=(",", ":"))
-    return "sha256:" + hashlib.sha256(encoded.encode("utf-8")).hexdigest()
+    body = inspect.getsource(evaluate)
+    digest = hashlib.sha256((encoded + body).encode("utf-8")).hexdigest()
+    return "sha256:" + digest
 
 
 def evaluate(
@@ -173,15 +193,26 @@ def evaluate(
                     detail=f"{field} absent from the kernel gate; absence is not zero.",
                 )
             )
-        elif kernel_gate[field]:
+        elif kernel_gate[field] != 0:
             blockers.append(
                 Blocker(code=f"KERNEL_{field}", detail=f"{field}={kernel_gate[field]}")
             )
-    if kernel_gate.get("packetsPassed", 0) <= 0:
+    expected = kernel_gate.get("packetsExpected")
+    passed = kernel_gate.get("packetsPassed")
+    if not isinstance(passed, int) or passed <= 0:
         blockers.append(
             Blocker(
                 code="NO_PACKETS_VERIFIED",
                 detail="zero packets passed; a strategy that never decided cannot promote.",
+            )
+        )
+    elif expected != passed:
+        # packetsExpected was transmitted, displayed, and never read: 1-of-25
+        # with status PASS returned PROMOTABLE with no blockers at all.
+        blockers.append(
+            Blocker(
+                code="PACKETS_INCOMPLETE",
+                detail=f"{passed} of {expected} packets verified; every packet must pass.",
             )
         )
     if receipt.event_count == 0:
@@ -264,7 +295,8 @@ def demo() -> None:
     from app.proof_kernel import fixture_bars, packets, run_gate
 
     bars = fixture_bars()
-    receipt = curve_receipt(build_ledger(bars, list(packets(25, bars))), bars)
+    pkts = list(packets(25, bars))
+    receipt = curve_receipt(build_ledger(bars, pkts), bars, pkts)
     gate = evaluate(
         kernel_gate=run_gate(25, bars),
         receipt=receipt,

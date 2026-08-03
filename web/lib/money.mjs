@@ -18,6 +18,8 @@
  * Run: node lib/money.mjs
  */
 
+import { pathToFileURL } from "node:url";
+
 const MICROS = 1_000_000;
 
 export function formatUsd(micros) {
@@ -59,4 +61,9 @@ function demo() {
   console.log("money: a non-zero value never renders as zero");
 }
 
-if (import.meta.url === `file://${process.argv[1]?.replace(/\\/g, "/")}`) demo();
+// pathToFileURL, not string surgery. The hand-built `file://` prefix was one
+// slash short of Node's `file:///` and left the repo path's space unencoded, so
+// this guard was false on EVERY Windows path: `node lib/money.mjs` exited 0
+// having run zero assertions. The sole automated guard on the sole money
+// formatter was dead, guarding the exact bug that already shipped.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) demo();
