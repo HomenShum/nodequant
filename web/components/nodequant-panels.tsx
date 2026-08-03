@@ -24,6 +24,8 @@
 
 import { makeAssistantDataUI } from "@assistant-ui/react";
 
+import { formatUsd } from "@/lib/money.mjs";
+
 type CheckStatus = "PASS" | "FAIL" | "NOT_RUN";
 
 type Check = {
@@ -287,21 +289,9 @@ type BacktestReviewData = {
   }[];
 };
 
-/** Money, and never a non-zero amount shown as zero.
- *
- *  A value under half a cent formats as "$0.00" at two decimals, which reads as
- *  "there were no fees" when there were. Small non-zero amounts get enough
- *  precision to stay visibly non-zero. */
-const usd = (micros: number) => {
-  const value = micros / 1_000_000;
-  const digits = micros !== 0 && Math.abs(value) < 0.005 ? 6 : 2;
-  return value.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: digits,
-  });
-};
+// Single source of truth for money rendering; see lib/money.mjs for the
+// invariant that a non-zero value never renders as zero, and its self-check.
+const usd = formatUsd;
 
 /** Equity and drawdown as two SVG polylines.
  *
