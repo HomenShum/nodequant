@@ -269,10 +269,16 @@ the original design:
 - **The panel found a bug the tests could not.** Fees rendered `$0.00` while
   being 3,400 micros. Fixed at the root (a realistic fee), not in the formatter.
 
-**The promotion gate is the honest headline: BLOCKED.** Every kernel check is
-green and the strategy still cannot be promoted, for three computed reasons —
-synthetic corpus, market-data conformance never run, and an oracle that is only
-same-author. That gap is the product.
+**The promotion gate is the honest headline: BLOCKED, on five computed
+grounds** — synthetic corpus, market-data conformance never run, a same-author
+oracle, no spread model, no slippage model. Every kernel check is green and the
+strategy still cannot be promoted. That gap is the product.
+
+A later pass closed three more: a position was marked only at exit, so it was
+carried at its entry price for the whole hold and drawdown was understated by
+$2.52 (0.46%, and scaling with size); the curve's x-axis was index-spaced while
+shipping timestamps it never read; and absent costs biased the curve upward
+only, which is the direction that manufactures a promotable-looking strategy.
 
 ## 9. Build order
 
