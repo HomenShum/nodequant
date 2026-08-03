@@ -1,0 +1,261 @@
+{
+  "summary": {
+    "upstream_requests_saved": 418,
+    "worst_case_waste_without_single_flight": 127,
+    "worst_case_waste_with_single_flight": 0,
+    "lru_vs_fifo": {
+      "lru": {
+        "hot_survived": true,
+        "misses": 0,
+        "hits": 3001
+      },
+      "fifo": {
+        "hot_survived": false,
+        "misses": 952,
+        "hits": 2048
+      }
+    }
+  },
+  "rows": [
+    {
+      "concurrency": 1,
+      "distinct_keys": 1,
+      "single_flight": false,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 0,
+      "seconds": 0.051
+    },
+    {
+      "concurrency": 1,
+      "distinct_keys": 1,
+      "single_flight": true,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 0,
+      "seconds": 0.063
+    },
+    {
+      "concurrency": 2,
+      "distinct_keys": 1,
+      "single_flight": false,
+      "upstream_requests": 2,
+      "ideal_requests": 1,
+      "wasted": 1,
+      "coalesced": 0,
+      "seconds": 0.248
+    },
+    {
+      "concurrency": 2,
+      "distinct_keys": 1,
+      "single_flight": true,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 1,
+      "seconds": 0.063
+    },
+    {
+      "concurrency": 4,
+      "distinct_keys": 1,
+      "single_flight": false,
+      "upstream_requests": 4,
+      "ideal_requests": 1,
+      "wasted": 3,
+      "coalesced": 0,
+      "seconds": 0.608
+    },
+    {
+      "concurrency": 4,
+      "distinct_keys": 1,
+      "single_flight": true,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 3,
+      "seconds": 0.063
+    },
+    {
+      "concurrency": 8,
+      "distinct_keys": 1,
+      "single_flight": false,
+      "upstream_requests": 8,
+      "ideal_requests": 1,
+      "wasted": 7,
+      "coalesced": 0,
+      "seconds": 1.324
+    },
+    {
+      "concurrency": 8,
+      "distinct_keys": 1,
+      "single_flight": true,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 7,
+      "seconds": 0.062
+    },
+    {
+      "concurrency": 16,
+      "distinct_keys": 1,
+      "single_flight": false,
+      "upstream_requests": 16,
+      "ideal_requests": 1,
+      "wasted": 15,
+      "coalesced": 0,
+      "seconds": 2.77
+    },
+    {
+      "concurrency": 16,
+      "distinct_keys": 1,
+      "single_flight": true,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 15,
+      "seconds": 0.062
+    },
+    {
+      "concurrency": 32,
+      "distinct_keys": 1,
+      "single_flight": false,
+      "upstream_requests": 32,
+      "ideal_requests": 1,
+      "wasted": 31,
+      "coalesced": 0,
+      "seconds": 5.65
+    },
+    {
+      "concurrency": 32,
+      "distinct_keys": 1,
+      "single_flight": true,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 31,
+      "seconds": 0.062
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 1,
+      "single_flight": false,
+      "upstream_requests": 64,
+      "ideal_requests": 1,
+      "wasted": 63,
+      "coalesced": 0,
+      "seconds": 11.412
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 1,
+      "single_flight": true,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 63,
+      "seconds": 0.063
+    },
+    {
+      "concurrency": 128,
+      "distinct_keys": 1,
+      "single_flight": false,
+      "upstream_requests": 128,
+      "ideal_requests": 1,
+      "wasted": 127,
+      "coalesced": 0,
+      "seconds": 22.924
+    },
+    {
+      "concurrency": 128,
+      "distinct_keys": 1,
+      "single_flight": true,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 127,
+      "seconds": 0.063
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 1,
+      "single_flight": false,
+      "upstream_requests": 64,
+      "ideal_requests": 1,
+      "wasted": 63,
+      "coalesced": 0,
+      "seconds": 11.409
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 1,
+      "single_flight": true,
+      "upstream_requests": 1,
+      "ideal_requests": 1,
+      "wasted": 0,
+      "coalesced": 63,
+      "seconds": 0.063
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 4,
+      "single_flight": false,
+      "upstream_requests": 64,
+      "ideal_requests": 4,
+      "wasted": 60,
+      "coalesced": 0,
+      "seconds": 11.411
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 4,
+      "single_flight": true,
+      "upstream_requests": 4,
+      "ideal_requests": 4,
+      "wasted": 0,
+      "coalesced": 60,
+      "seconds": 0.618
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 16,
+      "single_flight": false,
+      "upstream_requests": 64,
+      "ideal_requests": 16,
+      "wasted": 48,
+      "coalesced": 0,
+      "seconds": 11.406
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 16,
+      "single_flight": true,
+      "upstream_requests": 16,
+      "ideal_requests": 16,
+      "wasted": 0,
+      "coalesced": 48,
+      "seconds": 2.778
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 64,
+      "single_flight": false,
+      "upstream_requests": 64,
+      "ideal_requests": 64,
+      "wasted": 0,
+      "coalesced": 0,
+      "seconds": 11.418
+    },
+    {
+      "concurrency": 64,
+      "distinct_keys": 64,
+      "single_flight": true,
+      "upstream_requests": 64,
+      "ideal_requests": 64,
+      "wasted": 0,
+      "coalesced": 0,
+      "seconds": 11.414
+    }
+  ]
+}

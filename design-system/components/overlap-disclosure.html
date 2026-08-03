@@ -1,0 +1,85 @@
+<!-- @dsCard group="Trust" -->
+<div class="ds">
+  <h1>Overlap disclosure</h1>
+  <p class="lede">The signature component. ClinicalTrials.gov stores <code>phases</code> as an
+    array, so one trial can occupy several phase buckets. Buckets therefore <strong>do not
+    partition</strong> the result set and must never be drawn as a pie or a 100% stacked bar.
+    This strip states that in the reader's line of sight.</p>
+
+  <h2>State: buckets overlap</h2>
+  <div class="disc">
+    <div class="disc-mark" aria-hidden="true">≠</div>
+    <div>
+      <p class="disc-title">These buckets overlap and do not sum to the total.</p>
+      <p class="disc-body">A trial may be registered under more than one phase, so it is counted
+        in each. <b>469</b> trials are tagged both <code>PHASE1</code> and <code>PHASE2</code>.</p>
+      <p class="disc-math">
+        <span>bucket sum <b>3,205</b></span>
+        <span class="ne">≠</span>
+        <span>trials matching <b>2,915</b></span>
+      </p>
+    </div>
+  </div>
+  <p class="cap">Rendered whenever <code>meta.buckets_are_exclusive === false</code>. Not a
+    tooltip and not fine print — a reader who misses this misreads every proportion on the page.</p>
+
+  <h2>State: buckets are exclusive</h2>
+  <div class="disc ok">
+    <div class="disc-mark" aria-hidden="true">=</div>
+    <div>
+      <p class="disc-title">Buckets are mutually exclusive.</p>
+      <p class="disc-body">Each trial appears in exactly one bucket, so shares of the total are
+        safe to read and part-of-whole marks are permitted.</p>
+      <p class="disc-math">
+        <span>bucket sum <b>2,862</b></span><span class="eq">=</span>
+        <span>trials matching <b>2,862</b></span>
+      </p>
+    </div>
+  </div>
+
+  <h2>Denominator line</h2>
+  <p class="denom">of <b>2,915</b> trials matching intervention = Pembrolizumab</p>
+  <p class="cap">Always adjacent to the mark. A percentage without its base is unreadable, and
+    legends do not carry bases.</p>
+</div>
+
+<style>
+  :root{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e6e5e1;
+         --accent:#1f6f6b; --warn:#b4750f; --warn-bg:#fdf6e9; --ok:#1f6f6b; --ok-bg:#eff5f4; }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c; --line:#33322e;
+           --accent:#5ec6c0; --warn:#e0a44a; --warn-bg:#2a2318; --ok:#5ec6c0; --ok-bg:#1b2624; }
+  }
+  :root[data-theme="dark"]{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c;
+    --line:#33322e; --accent:#5ec6c0; --warn:#e0a44a; --warn-bg:#2a2318; --ok:#5ec6c0; --ok-bg:#1b2624; }
+  :root[data-theme="light"]{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66;
+    --line:#e6e5e1; --accent:#1f6f6b; --warn:#b4750f; --warn-bg:#fdf6e9; --ok:#1f6f6b; --ok-bg:#eff5f4; }
+  .ds{ background:var(--bg); color:var(--ink); padding:32px; min-height:100%;
+       font:400 13.5px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+       font-variant-numeric:tabular-nums; }
+  .ds h1{ font-size:28px; font-weight:640; letter-spacing:-.02em; margin:0 0 6px; }
+  .ds h2{ font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.06em;
+          color:var(--muted); margin:28px 0 10px; }
+  .lede{ color:var(--muted); max-width:64ch; margin:0 0 8px; }
+  .disc{ display:flex; gap:14px; align-items:flex-start; background:var(--warn-bg);
+         border:1px solid var(--warn); border-left-width:3px; border-radius:8px; padding:16px 18px; }
+  .disc.ok{ background:var(--ok-bg); border-color:var(--ok); }
+  .disc-mark{ flex:none; width:26px; height:26px; border-radius:50%; display:grid;
+              place-items:center; font:700 14px ui-monospace,monospace; color:#fff;
+              background:var(--warn); }
+  .disc.ok .disc-mark{ background:var(--ok); }
+  .disc-title{ margin:0 0 4px; font-weight:600; }
+  .disc-body{ margin:0 0 10px; color:var(--muted); max-width:60ch; }
+  .disc-math{ display:flex; gap:12px; align-items:center; margin:0; flex-wrap:wrap;
+              font:12.5px ui-monospace,monospace; }
+  .disc-math span{ background:var(--card); border:1px solid var(--line); border-radius:5px;
+                   padding:4px 9px; }
+  .disc-math b{ font-weight:700; }
+  .ne,.eq{ border:none!important; background:none!important; font-size:15px; font-weight:700; }
+  .ne{ color:var(--warn); } .eq{ color:var(--ok); }
+  .denom{ color:var(--muted); font-size:12px; margin:0; }
+  .denom b{ color:var(--ink); font-weight:600; }
+  .cap{ color:var(--muted); font-size:12px; max-width:64ch; margin:10px 0 0; }
+  code{ font:12px ui-monospace,monospace; background:var(--card); padding:1px 5px;
+        border-radius:4px; border:1px solid var(--line); }
+</style>

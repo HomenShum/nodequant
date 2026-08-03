@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "trialscope": {
+      "command": "uv",
+      "args": ["run", "--directory", ".", "python", "-m", "app.mcp_server"]
+    }
+  }
+}

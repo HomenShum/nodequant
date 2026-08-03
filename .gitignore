@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+ponytail/
+web/.agents/
+web/.claude/
+web/.next/
+web/skills-lock.json
+web/.next-3001/
+web/evidence/*.png
+web/dbg*.mjs
+*.submission.zip
+artifacts/*.html
+artifacts/*.svg

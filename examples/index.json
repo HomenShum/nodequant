@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "01-distribution-phases",
+    "query": "How are melanoma trials distributed across phases?",
+    "viz": "bar_chart",
+    "marks": 6,
+    "edges": 0,
+    "total_matching": 3738,
+    "exclusive": false,
+    "api_calls": 19,
+    "retries": 6,
+    "ms": 16886
+  },
+  {
+    "slug": "02-time-series",
+    "query": "How many trials started each year for glioblastoma since 2018?",
+    "viz": "time_series",
+    "marks": 9,
+    "edges": 0,
+    "total_matching": 983,
+    "exclusive": false,
+    "api_calls": 28,
+    "retries": 9,
+    "ms": 20122
+  },
+  {
+    "slug": "03-comparison",
+    "query": "Compare phases for trials involving Pembrolizumab vs Nivolumab.",
+    "viz": "grouped_bar_chart",
+    "marks": 12,
+    "edges": 0,
+    "total_matching": 596690,
+    "exclusive": false,
+    "api_calls": 35,
+    "retries": 10,
+    "ms": 22799
+  },
+  {
+    "slug": "04-network-graph",
+    "query": "Show a network of sponsors and drugs for melanoma trials.",
+    "viz": "network_graph",
+    "marks": 12,
+    "edges": 15,
+    "total_matching": 3738,
+    "exclusive": false,
+    "api_calls": 56,
+    "retries": 18,
+    "ms": 39037
+  },
+  {
+    "slug": "05-geographic",
+    "query": "Which countries have the most recruiting trials for pancreatic cancer?",
+    "viz": "bar_chart",
+    "marks": 12,
+    "edges": 0,
+    "total_matching": 896,
+    "exclusive": false,
+    "api_calls": 38,
+    "retries": 12,
+    "ms": 26516
+  }
+]

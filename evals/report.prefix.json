@@ -1,0 +1,1586 @@
+{
+  "run_at": "2026-08-02T23:40:34+00:00",
+  "planner": "structured",
+  "model": "gpt-5.4-mini",
+  "golden_generated_at": "2026-08-02T23:21:00+00:00",
+  "golden_age_hours": 0.1,
+  "aggregate": {
+    "cases": 31,
+    "cases_errored": 2,
+    "hard_pass": 27,
+    "hard_pass_rate": 0.871,
+    "count_accuracy": {
+      "cases_passed": 27,
+      "cases_rate": 0.931,
+      "numbers_checked": 316,
+      "numbers_wrong": 17
+    },
+    "trace_replay": {
+      "steps_in_traces": 231,
+      "steps_replayable": 228,
+      "steps_non_replayable": 3,
+      "steps_passed": 228,
+      "replay_pass_rate": 1.0,
+      "trace_coverage": 0.987
+    },
+    "routing": {
+      "dimension_rate": 0.931,
+      "viz_rate": 0.9655
+    },
+    "no_fabricated_numbers_rate": 1.0,
+    "schema_valid_rate": 1.0,
+    "exclusivity_rate": 0.931,
+    "median_seconds": 33.09
+  },
+  "results": [
+    {
+      "id": "phase_melanoma",
+      "query": "How are melanoma trials distributed across phases?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "phase",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "phase",
+        "actual_dimension": "phase",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 7,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 7,
+        "steps_replayable": 7,
+        "steps_skipped": [],
+        "passed": 7,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 15.97,
+      "hard_pass": true
+    },
+    {
+      "id": "phase_pembrolizumab",
+      "query": "Show the phase breakdown for pembrolizumab trials.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "phase",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "phase",
+        "actual_dimension": "phase",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 7,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 7,
+        "steps_replayable": 7,
+        "steps_skipped": [],
+        "passed": 7,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 20.17,
+      "hard_pass": true
+    },
+    {
+      "id": "phase_glioblastoma",
+      "query": "What phases are glioblastoma trials in?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "phase",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "phase",
+        "actual_dimension": "phase",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 7,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 7,
+        "steps_replayable": 7,
+        "steps_skipped": [],
+        "passed": 7,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 23.1,
+      "hard_pass": true
+    },
+    {
+      "id": "phase_nsclc_recruiting",
+      "query": "Break down currently recruiting non-small cell lung cancer trials by phase.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "phase",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "phase",
+        "actual_dimension": "phase",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 7,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 7,
+        "steps_replayable": 7,
+        "steps_skipped": [],
+        "passed": 7,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 27.16,
+      "hard_pass": true
+    },
+    {
+      "id": "phase_pfizer",
+      "query": "Distribution of Pfizer trials by phase.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "phase",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "phase",
+        "actual_dimension": "phase",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 7,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 7,
+        "steps_replayable": 7,
+        "steps_skipped": [],
+        "passed": 7,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 20.1,
+      "hard_pass": true
+    },
+    {
+      "id": "phase_covid_windowed",
+      "query": "Phase distribution of COVID-19 trials started between 2020 and 2022.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "phase",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "phase",
+        "actual_dimension": "phase",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 7,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 7,
+        "steps_replayable": 7,
+        "steps_skipped": [],
+        "passed": 7,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 20.33,
+      "hard_pass": true
+    },
+    {
+      "id": "status_melanoma",
+      "query": "What is the recruitment status of melanoma trials?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "status",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "status",
+        "actual_dimension": "status",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 9,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 9,
+        "steps_replayable": 9,
+        "steps_skipped": [],
+        "passed": 9,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 40.17,
+      "hard_pass": true
+    },
+    {
+      "id": "status_pembrolizumab",
+      "query": "Show pembrolizumab trials by status.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "status",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "status",
+        "actual_dimension": "status",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 9,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 9,
+        "steps_replayable": 9,
+        "steps_skipped": [],
+        "passed": 9,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 32.5,
+      "hard_pass": true
+    },
+    {
+      "id": "status_breast_cancer",
+      "query": "Breast cancer trials grouped by overall status.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "status",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "status",
+        "actual_dimension": "status",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 9,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 9,
+        "steps_replayable": 9,
+        "steps_skipped": [],
+        "passed": 9,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 31.12,
+      "hard_pass": true
+    },
+    {
+      "id": "status_alzheimers",
+      "query": "How many Alzheimer's disease trials are in each status?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "status",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "status",
+        "actual_dimension": "status",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 9,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 9,
+        "steps_replayable": 9,
+        "steps_skipped": [],
+        "passed": 9,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 29.28,
+      "hard_pass": true
+    },
+    {
+      "id": "year_glioblastoma",
+      "query": "How many glioblastoma trials started each year since 2018?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "year",
+        "viz_type": "time_series",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "time_series",
+      "routing": {
+        "expected_dimension": "year",
+        "actual_dimension": "year",
+        "dimension_ok": true,
+        "expected_viz": [
+          "time_series",
+          "bar_chart"
+        ],
+        "actual_viz": "time_series",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 8,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 8,
+        "steps_replayable": 8,
+        "steps_skipped": [],
+        "passed": 8,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": true,
+        "actual": true,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 18.53,
+      "hard_pass": true
+    },
+    {
+      "id": "year_pembrolizumab",
+      "query": "Pembrolizumab trials per year from 2016 to 2023.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "year",
+        "viz_type": "time_series",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "time_series",
+      "routing": {
+        "expected_dimension": "year",
+        "actual_dimension": "year",
+        "dimension_ok": true,
+        "expected_viz": [
+          "time_series",
+          "bar_chart"
+        ],
+        "actual_viz": "time_series",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 9,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 9,
+        "steps_replayable": 9,
+        "steps_skipped": [],
+        "passed": 9,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": true,
+        "actual": true,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 33.09,
+      "hard_pass": true
+    },
+    {
+      "id": "year_covid",
+      "query": "Trend of COVID-19 trial starts per year 2020 through 2024.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "year",
+        "viz_type": "time_series",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "time_series",
+      "routing": {
+        "expected_dimension": "year",
+        "actual_dimension": "year",
+        "dimension_ok": true,
+        "expected_viz": [
+          "time_series",
+          "bar_chart"
+        ],
+        "actual_viz": "time_series",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 6,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 6,
+        "steps_replayable": 6,
+        "steps_skipped": [],
+        "passed": 6,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": true,
+        "actual": true,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 17.17,
+      "hard_pass": true
+    },
+    {
+      "id": "year_melanoma",
+      "query": "How has the number of melanoma trials changed each year between 2015 and 2022?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "year",
+        "viz_type": "time_series",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "time_series",
+      "routing": {
+        "expected_dimension": "year",
+        "actual_dimension": "year",
+        "dimension_ok": true,
+        "expected_viz": [
+          "time_series",
+          "bar_chart"
+        ],
+        "actual_viz": "time_series",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 9,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 9,
+        "steps_replayable": 9,
+        "steps_skipped": [],
+        "passed": 9,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": true,
+        "actual": true,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 22.85,
+      "hard_pass": true
+    },
+    {
+      "id": "country_pancreatic_recruiting",
+      "query": "Which countries are running recruiting pancreatic cancer trials?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "country",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "country",
+        "actual_dimension": "country",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 13,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 13,
+        "steps_replayable": 13,
+        "steps_skipped": [],
+        "passed": 13,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 37.68,
+      "hard_pass": true
+    },
+    {
+      "id": "country_melanoma",
+      "query": "Where in the world are melanoma trials run?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "country",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "country",
+        "actual_dimension": "country",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 13,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 13,
+        "steps_replayable": 13,
+        "steps_skipped": [],
+        "passed": 13,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 40.72,
+      "hard_pass": true
+    },
+    {
+      "id": "country_diabetes",
+      "query": "Geographic distribution of type 2 diabetes trials by country.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "country",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "country",
+        "actual_dimension": "country",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 13,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 13,
+        "steps_replayable": 13,
+        "steps_skipped": [],
+        "passed": 13,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 38.24,
+      "hard_pass": true
+    },
+    {
+      "id": "itype_melanoma",
+      "query": "What types of intervention do melanoma trials use?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "intervention_type",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "intervention_type",
+        "actual_dimension": "intervention_type",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 10,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 10,
+        "steps_replayable": 10,
+        "steps_skipped": [],
+        "passed": 10,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 61.61,
+      "hard_pass": true
+    },
+    {
+      "id": "itype_alzheimers",
+      "query": "Break Alzheimer's trials down by intervention type.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "intervention_type",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "intervention_type",
+        "actual_dimension": "intervention_type",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 10,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 10,
+        "steps_replayable": 10,
+        "steps_skipped": [],
+        "passed": 10,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 40.32,
+      "hard_pass": true
+    },
+    {
+      "id": "total_pembrolizumab",
+      "query": "How many pembrolizumab trials are there in total?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "none",
+        "viz_type": "single_value",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "single_value",
+      "routing": {
+        "expected_dimension": "none",
+        "actual_dimension": "none",
+        "dimension_ok": true,
+        "expected_viz": [
+          "single_value"
+        ],
+        "actual_viz": "single_value",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 2,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 1,
+        "steps_replayable": 1,
+        "steps_skipped": [],
+        "passed": 1,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": true,
+        "actual": true,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 4.45,
+      "hard_pass": true
+    },
+    {
+      "id": "total_melanoma_recruiting",
+      "query": "What is the total number of recruiting melanoma trials?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "none",
+        "viz_type": "single_value",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "single_value",
+      "routing": {
+        "expected_dimension": "none",
+        "actual_dimension": "none",
+        "dimension_ok": true,
+        "expected_viz": [
+          "single_value"
+        ],
+        "actual_viz": "single_value",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 2,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 1,
+        "steps_replayable": 1,
+        "steps_skipped": [],
+        "passed": 1,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": true,
+        "actual": true,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 2.27,
+      "hard_pass": true
+    },
+    {
+      "id": "total_novartis",
+      "query": "How many trials does Novartis sponsor?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "sponsor",
+        "viz_type": "single_value",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "single_value",
+      "routing": {
+        "expected_dimension": "none",
+        "actual_dimension": "sponsor",
+        "dimension_ok": false,
+        "expected_viz": [
+          "single_value"
+        ],
+        "actual_viz": "single_value",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 11,
+        "problems": [
+          "single value 'Novartis': got 3592, golden 5062",
+          "single value 'Novartis Pharmaceuticals': got 2679, golden 5062",
+          "single value 'Novartis Vaccines': got 165, golden 5062",
+          "single value 'M.D. Anderson Cancer Center': got 65, golden 5062",
+          "single value 'Dana-Farber Cancer Institute': got 37, golden 5062",
+          "single value 'Duke University': got 12, golden 5062",
+          "single value 'Institut Bergoni\u00e9': got 5, golden 5062",
+          "single value 'Pfizer': got 2, golden 5062",
+          "single value 'Universitaire Ziekenhuizen KU Leuven': got 1, golden 5062",
+          "single value 'Center for Vulvovaginal Disorders': got 1, golden 5062"
+        ],
+        "passed": false
+      },
+      "trace_replay": {
+        "steps_total": 11,
+        "steps_replayable": 11,
+        "steps_skipped": [],
+        "passed": 11,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": true,
+        "actual": false,
+        "problems": [
+          "buckets_are_exclusive=False, golden expects True"
+        ],
+        "passed": false
+      },
+      "seconds": 34.1,
+      "hard_pass": false
+    },
+    {
+      "id": "total_glioblastoma_since_2020",
+      "query": "Count the glioblastoma trials that started in 2020 or later.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "year",
+        "viz_type": "time_series",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "time_series",
+      "routing": {
+        "expected_dimension": "none",
+        "actual_dimension": "year",
+        "dimension_ok": false,
+        "expected_viz": [
+          "single_value"
+        ],
+        "actual_viz": "time_series",
+        "viz_ok": false
+      },
+      "counts": {
+        "checked": 8,
+        "problems": [
+          "single value '2020': got 109, golden 775",
+          "single value '2021': got 96, golden 775",
+          "single value '2022': got 116, golden 775",
+          "single value '2023': got 115, golden 775",
+          "single value '2024': got 114, golden 775",
+          "single value '2025': got 114, golden 775",
+          "single value '2026': got 106, golden 775"
+        ],
+        "passed": false
+      },
+      "trace_replay": {
+        "steps_total": 8,
+        "steps_replayable": 8,
+        "steps_skipped": [],
+        "passed": 8,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": true,
+        "actual": false,
+        "problems": [
+          "buckets_are_exclusive=False, golden expects True"
+        ],
+        "passed": false
+      },
+      "seconds": 34.22,
+      "hard_pass": false
+    },
+    {
+      "id": "compare_pembro_nivo",
+      "query": "Compare Pembrolizumab and Nivolumab across trial phases.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "phase",
+        "viz_type": "grouped_bar_chart",
+        "compare_values": [
+          "Pembrolizumab",
+          "Nivolumab"
+        ],
+        "compare_field": "intervention"
+      },
+      "error": "CTGovError: /studies failed after 5 attempts (HTTP 429)",
+      "seconds": 29.15,
+      "hard_pass": false
+    },
+    {
+      "id": "compare_melanoma_nsclc_status",
+      "query": "Compare melanoma and non-small cell lung cancer trials by recruitment status.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "status",
+        "viz_type": "grouped_bar_chart",
+        "compare_values": [
+          "melanoma",
+          "non-small cell lung cancer"
+        ],
+        "compare_field": "condition"
+      },
+      "error": "CTGovError: /studies failed after 5 attempts (HTTP 429)",
+      "seconds": 29.12,
+      "hard_pass": false
+    },
+    {
+      "id": "compare_pfizer_novartis_phase",
+      "query": "Compare Pfizer versus Novartis trials across phases.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "phase",
+        "viz_type": "grouped_bar_chart",
+        "compare_values": [
+          "Pfizer",
+          "Novartis"
+        ],
+        "compare_field": "sponsor"
+      },
+      "viz_type": "grouped_bar_chart",
+      "routing": {
+        "expected_dimension": "phase",
+        "actual_dimension": "phase",
+        "dimension_ok": true,
+        "expected_viz": [
+          "grouped_bar_chart"
+        ],
+        "actual_viz": "grouped_bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 13,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 13,
+        "steps_replayable": 13,
+        "steps_skipped": [],
+        "passed": 13,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 56.06,
+      "hard_pass": true
+    },
+    {
+      "id": "sponsor_melanoma",
+      "query": "Which sponsors run the most melanoma trials?",
+      "planner": "structured",
+      "plan": {
+        "dimension": "sponsor",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "sponsor",
+        "actual_dimension": "sponsor",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 11,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 11,
+        "steps_replayable": 11,
+        "steps_skipped": [],
+        "passed": 11,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 69.76,
+      "hard_pass": true
+    },
+    {
+      "id": "sponsor_lung_cancer",
+      "query": "Show the leading sponsors of lung cancer trials.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "sponsor",
+        "viz_type": "bar_chart",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "bar_chart",
+      "routing": {
+        "expected_dimension": "sponsor",
+        "actual_dimension": "sponsor",
+        "dimension_ok": true,
+        "expected_viz": [
+          "bar_chart"
+        ],
+        "actual_viz": "bar_chart",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 11,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 11,
+        "steps_replayable": 11,
+        "steps_skipped": [],
+        "passed": 11,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 78.82,
+      "hard_pass": true
+    },
+    {
+      "id": "network_sponsor_drug_melanoma",
+      "query": "Show the network of relationships between sponsors and drugs in melanoma trials.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "sponsor_drug_network",
+        "viz_type": "network_graph",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "network_graph",
+      "routing": {
+        "expected_dimension": "sponsor_drug_network",
+        "actual_dimension": "sponsor_drug_network",
+        "dimension_ok": true,
+        "expected_viz": [
+          "network_graph"
+        ],
+        "actual_viz": "network_graph",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 28,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 2,
+        "steps_replayable": 1,
+        "steps_skipped": [
+          "probe 12 nodes + 24 edges"
+        ],
+        "passed": 1,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 113.27,
+      "hard_pass": true
+    },
+    {
+      "id": "network_drug_drug_nsclc",
+      "query": "Which drugs are studied in combination with each other in non-small cell lung cancer trials? Show the drug co-occurrence network.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "drug_drug_network",
+        "viz_type": "network_graph",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "network_graph",
+      "routing": {
+        "expected_dimension": "drug_drug_network",
+        "actual_dimension": "drug_drug_network",
+        "dimension_ok": true,
+        "expected_viz": [
+          "network_graph"
+        ],
+        "actual_viz": "network_graph",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 27,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 2,
+        "steps_replayable": 1,
+        "steps_skipped": [
+          "probe 11 nodes + 15 edges"
+        ],
+        "passed": 1,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 56.95,
+      "hard_pass": true
+    },
+    {
+      "id": "network_sponsor_drug_pembrolizumab",
+      "query": "Show sponsor-drug relationships across pembrolizumab trials as a network.",
+      "planner": "structured",
+      "plan": {
+        "dimension": "sponsor_drug_network",
+        "viz_type": "network_graph",
+        "compare_values": null,
+        "compare_field": null
+      },
+      "viz_type": "network_graph",
+      "routing": {
+        "expected_dimension": "sponsor_drug_network",
+        "actual_dimension": "sponsor_drug_network",
+        "dimension_ok": true,
+        "expected_viz": [
+          "network_graph"
+        ],
+        "actual_viz": "network_graph",
+        "viz_ok": true
+      },
+      "counts": {
+        "checked": 34,
+        "problems": [],
+        "passed": true
+      },
+      "trace_replay": {
+        "steps_total": 2,
+        "steps_replayable": 1,
+        "steps_skipped": [
+          "probe 12 nodes + 24 edges"
+        ],
+        "passed": 1,
+        "mismatches": [],
+        "errors": []
+      },
+      "fabricated_numbers": {
+        "hits": [],
+        "passed": true
+      },
+      "schema": {
+        "passed": true,
+        "error": null
+      },
+      "exclusivity": {
+        "expected": false,
+        "actual": false,
+        "problems": [],
+        "passed": true
+      },
+      "seconds": 73.27,
+      "hard_pass": true
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+# ReferenceObservations — how shipped products render data WITH source attribution.
+# License discipline: live inspection only. No pixels cached. Facts + URLs + dates only.
+# capturedVia: mobbin-live
+
+- id: obs-peecai-source-analytics-1
+  source:
+    url: https://mobbin.com/screens/06988b57-aba2-41f7-9db0-c271441a579e
+    app: Peec AI
+    surface: Sources / analytics overview
+    capturedVia: mobbin-live
+  firstSeenAt: 2026-08-02
+  lastVerifiedAt: 2026-08-02
+  facts:
+    - { id: f1, kind: count, subject: filter bar, property: sibling dropdown filters in one row, value: 6, unit: controls, locatorDescription: "row directly under page title, reading 'Last 7 days / All Tags / All Models / All Countries / All Topics'" }
+    - { id: f2, kind: relationship, subject: top panel, property: split, value: "time-series left ~2/3 width, donut right ~1/3", unit: layout, locatorDescription: "'Source Usage by Domain' beside 'Domain type'" }
+    - { id: f3, kind: count, subject: line chart, property: simultaneous series, value: 5, unit: series, locatorDescription: "legend above plot with one colour dot + domain name per series" }
+    - { id: f4, kind: relationship, subject: hover tooltip, property: content, value: "ranked source list + absolute count (779) + category name", unit: composition, locatorDescription: "dark tooltip over the line chart showing 'Top Sources'" }
+    - { id: f5, kind: count, subject: donut legend, property: categories, value: 7, unit: categories, locatorDescription: "colour-dot legend under donut: Reference, Competitor, UGC, Institutional, Other, Corporate, Editorial" }
+    - { id: f6, kind: relationship, subject: donut, property: centre label, value: "single headline percentage (23%) for the highlighted category", unit: emphasis, locatorDescription: "numeral inside donut hole" }
+    - { id: f7, kind: relationship, subject: source table, property: column set, value: "rank, source+favicon, domain-type pill, used %, avg citations", unit: columns, locatorDescription: "table below the charts" }
+    - { id: f8, kind: relationship, subject: domain type, property: encoding, value: "coloured text pill, one hue per category, reused identically in donut legend", unit: encoding, locatorDescription: "'Domain Type' column cells" }
+    - { id: f9, kind: count, subject: table row, property: quantitative columns, value: 2, unit: columns, locatorDescription: "'Used' as percent, 'Avg. Citations' as decimal — share and density kept separate" }
+  problemTags: [dense-data-scan, source-attribution, category-comparison]
+  layoutTags: [left-nav, filter-bar, chart-over-table]
+  interactionTags: [hover-detail, export, search-within-table]
+
+- id: obs-profound-citations-1
+  source:
+    url: https://mobbin.com/screens/c83e0351-ac96-4470-ba5e-c2ddbd1b2ffe
+    app: Profound
+    surface: Answer Engine Insights / Citations
+    capturedVia: mobbin-live
+  firstSeenAt: 2026-08-02
+  lastVerifiedAt: 2026-08-02
+  facts:
+    - { id: f1, kind: relationship, subject: citation types, property: mark, value: "single 100% horizontal stacked bar, 3 segments", unit: mark, locatorDescription: "'Citation Types' section, full content width" }
+    - { id: f2, kind: measurement, subject: stacked bar, property: segment labels, value: "in-segment percentage when segment is wide enough (90.6%), legend dot below otherwise", unit: labelling, locatorDescription: "Earned / Social / Owned segments" }
+    - { id: f3, kind: relationship, subject: section subtitle, property: role, value: "states the denominator in words — 'over total citations in the selected period by type'", unit: disclosure, locatorDescription: "grey caption under 'Citation Types' heading" }
+    - { id: f4, kind: relationship, subject: domains table, property: column set, value: "rank, domain+favicon, category pill, share % with signed delta, magnitude bar", unit: columns, locatorDescription: "'Top Citation Domains' table" }
+    - { id: f5, kind: relationship, subject: share column, property: encoding, value: "percentage plus signed change (+9.4%) coloured green for positive", unit: encoding, locatorDescription: "'Share' column cells" }
+    - { id: f6, kind: count, subject: analysis tabs, property: top-level tabs, value: 8, unit: tabs, locatorDescription: "Visibility / Prompts / Platforms / Regions / Personas / Shopping / Sentiment / Citations" }
+    - { id: f7, kind: relationship, subject: subdomain rollup, property: disclosure, value: "'3 subdomains' expander inline in the domain cell", unit: aggregation-disclosure, locatorDescription: "mobbin.com row of the domains table" }
+  problemTags: [share-of-total, source-attribution, trend-delta]
+  layoutTags: [tab-rail, stacked-bar-over-table]
+  interactionTags: [expand-rollup, period-filter]
+
+- id: obs-dovetail-tagged-bars-1
+  source:
+    url: https://mobbin.com/screens/94695a7c-65d8-42dc-a976-6c11bcd739ef
+    app: Dovetail
+    surface: Project / Charts
+    capturedVia: mobbin-live
+  firstSeenAt: 2026-08-02
+  lastVerifiedAt: 2026-08-02
+  facts:
+    - { id: f1, kind: relationship, subject: bar chart, property: orientation, value: "horizontal, categorical labels left-aligned outside the plot", unit: orientation, locatorDescription: "bars for 'Motivation & goals', 'Suggestions', etc." }
+    - { id: f2, kind: relationship, subject: bar, property: value label, value: "absolute count rendered at the bar's terminal end, inside the bar", unit: labelling, locatorDescription: "numerals 5, 4, 4, 3, 3 at right edge of each bar" }
+    - { id: f3, kind: relationship, subject: unbucketed data, property: representation, value: "explicit 'No tags' bar rendered in neutral grey, kept in the chart rather than dropped", unit: null-handling, locatorDescription: "bottom-most bar of the chart" }
+    - { id: f4, kind: count, subject: right rail, property: collapsible tag groups, value: 3, unit: groups, locatorDescription: "'Research Tags', 'User Behaviour & Usage', 'Positive Experience' sections" }
+    - { id: f5, kind: relationship, subject: rail item, property: composition, value: "checkbox + label + right-aligned count, count shown even when zero", unit: composition, locatorDescription: "tag rows in the right rail, several reading 0" }
+    - { id: f6, kind: relationship, subject: hover tooltip, property: content, value: "category name plus parenthesised count, prefixed with the series colour dot", unit: composition, locatorDescription: "dark tooltip reading 'Valuable Features (4)'" }
+    - { id: f7, kind: count, subject: chart toolbar, property: controls before the plot, value: 4, unit: controls, locatorDescription: "measure selector, 'Bar chart' type selector, 'By Tag' grouping, 'More'" }
+  problemTags: [categorical-distribution, null-disclosure, facet-filtering]
+  layoutTags: [chart-with-filter-rail, toolbar-above-plot]
+  interactionTags: [hover-detail, checkbox-facet, chart-type-switch]
+
+- id: obs-chatgpt-sourced-answer-1
+  source:
+    url: https://mobbin.com/screens/73833b79-1dd5-4354-8fc4-a2e99c33a75e
+    app: ChatGPT
+    surface: Deep research answer with sources
+    capturedVia: mobbin-live
+  firstSeenAt: 2026-08-02
+  lastVerifiedAt: 2026-08-02
+  facts:
+    - { id: f1, kind: relationship, subject: inline citation, property: mark, value: "favicon + domain text chip placed inline within the sentence it supports", unit: mark, locatorDescription: "chips such as apnews.com and theguardian.com inside the Sources paragraph" }
+    - { id: f2, kind: count, subject: source panel, property: header tabs, value: 2, unit: tabs, locatorDescription: "'Activity' and '23 Sources' at panel top-right" }
+    - { id: f3, kind: relationship, subject: source count, property: placement, value: "absolute count promoted into the tab label itself rather than a separate badge", unit: labelling, locatorDescription: "tab reading '23 Sources'" }
+    - { id: f4, kind: relationship, subject: activity panel, property: content, value: "chronological list of retrieval steps, each with an icon and the action taken", unit: trace, locatorDescription: "right panel entries 'Read more from irci.jp', 'Searched for ...'" }
+    - { id: f5, kind: relationship, subject: run summary, property: content, value: "completion time and source count stated together — 'Research completed in 5m · 23 sources'", unit: provenance, locatorDescription: "foot of the Activity panel" }
+    - { id: f6, kind: relationship, subject: answer footer, property: mark, value: "overlapping favicon cluster acting as an affordance to the full source list", unit: mark, locatorDescription: "stacked circular favicons beside the 'Sources' label under the answer" }
+    - { id: f7, kind: relationship, subject: source panel, property: dismissibility, value: "panel is closable via × and toggled from the answer, not permanently docked", unit: interaction, locatorDescription: "× at top-right of the sources panel" }
+  problemTags: [source-attribution, reasoning-transparency, claim-level-traceability]
+  layoutTags: [answer-with-side-panel]
+  interactionTags: [panel-toggle, inline-citation-chip, trace-disclosure]
+
+- id: obs-cohere-tool-trace-1
+  source:
+    url: https://mobbin.com/screens/4100675f-3440-45a6-8b20-de1a8c765568
+    app: Cohere
+    surface: Playground chat with tool use
+    capturedVia: mobbin-live
+  firstSeenAt: 2026-08-02
+  lastVerifiedAt: 2026-08-02
+  facts:
+    - { id: f1, kind: relationship, subject: tool trace, property: placement, value: "collapsible 'Performing multistep reasoning using tools' block rendered above the answer", unit: trace, locatorDescription: "grey block between the user question and the response" }
+    - { id: f2, kind: relationship, subject: trace content, property: composition, value: "stated Rationale line plus the literal executed query string", unit: composition, locatorDescription: "'Rationale: I will search for...' and 'web-search: global market overview of solar panels'" }
+    - { id: f3, kind: relationship, subject: citations, property: placement, value: "collected in a single labelled row beneath the answer, not inline", unit: mark, locatorDescription: "'Citations:' row at the foot of the response" }
+    - { id: f4, kind: count, subject: citation row, property: visible chips before overflow, value: 4, unit: chips, locatorDescription: "four domain chips followed by a '+8' overflow chip" }
+    - { id: f5, kind: relationship, subject: overflow, property: encoding, value: "remaining count collapsed into a single '+N' chip rather than wrapping the row", unit: overflow, locatorDescription: "'+8' chip at end of citations row" }
+    - { id: f6, kind: relationship, subject: parameters panel, property: role, value: "right rail exposes model, preamble, connectors and a JSON-mode toggle beside the output", unit: control-surface, locatorDescription: "'PARAMETERS' panel right of the chat" }
+  problemTags: [reasoning-transparency, source-attribution, output-format-control]
+  layoutTags: [chat-with-parameter-rail]
+  interactionTags: [trace-disclosure, overflow-chip, format-toggle]
+
+- id: obs-twenty-entity-graph-1
+  source:
+    url: https://mobbin.com/screens/5cef3d3f-8af5-4353-9da9-e2d955a6ebb1
+    app: Twenty
+    surface: Settings / Data model graph
+    capturedVia: mobbin-live
+  firstSeenAt: 2026-08-02
+  lastVerifiedAt: 2026-08-02
+  facts:
+    - { id: f1, kind: relationship, subject: node, property: composition, value: "card with colour dot + entity name + record count in the header, member rows below", unit: composition, locatorDescription: "cards headed 'Opportunities · 7', 'Companies · 213', 'People · 344'" }
+    - { id: f2, kind: relationship, subject: node header, property: quantity placement, value: "cardinality shown in the header adjacent to the name, not on the edge", unit: labelling, locatorDescription: "'· 213' following 'Companies'" }
+    - { id: f3, kind: relationship, subject: edge, property: routing, value: "orthogonal elbow connectors with a single arrowhead at the target", unit: routing, locatorDescription: "lines joining Opportunities, Companies and People cards" }
+    - { id: f4, kind: relationship, subject: node body, property: truncation, value: "visible member rows capped, remainder collapsed to an 'N fields' expander", unit: truncation, locatorDescription: "'13 fields' / '14 fields' / '7 fields' rows at card feet" }
+    - { id: f5, kind: count, subject: canvas controls, property: controls, value: 4, unit: controls, locatorDescription: "zoom in, zoom out, fit-to-view, lock at bottom-left" }
+    - { id: f6, kind: relationship, subject: canvas, property: background, value: "dotted grid signalling a pannable infinite surface", unit: affordance, locatorDescription: "regular dot pattern behind the cards" }
+  problemTags: [relationship-topology, entity-cardinality, graph-navigation]
+  layoutTags: [infinite-canvas, card-nodes]
+  interactionTags: [zoom-pan, node-expand]
+
+- id: obs-fibery-sparse-graph-1
+  source:
+    url: https://mobbin.com/screens/8d9b55e8-241c-417c-ad8d-647b89e58719
+    app: Fibery
+    surface: Database / Relations
+    capturedVia: mobbin-live
+  firstSeenAt: 2026-08-02
+  lastVerifiedAt: 2026-08-02
+  facts:
+    - { id: f1, kind: relationship, subject: focal node, property: emphasis, value: "single dark filled pill at canvas centre, all neighbours rendered lighter", unit: emphasis, locatorDescription: "'USER' pill at the middle of the canvas" }
+    - { id: f2, kind: relationship, subject: neighbour node, property: composition, value: "small-caps context label above a bordered entity pill", unit: composition, locatorDescription: "'30-60-90 ONBOARDING' above the 'EMPLOYEE' pill" }
+    - { id: f3, kind: relationship, subject: edge terminal, property: affordance, value: "'+' target at the free end of each edge to create a new relation", unit: affordance, locatorDescription: "plus glyphs at the ends of the four radiating lines" }
+    - { id: f4, kind: relationship, subject: canvas, property: density, value: "four neighbours only, majority of canvas left empty", unit: density, locatorDescription: "whitespace surrounding the USER cluster" }
+    - { id: f5, kind: relationship, subject: page header, property: role, value: "one-sentence plain-language definition of what a relation is, above the canvas", unit: orientation, locatorDescription: "caption under the 'Users' title" }
+  problemTags: [relationship-topology, first-run-orientation, low-degree-graph]
+  layoutTags: [centred-ego-graph]
+  interactionTags: [add-relation-affordance]
+
+- id: obs-vercel-schema-graph-1
+  source:
+    url: https://mobbin.com/screens/817a3207-0185-423e-9313-37472ef382f9
+    app: Vercel
+    surface: Storage / Schema
+    capturedVia: mobbin-live
+  firstSeenAt: 2026-08-02
+  lastVerifiedAt: 2026-08-02
+  facts:
+    - { id: f1, kind: relationship, subject: node, property: header treatment, value: "solid dark header bar carrying the entity name, light typed rows beneath", unit: composition, locatorDescription: "'media', '_posts_v', 'redirects_rels' card headers" }
+    - { id: f2, kind: relationship, subject: member row, property: composition, value: "field name left, type token right (int4, varchar, jsonb, timestamptz(3))", unit: composition, locatorDescription: "rows inside the 'media' card" }
+    - { id: f3, kind: relationship, subject: key fields, property: encoding, value: "glyph prefix marks primary and foreign keys distinctly from plain fields", unit: encoding, locatorDescription: "key and link icons beside id and parent_id rows" }
+    - { id: f4, kind: relationship, subject: edges, property: legibility, value: "many orthogonal connectors cross; crossings are tolerated rather than resolved", unit: routing, locatorDescription: "connector bundle on the left of the canvas" }
+    - { id: f5, kind: count, subject: scope selector, property: controls, value: 1, unit: controls, locatorDescription: "'public' schema dropdown above the canvas" }
+  problemTags: [relationship-topology, high-degree-graph, type-disclosure]
+  layoutTags: [infinite-canvas, dense-card-nodes]
+  interactionTags: [scope-filter]
+
+- id: obs-sanaai-sourced-answer-1
+  source:
+    url: https://mobbin.com/screens/67047d63-2ae6-44e0-a2a2-8d6989a14819
+    app: Sana AI
+    surface: Chat answer citing internal sources
+    capturedVia: mobbin-live
+  firstSeenAt: 2026-08-02
+  lastVerifiedAt: 2026-08-02
+  facts:
+    - { id: f1, kind: relationship, subject: reasoning, property: default state, value: "collapsed to a single 'Done ›' disclosure above the answer", unit: disclosure, locatorDescription: "'Done' row directly under the user question" }
+    - { id: f2, kind: relationship, subject: source list, property: composition, value: "numbered entries with Title line plus a 'Contains:' summary of what the source holds", unit: composition, locatorDescription: "items 1 and 2 of the answer body" }
+    - { id: f3, kind: relationship, subject: primary source, property: labelling, value: "one source explicitly annotated '(best primary source)' rather than left to rank order", unit: ranking, locatorDescription: "parenthetical on the 'Formal minutes' entry" }
+    - { id: f4, kind: relationship, subject: composer, property: scope, value: "active retrieval scope shown as removable chips on the input", unit: scope-control, locatorDescription: "'Meetings, Webpages ×' chip under the composer" }
+  problemTags: [source-attribution, source-quality-ranking, scope-control]
+  layoutTags: [chat-answer]
+  interactionTags: [trace-disclosure, scope-chip]

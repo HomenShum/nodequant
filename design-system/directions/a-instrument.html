@@ -1,0 +1,118 @@
+<!-- @dsCard group="Directions" -->
+<div class="ds">
+  <div class="chrome">
+    <span class="tag">DIRECTION A</span> instrument panel
+    <span class="right">monospace-forward · high density · every number replayable</span>
+  </div>
+
+  <div class="q">
+    <span class="prompt">?</span>
+    <input value="How are melanoma trials distributed across phases?" readonly>
+    <span class="lat">1.02s</span>
+  </div>
+
+  <div class="interp"><b>READ AS</b> distribution by phase · cond=melanoma · no date bound</div>
+
+  <div class="grid">
+    <div class="panel">
+      <div class="ph">DISTRIBUTION<span class="sub">n=6 buckets · sort=count desc</span></div>
+      <table class="bars">
+        <tr><td class="lb">PHASE2</td><td class="bc"><i style="width:100%"></i></td><td class="vc">1529</td><td class="pc">40.9%</td></tr>
+        <tr><td class="lb">PHASE1</td><td class="bc"><i style="width:87.6%"></i></td><td class="vc">1340</td><td class="pc">35.8%</td></tr>
+        <tr class="nul"><td class="lb">NA</td><td class="bc"><i style="width:26.9%"></i></td><td class="vc">412</td><td class="pc">11.0%</td></tr>
+        <tr><td class="lb">PHASE3</td><td class="bc"><i style="width:14.3%"></i></td><td class="vc">219</td><td class="pc">5.9%</td></tr>
+        <tr><td class="lb">EARLY_PHASE1</td><td class="bc"><i style="width:4.3%"></i></td><td class="vc">65</td><td class="pc">1.7%</td></tr>
+        <tr><td class="lb">PHASE4</td><td class="bc"><i style="width:2.4%"></i></td><td class="vc">37</td><td class="pc">1.0%</td></tr>
+      </table>
+    </div>
+
+    <div class="panel warn">
+      <div class="ph">RECONCILIATION<span class="sub">computed per query</span></div>
+      <table class="rec">
+        <tr><td>matched</td><td class="n">3738</td><td></td></tr>
+        <tr><td>bucket sum</td><td class="n">3602</td><td class="d">−136</td></tr>
+        <tr class="hl"><td>in no bucket</td><td class="n">136</td><td class="d">phases field absent</td></tr>
+        <tr><td>PHASE1 ∩ PHASE2</td><td class="n">472</td><td class="d">double-counted</td></tr>
+        <tr><td>PHASE2 ∩ PHASE3</td><td class="n">25</td><td class="d">double-counted</td></tr>
+      </table>
+      <div class="verdict">buckets_are_exclusive = <b>false</b> → part-of-whole marks blocked</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="ph">TRACE<span class="sub">8 calls · 221ms · paste any URL to reproduce</span></div>
+    <div class="tr"><span>01</span><code>/studies?query.cond=melanoma&countTotal=true&pageSize=1</code><b>3738</b></div>
+    <div class="tr"><span>02</span><code>...&filter.advanced=AREA[Phase]PHASE2&countTotal=true</code><b>1529</b></div>
+    <div class="tr"><span>03</span><code>...&filter.advanced=AREA[Phase]PHASE1&countTotal=true</code><b>1340</b></div>
+    <div class="tr dim"><span>04</span><code>...AREA[Phase]PHASE1 AND AREA[Phase]PHASE2</code><b>472</b></div>
+  </div>
+
+  <div class="panel">
+    <div class="ph">CITATIONS<span class="sub">PHASE3 · showing 3 of 219</span></div>
+    <div class="ct"><a>NCT02460068</a><em>briefTitle</em>"A Study of Fotemustine(FTM) Vs FTM and Ipilimumab (IPI)..."</div>
+    <div class="ct"><a>NCT01682083</a><em>briefTitle</em>"Dabrafenib With Trametinib in the Adjuvant Treatment..."</div>
+    <div class="ct"><a>NCT06519266</a><em>briefTitle</em>"PHP in Combination With IPI1/NIVO3 Compared to IPI3/NIVO1..."</div>
+  </div>
+</div>
+
+<style>
+  :root{ --bg:#0e0f10; --pan:#151719; --ink:#dfe3e6; --dim:#7d848a; --line:#25292c;
+         --acc:#4fd1c5; --null:#6b7075; --warn:#e8a33d; --warnbg:#1e1a12; }
+  :root[data-theme="light"]{ --bg:#f7f8f8; --pan:#fff; --ink:#15181a; --dim:#6a7075;
+    --line:#e2e5e7; --acc:#0f766e; --null:#9aa0a4; --warn:#a86a10; --warnbg:#fdf7ea; }
+  @media (prefers-color-scheme:light){ :root:not([data-theme="dark"]){ --bg:#f7f8f8; --pan:#fff;
+    --ink:#15181a; --dim:#6a7075; --line:#e2e5e7; --acc:#0f766e; --null:#9aa0a4;
+    --warn:#a86a10; --warnbg:#fdf7ea; } }
+  .ds{ background:var(--bg); color:var(--ink); padding:20px; min-height:100%;
+       font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums; }
+  .chrome{ display:flex; align-items:center; gap:9px; font-size:11px; color:var(--dim);
+           padding-bottom:12px; border-bottom:1px solid var(--line); margin-bottom:14px; }
+  .tag{ background:var(--acc); color:var(--bg); padding:2px 7px; border-radius:3px;
+        font-weight:700; letter-spacing:.05em; }
+  .right{ margin-left:auto; }
+  .q{ display:flex; align-items:center; gap:10px; background:var(--pan);
+      border:1px solid var(--line); border-radius:5px; padding:10px 13px; margin-bottom:9px; }
+  .prompt{ color:var(--acc); font-weight:700; }
+  .q input{ flex:1; background:none; border:none; color:var(--ink); font:inherit; outline:none; }
+  .lat{ color:var(--dim); font-size:11px; }
+  .interp{ color:var(--dim); font-size:11px; margin-bottom:14px; padding-left:2px; }
+  .interp b{ color:var(--acc); margin-right:8px; letter-spacing:.05em; }
+  .grid{ display:grid; grid-template-columns:1.55fr 1fr; gap:12px; margin-bottom:12px; }
+  .panel{ background:var(--pan); border:1px solid var(--line); border-radius:5px;
+          padding:12px 14px; margin-bottom:12px; }
+  .grid .panel{ margin-bottom:0; }
+  .panel.warn{ border-color:var(--warn); background:var(--warnbg); }
+  .ph{ font-size:10.5px; letter-spacing:.09em; color:var(--dim); margin-bottom:11px;
+       display:flex; }
+  .sub{ margin-left:auto; opacity:.75; letter-spacing:0; }
+  .bars{ width:100%; border-collapse:collapse; }
+  .bars td{ padding:3.5px 0; }
+  .lb{ width:104px; color:var(--ink); font-size:11px; }
+  .bc{ padding-right:10px!important; }
+  .bc i{ display:block; height:13px; background:var(--acc); border-radius:2px; }
+  .nul .bc i{ background:var(--null);
+    background-image:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(255,255,255,.18) 3px,rgba(255,255,255,.18) 6px); }
+  .nul .lb{ color:var(--dim); }
+  .vc{ width:52px; text-align:right; font-weight:700; }
+  .pc{ width:52px; text-align:right; color:var(--dim); font-size:11px; }
+  .rec{ width:100%; border-collapse:collapse; }
+  .rec td{ padding:4px 0; font-size:11.5px; color:var(--dim); }
+  .rec .n{ text-align:right; color:var(--ink); font-weight:700; width:54px; }
+  .rec .d{ text-align:right; font-size:10.5px; padding-left:10px; }
+  .rec .hl td{ color:var(--warn); } .rec .hl .n{ color:var(--warn); }
+  .verdict{ margin-top:10px; padding-top:9px; border-top:1px solid var(--line);
+            font-size:11px; color:var(--warn); }
+  .verdict b{ font-weight:700; }
+  .tr{ display:grid; grid-template-columns:24px 1fr 56px; gap:9px; align-items:center;
+       padding:4px 0; font-size:11px; border-top:1px solid var(--line); }
+  .tr:first-of-type{ border-top:none; }
+  .tr.dim{ opacity:.6; }
+  .tr span{ color:var(--dim); }
+  .tr code{ color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .tr b{ text-align:right; font-weight:700; }
+  .ct{ padding:6px 0; font-size:11px; color:var(--dim); border-top:1px solid var(--line); }
+  .ct:first-of-type{ border-top:none; }
+  .ct a{ color:var(--acc); font-weight:700; margin-right:9px; cursor:pointer; }
+  .ct em{ font-style:normal; color:var(--dim); background:var(--bg); border:1px solid var(--line);
+          padding:1px 5px; border-radius:3px; margin-right:9px; font-size:10px; }
+</style>

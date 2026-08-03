@@ -1,0 +1,45 @@
+[project]
+name = "ctgov-viz-agent"
+version = "0.1.0"
+description = "Natural-language clinical-trial questions to structured visualization specifications, backed by ClinicalTrials.gov"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "httpx>=0.27",
+    "numpy>=2.0",
+    "pydantic>=2.9",
+    "openai>=1.54",
+    "python-dotenv>=1.0",
+    "assistant-stream>=0.0.34",
+    "langgraph>=1.2",
+    "mcp>=2.0",
+]
+
+[project.scripts]
+trialscope = "app.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+]
+pg = [
+    "asyncpg>=0.31.0",
+]
+# Build-time only: scripts/build_entity_index.py uses model2vec to bake static
+# embeddings into app/vendor/entity_index/entities.db. The service never loads
+# it — at request time the vectors are already BLOBs and numpy reads them.
+entity-index = [
+    "model2vec>=0.8",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]

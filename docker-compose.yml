@@ -1,0 +1,84 @@
+# Postgres only. Local development for the OPTIONAL persistence layer in
+# app/store.py — the service runs fine with this stack stopped and no
+# DATABASE_URL set, which is the point.
+#
+# ---------------------------------------------------------------------------
+# One-liner: start it and apply the migration
+# ---------------------------------------------------------------------------
+#
+#   docker compose up -d --wait
+#
+# That is the whole thing. migrations/ is mounted read-only into
+# /docker-entrypoint-initdb.d, which the official image executes in filename
+# order on FIRST boot of an empty data directory, so 001_init.sql is applied
+# before the healthcheck reports healthy and `--wait` returns.
+#
+# Then point the service at it:
+#
+#   export DATABASE_URL=postgresql://trialscope:trialscope@localhost:5432/trialscope
+#   uv run --no-sync uvicorn app.main:app --reload
+#
+# Re-apply the migration by hand (idempotent — every statement is IF NOT EXISTS,
+# so this is also how you migrate a database that already has data):
+#
+#   docker compose exec -T postgres psql -U trialscope -d trialscope < migrations/001_init.sql
+#
+# Run the store's integration tests against it:
+#
+#   TEST_DATABASE_URL=postgresql://trialscope:trialscope@localhost:5432/trialscope \
+#     uv run --no-sync pytest tests/test_store.py -v
+#
+# Tear down, including the volume (init scripts only re-run on an empty volume,
+# so this is the way to get a genuinely clean database):
+#
+#   docker compose down -v
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: trialscope-postgres
+    environment:
+      POSTGRES_USER: trialscope
+      POSTGRES_PASSWORD: trialscope
+      POSTGRES_DB: trialscope
+      # Deterministic collation, so ORDER BY on alias text does not depend on
+      # the host locale. An entity index that sorts differently per machine is
+      # a reproducibility problem, not a cosmetic one.
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8 --locale=C"
+    ports:
+      # Host-published for local development. These are throwaway development
+      # credentials and this file is not a production deployment: bind to
+      # loopback explicitly so the container is not reachable off-box.
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Applied automatically on first boot of an empty volume.
+      - ./migrations:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # `--wait` above depends on this. Note pg_isready alone is not enough on
+      # this image: the server briefly accepts connections during init before
+      # the init scripts have run, so the check also requires the migration's
+      # table to exist. Without that, `up --wait` can return before
+      # 001_init.sql has been applied and the first test fails on a missing
+      # relation — a race that only shows up on a cold volume.
+      test:
+        - CMD-SHELL
+        - >-
+          pg_isready -U trialscope -d trialscope -q &&
+          psql -U trialscope -d trialscope -tAc
+          "SELECT to_regclass('public.probe_cache') IS NOT NULL"
+          | grep -q '^t$$'
+      interval: 2s
+      timeout: 5s
+      retries: 30
+      start_period: 5s
+    # The cache is a latency optimisation in front of a rate-limited API; it is
+    # not worth a large share of a developer laptop.
+    shm_size: 128mb
+    command:
+      - postgres
+      - -c
+      - max_connections=50
+
+volumes:
+  postgres_data:

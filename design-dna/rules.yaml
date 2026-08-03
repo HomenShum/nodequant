@@ -1,0 +1,148 @@
+# DesignRules — hypotheses about the observed facts.
+# Each rule ends in `schemaImplication`: the response-schema field it forces.
+# That field is the point. A renderer cannot honour a rule the contract omits.
+
+- id: rule-1
+  statement: >
+    A categorical distribution must render its unbucketed remainder as a visible neutral
+    category rather than omitting it, otherwise the bars silently misrepresent the whole.
+  mechanismHypothesis: >
+    Readers infer the denominator from the bars present. Dropping unmatched records makes the
+    visible bars appear to partition the population, so every proportion is read as larger than
+    it is. A grey terminal bar restores the true denominator without competing for attention.
+  confidence: high
+  appliesWhen: [categorical distribution, source data has null or unmatched members]
+  doesNotApplyWhen: [the filter itself defines the population, e.g. "only recruiting trials"]
+  evidence: [obs-dovetail-tagged-bars-1/f3, obs-dovetail-tagged-bars-1/f5]
+  schemaImplication: >
+    data[] must be able to carry an explicit unbucketed entry, and the spec must expose
+    `unbucketed_count`. Zero-count buckets are retained, not pruned (Dovetail shows 0 counts).
+
+- id: rule-2
+  statement: >
+    Any part-of-whole figure must state its denominator in prose adjacent to the mark.
+  mechanismHypothesis: >
+    A percentage is meaningless without its base, and legends do not carry bases. Naming the
+    denominator in words ("over total citations in the selected period by type") makes the claim
+    checkable at a glance and pre-empts the reader's most common misreading.
+  confidence: high
+  appliesWhen: [stacked bars, donuts, any percentage]
+  doesNotApplyWhen: [absolute counts with no proportion shown]
+  evidence: [obs-profound-citations-1/f3, obs-peecai-source-analytics-1/f6]
+  schemaImplication: >
+    meta must carry `denominator_note` (human-readable) and `total_matching` (integer).
+    CRITICAL for this project: ClinicalTrials.gov `designModule.phases` is an array, so phase
+    buckets OVERLAP and do NOT sum to the total (measured: 3205 vs 2915; 469 trials are
+    PHASE1 and PHASE2). The schema must therefore also carry `buckets_are_exclusive: bool`
+    so a renderer knows it must NOT draw a pie or a 100% stacked bar.
+
+- id: rule-3
+  statement: >
+    Share and density are distinct quantities and belong in separate fields, never merged
+    into one number.
+  mechanismHypothesis: >
+    "How much of the total is this" and "how heavily is each instance supported" answer
+    different questions. Peec AI keeps 'Used %' and 'Avg. Citations' as neighbouring columns
+    precisely because a high-share source with thin support is a different object from a
+    low-share source with deep support.
+  confidence: medium
+  appliesWhen: [data points that aggregate multiple underlying records]
+  doesNotApplyWhen: [each datum maps to exactly one record]
+  evidence: [obs-peecai-source-analytics-1/f7, obs-peecai-source-analytics-1/f9]
+  schemaImplication: >
+    each datum carries both `count` (absolute) and `citation_count` (how many source records
+    were attached), so a renderer can show support density without recomputing.
+
+- id: rule-4
+  statement: >
+    Citation lists render a bounded number of chips and collapse the remainder into a single
+    "+N" affordance rather than wrapping.
+  mechanismHypothesis: >
+    Citation counts are unbounded and bursty. A wrapping list destroys the layout of the answer
+    it supports. Collapsing preserves the answer's shape while keeping the true total honest
+    and one click away.
+  confidence: high
+  appliesWhen: [more than ~4 sources attached to one claim]
+  doesNotApplyWhen: [a dedicated full-page source list]
+  evidence: [obs-cohere-tool-trace-1/f4, obs-cohere-tool-trace-1/f5, obs-chatgpt-sourced-answer-1/f3]
+  schemaImplication: >
+    citations must be a bounded sample PLUS a true total: `citations[]` (capped) and
+    `citation_total` (integer). Returning only the sample would let a renderer state a false
+    total. Deep citation depends on the pair being present.
+
+- id: rule-5
+  statement: >
+    A graph node carries its own magnitude in its header; edges carry relationship weight
+    separately.
+  mechanismHypothesis: >
+    Reading node importance off visual area is imprecise and fails at small sizes. Twenty puts
+    the count beside the name ("Companies · 213") so magnitude survives zoom-out, screenshots,
+    and colour-blind readers.
+  confidence: high
+  appliesWhen: [network graph with entities of differing magnitude]
+  doesNotApplyWhen: [topology-only graphs where all nodes are equivalent]
+  evidence: [obs-twenty-entity-graph-1/f1, obs-twenty-entity-graph-1/f2]
+  schemaImplication: >
+    network_graph nodes need `{id, label, type, count}` and edges need
+    `{source, target, weight}` — weight explicit, never inferred from render geometry.
+
+- id: rule-6
+  statement: >
+    Dense graph nodes truncate their member list and declare the residual count inline.
+  mechanismHypothesis: >
+    Unbounded node bodies make a canvas unreadable, but a silent cut makes the node a lie.
+    "13 fields" is both the truncation and its own correction.
+  confidence: medium
+  appliesWhen: [nodes with more members than fit a card]
+  doesNotApplyWhen: [low-degree ego graphs, where Fibery shows everything]
+  evidence: [obs-twenty-entity-graph-1/f4, obs-fibery-sparse-graph-1/f4]
+  schemaImplication: >
+    any truncated collection reports `returned` and `total` counts. Applies to nodes, edges
+    and citations alike — the renderer must always be able to say "showing 3 of 41".
+
+- id: rule-7
+  statement: >
+    The literal executed query is shown in the trace, not a paraphrase of it.
+  mechanismHypothesis: >
+    A paraphrased trace cannot be verified or replayed. Cohere prints the actual
+    `web-search: global market overview of solar panels` string, which lets a reader reproduce
+    the retrieval and catch a misinterpretation of their question.
+  confidence: high
+  appliesWhen: [any retrieval-backed answer]
+  doesNotApplyWhen: [purely generative output with no retrieval]
+  evidence: [obs-cohere-tool-trace-1/f1, obs-cohere-tool-trace-1/f2, obs-chatgpt-sourced-answer-1/f4]
+  schemaImplication: >
+    meta.trace[] carries the exact ClinicalTrials.gov request URLs/params issued. This is the
+    single cheapest defence against the rubric's "hallucination-prone steps" concern: the
+    grader can replay every number.
+
+- id: rule-8
+  statement: >
+    Sources are ranked and the strongest is labelled in words, not left to list order.
+  mechanismHypothesis: >
+    Position implies rank weakly and is lost when a list is re-sorted or truncated. Sana AI's
+    "(best primary source)" survives both.
+  confidence: medium
+  appliesWhen: [multiple sources of differing evidential weight]
+  doesNotApplyWhen: [sources are interchangeable]
+  evidence: [obs-sanaai-sourced-answer-1/f2, obs-sanaai-sourced-answer-1/f3]
+  schemaImplication: >
+    each citation carries `excerpt` (the exact supporting text)
+    and the field the excerpt came from, so the renderer can show *why* this record supports
+    this datum rather than merely that it does.
+
+- id: rule-9
+  statement: >
+    Reasoning traces default to collapsed; sources default to reachable in one action.
+  mechanismHypothesis: >
+    The trace is for the sceptic and is read rarely; the sources are for every reader and are
+    read often. ChatGPT and Sana both collapse reasoning to one row while keeping a persistent
+    source affordance on the answer itself.
+  confidence: medium
+  appliesWhen: [agent answers with both reasoning and citations]
+  doesNotApplyWhen: [debugging or eval surfaces where the trace is the product]
+  evidence: [obs-sanaai-sourced-answer-1/f1, obs-chatgpt-sourced-answer-1/f6, obs-chatgpt-sourced-answer-1/f7]
+  schemaImplication: >
+    meta separates `interpretation` (short, always shown) from `trace` (verbose, collapsed).
+    Two fields, not one blob — the renderer should not have to parse prose to decide what to
+    surface by default.

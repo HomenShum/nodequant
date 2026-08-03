@@ -1,0 +1,102 @@
+<!-- @dsCard group="Charts" -->
+<div class="ds">
+  <h1>Distribution chart</h1>
+  <p class="lede">Horizontal bars, categorical labels outside the plot, absolute count at the
+    bar terminal. The unbucketed remainder stays in the chart, in reserved grey with a hatch so
+    it is distinguishable without colour. Zero-count buckets are retained, never pruned.</p>
+
+  <div class="card">
+    <div class="head">
+      <div>
+        <p class="title">Pembrolizumab trials by phase</p>
+        <p class="denom">of <b>2,915</b> trials matching intervention = Pembrolizumab</p>
+      </div>
+      <span class="pill">6 of 6 buckets</span>
+    </div>
+
+    <div class="strip">
+      <b>≠</b> Buckets overlap — 3,205 bucket sum vs 2,915 trials. Not a part-of-whole chart.
+    </div>
+
+    <div class="plot">
+      <div class="row"><span class="lab">PHASE2</span>
+        <div class="track"><div class="bar" style="width:100%"><em>1,742</em></div></div>
+        <span class="cite">1,742 sources</span></div>
+      <div class="row"><span class="lab">PHASE1</span>
+        <div class="track"><div class="bar" style="width:59.5%"><em>1,036</em></div></div>
+        <span class="cite">1,036 sources</span></div>
+      <div class="row"><span class="lab">PHASE3</span>
+        <div class="track"><div class="bar" style="width:20.7%"><em>360</em></div></div>
+        <span class="cite">360 sources</span></div>
+      <div class="row"><span class="lab">EARLY_PHASE1</span>
+        <div class="track"><div class="bar" style="width:2.9%"></div><em class="out">51</em></div>
+        <span class="cite">51 sources</span></div>
+      <div class="row"><span class="lab">PHASE4</span>
+        <div class="track"><div class="bar" style="width:0.9%"></div><em class="out">16</em></div>
+        <span class="cite">16 sources</span></div>
+      <div class="row null"><span class="lab">NA <i>no phase recorded</i></span>
+        <div class="track"><div class="bar nullbar" style="width:3.0%"></div><em class="out">53</em></div>
+        <span class="cite">53 sources</span></div>
+    </div>
+
+    <div class="legend">
+      <span><i class="k accent"></i>measured</span>
+      <span><i class="k nullk"></i>no value recorded</span>
+      <span class="sortnote">sorted by count, descending · units: trials</span>
+    </div>
+  </div>
+
+  <p class="cap">Value labels sit inside the bar when it is wide enough and outside when it is
+    not, so a small bar never hides its own number. The right column reports citation support
+    separately from magnitude — share and density answer different questions.</p>
+</div>
+
+<style>
+  :root{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e6e5e1;
+         --accent:#1f6f6b; --null:#b8b7b2; --warn:#b4750f; --warn-bg:#fdf6e9; --track:#f2f1ed; }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c; --line:#33322e;
+           --accent:#5ec6c0; --null:#6a6963; --warn:#e0a44a; --warn-bg:#2a2318; --track:#26251f; } }
+  :root[data-theme="dark"]{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c;
+    --line:#33322e; --accent:#5ec6c0; --null:#6a6963; --warn:#e0a44a; --warn-bg:#2a2318; --track:#26251f; }
+  :root[data-theme="light"]{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66;
+    --line:#e6e5e1; --accent:#1f6f6b; --null:#b8b7b2; --warn:#b4750f; --warn-bg:#fdf6e9; --track:#f2f1ed; }
+  .ds{ background:var(--bg); color:var(--ink); padding:32px; min-height:100%;
+       font:400 13.5px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+       font-variant-numeric:tabular-nums; }
+  .ds h1{ font-size:28px; font-weight:640; letter-spacing:-.02em; margin:0 0 6px; }
+  .lede{ color:var(--muted); max-width:64ch; margin:0 0 22px; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:20px; }
+  .head{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+  .title{ font-size:15px; font-weight:600; margin:0 0 3px; }
+  .denom{ color:var(--muted); font-size:12px; margin:0; }
+  .denom b{ color:var(--ink); font-weight:600; }
+  .pill{ flex:none; font:11.5px ui-monospace,monospace; color:var(--muted);
+         border:1px solid var(--line); border-radius:20px; padding:3px 10px; }
+  .strip{ margin:14px 0 18px; background:var(--warn-bg); border:1px solid var(--warn);
+          border-left-width:3px; border-radius:7px; padding:9px 12px; font-size:12.5px; }
+  .strip b{ color:var(--warn); margin-right:6px; font-size:14px; }
+  .row{ display:grid; grid-template-columns:132px 1fr 96px; align-items:center; gap:12px;
+        margin-bottom:9px; }
+  .lab{ font:12.5px ui-monospace,monospace; text-align:right; color:var(--ink); }
+  .lab i{ display:block; font:11px ui-sans-serif,sans-serif; font-style:normal; color:var(--muted); }
+  .track{ position:relative; background:var(--track); border-radius:4px; height:26px; display:flex;
+          align-items:center; }
+  .bar{ background:var(--accent); height:26px; border-radius:4px; display:flex; align-items:center;
+        justify-content:flex-end; padding-right:9px; min-width:3px; }
+  .bar em{ font-style:normal; font:600 12px ui-monospace,monospace; color:#fff; }
+  .nullbar{ background:var(--null);
+    background-image:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(0,0,0,.13) 3px,rgba(0,0,0,.13) 6px); }
+  .out{ font-style:normal; font:600 12px ui-monospace,monospace; color:var(--muted);
+        margin-left:8px; }
+  .cite{ font-size:11.5px; color:var(--muted); text-align:right; }
+  .legend{ display:flex; gap:16px; align-items:center; margin-top:16px; padding-top:13px;
+           border-top:1px solid var(--line); font-size:11.5px; color:var(--muted); }
+  .k{ display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:5px;
+      vertical-align:-1px; }
+  .accent{ background:var(--accent); }
+  .nullk{ background:var(--null);
+    background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(0,0,0,.13) 2px,rgba(0,0,0,.13) 4px); }
+  .sortnote{ margin-left:auto; }
+  .cap{ color:var(--muted); font-size:12px; max-width:66ch; margin:14px 0 0; }
+</style>

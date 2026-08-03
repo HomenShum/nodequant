@@ -1,0 +1,1803 @@
+{
+  "generated_at": "2026-08-03T02:57:28+00:00",
+  "generator": "evals/golden.py",
+  "source": "https://clinicaltrials.gov/api/v2/studies",
+  "method": "Every count is a live countTotal probe issued by evals/api.py with the literal param dicts hand-written in evals/cases.py. No app code was used to produce any number in this file.",
+  "probe_requests": 302,
+  "probe_retries": 117,
+  "failed_case_ids": [],
+  "cases": [
+    {
+      "id": "phase_melanoma",
+      "measured_at": "2026-08-03T02:51:01+00:00",
+      "query": "How are melanoma trials distributed across phases?",
+      "request": {
+        "condition": "melanoma"
+      },
+      "expect_dimension": "phase",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "README's headline example: 136 unbucketed, non-exclusive.",
+      "base_params": {
+        "query.cond": "melanoma"
+      },
+      "total_matching": 3738,
+      "buckets": {
+        "EARLY_PHASE1": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]EARLY_PHASE1"
+          },
+          "count": 65
+        },
+        "PHASE1": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]PHASE1"
+          },
+          "count": 1340
+        },
+        "PHASE2": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]PHASE2"
+          },
+          "count": 1529
+        },
+        "PHASE3": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]PHASE3"
+          },
+          "count": 219
+        },
+        "PHASE4": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]PHASE4"
+          },
+          "count": 37
+        },
+        "NA": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]NA"
+          },
+          "count": 412
+        }
+      },
+      "bucket_sum": 3602,
+      "expect_exclusive": false
+    },
+    {
+      "id": "phase_pembrolizumab",
+      "measured_at": "2026-08-03T02:51:26+00:00",
+      "query": "Show the phase breakdown for pembrolizumab trials.",
+      "request": {
+        "drug_name": "Pembrolizumab"
+      },
+      "expect_dimension": "phase",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "README's overlap example: bucket sum exceeds matched total.",
+      "base_params": {
+        "query.intr": "Pembrolizumab"
+      },
+      "total_matching": 2915,
+      "buckets": {
+        "EARLY_PHASE1": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[Phase]EARLY_PHASE1"
+          },
+          "count": 51
+        },
+        "PHASE1": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[Phase]PHASE1"
+          },
+          "count": 1036
+        },
+        "PHASE2": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[Phase]PHASE2"
+          },
+          "count": 1742
+        },
+        "PHASE3": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[Phase]PHASE3"
+          },
+          "count": 360
+        },
+        "PHASE4": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[Phase]PHASE4"
+          },
+          "count": 16
+        },
+        "NA": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[Phase]NA"
+          },
+          "count": 53
+        }
+      },
+      "bucket_sum": 3258,
+      "expect_exclusive": false
+    },
+    {
+      "id": "phase_glioblastoma",
+      "measured_at": "2026-08-03T02:51:29+00:00",
+      "query": "What phases are glioblastoma trials in?",
+      "request": {
+        "condition": "glioblastoma"
+      },
+      "expect_dimension": "phase",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "glioblastoma"
+      },
+      "total_matching": 2245,
+      "buckets": {
+        "EARLY_PHASE1": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[Phase]EARLY_PHASE1"
+          },
+          "count": 93
+        },
+        "PHASE1": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[Phase]PHASE1"
+          },
+          "count": 892
+        },
+        "PHASE2": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[Phase]PHASE2"
+          },
+          "count": 958
+        },
+        "PHASE3": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[Phase]PHASE3"
+          },
+          "count": 120
+        },
+        "PHASE4": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[Phase]PHASE4"
+          },
+          "count": 8
+        },
+        "NA": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[Phase]NA"
+          },
+          "count": 250
+        }
+      },
+      "bucket_sum": 2321,
+      "expect_exclusive": false
+    },
+    {
+      "id": "phase_nsclc_recruiting",
+      "measured_at": "2026-08-03T02:51:48+00:00",
+      "query": "Break down currently recruiting non-small cell lung cancer trials by phase.",
+      "request": {
+        "condition": "non-small cell lung cancer",
+        "status": [
+          "RECRUITING"
+        ]
+      },
+      "expect_dimension": "phase",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "non-small cell lung cancer",
+        "filter.advanced": "(AREA[OverallStatus]RECRUITING)"
+      },
+      "total_matching": 1293,
+      "buckets": {
+        "EARLY_PHASE1": {
+          "params": {
+            "query.cond": "non-small cell lung cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[Phase]EARLY_PHASE1"
+          },
+          "count": 8
+        },
+        "PHASE1": {
+          "params": {
+            "query.cond": "non-small cell lung cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[Phase]PHASE1"
+          },
+          "count": 381
+        },
+        "PHASE2": {
+          "params": {
+            "query.cond": "non-small cell lung cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[Phase]PHASE2"
+          },
+          "count": 574
+        },
+        "PHASE3": {
+          "params": {
+            "query.cond": "non-small cell lung cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[Phase]PHASE3"
+          },
+          "count": 150
+        },
+        "PHASE4": {
+          "params": {
+            "query.cond": "non-small cell lung cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[Phase]PHASE4"
+          },
+          "count": 13
+        },
+        "NA": {
+          "params": {
+            "query.cond": "non-small cell lung cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[Phase]NA"
+          },
+          "count": 150
+        }
+      },
+      "bucket_sum": 1276,
+      "expect_exclusive": false
+    },
+    {
+      "id": "phase_pfizer",
+      "measured_at": "2026-08-03T02:51:59+00:00",
+      "query": "Distribution of Pfizer trials by phase.",
+      "request": {
+        "sponsor": "Pfizer"
+      },
+      "expect_dimension": "phase",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.spons": "Pfizer"
+      },
+      "total_matching": 6061,
+      "buckets": {
+        "EARLY_PHASE1": {
+          "params": {
+            "query.spons": "Pfizer",
+            "filter.advanced": "AREA[Phase]EARLY_PHASE1"
+          },
+          "count": 21
+        },
+        "PHASE1": {
+          "params": {
+            "query.spons": "Pfizer",
+            "filter.advanced": "AREA[Phase]PHASE1"
+          },
+          "count": 1705
+        },
+        "PHASE2": {
+          "params": {
+            "query.spons": "Pfizer",
+            "filter.advanced": "AREA[Phase]PHASE2"
+          },
+          "count": 1373
+        },
+        "PHASE3": {
+          "params": {
+            "query.spons": "Pfizer",
+            "filter.advanced": "AREA[Phase]PHASE3"
+          },
+          "count": 1198
+        },
+        "PHASE4": {
+          "params": {
+            "query.spons": "Pfizer",
+            "filter.advanced": "AREA[Phase]PHASE4"
+          },
+          "count": 704
+        },
+        "NA": {
+          "params": {
+            "query.spons": "Pfizer",
+            "filter.advanced": "AREA[Phase]NA"
+          },
+          "count": 303
+        }
+      },
+      "bucket_sum": 5304,
+      "expect_exclusive": false
+    },
+    {
+      "id": "phase_covid_windowed",
+      "measured_at": "2026-08-03T02:52:30+00:00",
+      "query": "Phase distribution of COVID-19 trials started between 2020 and 2022.",
+      "request": {
+        "condition": "COVID-19",
+        "start_year": 2020,
+        "end_year": 2022
+      },
+      "expect_dimension": "phase",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "COVID-19",
+        "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2022-12-31]"
+      },
+      "total_matching": 8807,
+      "buckets": {
+        "EARLY_PHASE1": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2022-12-31] AND AREA[Phase]EARLY_PHASE1"
+          },
+          "count": 59
+        },
+        "PHASE1": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2022-12-31] AND AREA[Phase]PHASE1"
+          },
+          "count": 673
+        },
+        "PHASE2": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2022-12-31] AND AREA[Phase]PHASE2"
+          },
+          "count": 1475
+        },
+        "PHASE3": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2022-12-31] AND AREA[Phase]PHASE3"
+          },
+          "count": 961
+        },
+        "PHASE4": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2022-12-31] AND AREA[Phase]PHASE4"
+          },
+          "count": 269
+        },
+        "NA": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2022-12-31] AND AREA[Phase]NA"
+          },
+          "count": 2077
+        }
+      },
+      "bucket_sum": 5514,
+      "expect_exclusive": false
+    },
+    {
+      "id": "status_melanoma",
+      "measured_at": "2026-08-03T02:52:48+00:00",
+      "query": "What is the recruitment status of melanoma trials?",
+      "request": {
+        "condition": "melanoma"
+      },
+      "expect_dimension": "status",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "melanoma"
+      },
+      "total_matching": 3738,
+      "buckets": {
+        "RECRUITING": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[OverallStatus]RECRUITING"
+          },
+          "count": 476
+        },
+        "NOT_YET_RECRUITING": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[OverallStatus]NOT_YET_RECRUITING"
+          },
+          "count": 100
+        },
+        "ACTIVE_NOT_RECRUITING": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[OverallStatus]ACTIVE_NOT_RECRUITING"
+          },
+          "count": 298
+        },
+        "COMPLETED": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[OverallStatus]COMPLETED"
+          },
+          "count": 1731
+        },
+        "TERMINATED": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[OverallStatus]TERMINATED"
+          },
+          "count": 551
+        },
+        "WITHDRAWN": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[OverallStatus]WITHDRAWN"
+          },
+          "count": 137
+        },
+        "SUSPENDED": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[OverallStatus]SUSPENDED"
+          },
+          "count": 19
+        },
+        "UNKNOWN": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[OverallStatus]UNKNOWN"
+          },
+          "count": 390
+        }
+      },
+      "bucket_sum": 3702,
+      "expect_exclusive": false
+    },
+    {
+      "id": "status_pembrolizumab",
+      "measured_at": "2026-08-03T02:53:11+00:00",
+      "query": "Show pembrolizumab trials by status.",
+      "request": {
+        "drug_name": "Pembrolizumab"
+      },
+      "expect_dimension": "status",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.intr": "Pembrolizumab"
+      },
+      "total_matching": 2915,
+      "buckets": {
+        "RECRUITING": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[OverallStatus]RECRUITING"
+          },
+          "count": 709
+        },
+        "NOT_YET_RECRUITING": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[OverallStatus]NOT_YET_RECRUITING"
+          },
+          "count": 149
+        },
+        "ACTIVE_NOT_RECRUITING": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[OverallStatus]ACTIVE_NOT_RECRUITING"
+          },
+          "count": 484
+        },
+        "COMPLETED": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[OverallStatus]COMPLETED"
+          },
+          "count": 822
+        },
+        "TERMINATED": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[OverallStatus]TERMINATED"
+          },
+          "count": 369
+        },
+        "WITHDRAWN": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[OverallStatus]WITHDRAWN"
+          },
+          "count": 132
+        },
+        "SUSPENDED": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[OverallStatus]SUSPENDED"
+          },
+          "count": 11
+        },
+        "UNKNOWN": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[OverallStatus]UNKNOWN"
+          },
+          "count": 226
+        }
+      },
+      "bucket_sum": 2902,
+      "expect_exclusive": false
+    },
+    {
+      "id": "status_breast_cancer",
+      "measured_at": "2026-08-03T02:53:37+00:00",
+      "query": "Breast cancer trials grouped by overall status.",
+      "request": {
+        "condition": "breast cancer"
+      },
+      "expect_dimension": "status",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "breast cancer"
+      },
+      "total_matching": 16662,
+      "buckets": {
+        "RECRUITING": {
+          "params": {
+            "query.cond": "breast cancer",
+            "filter.advanced": "AREA[OverallStatus]RECRUITING"
+          },
+          "count": 2453
+        },
+        "NOT_YET_RECRUITING": {
+          "params": {
+            "query.cond": "breast cancer",
+            "filter.advanced": "AREA[OverallStatus]NOT_YET_RECRUITING"
+          },
+          "count": 804
+        },
+        "ACTIVE_NOT_RECRUITING": {
+          "params": {
+            "query.cond": "breast cancer",
+            "filter.advanced": "AREA[OverallStatus]ACTIVE_NOT_RECRUITING"
+          },
+          "count": 1183
+        },
+        "COMPLETED": {
+          "params": {
+            "query.cond": "breast cancer",
+            "filter.advanced": "AREA[OverallStatus]COMPLETED"
+          },
+          "count": 7628
+        },
+        "TERMINATED": {
+          "params": {
+            "query.cond": "breast cancer",
+            "filter.advanced": "AREA[OverallStatus]TERMINATED"
+          },
+          "count": 1416
+        },
+        "WITHDRAWN": {
+          "params": {
+            "query.cond": "breast cancer",
+            "filter.advanced": "AREA[OverallStatus]WITHDRAWN"
+          },
+          "count": 526
+        },
+        "SUSPENDED": {
+          "params": {
+            "query.cond": "breast cancer",
+            "filter.advanced": "AREA[OverallStatus]SUSPENDED"
+          },
+          "count": 66
+        },
+        "UNKNOWN": {
+          "params": {
+            "query.cond": "breast cancer",
+            "filter.advanced": "AREA[OverallStatus]UNKNOWN"
+          },
+          "count": 2454
+        }
+      },
+      "bucket_sum": 16530,
+      "expect_exclusive": false
+    },
+    {
+      "id": "status_alzheimers",
+      "measured_at": "2026-08-03T02:53:51+00:00",
+      "query": "How many Alzheimer's disease trials are in each status?",
+      "request": {
+        "condition": "Alzheimer Disease"
+      },
+      "expect_dimension": "status",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "Alzheimer Disease"
+      },
+      "total_matching": 4236,
+      "buckets": {
+        "RECRUITING": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[OverallStatus]RECRUITING"
+          },
+          "count": 618
+        },
+        "NOT_YET_RECRUITING": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[OverallStatus]NOT_YET_RECRUITING"
+          },
+          "count": 195
+        },
+        "ACTIVE_NOT_RECRUITING": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[OverallStatus]ACTIVE_NOT_RECRUITING"
+          },
+          "count": 169
+        },
+        "COMPLETED": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[OverallStatus]COMPLETED"
+          },
+          "count": 2253
+        },
+        "TERMINATED": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[OverallStatus]TERMINATED"
+          },
+          "count": 316
+        },
+        "WITHDRAWN": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[OverallStatus]WITHDRAWN"
+          },
+          "count": 104
+        },
+        "SUSPENDED": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[OverallStatus]SUSPENDED"
+          },
+          "count": 8
+        },
+        "UNKNOWN": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[OverallStatus]UNKNOWN"
+          },
+          "count": 491
+        }
+      },
+      "bucket_sum": 4154,
+      "expect_exclusive": false
+    },
+    {
+      "id": "year_glioblastoma",
+      "measured_at": "2026-08-03T02:54:11+00:00",
+      "query": "How many glioblastoma trials started each year since 2018?",
+      "request": {
+        "condition": "glioblastoma",
+        "start_year": 2018,
+        "end_year": 2024
+      },
+      "expect_dimension": "year",
+      "expect_viz": [
+        "time_series",
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "notes": "",
+      "base_params": {
+        "query.cond": "glioblastoma",
+        "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,2024-12-31]"
+      },
+      "total_matching": 758,
+      "buckets": {
+        "2018": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,2024-12-31] AND AREA[StartDate]RANGE[2018-01-01,2018-12-31]"
+          },
+          "count": 120
+        },
+        "2019": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,2024-12-31] AND AREA[StartDate]RANGE[2019-01-01,2019-12-31]"
+          },
+          "count": 88
+        },
+        "2020": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,2024-12-31] AND AREA[StartDate]RANGE[2020-01-01,2020-12-31]"
+          },
+          "count": 109
+        },
+        "2021": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,2024-12-31] AND AREA[StartDate]RANGE[2021-01-01,2021-12-31]"
+          },
+          "count": 96
+        },
+        "2022": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,2024-12-31] AND AREA[StartDate]RANGE[2022-01-01,2022-12-31]"
+          },
+          "count": 116
+        },
+        "2023": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,2024-12-31] AND AREA[StartDate]RANGE[2023-01-01,2023-12-31]"
+          },
+          "count": 115
+        },
+        "2024": {
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,2024-12-31] AND AREA[StartDate]RANGE[2024-01-01,2024-12-31]"
+          },
+          "count": 114
+        }
+      },
+      "bucket_sum": 758,
+      "expect_exclusive": true
+    },
+    {
+      "id": "year_pembrolizumab",
+      "measured_at": "2026-08-03T02:54:31+00:00",
+      "query": "Pembrolizumab trials per year from 2016 to 2023.",
+      "request": {
+        "drug_name": "Pembrolizumab",
+        "start_year": 2016,
+        "end_year": 2023
+      },
+      "expect_dimension": "year",
+      "expect_viz": [
+        "time_series",
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "notes": "",
+      "base_params": {
+        "query.intr": "Pembrolizumab",
+        "filter.advanced": "AREA[StartDate]RANGE[2016-01-01,2023-12-31]"
+      },
+      "total_matching": 2041,
+      "buckets": {
+        "2016": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[StartDate]RANGE[2016-01-01,2023-12-31] AND AREA[StartDate]RANGE[2016-01-01,2016-12-31]"
+          },
+          "count": 195
+        },
+        "2017": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[StartDate]RANGE[2016-01-01,2023-12-31] AND AREA[StartDate]RANGE[2017-01-01,2017-12-31]"
+          },
+          "count": 260
+        },
+        "2018": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[StartDate]RANGE[2016-01-01,2023-12-31] AND AREA[StartDate]RANGE[2018-01-01,2018-12-31]"
+          },
+          "count": 255
+        },
+        "2019": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[StartDate]RANGE[2016-01-01,2023-12-31] AND AREA[StartDate]RANGE[2019-01-01,2019-12-31]"
+          },
+          "count": 247
+        },
+        "2020": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[StartDate]RANGE[2016-01-01,2023-12-31] AND AREA[StartDate]RANGE[2020-01-01,2020-12-31]"
+          },
+          "count": 262
+        },
+        "2021": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[StartDate]RANGE[2016-01-01,2023-12-31] AND AREA[StartDate]RANGE[2021-01-01,2021-12-31]"
+          },
+          "count": 265
+        },
+        "2022": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[StartDate]RANGE[2016-01-01,2023-12-31] AND AREA[StartDate]RANGE[2022-01-01,2022-12-31]"
+          },
+          "count": 298
+        },
+        "2023": {
+          "params": {
+            "query.intr": "Pembrolizumab",
+            "filter.advanced": "AREA[StartDate]RANGE[2016-01-01,2023-12-31] AND AREA[StartDate]RANGE[2023-01-01,2023-12-31]"
+          },
+          "count": 259
+        }
+      },
+      "bucket_sum": 2041,
+      "expect_exclusive": true
+    },
+    {
+      "id": "year_covid",
+      "measured_at": "2026-08-03T02:54:39+00:00",
+      "query": "Trend of COVID-19 trial starts per year 2020 through 2024.",
+      "request": {
+        "condition": "COVID-19",
+        "start_year": 2020,
+        "end_year": 2024
+      },
+      "expect_dimension": "year",
+      "expect_viz": [
+        "time_series",
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [
+        2020,
+        2021,
+        2022,
+        2023,
+        2024
+      ],
+      "notes": "",
+      "base_params": {
+        "query.cond": "COVID-19",
+        "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2024-12-31]"
+      },
+      "total_matching": 9806,
+      "buckets": {
+        "2020": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2024-12-31] AND AREA[StartDate]RANGE[2020-01-01,2020-12-31]"
+          },
+          "count": 4695
+        },
+        "2021": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2024-12-31] AND AREA[StartDate]RANGE[2021-01-01,2021-12-31]"
+          },
+          "count": 2773
+        },
+        "2022": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2024-12-31] AND AREA[StartDate]RANGE[2022-01-01,2022-12-31]"
+          },
+          "count": 1339
+        },
+        "2023": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2024-12-31] AND AREA[StartDate]RANGE[2023-01-01,2023-12-31]"
+          },
+          "count": 707
+        },
+        "2024": {
+          "params": {
+            "query.cond": "COVID-19",
+            "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,2024-12-31] AND AREA[StartDate]RANGE[2024-01-01,2024-12-31]"
+          },
+          "count": 292
+        }
+      },
+      "bucket_sum": 9806,
+      "expect_exclusive": true
+    },
+    {
+      "id": "year_melanoma",
+      "measured_at": "2026-08-03T02:54:57+00:00",
+      "query": "How has the number of melanoma trials changed each year between 2015 and 2022?",
+      "request": {
+        "condition": "melanoma",
+        "start_year": 2015,
+        "end_year": 2022
+      },
+      "expect_dimension": "year",
+      "expect_viz": [
+        "time_series",
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022
+      ],
+      "notes": "",
+      "base_params": {
+        "query.cond": "melanoma",
+        "filter.advanced": "AREA[StartDate]RANGE[2015-01-01,2022-12-31]"
+      },
+      "total_matching": 1517,
+      "buckets": {
+        "2015": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2015-01-01,2022-12-31] AND AREA[StartDate]RANGE[2015-01-01,2015-12-31]"
+          },
+          "count": 177
+        },
+        "2016": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2015-01-01,2022-12-31] AND AREA[StartDate]RANGE[2016-01-01,2016-12-31]"
+          },
+          "count": 169
+        },
+        "2017": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2015-01-01,2022-12-31] AND AREA[StartDate]RANGE[2017-01-01,2017-12-31]"
+          },
+          "count": 171
+        },
+        "2018": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2015-01-01,2022-12-31] AND AREA[StartDate]RANGE[2018-01-01,2018-12-31]"
+          },
+          "count": 183
+        },
+        "2019": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2015-01-01,2022-12-31] AND AREA[StartDate]RANGE[2019-01-01,2019-12-31]"
+          },
+          "count": 185
+        },
+        "2020": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2015-01-01,2022-12-31] AND AREA[StartDate]RANGE[2020-01-01,2020-12-31]"
+          },
+          "count": 187
+        },
+        "2021": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2015-01-01,2022-12-31] AND AREA[StartDate]RANGE[2021-01-01,2021-12-31]"
+          },
+          "count": 231
+        },
+        "2022": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2015-01-01,2022-12-31] AND AREA[StartDate]RANGE[2022-01-01,2022-12-31]"
+          },
+          "count": 214
+        }
+      },
+      "bucket_sum": 1517,
+      "expect_exclusive": true
+    },
+    {
+      "id": "country_pancreatic_recruiting",
+      "measured_at": "2026-08-03T02:54:57+00:00",
+      "query": "Which countries are running recruiting pancreatic cancer trials?",
+      "request": {
+        "condition": "pancreatic cancer",
+        "status": [
+          "RECRUITING"
+        ]
+      },
+      "expect_dimension": "country",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "country_labels",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "pancreatic cancer",
+        "filter.advanced": "(AREA[OverallStatus]RECRUITING)"
+      },
+      "total_matching": 896,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": false
+    },
+    {
+      "id": "country_melanoma",
+      "measured_at": "2026-08-03T02:54:57+00:00",
+      "query": "Where in the world are melanoma trials run?",
+      "request": {
+        "condition": "melanoma"
+      },
+      "expect_dimension": "country",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "country_labels",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "melanoma"
+      },
+      "total_matching": 3738,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": false
+    },
+    {
+      "id": "country_diabetes",
+      "measured_at": "2026-08-03T02:54:58+00:00",
+      "query": "Geographic distribution of type 2 diabetes trials by country.",
+      "request": {
+        "condition": "type 2 diabetes"
+      },
+      "expect_dimension": "country",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "country_labels",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "type 2 diabetes"
+      },
+      "total_matching": 11818,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": false
+    },
+    {
+      "id": "itype_melanoma",
+      "measured_at": "2026-08-03T02:55:21+00:00",
+      "query": "What types of intervention do melanoma trials use?",
+      "request": {
+        "condition": "melanoma"
+      },
+      "expect_dimension": "intervention_type",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "melanoma"
+      },
+      "total_matching": 3738,
+      "buckets": {
+        "DRUG": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionType]DRUG"
+          },
+          "count": 2109
+        },
+        "BIOLOGICAL": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionType]BIOLOGICAL"
+          },
+          "count": 966
+        },
+        "DEVICE": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionType]DEVICE"
+          },
+          "count": 142
+        },
+        "PROCEDURE": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionType]PROCEDURE"
+          },
+          "count": 348
+        },
+        "RADIATION": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionType]RADIATION"
+          },
+          "count": 163
+        },
+        "BEHAVIORAL": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionType]BEHAVIORAL"
+          },
+          "count": 99
+        },
+        "DIETARY_SUPPLEMENT": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionType]DIETARY_SUPPLEMENT"
+          },
+          "count": 18
+        },
+        "GENETIC": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionType]GENETIC"
+          },
+          "count": 59
+        },
+        "OTHER": {
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionType]OTHER"
+          },
+          "count": 516
+        }
+      },
+      "bucket_sum": 4420,
+      "expect_exclusive": false
+    },
+    {
+      "id": "itype_alzheimers",
+      "measured_at": "2026-08-03T02:55:56+00:00",
+      "query": "Break Alzheimer's trials down by intervention type.",
+      "request": {
+        "condition": "Alzheimer Disease"
+      },
+      "expect_dimension": "intervention_type",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "Alzheimer Disease"
+      },
+      "total_matching": 4236,
+      "buckets": {
+        "DRUG": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[InterventionType]DRUG"
+          },
+          "count": 1677
+        },
+        "BIOLOGICAL": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[InterventionType]BIOLOGICAL"
+          },
+          "count": 147
+        },
+        "DEVICE": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[InterventionType]DEVICE"
+          },
+          "count": 497
+        },
+        "PROCEDURE": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[InterventionType]PROCEDURE"
+          },
+          "count": 139
+        },
+        "RADIATION": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[InterventionType]RADIATION"
+          },
+          "count": 43
+        },
+        "BEHAVIORAL": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[InterventionType]BEHAVIORAL"
+          },
+          "count": 713
+        },
+        "DIETARY_SUPPLEMENT": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[InterventionType]DIETARY_SUPPLEMENT"
+          },
+          "count": 100
+        },
+        "GENETIC": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[InterventionType]GENETIC"
+          },
+          "count": 18
+        },
+        "OTHER": {
+          "params": {
+            "query.cond": "Alzheimer Disease",
+            "filter.advanced": "AREA[InterventionType]OTHER"
+          },
+          "count": 811
+        }
+      },
+      "bucket_sum": 4145,
+      "expect_exclusive": false
+    },
+    {
+      "id": "total_pembrolizumab",
+      "measured_at": "2026-08-03T02:55:56+00:00",
+      "query": "How many pembrolizumab trials are there in total?",
+      "request": {
+        "drug_name": "Pembrolizumab"
+      },
+      "expect_dimension": "none",
+      "expect_viz": [
+        "single_value"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.intr": "Pembrolizumab"
+      },
+      "total_matching": 2915,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": true
+    },
+    {
+      "id": "total_melanoma_recruiting",
+      "measured_at": "2026-08-03T02:55:57+00:00",
+      "query": "What is the total number of recruiting melanoma trials?",
+      "request": {
+        "condition": "melanoma",
+        "status": [
+          "RECRUITING"
+        ]
+      },
+      "expect_dimension": "none",
+      "expect_viz": [
+        "single_value"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "melanoma",
+        "filter.advanced": "(AREA[OverallStatus]RECRUITING)"
+      },
+      "total_matching": 476,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": true
+    },
+    {
+      "id": "total_novartis",
+      "measured_at": "2026-08-03T02:55:57+00:00",
+      "query": "How many trials does Novartis sponsor?",
+      "request": {
+        "sponsor": "Novartis"
+      },
+      "expect_dimension": "none",
+      "expect_viz": [
+        "single_value"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.spons": "Novartis"
+      },
+      "total_matching": 5062,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": true
+    },
+    {
+      "id": "total_glioblastoma_since_2020",
+      "measured_at": "2026-08-03T02:55:57+00:00",
+      "query": "Count the glioblastoma trials that started in 2020 or later.",
+      "request": {
+        "condition": "glioblastoma",
+        "start_year": 2020
+      },
+      "expect_dimension": "none",
+      "expect_viz": [
+        "single_value"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "glioblastoma",
+        "filter.advanced": "AREA[StartDate]RANGE[2020-01-01,MAX]"
+      },
+      "total_matching": 775,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": true
+    },
+    {
+      "id": "compare_pembro_nivo",
+      "measured_at": "2026-08-03T02:56:30+00:00",
+      "query": "Compare Pembrolizumab and Nivolumab across trial phases.",
+      "request": {},
+      "expect_dimension": "phase",
+      "expect_viz": [
+        "grouped_bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {},
+      "total_matching": 596690,
+      "buckets": {
+        "Pembrolizumab||EARLY_PHASE1": {
+          "params": {
+            "filter.advanced": "AREA[Phase]EARLY_PHASE1 AND AREA[InterventionName]\"Pembrolizumab\""
+          },
+          "count": 38
+        },
+        "Pembrolizumab||PHASE1": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE1 AND AREA[InterventionName]\"Pembrolizumab\""
+          },
+          "count": 939
+        },
+        "Pembrolizumab||PHASE2": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE2 AND AREA[InterventionName]\"Pembrolizumab\""
+          },
+          "count": 1572
+        },
+        "Pembrolizumab||PHASE3": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE3 AND AREA[InterventionName]\"Pembrolizumab\""
+          },
+          "count": 337
+        },
+        "Pembrolizumab||PHASE4": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE4 AND AREA[InterventionName]\"Pembrolizumab\""
+          },
+          "count": 12
+        },
+        "Pembrolizumab||NA": {
+          "params": {
+            "filter.advanced": "AREA[Phase]NA AND AREA[InterventionName]\"Pembrolizumab\""
+          },
+          "count": 24
+        },
+        "Nivolumab||EARLY_PHASE1": {
+          "params": {
+            "filter.advanced": "AREA[Phase]EARLY_PHASE1 AND AREA[InterventionName]\"Nivolumab\""
+          },
+          "count": 32
+        },
+        "Nivolumab||PHASE1": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE1 AND AREA[InterventionName]\"Nivolumab\""
+          },
+          "count": 628
+        },
+        "Nivolumab||PHASE2": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE2 AND AREA[InterventionName]\"Nivolumab\""
+          },
+          "count": 1057
+        },
+        "Nivolumab||PHASE3": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE3 AND AREA[InterventionName]\"Nivolumab\""
+          },
+          "count": 168
+        },
+        "Nivolumab||PHASE4": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE4 AND AREA[InterventionName]\"Nivolumab\""
+          },
+          "count": 15
+        },
+        "Nivolumab||NA": {
+          "params": {
+            "filter.advanced": "AREA[Phase]NA AND AREA[InterventionName]\"Nivolumab\""
+          },
+          "count": 17
+        }
+      },
+      "bucket_sum": 4839,
+      "expect_exclusive": false
+    },
+    {
+      "id": "compare_melanoma_nsclc_status",
+      "measured_at": "2026-08-03T02:56:59+00:00",
+      "query": "Compare melanoma and non-small cell lung cancer trials by recruitment status.",
+      "request": {},
+      "expect_dimension": "status",
+      "expect_viz": [
+        "grouped_bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {},
+      "total_matching": 596690,
+      "buckets": {
+        "melanoma||RECRUITING": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]RECRUITING AND AREA[ConditionSearch]\"melanoma\""
+          },
+          "count": 476
+        },
+        "melanoma||NOT_YET_RECRUITING": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]NOT_YET_RECRUITING AND AREA[ConditionSearch]\"melanoma\""
+          },
+          "count": 100
+        },
+        "melanoma||ACTIVE_NOT_RECRUITING": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]ACTIVE_NOT_RECRUITING AND AREA[ConditionSearch]\"melanoma\""
+          },
+          "count": 298
+        },
+        "melanoma||COMPLETED": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]COMPLETED AND AREA[ConditionSearch]\"melanoma\""
+          },
+          "count": 1731
+        },
+        "melanoma||TERMINATED": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]TERMINATED AND AREA[ConditionSearch]\"melanoma\""
+          },
+          "count": 551
+        },
+        "melanoma||WITHDRAWN": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]WITHDRAWN AND AREA[ConditionSearch]\"melanoma\""
+          },
+          "count": 137
+        },
+        "melanoma||SUSPENDED": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]SUSPENDED AND AREA[ConditionSearch]\"melanoma\""
+          },
+          "count": 19
+        },
+        "melanoma||UNKNOWN": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]UNKNOWN AND AREA[ConditionSearch]\"melanoma\""
+          },
+          "count": 390
+        },
+        "non-small cell lung cancer||RECRUITING": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]RECRUITING AND AREA[ConditionSearch]\"non-small cell lung cancer\""
+          },
+          "count": 1202
+        },
+        "non-small cell lung cancer||NOT_YET_RECRUITING": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]NOT_YET_RECRUITING AND AREA[ConditionSearch]\"non-small cell lung cancer\""
+          },
+          "count": 421
+        },
+        "non-small cell lung cancer||ACTIVE_NOT_RECRUITING": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]ACTIVE_NOT_RECRUITING AND AREA[ConditionSearch]\"non-small cell lung cancer\""
+          },
+          "count": 633
+        },
+        "non-small cell lung cancer||COMPLETED": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]COMPLETED AND AREA[ConditionSearch]\"non-small cell lung cancer\""
+          },
+          "count": 3043
+        },
+        "non-small cell lung cancer||TERMINATED": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]TERMINATED AND AREA[ConditionSearch]\"non-small cell lung cancer\""
+          },
+          "count": 1013
+        },
+        "non-small cell lung cancer||WITHDRAWN": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]WITHDRAWN AND AREA[ConditionSearch]\"non-small cell lung cancer\""
+          },
+          "count": 280
+        },
+        "non-small cell lung cancer||SUSPENDED": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]SUSPENDED AND AREA[ConditionSearch]\"non-small cell lung cancer\""
+          },
+          "count": 27
+        },
+        "non-small cell lung cancer||UNKNOWN": {
+          "params": {
+            "filter.advanced": "AREA[OverallStatus]UNKNOWN AND AREA[ConditionSearch]\"non-small cell lung cancer\""
+          },
+          "count": 1278
+        }
+      },
+      "bucket_sum": 11599,
+      "expect_exclusive": false
+    },
+    {
+      "id": "compare_pfizer_novartis_phase",
+      "measured_at": "2026-08-03T02:57:26+00:00",
+      "query": "Compare Pfizer versus Novartis trials across phases.",
+      "request": {},
+      "expect_dimension": "phase",
+      "expect_viz": [
+        "grouped_bar_chart"
+      ],
+      "verify": "static",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {},
+      "total_matching": 596690,
+      "buckets": {
+        "Pfizer||EARLY_PHASE1": {
+          "params": {
+            "filter.advanced": "AREA[Phase]EARLY_PHASE1 AND AREA[LeadSponsorName]\"Pfizer\""
+          },
+          "count": 2
+        },
+        "Pfizer||PHASE1": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE1 AND AREA[LeadSponsorName]\"Pfizer\""
+          },
+          "count": 1385
+        },
+        "Pfizer||PHASE2": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE2 AND AREA[LeadSponsorName]\"Pfizer\""
+          },
+          "count": 778
+        },
+        "Pfizer||PHASE3": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE3 AND AREA[LeadSponsorName]\"Pfizer\""
+          },
+          "count": 801
+        },
+        "Pfizer||PHASE4": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE4 AND AREA[LeadSponsorName]\"Pfizer\""
+          },
+          "count": 292
+        },
+        "Pfizer||NA": {
+          "params": {
+            "filter.advanced": "AREA[Phase]NA AND AREA[LeadSponsorName]\"Pfizer\""
+          },
+          "count": 64
+        },
+        "Novartis||EARLY_PHASE1": {
+          "params": {
+            "filter.advanced": "AREA[Phase]EARLY_PHASE1 AND AREA[LeadSponsorName]\"Novartis\""
+          },
+          "count": 2
+        },
+        "Novartis||PHASE1": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE1 AND AREA[LeadSponsorName]\"Novartis\""
+          },
+          "count": 611
+        },
+        "Novartis||PHASE2": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE2 AND AREA[LeadSponsorName]\"Novartis\""
+          },
+          "count": 1040
+        },
+        "Novartis||PHASE3": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE3 AND AREA[LeadSponsorName]\"Novartis\""
+          },
+          "count": 1127
+        },
+        "Novartis||PHASE4": {
+          "params": {
+            "filter.advanced": "AREA[Phase]PHASE4 AND AREA[LeadSponsorName]\"Novartis\""
+          },
+          "count": 535
+        },
+        "Novartis||NA": {
+          "params": {
+            "filter.advanced": "AREA[Phase]NA AND AREA[LeadSponsorName]\"Novartis\""
+          },
+          "count": 21
+        }
+      },
+      "bucket_sum": 6658,
+      "expect_exclusive": false
+    },
+    {
+      "id": "sponsor_melanoma",
+      "measured_at": "2026-08-03T02:57:27+00:00",
+      "query": "Which sponsors run the most melanoma trials?",
+      "request": {
+        "condition": "melanoma"
+      },
+      "expect_dimension": "sponsor",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "sponsor_labels",
+      "allowed_years": [],
+      "notes": "Sponsor labels are discovered from a sample, so they are verified, not predicted.",
+      "base_params": {
+        "query.cond": "melanoma"
+      },
+      "total_matching": 3738,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": false
+    },
+    {
+      "id": "sponsor_lung_cancer",
+      "measured_at": "2026-08-03T02:57:27+00:00",
+      "query": "Show the leading sponsors of lung cancer trials.",
+      "request": {
+        "condition": "lung cancer"
+      },
+      "expect_dimension": "sponsor",
+      "expect_viz": [
+        "bar_chart"
+      ],
+      "verify": "sponsor_labels",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "lung cancer"
+      },
+      "total_matching": 14397,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": false
+    },
+    {
+      "id": "network_sponsor_drug_melanoma",
+      "measured_at": "2026-08-03T02:57:27+00:00",
+      "query": "Show the network of relationships between sponsors and drugs in melanoma trials.",
+      "request": {
+        "condition": "melanoma"
+      },
+      "expect_dimension": "sponsor_drug_network",
+      "expect_viz": [
+        "network_graph"
+      ],
+      "verify": "network",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "melanoma"
+      },
+      "total_matching": 3738,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": false
+    },
+    {
+      "id": "network_drug_drug_nsclc",
+      "measured_at": "2026-08-03T02:57:28+00:00",
+      "query": "Which drugs are studied in combination with each other in non-small cell lung cancer trials? Show the drug co-occurrence network.",
+      "request": {
+        "condition": "non-small cell lung cancer"
+      },
+      "expect_dimension": "drug_drug_network",
+      "expect_viz": [
+        "network_graph"
+      ],
+      "verify": "network",
+      "allowed_years": [],
+      "notes": "",
+      "base_params": {
+        "query.cond": "non-small cell lung cancer"
+      },
+      "total_matching": 8476,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": false
+    },
+    {
+      "id": "network_sponsor_drug_pembrolizumab",
+      "measured_at": "2026-08-03T02:57:28+00:00",
+      "query": "Show sponsor-drug relationships across pembrolizumab trials as a network.",
+      "request": {
+        "drug_name": "Pembrolizumab"
+      },
+      "expect_dimension": "sponsor_drug_network",
+      "expect_viz": [
+        "network_graph"
+      ],
+      "verify": "network",
+      "allowed_years": [],
+      "notes": "Regression for the shipped bug where the base drug filter was overwritten by each node's own filter, returning an unrelated portfolio.",
+      "base_params": {
+        "query.intr": "Pembrolizumab"
+      },
+      "total_matching": 2915,
+      "buckets": {},
+      "bucket_sum": null,
+      "expect_exclusive": false
+    }
+  ]
+}

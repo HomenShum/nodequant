@@ -1,0 +1,96 @@
+<!-- @dsCard group="Citations" -->
+<div class="ds">
+  <h1>Deep citations</h1>
+  <p class="lede">Every visualized datum traces to real trial records. A bounded row of chips
+    keeps the answer's shape; the true total is never implied by the sample.</p>
+
+  <h2>Chip row with overflow</h2>
+  <div class="card">
+    <p class="ctx">PHASE3 · <b>360</b> trials</p>
+    <div class="chips">
+      <a class="chip">NCT06989112</a><a class="chip">NCT06212752</a>
+      <a class="chip">NCT05609968</a><a class="chip">NCT04963348</a>
+      <button class="chip more">+356</button>
+    </div>
+  </div>
+  <p class="cap">Four chips then a single <code>+N</code>. The row never wraps, and
+    <code>citation_total</code> is carried separately from the returned sample so the count
+    stays honest when the sample is capped.</p>
+
+  <h2>Citation drawer</h2>
+  <div class="card drawer">
+    <div class="dhead">
+      <div><p class="dtitle">Sources for PHASE3</p>
+        <p class="dsub">showing <b>3</b> of <b>360</b> · trials contributing to this bar</p></div>
+      <button class="x" aria-label="Close">×</button>
+    </div>
+    <ol class="srcs">
+      <li>
+        <div class="srow"><a class="nct">NCT06989112</a><span class="fld">briefTitle</span></div>
+        <p class="ex">“DESTINY-Endometrial01: A Phase III Study of Trastuzumab Deruxtecan Plus
+          Pembrolizumab Versus Chemotherapy”</p>
+      </li>
+      <li>
+        <div class="srow"><a class="nct">NCT06212752</a><span class="fld">briefTitle</span></div>
+        <p class="ex">“A Study of Subcutaneous (SC) Pembrolizumab Coformulated With
+          Berahyaluronidase Alfa”</p>
+      </li>
+      <li>
+        <div class="srow"><a class="nct">NCT05609968</a><span class="fld">designModule.phases</span></div>
+        <p class="ex">“PHASE3”</p>
+      </li>
+    </ol>
+    <p class="dfoot">Excerpts are copied verbatim from the API response. Never generated.</p>
+  </div>
+  <p class="cap">Each entry names the field the excerpt came from, so a reader sees <em>why</em>
+    the record supports the datum rather than merely that it does.</p>
+</div>
+
+<style>
+  :root{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e6e5e1;
+         --accent:#1f6f6b; --chip:#f4f3ef; }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c; --line:#33322e;
+           --accent:#5ec6c0; --chip:#26251f; } }
+  :root[data-theme="dark"]{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c;
+    --line:#33322e; --accent:#5ec6c0; --chip:#26251f; }
+  :root[data-theme="light"]{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66;
+    --line:#e6e5e1; --accent:#1f6f6b; --chip:#f4f3ef; }
+  .ds{ background:var(--bg); color:var(--ink); padding:32px; min-height:100%;
+       font:400 13.5px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+       font-variant-numeric:tabular-nums; }
+  .ds h1{ font-size:28px; font-weight:640; letter-spacing:-.02em; margin:0 0 6px; }
+  .ds h2{ font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.06em;
+          color:var(--muted); margin:28px 0 10px; }
+  .lede{ color:var(--muted); max-width:62ch; margin:0; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px; }
+  .ctx{ font-size:12px; color:var(--muted); margin:0 0 10px; }
+  .ctx b{ color:var(--ink); }
+  .chips{ display:flex; gap:7px; flex-wrap:nowrap; overflow:hidden; }
+  .chip{ flex:none; font:12px ui-monospace,monospace; background:var(--chip);
+         border:1px solid var(--line); border-radius:6px; padding:5px 9px; color:var(--accent);
+         text-decoration:none; cursor:pointer; }
+  .more{ color:var(--muted); font-weight:600; }
+  .drawer{ max-width:520px; }
+  .dhead{ display:flex; justify-content:space-between; align-items:flex-start;
+          padding-bottom:12px; border-bottom:1px solid var(--line); }
+  .dtitle{ font-size:14px; font-weight:600; margin:0 0 2px; }
+  .dsub{ font-size:11.5px; color:var(--muted); margin:0; }
+  .dsub b{ color:var(--ink); }
+  .x{ background:none; border:none; font-size:20px; color:var(--muted); cursor:pointer;
+      line-height:1; padding:0 2px; }
+  .srcs{ list-style:none; margin:0; padding:0; }
+  .srcs li{ padding:13px 0; border-bottom:1px solid var(--line); }
+  .srcs li:last-child{ border-bottom:none; }
+  .srow{ display:flex; align-items:center; gap:9px; margin-bottom:5px; }
+  .nct{ font:600 12px ui-monospace,monospace; color:var(--accent); text-decoration:none;
+        cursor:pointer; }
+  .fld{ font:11px ui-monospace,monospace; color:var(--muted); background:var(--chip);
+        border:1px solid var(--line); border-radius:4px; padding:1px 6px; }
+  .ex{ margin:0; font-size:12.5px; color:var(--muted); font-style:italic; }
+  .dfoot{ margin:12px 0 0; padding-top:11px; border-top:1px solid var(--line);
+          font-size:11.5px; color:var(--muted); }
+  .cap{ color:var(--muted); font-size:12px; max-width:64ch; margin:10px 0 0; }
+  code{ font:12px ui-monospace,monospace; background:var(--chip); padding:1px 5px;
+        border-radius:4px; border:1px solid var(--line); }
+</style>

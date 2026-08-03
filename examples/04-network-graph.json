@@ -1,0 +1,633 @@
+{
+  "request": {
+    "query": "Show a network of sponsors and drugs for melanoma trials.",
+    "max_citations_per_datum": 3
+  },
+  "response": {
+    "visualization": {
+      "type": "network_graph",
+      "title": "Sponsor-Drug Network for Melanoma Trials",
+      "encoding": {
+        "nodes": {
+          "id": "id",
+          "label": "label",
+          "size": "count"
+        },
+        "edges": {
+          "source": "source",
+          "target": "target",
+          "weight": "weight"
+        }
+      },
+      "data": [],
+      "nodes": [
+        {
+          "id": "L::National Cancer Institute (NCI)",
+          "label": "National Cancer Institute (NCI)",
+          "type": "sponsor",
+          "count": 227
+        },
+        {
+          "id": "L::M.D. Anderson Cancer Center",
+          "label": "M.D. Anderson Cancer Center",
+          "type": "sponsor",
+          "count": 117
+        },
+        {
+          "id": "L::Memorial Sloan Kettering Cancer Center",
+          "label": "Memorial Sloan Kettering Cancer Center",
+          "type": "sponsor",
+          "count": 75
+        },
+        {
+          "id": "L::Bristol-Myers Squibb",
+          "label": "Bristol-Myers Squibb",
+          "type": "sponsor",
+          "count": 101
+        },
+        {
+          "id": "L::Novartis Pharmaceuticals",
+          "label": "Novartis Pharmaceuticals",
+          "type": "sponsor",
+          "count": 52
+        },
+        {
+          "id": "L::Hoffmann-La Roche",
+          "label": "Hoffmann-La Roche",
+          "type": "sponsor",
+          "count": 47
+        },
+        {
+          "id": "R::Pembrolizumab",
+          "label": "Pembrolizumab",
+          "type": "intervention",
+          "count": 339
+        },
+        {
+          "id": "R::Nivolumab",
+          "label": "Nivolumab",
+          "type": "intervention",
+          "count": 304
+        },
+        {
+          "id": "R::Ipilimumab",
+          "label": "Ipilimumab",
+          "type": "intervention",
+          "count": 295
+        },
+        {
+          "id": "R::Biospecimen Collection",
+          "label": "Biospecimen Collection",
+          "type": "intervention",
+          "count": 54
+        },
+        {
+          "id": "R::AlloStim",
+          "label": "AlloStim",
+          "type": "intervention",
+          "count": 1
+        },
+        {
+          "id": "R::Cyclophosphamide",
+          "label": "Cyclophosphamide",
+          "type": "intervention",
+          "count": 135
+        }
+      ],
+      "edges": [
+        {
+          "source": "L::Bristol-Myers Squibb",
+          "target": "R::Ipilimumab",
+          "weight": 53,
+          "citations": [],
+          "citation_total": 53
+        },
+        {
+          "source": "L::National Cancer Institute (NCI)",
+          "target": "R::Cyclophosphamide",
+          "weight": 37,
+          "citations": [],
+          "citation_total": 37
+        },
+        {
+          "source": "L::Bristol-Myers Squibb",
+          "target": "R::Nivolumab",
+          "weight": 37,
+          "citations": [],
+          "citation_total": 37
+        },
+        {
+          "source": "L::National Cancer Institute (NCI)",
+          "target": "R::Biospecimen Collection",
+          "weight": 19,
+          "citations": [],
+          "citation_total": 19
+        },
+        {
+          "source": "L::National Cancer Institute (NCI)",
+          "target": "R::Ipilimumab",
+          "weight": 17,
+          "citations": [],
+          "citation_total": 17
+        },
+        {
+          "source": "L::M.D. Anderson Cancer Center",
+          "target": "R::Ipilimumab",
+          "weight": 17,
+          "citations": [],
+          "citation_total": 17
+        },
+        {
+          "source": "L::National Cancer Institute (NCI)",
+          "target": "R::Nivolumab",
+          "weight": 14,
+          "citations": [],
+          "citation_total": 14
+        },
+        {
+          "source": "L::M.D. Anderson Cancer Center",
+          "target": "R::Cyclophosphamide",
+          "weight": 13,
+          "citations": [],
+          "citation_total": 13
+        },
+        {
+          "source": "L::National Cancer Institute (NCI)",
+          "target": "R::Pembrolizumab",
+          "weight": 10,
+          "citations": [],
+          "citation_total": 10
+        },
+        {
+          "source": "L::M.D. Anderson Cancer Center",
+          "target": "R::Nivolumab",
+          "weight": 10,
+          "citations": [],
+          "citation_total": 10
+        },
+        {
+          "source": "L::M.D. Anderson Cancer Center",
+          "target": "R::Pembrolizumab",
+          "weight": 9,
+          "citations": [],
+          "citation_total": 9
+        },
+        {
+          "source": "L::Memorial Sloan Kettering Cancer Center",
+          "target": "R::Ipilimumab",
+          "weight": 8,
+          "citations": [],
+          "citation_total": 8
+        },
+        {
+          "source": "L::Memorial Sloan Kettering Cancer Center",
+          "target": "R::Nivolumab",
+          "weight": 7,
+          "citations": [],
+          "citation_total": 7
+        },
+        {
+          "source": "L::M.D. Anderson Cancer Center",
+          "target": "R::Biospecimen Collection",
+          "weight": 5,
+          "citations": [],
+          "citation_total": 5
+        },
+        {
+          "source": "L::Memorial Sloan Kettering Cancer Center",
+          "target": "R::Pembrolizumab",
+          "weight": 2,
+          "citations": [],
+          "citation_total": 2
+        }
+      ],
+      "returned": 12,
+      "total": 12
+    },
+    "meta": {
+      "interpretation": "Trials as a sponsor-to-drug co-occurrence network, filtered to condition = melanoma.",
+      "trace": [
+        {
+          "step": "count matching",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 3738
+        },
+        {
+          "step": "count sponsor National Cancer Institute (NCI)",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"National Cancer Institute (NCI)\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 227
+        },
+        {
+          "step": "count sponsor M.D. Anderson Cancer Center",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"M.D. Anderson Cancer Center\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 117
+        },
+        {
+          "step": "count sponsor Memorial Sloan Kettering Cancer Center",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Memorial Sloan Kettering Cancer Center\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 75
+        },
+        {
+          "step": "count sponsor Bristol-Myers Squibb",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Bristol-Myers Squibb\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 101
+        },
+        {
+          "step": "count sponsor Novartis Pharmaceuticals",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Novartis Pharmaceuticals\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 52
+        },
+        {
+          "step": "count sponsor Hoffmann-La Roche",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Hoffmann-La Roche\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 47
+        },
+        {
+          "step": "count intervention Pembrolizumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionName]\"Pembrolizumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 339
+        },
+        {
+          "step": "count intervention Nivolumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionName]\"Nivolumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 304
+        },
+        {
+          "step": "count intervention Ipilimumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionName]\"Ipilimumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 295
+        },
+        {
+          "step": "count intervention Biospecimen Collection",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionName]\"Biospecimen Collection\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 54
+        },
+        {
+          "step": "count intervention AlloStim",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionName]\"AlloStim\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 1
+        },
+        {
+          "step": "count intervention Cyclophosphamide",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[InterventionName]\"Cyclophosphamide\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 135
+        },
+        {
+          "step": "count National Cancer Institute (NCI) + Pembrolizumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"National Cancer Institute (NCI)\" AND AREA[InterventionName]\"Pembrolizumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 10
+        },
+        {
+          "step": "count National Cancer Institute (NCI) + Nivolumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"National Cancer Institute (NCI)\" AND AREA[InterventionName]\"Nivolumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 14
+        },
+        {
+          "step": "count National Cancer Institute (NCI) + Ipilimumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"National Cancer Institute (NCI)\" AND AREA[InterventionName]\"Ipilimumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 17
+        },
+        {
+          "step": "count National Cancer Institute (NCI) + Biospecimen Collection",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"National Cancer Institute (NCI)\" AND AREA[InterventionName]\"Biospecimen Collection\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 19
+        },
+        {
+          "step": "count National Cancer Institute (NCI) + AlloStim",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"National Cancer Institute (NCI)\" AND AREA[InterventionName]\"AlloStim\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 0
+        },
+        {
+          "step": "count National Cancer Institute (NCI) + Cyclophosphamide",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"National Cancer Institute (NCI)\" AND AREA[InterventionName]\"Cyclophosphamide\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 37
+        },
+        {
+          "step": "count M.D. Anderson Cancer Center + Pembrolizumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"M.D. Anderson Cancer Center\" AND AREA[InterventionName]\"Pembrolizumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 9
+        },
+        {
+          "step": "count M.D. Anderson Cancer Center + Nivolumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"M.D. Anderson Cancer Center\" AND AREA[InterventionName]\"Nivolumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 10
+        },
+        {
+          "step": "count M.D. Anderson Cancer Center + Ipilimumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"M.D. Anderson Cancer Center\" AND AREA[InterventionName]\"Ipilimumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 17
+        },
+        {
+          "step": "count M.D. Anderson Cancer Center + Biospecimen Collection",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"M.D. Anderson Cancer Center\" AND AREA[InterventionName]\"Biospecimen Collection\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 5
+        },
+        {
+          "step": "count M.D. Anderson Cancer Center + AlloStim",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"M.D. Anderson Cancer Center\" AND AREA[InterventionName]\"AlloStim\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 0
+        },
+        {
+          "step": "count M.D. Anderson Cancer Center + Cyclophosphamide",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"M.D. Anderson Cancer Center\" AND AREA[InterventionName]\"Cyclophosphamide\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 13
+        },
+        {
+          "step": "count Memorial Sloan Kettering Cancer Center + Pembrolizumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Memorial Sloan Kettering Cancer Center\" AND AREA[InterventionName]\"Pembrolizumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 2
+        },
+        {
+          "step": "count Memorial Sloan Kettering Cancer Center + Nivolumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Memorial Sloan Kettering Cancer Center\" AND AREA[InterventionName]\"Nivolumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 7
+        },
+        {
+          "step": "count Memorial Sloan Kettering Cancer Center + Ipilimumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Memorial Sloan Kettering Cancer Center\" AND AREA[InterventionName]\"Ipilimumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 8
+        },
+        {
+          "step": "count Memorial Sloan Kettering Cancer Center + Biospecimen Collection",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Memorial Sloan Kettering Cancer Center\" AND AREA[InterventionName]\"Biospecimen Collection\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 0
+        },
+        {
+          "step": "count Memorial Sloan Kettering Cancer Center + AlloStim",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Memorial Sloan Kettering Cancer Center\" AND AREA[InterventionName]\"AlloStim\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 0
+        },
+        {
+          "step": "count Memorial Sloan Kettering Cancer Center + Cyclophosphamide",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Memorial Sloan Kettering Cancer Center\" AND AREA[InterventionName]\"Cyclophosphamide\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 0
+        },
+        {
+          "step": "count Bristol-Myers Squibb + Pembrolizumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Bristol-Myers Squibb\" AND AREA[InterventionName]\"Pembrolizumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 0
+        },
+        {
+          "step": "count Bristol-Myers Squibb + Nivolumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Bristol-Myers Squibb\" AND AREA[InterventionName]\"Nivolumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 37
+        },
+        {
+          "step": "count Bristol-Myers Squibb + Ipilimumab",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Bristol-Myers Squibb\" AND AREA[InterventionName]\"Ipilimumab\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 53
+        },
+        {
+          "step": "count Bristol-Myers Squibb + Biospecimen Collection",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Bristol-Myers Squibb\" AND AREA[InterventionName]\"Biospecimen Collection\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 0
+        },
+        {
+          "step": "count Bristol-Myers Squibb + AlloStim",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Bristol-Myers Squibb\" AND AREA[InterventionName]\"AlloStim\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 0
+        },
+        {
+          "step": "count Bristol-Myers Squibb + Cyclophosphamide",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[LeadSponsorName]\"Bristol-Myers Squibb\" AND AREA[InterventionName]\"Cyclophosphamide\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 0
+        }
+      ],
+      "filters_applied": {
+        "query.cond": "melanoma"
+      },
+      "source": "clinicaltrials.gov",
+      "total_matching": 3738,
+      "denominator_note": "co-occurrence within 3,738 matching trials; top 6 entities per side",
+      "buckets_are_exclusive": false,
+      "units": "trials",
+      "assumptions": [
+        "I inferred that the network should link sponsors and drugs within trials for the condition melanoma."
+      ],
+      "warnings": [
+        "Node counts and edge weights are exact probe counts, but the entity shortlist is drawn from a sample of matching records, so a rare entity may be absent from the graph."
+      ]
+    }
+  }
+}

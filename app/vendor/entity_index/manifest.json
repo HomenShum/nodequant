@@ -1,0 +1,38 @@
+{
+ "source": "clinicaltrials.gov/api/v2",
+ "built_at": "2026-08-03T02:00:07+00:00",
+ "backend": "fts+semantic",
+ "retrieval": "sqlite fts5 + bm25 (external content) | model2vec static embeddings",
+ "semantic_model": "minishlab/potion-base-8M",
+ "pages": 40,
+ "page_size": 1000,
+ "caps": {
+  "intervention": 2500,
+  "sponsor": 2500
+ },
+ "cap_report": {
+  "intervention": {
+   "distinct_seen": 43891,
+   "below_min_doc_freq": 38805,
+   "min_doc_freq": 2,
+   "eligible": 5086,
+   "cap": 2500,
+   "kept": 2500,
+   "dropped_to_cap": 2586,
+   "capped": true,
+   "min_doc_freq_kept": 2
+  },
+  "sponsor": {
+   "distinct_seen": 10327,
+   "below_min_doc_freq": 6704,
+   "min_doc_freq": 2,
+   "eligible": 3623,
+   "cap": 2500,
+   "kept": 2500,
+   "dropped_to_cap": 1123,
+   "capped": true,
+   "min_doc_freq_kept": 2
+  }
+ },
+ "note": "Retrieval PROPOSES entities. It never carries a count. Every number reaching a response comes from a count probe issued at request time by app.entities.verify_candidates."
+}

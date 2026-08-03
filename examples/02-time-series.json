@@ -1,0 +1,368 @@
+{
+  "request": {
+    "query": "How many trials started each year for glioblastoma since 2018?",
+    "max_citations_per_datum": 3
+  },
+  "response": {
+    "visualization": {
+      "type": "time_series",
+      "title": "Glioblastoma trials started each year since 2018",
+      "encoding": {
+        "x": {
+          "field": "label"
+        },
+        "y": {
+          "field": "count"
+        }
+      },
+      "data": [
+        {
+          "label": "2018",
+          "count": 120,
+          "citations": [
+            {
+              "nct_id": "NCT03576612",
+              "excerpt": "GMCI, Nivolumab, and Radiation Therapy in Treating Patients With Newly Diagnosed High-Grade Gliomas",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT03956706",
+              "excerpt": "Study of Stereotactic Radiosurgery to the Subventricular Zone in Malignant Gliomas",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT03867123",
+              "excerpt": "A Study to Evaluate the Safety of LAM561 Added to Standard of Care in Newly-diagnosed Glioblastoma Patients",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 120,
+          "is_unbucketed": false
+        },
+        {
+          "label": "2019",
+          "count": 88,
+          "citations": [
+            {
+              "nct_id": "NCT04516733",
+              "excerpt": "Precoce Medical Care by the Mobil Support for Patients With Glioblastoma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT04116138",
+              "excerpt": "Antisecretory Factor in Primary Glioblastoma 1",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT03834740",
+              "excerpt": "A Phase 0/I Study of Ribociclib (LEE011) in Combination With Everolimus in Preoperative Recurrent High-Grade Glioma Patients Scheduled for Resection",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 88,
+          "is_unbucketed": false
+        },
+        {
+          "label": "2020",
+          "count": 109,
+          "citations": [
+            {
+              "nct_id": "NCT04190628",
+              "excerpt": "Safety and Tolerability of ABM-1310 in Patients With Advanced Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT04488783",
+              "excerpt": "Potentiation of Chemotherapy in Brain Tumors by Zinc",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT04396860",
+              "excerpt": "Testing the Use of the Immunotherapy Drugs Ipilimumab and Nivolumab Plus Radiation Therapy Compared to the Usual Treatment (Temozolomide and Radiation Therapy) for Newly Diagnosed MGMT Unmethylated Glioblastoma",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 109,
+          "is_unbucketed": false
+        },
+        {
+          "label": "2021",
+          "count": 96,
+          "citations": [
+            {
+              "nct_id": "NCT04977375",
+              "excerpt": "Trial of Anti-PD-1 Immunotherapy and Stereotactic Radiation in Patients With Recurrent Glioblastoma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT04732065",
+              "excerpt": "ONC206 for Treatment of Newly Diagnosed, Recurrent Diffuse Midline Gliomas, and Other Recurrent Malignant CNS Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT04757662",
+              "excerpt": "Tadalafil to Overcome Immunosuppression During Chemoradiotherapy for IDH-wildtype Grade III-IV Astrocytoma",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 96,
+          "is_unbucketed": false
+        },
+        {
+          "label": "2022",
+          "count": 116,
+          "citations": [
+            {
+              "nct_id": "NCT05565326",
+              "excerpt": "Response Assessment During MR-guided Radiation Therapy for Glioblastoma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT04752813",
+              "excerpt": "A Study of BPM31510 With Vitamin K1 in Subjects With Newly Diagnosed Glioblastoma (GB)",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05556382",
+              "excerpt": "Glioblastoma Evaluation for Heterogeneity In RadioseNsitivity",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 116,
+          "is_unbucketed": false
+        },
+        {
+          "label": "2023",
+          "count": 115,
+          "citations": [
+            {
+              "nct_id": "NCT05798507",
+              "excerpt": "Identification of Treatment Concentrations of Defactinib or VS-6766 for the Treatment of Patients With Glioblastoma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05577091",
+              "excerpt": "Tris-CAR-T Cell Therapy for Recurrent Glioblastoma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05908669",
+              "excerpt": "Deuterium Metabolic Imaging to Assess Radiotherapy Changes in Glioblastoma Multiforme",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 115,
+          "is_unbucketed": false
+        },
+        {
+          "label": "2024",
+          "count": 114,
+          "citations": [
+            {
+              "nct_id": "NCT06039709",
+              "excerpt": "Sonodynamic Therapy in Patients With Recurrent GBM",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT06177964",
+              "excerpt": "Lerapolturev (PVSRIPO) in GBM",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT06001281",
+              "excerpt": "Predictive Value of Soluble CD146 in Glioblastoma Patients",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 114,
+          "is_unbucketed": false
+        },
+        {
+          "label": "2025",
+          "count": 114,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT06501911",
+              "excerpt": "A Study of Bicalutamide With Brain Re-irradiation to Treat Recurrent/Progressive High Grade Glioma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT06934889",
+              "excerpt": "Study of ABBV-637 or ABBV-155 With ERAS-801 for People With Glioblastoma",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 114,
+          "is_unbucketed": false
+        },
+        {
+          "label": "2026",
+          "count": 106,
+          "citations": [
+            {
+              "nct_id": "NCT07448480",
+              "excerpt": "Comprehensive Analysis of Chemotherapy and Targeted Therapy Outcomes in Recurrent Malignant Gliomas",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT07416188",
+              "excerpt": "Novel Indenoisoquinolone CMYC/TOPOISOMERASE 1 Inhibitor (LMP744) in Recurrent Glioblastoma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT07553520",
+              "excerpt": "Dietary Cysteine and Methionine Deprivation (CMD) in Glioma Patients",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 106,
+          "is_unbucketed": false
+        }
+      ],
+      "nodes": [],
+      "edges": [],
+      "returned": 9,
+      "total": 9
+    },
+    "meta": {
+      "interpretation": "Trials counted per start year, filtered to condition = glioblastoma; start 2018-any.",
+      "trace": [
+        {
+          "step": "count matching",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 983
+        },
+        {
+          "step": "count 2018",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX] AND AREA[StartDate]RANGE[2018-01-01,2018-12-31]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 120
+        },
+        {
+          "step": "count 2019",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX] AND AREA[StartDate]RANGE[2019-01-01,2019-12-31]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 88
+        },
+        {
+          "step": "count 2020",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX] AND AREA[StartDate]RANGE[2020-01-01,2020-12-31]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 109
+        },
+        {
+          "step": "count 2021",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX] AND AREA[StartDate]RANGE[2021-01-01,2021-12-31]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 96
+        },
+        {
+          "step": "count 2022",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX] AND AREA[StartDate]RANGE[2022-01-01,2022-12-31]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 116
+        },
+        {
+          "step": "count 2023",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX] AND AREA[StartDate]RANGE[2023-01-01,2023-12-31]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 115
+        },
+        {
+          "step": "count 2024",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX] AND AREA[StartDate]RANGE[2024-01-01,2024-12-31]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 114
+        },
+        {
+          "step": "count 2025",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX] AND AREA[StartDate]RANGE[2025-01-01,2025-12-31]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 114
+        },
+        {
+          "step": "count 2026",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "glioblastoma",
+            "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX] AND AREA[StartDate]RANGE[2026-01-01,2026-12-31]",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 106
+        }
+      ],
+      "filters_applied": {
+        "query.cond": "glioblastoma",
+        "filter.advanced": "AREA[StartDate]RANGE[2018-01-01,MAX]"
+      },
+      "source": "clinicaltrials.gov",
+      "total_matching": 983,
+      "denominator_note": "of 983 trials matching query.cond=glioblastoma, filter.advanced=AREA[StartDate]RANGE[2018-01-01,MAX]",
+      "buckets_are_exclusive": false,
+      "bucket_sum": 978,
+      "unbucketed_count": 5,
+      "sort": "label_asc",
+      "units": "trials",
+      "time_granularity": "year",
+      "assumptions": [
+        "Use trial start year as the yearly grouping."
+      ],
+      "warnings": [
+        "5 of 983 matching trials fall into no bucket \u2014 the year field is absent on those records.",
+        "Do not render this as a pie or 100% stacked bar: the buckets do not partition the result set."
+      ]
+    }
+  }
+}

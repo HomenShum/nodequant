@@ -1,0 +1,468 @@
+{
+  "request": {
+    "query": "Which countries have the most recruiting trials for pancreatic cancer?",
+    "max_citations_per_datum": 3
+  },
+  "response": {
+    "visualization": {
+      "type": "bar_chart",
+      "title": "Recruiting trials for pancreatic cancer by country",
+      "encoding": {
+        "x": {
+          "field": "label"
+        },
+        "y": {
+          "field": "count"
+        }
+      },
+      "data": [
+        {
+          "label": "United States",
+          "count": 391,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05059444",
+              "excerpt": "ORACLE: Observation of ResiduAl Cancer With Liquid Biopsy Evaluation",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT04990609",
+              "excerpt": "EUS-RFA PANCARDINAL-1 Trial",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 391,
+          "is_unbucketed": false
+        },
+        {
+          "label": "China",
+          "count": 253,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT07504471",
+              "excerpt": "Hepatic Arterial Infusion of Sodium Bicarbonate (NaHCO3) Combined With NASOX Regimen and Programmed Death-1 (PD-1) Inhibitors for Pancreatic Cancer Liver Metastases",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT03785743",
+              "excerpt": "Comparing Laparoscopic and Open Surgery for Pancreatic Carcinoma",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 253,
+          "is_unbucketed": false
+        },
+        {
+          "label": "France",
+          "count": 92,
+          "citations": [
+            {
+              "nct_id": "NCT06757244",
+              "excerpt": "DOVIPA, a Study Evaluating Efficacy and Safety of DOstarlimab and VItamin D3 With mFOLFIRINOX in PAncreatic Cancer",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05059444",
+              "excerpt": "ORACLE: Observation of ResiduAl Cancer With Liquid Biopsy Evaluation",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05208762",
+              "excerpt": "A Study of PF-08046054/SGN-PDL1V in Advanced Solid Tumors",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 92,
+          "is_unbucketed": false
+        },
+        {
+          "label": "Italy",
+          "count": 72,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05059444",
+              "excerpt": "ORACLE: Observation of ResiduAl Cancer With Liquid Biopsy Evaluation",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05208762",
+              "excerpt": "A Study of PF-08046054/SGN-PDL1V in Advanced Solid Tumors",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 72,
+          "is_unbucketed": false
+        },
+        {
+          "label": "Spain",
+          "count": 62,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05059444",
+              "excerpt": "ORACLE: Observation of ResiduAl Cancer With Liquid Biopsy Evaluation",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05208762",
+              "excerpt": "A Study of PF-08046054/SGN-PDL1V in Advanced Solid Tumors",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 62,
+          "is_unbucketed": false
+        },
+        {
+          "label": "Canada",
+          "count": 60,
+          "citations": [
+            {
+              "nct_id": "NCT07165132",
+              "excerpt": "Study of RYZ401 in Subjects With Solid Tumors Expressing SSTRs.",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05208762",
+              "excerpt": "A Study of PF-08046054/SGN-PDL1V in Advanced Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT07166601",
+              "excerpt": "M0324 as Monotherapy and in Combination With Pembrolizumab or Chemotherapy in Participants With Selected Advanced Solid Tumors",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 60,
+          "is_unbucketed": false
+        },
+        {
+          "label": "United Kingdom",
+          "count": 51,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05208762",
+              "excerpt": "A Study of PF-08046054/SGN-PDL1V in Advanced Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT07710495",
+              "excerpt": "Exercise to Improve Outcomes in Pancreatic Cancer",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 51,
+          "is_unbucketed": false
+        },
+        {
+          "label": "Australia",
+          "count": 50,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT06337084",
+              "excerpt": "Diagnostic Efficacy and Dosimetry of MNPR-101-DFO*-89Zr in Patients With Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT07341737",
+              "excerpt": "SL-28 for Advanced Solid Tumours",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 50,
+          "is_unbucketed": false
+        },
+        {
+          "label": "South Korea",
+          "count": 47,
+          "citations": [
+            {
+              "nct_id": "NCT05679583",
+              "excerpt": "Preoperative Stereotactic Body Radiation Therapy in Patients With Resectable Pancreatic Cancer",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT06989437",
+              "excerpt": "A Study to Learn About the Medicine Ponsegromab in Adults With Cancer of the Pancreas Which Has Spread and Caused Significant Body Weight Loss and Fatigue",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT03637569",
+              "excerpt": "The Relationship Between Triceps Skinfold and Overall Survival of Pancreas, Bile Duct, Gallbladder Cancer",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 47,
+          "is_unbucketed": false
+        },
+        {
+          "label": "Japan",
+          "count": 42,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05208762",
+              "excerpt": "A Study of PF-08046054/SGN-PDL1V in Advanced Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT06159478",
+              "excerpt": "Binimetinib in Patients With BRAF Fusion-positive Low-grade Glioma or Pancreatic Cancer (Perfume)",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 42,
+          "is_unbucketed": false
+        },
+        {
+          "label": "Netherlands",
+          "count": 34,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05208762",
+              "excerpt": "A Study of PF-08046054/SGN-PDL1V in Advanced Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT07702292",
+              "excerpt": "[68Ga]BED003 PET Imaging of Fibroblast Activation Protein in Selected Oncology Indications",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 34,
+          "is_unbucketed": false
+        },
+        {
+          "label": "Belgium",
+          "count": 25,
+          "citations": [
+            {
+              "nct_id": "NCT06914128",
+              "excerpt": "A Study of PRMT5 Inhibitor BAY 3713372 in Participants With MTAP-deleted Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT05208762",
+              "excerpt": "A Study of PF-08046054/SGN-PDL1V in Advanced Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT03394365",
+              "excerpt": "A Phase 3 Study of Tabelecleucel for Participants With Epstein-Barr Virus-Associated Post-Transplant Lymphoproliferative Disease After Failure With Rituximab or Rituximab and Chemotherapy",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 25,
+          "is_unbucketed": false
+        }
+      ],
+      "nodes": [],
+      "edges": [],
+      "returned": 12,
+      "total": 12
+    },
+    "meta": {
+      "interpretation": "Trials grouped by country, filtered to condition = pancreatic cancer; status in RECRUITING.",
+      "trace": [
+        {
+          "step": "count matching",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING)",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 896
+        },
+        {
+          "step": "count United States",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"United States\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 391
+        },
+        {
+          "step": "count China",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"China\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 253
+        },
+        {
+          "step": "count France",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"France\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 92
+        },
+        {
+          "step": "count Italy",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"Italy\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 72
+        },
+        {
+          "step": "count United Kingdom",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"United Kingdom\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 51
+        },
+        {
+          "step": "count Australia",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"Australia\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 50
+        },
+        {
+          "step": "count Spain",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"Spain\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 62
+        },
+        {
+          "step": "count Canada",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"Canada\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 60
+        },
+        {
+          "step": "count Japan",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"Japan\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 42
+        },
+        {
+          "step": "count South Korea",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"South Korea\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 47
+        },
+        {
+          "step": "count Netherlands",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"Netherlands\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 34
+        },
+        {
+          "step": "count Belgium",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "pancreatic cancer",
+            "filter.advanced": "(AREA[OverallStatus]RECRUITING) AND AREA[LocationCountry]\"Belgium\"",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 25
+        }
+      ],
+      "filters_applied": {
+        "query.cond": "pancreatic cancer",
+        "filter.advanced": "(AREA[OverallStatus]RECRUITING)"
+      },
+      "source": "clinicaltrials.gov",
+      "total_matching": 896,
+      "denominator_note": "of 896 trials matching query.cond=pancreatic cancer, filter.advanced=(AREA[OverallStatus]RECRUITING)",
+      "buckets_are_exclusive": false,
+      "bucket_sum": 1179,
+      "sort": "count_desc",
+      "units": "trials",
+      "assumptions": [
+        "I interpreted 'most' as a ranking by number of trials per country."
+      ],
+      "warnings": [
+        "Buckets overlap: bucket counts sum to 1,179 but only 896 trials match, so ~283 memberships are double-counted. A trial may hold several country values.",
+        "Do not render this as a pie or 100% stacked bar: the buckets do not partition the result set."
+      ]
+    }
+  }
+}

@@ -1,0 +1,141 @@
+<!-- @dsCard group="Directions" -->
+<div class="ds">
+  <div class="chrome"><span class="tag">DIRECTION C</span> generative composition
+    <span class="right">surface assembled per query · data still measured</span></div>
+
+  <div class="ask">
+    <input value="How are melanoma trials distributed across phases?" readonly>
+    <button>Ask</button>
+  </div>
+
+  <div class="compo">
+    <span class="cl">COMPOSED</span>
+    <span class="pn done">distribution</span>
+    <span class="pn done">reconciliation</span>
+    <span class="pn done">citations</span>
+    <span class="pn gen">phase primer <i>freeform</i></span>
+    <span class="cn">4 panels chosen for this question · 221ms</span>
+  </div>
+
+  <div class="board">
+
+    <section class="p span2">
+      <header><h3>Phase distribution</h3>
+        <span class="meta">of 3,738 melanoma trials · independent bars</span></header>
+      <div class="rows">
+        <div class="r"><span class="l">PHASE2</span><div class="t"><i style="width:100%"></i></div><b>1,529</b></div>
+        <div class="r"><span class="l">PHASE1</span><div class="t"><i style="width:87.6%"></i></div><b>1,340</b></div>
+        <div class="r nul"><span class="l">NA</span><div class="t"><i style="width:26.9%"></i></div><b>412</b></div>
+        <div class="r"><span class="l">PHASE3</span><div class="t"><i style="width:14.3%"></i></div><b>219</b></div>
+        <div class="r"><span class="l">EARLY_PHASE1</span><div class="t"><i style="width:4.3%"></i></div><b>65</b></div>
+        <div class="r"><span class="l">PHASE4</span><div class="t"><i style="width:2.4%"></i></div><b>37</b></div>
+      </div>
+    </section>
+
+    <section class="p warn">
+      <header><h3>Reconciliation</h3><span class="badge">auto-added</span></header>
+      <p class="lead">Buckets don't partition this result set.</p>
+      <dl>
+        <div><dt>matched</dt><dd>3,738</dd></div>
+        <div><dt>bucket sum</dt><dd>3,602</dd></div>
+        <div class="hl"><dt>no phase field</dt><dd>136</dd></div>
+        <div class="hl"><dt>P1 ∩ P2</dt><dd>472</dd></div>
+      </dl>
+      <p class="foot">Part-of-whole marks blocked for this response.</p>
+    </section>
+
+    <section class="p">
+      <header><h3>Citations</h3><span class="meta">PHASE3 · 3 of 219</span></header>
+      <div class="ct"><a>NCT02460068</a><p>“A Study of Fotemustine(FTM) Vs FTM and Ipilimumab (IPI)…”</p></div>
+      <div class="ct"><a>NCT01682083</a><p>“Dabrafenib With Trametinib in the Adjuvant Treatment…”</p></div>
+      <div class="ct"><a>NCT06519266</a><p>“PHP in Combination With IPI1/NIVO3 Compared to IPI3/NIVO1…”</p></div>
+    </section>
+
+    <section class="p free">
+      <header><h3>Phase primer</h3><span class="badge gen">generated · unvalidated</span></header>
+      <p class="fp">Phase 1 establishes safety and dosing; Phase 2 tests efficacy in a target
+        population; Phase 3 confirms it against standard of care at scale. Melanoma's heavy
+        Phase 1/2 weighting is characteristic of an area with many candidate immunotherapy
+        combinations still in early evaluation.</p>
+      <p class="fnote">⚠ No primitive covered this. Written by the model, not measured from the
+        API. Contains no figures — narrative only.</p>
+    </section>
+
+  </div>
+
+  <div class="stream">
+    <span class="dot"></span> composition streamed panel-by-panel as probes resolved ·
+    <a>show the 8 queries</a>
+  </div>
+</div>
+
+<style>
+  :root{ --bg:#fafaf9; --pan:#fff; --ink:#17181a; --dim:#6b6f74; --line:#e5e5e2;
+         --acc:#1f6f6b; --null:#b5b5b0; --warn:#a86a10; --warnbg:#fdf7ea;
+         --gen:#7a5cc6; --genbg:#f6f3fd; }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --bg:#131315; --pan:#1c1c1f;
+    --ink:#eeeef0; --dim:#9a9ea3; --line:#2e2e32; --acc:#5ec6c0; --null:#65656a; --warn:#e0a44a;
+    --warnbg:#231d12; --gen:#a58ce8; --genbg:#1e1a2a; } }
+  :root[data-theme="dark"]{ --bg:#131315; --pan:#1c1c1f; --ink:#eeeef0; --dim:#9a9ea3;
+    --line:#2e2e32; --acc:#5ec6c0; --null:#65656a; --warn:#e0a44a; --warnbg:#231d12;
+    --gen:#a58ce8; --genbg:#1e1a2a; }
+  .ds{ background:var(--bg); color:var(--ink); padding:24px; min-height:100%;
+       font:400 13.5px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+       font-variant-numeric:tabular-nums; }
+  .chrome{ display:flex; gap:9px; align-items:center; font:11px ui-monospace,monospace;
+           color:var(--dim); padding-bottom:12px; border-bottom:1px solid var(--line);
+           margin-bottom:16px; }
+  .tag{ background:var(--acc); color:var(--bg); padding:2px 7px; border-radius:3px;
+        font-weight:700; letter-spacing:.05em; }
+  .right{ margin-left:auto; }
+  .ask{ display:flex; gap:8px; margin-bottom:12px; }
+  .ask input{ flex:1; background:var(--pan); border:1px solid var(--line); border-radius:8px;
+              padding:11px 14px; color:var(--ink); font:inherit; outline:none; }
+  .ask button{ background:var(--acc); color:var(--bg); border:none; border-radius:8px;
+               padding:0 20px; font:600 13px inherit; cursor:pointer; }
+  .compo{ display:flex; gap:7px; align-items:center; flex-wrap:wrap; margin-bottom:16px; }
+  .cl{ font:10px ui-monospace,monospace; letter-spacing:.1em; color:var(--dim); margin-right:2px; }
+  .pn{ font:11.5px ui-monospace,monospace; border:1px solid var(--line); border-radius:20px;
+       padding:3px 11px; color:var(--dim); background:var(--pan); }
+  .pn.done::before{ content:"✓ "; color:var(--acc); }
+  .pn.gen{ border-color:var(--gen); color:var(--gen); background:var(--genbg); }
+  .pn.gen i{ font-style:normal; opacity:.7; font-size:10px; margin-left:4px; }
+  .cn{ margin-left:auto; font-size:11px; color:var(--dim); }
+  .board{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .p{ background:var(--pan); border:1px solid var(--line); border-radius:10px; padding:16px; }
+  .span2{ grid-column:span 2; }
+  .p.warn{ border-color:var(--warn); background:var(--warnbg); }
+  .p.free{ border-color:var(--gen); background:var(--genbg); border-style:dashed; }
+  header{ display:flex; align-items:baseline; gap:10px; margin-bottom:12px; }
+  h3{ font-size:13.5px; font-weight:600; margin:0; }
+  .meta{ font-size:11px; color:var(--dim); margin-left:auto; }
+  .badge{ margin-left:auto; font:10px ui-monospace,monospace; border:1px solid var(--warn);
+          color:var(--warn); border-radius:12px; padding:2px 8px; }
+  .badge.gen{ border-color:var(--gen); color:var(--gen); }
+  .r{ display:grid; grid-template-columns:104px 1fr 56px; align-items:center; gap:11px;
+      margin-bottom:7px; }
+  .l{ text-align:right; font:11.5px ui-monospace,monospace; color:var(--dim); }
+  .t i{ display:block; height:17px; background:var(--acc); border-radius:3px; }
+  .nul .t i{ background:var(--null);
+    background-image:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(128,128,128,.3) 3px,rgba(128,128,128,.3) 6px); }
+  .r b{ text-align:right; font:600 12.5px ui-monospace,monospace; }
+  .lead{ margin:0 0 10px; font-weight:600; font-size:12.5px; }
+  dl{ margin:0; } dl div{ display:flex; justify-content:space-between; padding:3.5px 0;
+      font-size:12px; color:var(--dim); border-top:1px solid var(--line); }
+  dl div:first-child{ border-top:none; }
+  dt{ } dd{ margin:0; font:600 12px ui-monospace,monospace; color:var(--ink); }
+  .hl dt,.hl dd{ color:var(--warn)!important; }
+  .foot{ margin:10px 0 0; padding-top:9px; border-top:1px solid var(--line);
+         font-size:11px; color:var(--warn); }
+  .ct{ padding:7px 0; border-top:1px solid var(--line); }
+  .ct:first-of-type{ border-top:none; }
+  .ct a{ font:600 11.5px ui-monospace,monospace; color:var(--acc); cursor:pointer; }
+  .ct p{ margin:3px 0 0; font-size:11.5px; color:var(--dim); font-style:italic; }
+  .fp{ margin:0 0 10px; font-size:12.5px; line-height:1.6; color:var(--ink); }
+  .fnote{ margin:0; padding-top:9px; border-top:1px dashed var(--gen); font-size:11px;
+          color:var(--gen); }
+  .stream{ margin-top:14px; font-size:11.5px; color:var(--dim); display:flex; gap:7px;
+           align-items:center; }
+  .dot{ width:7px; height:7px; border-radius:50%; background:var(--acc); }
+  .stream a{ color:var(--acc); cursor:pointer; text-decoration:underline; }
+</style>

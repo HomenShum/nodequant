@@ -1,0 +1,263 @@
+{
+  "request": {
+    "query": "How are melanoma trials distributed across phases?",
+    "max_citations_per_datum": 3
+  },
+  "response": {
+    "visualization": {
+      "type": "bar_chart",
+      "title": "Melanoma trials by phase",
+      "encoding": {
+        "x": {
+          "field": "label"
+        },
+        "y": {
+          "field": "count"
+        }
+      },
+      "data": [
+        {
+          "label": "PHASE2",
+          "count": 1529,
+          "citations": [
+            {
+              "nct_id": "NCT00082875",
+              "excerpt": "Cilengitide in Treating Patients With Unresectable or Metastatic Melanoma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT00204607",
+              "excerpt": "Intradermal Vaccination With Stabilized Tumor mRNA - a Clinical Phase I/II Trial in Melanoma Patients",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT00024011",
+              "excerpt": "PS-341 in Treating Patients With Metastatic Malignant Melanoma",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 1529,
+          "is_unbucketed": false
+        },
+        {
+          "label": "PHASE1",
+          "count": 1340,
+          "citations": [
+            {
+              "nct_id": "NCT00204607",
+              "excerpt": "Intradermal Vaccination With Stabilized Tumor mRNA - a Clinical Phase I/II Trial in Melanoma Patients",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT00379132",
+              "excerpt": "131-I-TM-601 Study in Adults With Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT01005472",
+              "excerpt": "Temozolomide and Sunitinib Malate in Treating Patients With Stage III or Stage IV Malignant Melanoma",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 1340,
+          "is_unbucketed": false
+        },
+        {
+          "label": "PHASE3",
+          "count": 219,
+          "citations": [
+            {
+              "nct_id": "NCT02460068",
+              "excerpt": "A Study of Fotemustine(FTM) Vs FTM and Ipilimumab (IPI) or IPI and Nivolumab in Melanoma Brain Metastasis",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT01682083",
+              "excerpt": "Dabrafenib With Trametinib in the Adjuvant Treatment of High-risk BRAF V600 Mutation-positive Melanoma (COMBI-AD).",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT06519266",
+              "excerpt": "PHP in Combination With IPI1/NIVO3 Compared to IPI3/NIVO1 Only in Patients With Uveal Melanoma Liver Metastases",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 219,
+          "is_unbucketed": false
+        },
+        {
+          "label": "EARLY_PHASE1",
+          "count": 65,
+          "citations": [
+            {
+              "nct_id": "NCT05961111",
+              "excerpt": "A Clinical Study on Oncolytic Virus Injection (R130 OV) for the Treatment of Advanced Solid Tumors",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT04741997",
+              "excerpt": "Adjuvant Therapy Based on Pathologic Response After Neoadjuvant Encorafenib Binimetinib in Melanoma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT00962845",
+              "excerpt": "Hydroxychloroquine in Patients With Stage III or Stage IV Melanoma That Can Be Removed by Surgery",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 65,
+          "is_unbucketed": false
+        },
+        {
+          "label": "PHASE4",
+          "count": 37,
+          "citations": [
+            {
+              "nct_id": "NCT06785974",
+              "excerpt": "Statins to Prevent Immune Checkpoint Inhibitor-induced PRogression of AtherosLerosis",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT01683188",
+              "excerpt": "HD IL-2 + Vemurafenib in Patients With BRAF Mutation Positive Metastatic Melanoma",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT00075166",
+              "excerpt": "Surgery Versus Radiosurgery to Treat Metastatic Brain Tumors",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 37,
+          "is_unbucketed": false
+        },
+        {
+          "label": "NA",
+          "count": 412,
+          "citations": [
+            {
+              "nct_id": "NCT03906253",
+              "excerpt": "Effectiveness of Fractionated Laser Resurfacing to Protect Geriatric Skin From Actinic Neoplasia",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT03898687",
+              "excerpt": "The Use of Magtrace\u00ae/Sentimag\u00ae in Sentinel Node Biopsy for Malignant Melanoma. The Magmen Study.",
+              "field": "briefTitle"
+            },
+            {
+              "nct_id": "NCT01896778",
+              "excerpt": "Body Warming in Improving Blood Flow and Oxygen Delivery to Tumors in Patients With Cancer",
+              "field": "briefTitle"
+            }
+          ],
+          "citation_total": 412,
+          "is_unbucketed": true
+        }
+      ],
+      "nodes": [],
+      "edges": [],
+      "returned": 6,
+      "total": 6
+    },
+    "meta": {
+      "interpretation": "Trials grouped by trial phase, filtered to condition = melanoma.",
+      "trace": [
+        {
+          "step": "count matching",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 3738
+        },
+        {
+          "step": "count EARLY_PHASE1",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]EARLY_PHASE1",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 65
+        },
+        {
+          "step": "count PHASE1",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]PHASE1",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 1340
+        },
+        {
+          "step": "count PHASE2",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]PHASE2",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 1529
+        },
+        {
+          "step": "count PHASE3",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]PHASE3",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 219
+        },
+        {
+          "step": "count PHASE4",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]PHASE4",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 37
+        },
+        {
+          "step": "count NA",
+          "url": "https://clinicaltrials.gov/api/v2/studies",
+          "params": {
+            "query.cond": "melanoma",
+            "filter.advanced": "AREA[Phase]NA",
+            "countTotal": "true",
+            "pageSize": "1"
+          },
+          "result_count": 412
+        }
+      ],
+      "filters_applied": {
+        "query.cond": "melanoma"
+      },
+      "source": "clinicaltrials.gov",
+      "total_matching": 3738,
+      "denominator_note": "of 3,738 trials matching query.cond=melanoma",
+      "buckets_are_exclusive": false,
+      "bucket_sum": 3602,
+      "unbucketed_count": 136,
+      "sort": "count_desc",
+      "units": "trials",
+      "assumptions": [
+        "I inferred that 'melanoma trials' refers to trials with condition set to melanoma."
+      ],
+      "warnings": [
+        "At least 136 of 3,738 matching trials fall into no bucket. Because a trial may hold several phase values, overlap and absent values partly offset each other, so this is a net shortfall, not an exact count.",
+        "Do not render this as a pie or 100% stacked bar: the buckets do not partition the result set."
+      ]
+    }
+  }
+}

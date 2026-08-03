@@ -1,0 +1,90 @@
+<!-- @dsCard group="Foundations" -->
+<div class="ds">
+  <h1>TrialScope foundations</h1>
+  <p class="lede">Tokens for a clinical evidence surface. Every choice is load-bearing; the
+    grey ramp is <em>reserved</em> and may not be spent on decoration.</p>
+
+  <section>
+    <h2>Colour</h2>
+    <p class="note">One accent hue carries all measured data. Grey means exactly one thing:
+      <strong>no value was recorded</strong>. Amber marks a claim the reader must temper.
+      Nothing else may use these three roles.</p>
+    <div class="swatches">
+      <div class="sw"><span style="background:var(--accent)"></span><b>--accent</b><i>measured data</i></div>
+      <div class="sw"><span style="background:var(--accent-weak)"></span><b>--accent-weak</b><i>secondary series</i></div>
+      <div class="sw"><span style="background:var(--null)"></span><b>--null</b><i>unbucketed only</i></div>
+      <div class="sw"><span style="background:var(--warn)"></span><b>--warn</b><i>disclosure</i></div>
+      <div class="sw"><span style="background:var(--ink)"></span><b>--ink</b><i>text</i></div>
+      <div class="sw"><span style="background:var(--muted)"></span><b>--muted</b><i>secondary text</i></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Numerals</h2>
+    <p class="note">All counts use tabular figures so columns align and digit changes do not
+      reflow. Counts are never abbreviated — <code>1,742</code> not <code>1.7k</code>, because a
+      truncated count cannot be checked against the source.</p>
+    <table class="nums">
+      <tr><td>1,742</td><td>360</td><td>51</td><td>16</td></tr>
+      <tr><td>2,915</td><td>3,205</td><td>469</td><td>53</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Type scale</h2>
+    <div class="type">
+      <p style="font-size:28px;font-weight:640;letter-spacing:-.02em">28 / Answer title</p>
+      <p style="font-size:15px;font-weight:600">15 / Section</p>
+      <p style="font-size:13.5px">13.5 / Body and data labels</p>
+      <p style="font-size:12px;color:var(--muted)">12 / Denominator, provenance, caption</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Accessibility floor</h2>
+    <ul class="rules">
+      <li>Never encode meaning by colour alone — every bar also carries a numeric label.</li>
+      <li>The unbucketed category is distinguished by <em>label and hatch</em>, not only by grey.</li>
+      <li>Focus rings are never removed; disclosure controls are real buttons.</li>
+    </ul>
+  </section>
+</div>
+
+<style>
+  :root{
+    --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e6e5e1;
+    --accent:#1f6f6b; --accent-weak:#7fb3b0; --null:#b8b7b2; --warn:#b4750f;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c; --line:#33322e;
+           --accent:#5ec6c0; --accent-weak:#2f7a76; --null:#6a6963; --warn:#e0a44a; }
+  }
+  :root[data-theme="dark"]{
+    --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c; --line:#33322e;
+    --accent:#5ec6c0; --accent-weak:#2f7a76; --null:#6a6963; --warn:#e0a44a;
+  }
+  :root[data-theme="light"]{
+    --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e6e5e1;
+    --accent:#1f6f6b; --accent-weak:#7fb3b0; --null:#b8b7b2; --warn:#b4750f;
+  }
+  .ds{ background:var(--bg); color:var(--ink); padding:32px; min-height:100%;
+       font:400 13.5px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+       font-variant-numeric:tabular-nums; }
+  .ds h1{ font-size:28px; font-weight:640; letter-spacing:-.02em; margin:0 0 6px; }
+  .ds h2{ font-size:15px; font-weight:600; margin:0 0 8px; }
+  .lede{ color:var(--muted); max-width:60ch; margin:0 0 28px; }
+  section{ background:var(--card); border:1px solid var(--line); border-radius:10px;
+           padding:20px; margin-bottom:16px; }
+  .note{ color:var(--muted); max-width:66ch; margin:0 0 14px; }
+  .swatches{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; }
+  .sw span{ display:block; height:44px; border-radius:6px; border:1px solid var(--line); }
+  .sw b{ display:block; font:600 12px ui-monospace,monospace; margin-top:7px; }
+  .sw i{ display:block; color:var(--muted); font-style:normal; font-size:11.5px; }
+  .nums td{ padding:5px 22px 5px 0; font:600 20px ui-monospace,monospace;
+            font-variant-numeric:tabular-nums; }
+  .type p{ margin:0 0 8px; }
+  .rules{ margin:0; padding-left:18px; color:var(--muted); }
+  .rules li{ margin-bottom:6px; }
+  code{ font:12px ui-monospace,monospace; background:var(--bg); padding:1px 5px;
+        border-radius:4px; border:1px solid var(--line); }
+</style>

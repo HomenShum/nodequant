@@ -1,0 +1,94 @@
+<!-- @dsCard group="Graph" -->
+<div class="ds">
+  <h1>Network graph</h1>
+  <p class="lede">Sponsor ↔ drug co-occurrence. Magnitude lives in the node header as a
+    readable number, never encoded only as circle area — area is imprecise, fails at zoom-out,
+    and is invisible to a colour-blind or screenshot reader. Edges carry explicit weight.</p>
+
+  <div class="canvas">
+    <div class="node" style="left:26px;  top:34px;">
+      <div class="nhead"><i class="dot sponsor"></i><b>Merck</b><span class="ct">213</span></div>
+      <div class="nrow">Pembrolizumab <em>168</em></div>
+      <div class="nrow">Sacituzumab <em>31</em></div>
+      <div class="nmore">+ 6 more interventions</div>
+    </div>
+    <div class="node" style="left:330px; top:150px;">
+      <div class="nhead"><i class="dot drug"></i><b>Pembrolizumab</b><span class="ct">2,915</span></div>
+      <div class="nrow">Phase 2 <em>1,742</em></div>
+      <div class="nrow">Phase 1 <em>1,036</em></div>
+      <div class="nmore">+ 4 more phases</div>
+    </div>
+    <div class="node" style="left:26px;  top:250px;">
+      <div class="nhead"><i class="dot sponsor"></i><b>BMS</b><span class="ct">147</span></div>
+      <div class="nrow">Nivolumab <em>121</em></div>
+      <div class="nmore">+ 9 more interventions</div>
+    </div>
+
+    <svg class="edges" viewBox="0 0 640 380" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M212 78 L272 78 L272 178 L330 178"/>
+      <path d="M212 288 L272 288 L272 210 L330 210"/>
+      <text x="276" y="126">168</text>
+      <text x="276" y="266">42</text>
+    </svg>
+
+    <div class="ctrls"><button>+</button><button>−</button><button>⤢</button><button>🔒</button></div>
+  </div>
+
+  <div class="meta">
+    <span class="pill">showing 3 of 41 nodes</span>
+    <span class="pill">showing 2 of 96 edges</span>
+    <span class="k"><i class="dot sponsor"></i>sponsor</span>
+    <span class="k"><i class="dot drug"></i>drug</span>
+    <span class="note">edge label = co-occurring trials</span>
+  </div>
+  <p class="cap">Node bodies truncate to a fixed height and declare the residual inline
+    (“+ 6 more”). A silent cut would make the node a lie; the count is both the truncation and
+    its own correction.</p>
+</div>
+
+<style>
+  :root{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e6e5e1;
+         --accent:#1f6f6b; --drug:#1f6f6b; --sponsor:#7a5cc6; --grid:#e9e8e3; --chip:#f4f3ef; }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c; --line:#33322e;
+           --accent:#5ec6c0; --drug:#5ec6c0; --sponsor:#a58ce8; --grid:#26251f; --chip:#26251f; } }
+  :root[data-theme="dark"]{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c;
+    --line:#33322e; --accent:#5ec6c0; --drug:#5ec6c0; --sponsor:#a58ce8; --grid:#26251f; --chip:#26251f; }
+  :root[data-theme="light"]{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66;
+    --line:#e6e5e1; --accent:#1f6f6b; --drug:#1f6f6b; --sponsor:#7a5cc6; --grid:#e9e8e3; --chip:#f4f3ef; }
+  .ds{ background:var(--bg); color:var(--ink); padding:32px; min-height:100%;
+       font:400 13.5px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+       font-variant-numeric:tabular-nums; }
+  .ds h1{ font-size:28px; font-weight:640; letter-spacing:-.02em; margin:0 0 6px; }
+  .lede{ color:var(--muted); max-width:64ch; margin:0 0 20px; }
+  .canvas{ position:relative; height:380px; border:1px solid var(--line); border-radius:10px;
+           background:var(--card);
+           background-image:radial-gradient(var(--grid) 1px,transparent 1px);
+           background-size:18px 18px; overflow:hidden; }
+  .node{ position:absolute; width:186px; background:var(--card); border:1px solid var(--line);
+         border-radius:9px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.06); z-index:2; }
+  .nhead{ display:flex; align-items:center; gap:7px; padding:9px 11px;
+          border-bottom:1px solid var(--line); }
+  .nhead b{ font-size:12.5px; font-weight:600; flex:1; }
+  .ct{ font:700 12px ui-monospace,monospace; color:var(--muted); }
+  .dot{ width:8px; height:8px; border-radius:50%; flex:none; display:inline-block; }
+  .sponsor{ background:var(--sponsor); } .drug{ background:var(--drug); }
+  .nrow{ display:flex; justify-content:space-between; padding:5px 11px; font-size:11.5px;
+         color:var(--muted); }
+  .nrow em{ font-style:normal; font:600 11.5px ui-monospace,monospace; color:var(--ink); }
+  .nmore{ padding:6px 11px; font-size:11px; color:var(--muted); border-top:1px solid var(--line);
+          background:var(--chip); }
+  .edges{ position:absolute; inset:0; width:100%; height:100%; z-index:1; }
+  .edges path{ fill:none; stroke:var(--muted); stroke-width:1.3; opacity:.55; }
+  .edges text{ fill:var(--muted); font:600 10.5px ui-monospace,monospace; }
+  .ctrls{ position:absolute; left:12px; bottom:12px; display:flex; gap:4px; z-index:3; }
+  .ctrls button{ width:26px; height:26px; border:1px solid var(--line); background:var(--card);
+                 border-radius:5px; color:var(--muted); cursor:pointer; font-size:12px; }
+  .meta{ display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:13px;
+         font-size:11.5px; color:var(--muted); }
+  .pill{ border:1px solid var(--line); border-radius:20px; padding:3px 10px;
+         font:11px ui-monospace,monospace; }
+  .k{ display:flex; align-items:center; gap:5px; }
+  .note{ margin-left:auto; }
+  .cap{ color:var(--muted); font-size:12px; max-width:64ch; margin:12px 0 0; }
+</style>

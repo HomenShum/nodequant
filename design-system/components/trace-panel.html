@@ -1,0 +1,92 @@
+<!-- @dsCard group="Trust" -->
+<div class="ds">
+  <h1>Interpretation & trace</h1>
+  <p class="lede">Two separate fields, not one blob. The interpretation is for every reader and
+    is always visible; the trace is for the sceptic and stays collapsed. The trace prints the
+    <strong>literal</strong> requests issued — a paraphrase cannot be replayed.</p>
+
+  <div class="card">
+    <p class="interp"><i>Read as</i> Distribution of trials by phase, filtered to intervention
+      Pembrolizumab.</p>
+
+    <details open>
+      <summary><span class="chev">▾</span> 6 API calls · 2,915 trials matched
+        <span class="ms">221 ms</span></summary>
+      <ol class="steps">
+        <li><span class="st">count PHASE2</span>
+          <code>query.intr=Pembrolizumab&amp;filter.advanced=AREA[Phase]PHASE2&amp;countTotal=true&amp;pageSize=1</code>
+          <b>1,742</b></li>
+        <li><span class="st">count PHASE1</span>
+          <code>query.intr=Pembrolizumab&amp;filter.advanced=AREA[Phase]PHASE1&amp;countTotal=true&amp;pageSize=1</code>
+          <b>1,036</b></li>
+        <li><span class="st">count PHASE3</span>
+          <code>query.intr=Pembrolizumab&amp;filter.advanced=AREA[Phase]PHASE3&amp;countTotal=true&amp;pageSize=1</code>
+          <b>360</b></li>
+        <li><span class="st">count NA</span>
+          <code>query.intr=Pembrolizumab&amp;filter.advanced=AREA[Phase]NA&amp;countTotal=true&amp;pageSize=1</code>
+          <b>53</b></li>
+        <li class="dim"><span class="st">overlap probe</span>
+          <code>filter.advanced=AREA[Phase]PHASE1 AND AREA[Phase]PHASE2</code><b>469</b></li>
+        <li class="dim"><span class="st">citations PHASE3</span>
+          <code>pageSize=3&amp;fields=NCTId,BriefTitle,Phase,...</code><b>3</b></li>
+      </ol>
+      <p class="foot">Every count above came from <code>totalCount</code>. No model produced a
+        number on this page — paste any URL into a browser to reproduce it.</p>
+    </details>
+
+    <div class="assum">
+      <p class="atitle">Assumptions</p>
+      <ul><li>Interpreted “phases” as <code>designModule.phases</code>.</li>
+          <li>No date restriction applied; all registered trials included.</li></ul>
+    </div>
+  </div>
+
+  <p class="cap">Collapsed by default in production. Shown open here so the card conveys what is
+    inside it.</p>
+</div>
+
+<style>
+  :root{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66; --line:#e6e5e1;
+         --accent:#1f6f6b; --chip:#f4f3ef; }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c; --line:#33322e;
+           --accent:#5ec6c0; --chip:#26251f; } }
+  :root[data-theme="dark"]{ --bg:#161614; --card:#1e1e1b; --ink:#f0efeb; --muted:#a3a29c;
+    --line:#33322e; --accent:#5ec6c0; --chip:#26251f; }
+  :root[data-theme="light"]{ --bg:#fbfbfa; --card:#fff; --ink:#1a1a18; --muted:#6b6b66;
+    --line:#e6e5e1; --accent:#1f6f6b; --chip:#f4f3ef; }
+  .ds{ background:var(--bg); color:var(--ink); padding:32px; min-height:100%;
+       font:400 13.5px/1.55 ui-sans-serif,-apple-system,"Segoe UI",system-ui,sans-serif;
+       font-variant-numeric:tabular-nums; }
+  .ds h1{ font-size:28px; font-weight:640; letter-spacing:-.02em; margin:0 0 6px; }
+  .lede{ color:var(--muted); max-width:64ch; margin:0 0 20px; }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px; }
+  .interp{ margin:0 0 14px; font-size:13.5px; }
+  .interp i{ font-style:normal; color:var(--muted); margin-right:7px;
+             font:11px ui-sans-serif,sans-serif; text-transform:uppercase; letter-spacing:.06em; }
+  details{ border:1px solid var(--line); border-radius:8px; background:var(--bg); }
+  summary{ cursor:pointer; padding:10px 13px; font-size:12.5px; font-weight:600;
+           list-style:none; display:flex; align-items:center; gap:8px; }
+  summary::-webkit-details-marker{ display:none; }
+  .chev{ color:var(--muted); font-size:10px; }
+  .ms{ margin-left:auto; font:11px ui-monospace,monospace; color:var(--muted); font-weight:400; }
+  .steps{ list-style:none; margin:0; padding:0 13px 6px; }
+  .steps li{ display:grid; grid-template-columns:118px 1fr 62px; gap:10px; align-items:center;
+             padding:7px 0; border-top:1px solid var(--line); }
+  .steps li.dim{ opacity:.62; }
+  .st{ font-size:11.5px; color:var(--muted); }
+  .steps code{ font:11px ui-monospace,monospace; color:var(--ink); background:var(--chip);
+               border:1px solid var(--line); border-radius:4px; padding:3px 7px;
+               overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .steps b{ text-align:right; font:700 12px ui-monospace,monospace; }
+  .foot{ margin:0; padding:10px 13px 12px; font-size:11.5px; color:var(--muted);
+         border-top:1px solid var(--line); }
+  .assum{ margin-top:14px; }
+  .atitle{ font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted);
+           margin:0 0 5px; }
+  .assum ul{ margin:0; padding-left:17px; font-size:12.5px; color:var(--muted); }
+  .assum li{ margin-bottom:3px; }
+  .cap{ color:var(--muted); font-size:12px; max-width:64ch; margin:12px 0 0; }
+  code{ font:11.5px ui-monospace,monospace; background:var(--chip); padding:1px 5px;
+        border-radius:4px; border:1px solid var(--line); }
+</style>

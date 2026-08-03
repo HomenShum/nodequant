@@ -1,0 +1,111 @@
+<!-- @dsCard group="Directions" -->
+<div class="ds">
+  <div class="chrome"><span class="tag">DIRECTION B</span> editorial · annotation-led · the caveat is the story</div>
+
+  <p class="kicker">MELANOMA · ALL REGISTERED TRIALS</p>
+  <h1>Most melanoma trials never reach Phase 3.</h1>
+  <p class="stand">Of <b>3,738</b> registered melanoma trials, <b>1,529</b> are Phase 2 and just
+    <b>219</b> are Phase 3 — but the phases do not divide cleanly, and that is the more
+    interesting fact.</p>
+
+  <div class="figure">
+    <div class="rows">
+      <div class="r"><span class="l">Phase 2</span>
+        <div class="t"><i style="width:100%"></i></div><b>1,529</b></div>
+      <div class="r"><span class="l">Phase 1</span>
+        <div class="t"><i style="width:87.6%"></i></div><b>1,340</b></div>
+      <div class="r nul"><span class="l">No phase recorded</span>
+        <div class="t"><i style="width:26.9%"></i></div><b>412</b></div>
+      <div class="r"><span class="l">Phase 3</span>
+        <div class="t"><i style="width:14.3%"></i></div><b>219</b></div>
+      <div class="r"><span class="l">Early Phase 1</span>
+        <div class="t"><i style="width:4.3%"></i></div><b>65</b></div>
+      <div class="r"><span class="l">Phase 4</span>
+        <div class="t"><i style="width:2.4%"></i></div><b>37</b></div>
+    </div>
+    <p class="cap">Counts measured directly from ClinicalTrials.gov. Bars are independent —
+      see below.</p>
+  </div>
+
+  <div class="pull">
+    <p class="pn">472</p>
+    <p class="pt">trials are registered as <b>both</b> Phase 1 and Phase 2</p>
+    <p class="pb">ClinicalTrials.gov stores <code>phases</code> as a list, so a single trial can
+      occupy several bars at once. These bars therefore cannot be read as slices of a whole —
+      they sum to <b>3,602</b>, while <b>3,738</b> trials matched. A further <b>136</b> carry no
+      phase field at all.</p>
+  </div>
+
+  <p class="body">This is why the chart above is drawn as independent bars rather than a pie.
+    A part-of-whole mark would imply a partition that the underlying data does not have, and
+    every proportion a reader took from it would be wrong.</p>
+
+  <div class="srcs">
+    <p class="sh">Phase 3 · showing 3 of 219 supporting trials</p>
+    <ol>
+      <li><a>NCT02460068</a> “A Study of Fotemustine(FTM) Vs FTM and Ipilimumab (IPI) or IPI and
+        Nivolumab in Melanoma”</li>
+      <li><a>NCT01682083</a> “Dabrafenib With Trametinib in the Adjuvant Treatment of High-risk
+        BRAF V600 Mutation”</li>
+      <li><a>NCT06519266</a> “PHP in Combination With IPI1/NIVO3 Compared to IPI3/NIVO1 Only in
+        Patients With Melanoma”</li>
+    </ol>
+    <p class="meth">Method — 8 API calls, 221 ms. Every figure above is a
+      <code>totalCount</code> from ClinicalTrials.gov; none was produced by a language model.
+      <a class="lnk">Show the queries</a></p>
+  </div>
+</div>
+
+<style>
+  :root{ --bg:#fdfcf9; --ink:#191713; --dim:#6d6862; --line:#e5e1d8; --acc:#1f6f6b;
+         --null:#bab5ab; --warn:#9a5b1c; --pull:#f5f1e8; }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --bg:#14130f; --ink:#f2efe8;
+    --dim:#a29c92; --line:#302d27; --acc:#5ec6c0; --null:#6d685f; --warn:#d9974a; --pull:#1e1c17; } }
+  :root[data-theme="dark"]{ --bg:#14130f; --ink:#f2efe8; --dim:#a29c92; --line:#302d27;
+    --acc:#5ec6c0; --null:#6d685f; --warn:#d9974a; --pull:#1e1c17; }
+  .ds{ background:var(--bg); color:var(--ink); padding:38px 40px; min-height:100%;
+       font:400 15px/1.65 Georgia,"Iowan Old Style","Times New Roman",serif;
+       font-variant-numeric:tabular-nums; max-width:760px; }
+  .chrome{ display:flex; gap:9px; align-items:center; font:11px ui-monospace,monospace;
+           color:var(--dim); padding-bottom:14px; border-bottom:1px solid var(--line);
+           margin-bottom:26px; }
+  .tag{ background:var(--acc); color:var(--bg); padding:2px 7px; border-radius:3px;
+        font-weight:700; letter-spacing:.05em; }
+  .kicker{ font:600 10.5px ui-sans-serif,sans-serif; letter-spacing:.14em; color:var(--acc);
+           margin:0 0 12px; }
+  h1{ font-size:36px; line-height:1.18; font-weight:400; letter-spacing:-.015em; margin:0 0 14px; }
+  .stand{ font-size:17px; color:var(--dim); margin:0 0 30px; max-width:56ch; }
+  .stand b, .body b{ color:var(--ink); font-weight:700; }
+  .figure{ margin:0 0 30px; }
+  .r{ display:grid; grid-template-columns:150px 1fr 66px; align-items:center; gap:14px;
+      margin-bottom:8px; }
+  .l{ text-align:right; font:13px ui-sans-serif,sans-serif; color:var(--dim); }
+  .t{ height:19px; }
+  .t i{ display:block; height:19px; background:var(--acc); }
+  .nul .t i{ background:var(--null);
+    background-image:repeating-linear-gradient(45deg,transparent,transparent 3px,rgba(0,0,0,.14) 3px,rgba(0,0,0,.14) 6px); }
+  .r b{ font:600 15px ui-sans-serif,sans-serif; }
+  .cap{ font:12px ui-sans-serif,sans-serif; color:var(--dim); margin:14px 0 0;
+        padding-top:10px; border-top:1px solid var(--line); }
+  .pull{ background:var(--pull); border-left:3px solid var(--warn); padding:22px 26px;
+         margin:0 0 26px; }
+  .pn{ font:700 52px/1 ui-sans-serif,sans-serif; color:var(--warn); margin:0 0 6px;
+       letter-spacing:-.03em; }
+  .pt{ font-size:17px; margin:0 0 12px; }
+  .pt b{ font-weight:700; }
+  .pb{ font:13.5px/1.6 ui-sans-serif,sans-serif; color:var(--dim); margin:0; max-width:58ch; }
+  .pb b{ color:var(--ink); font-weight:600; }
+  .body{ margin:0 0 30px; max-width:58ch; }
+  .srcs{ border-top:1px solid var(--line); padding-top:20px; }
+  .sh{ font:600 10.5px ui-sans-serif,sans-serif; letter-spacing:.12em; color:var(--dim);
+       text-transform:uppercase; margin:0 0 12px; }
+  .srcs ol{ margin:0 0 18px; padding-left:20px; font-size:13.5px; color:var(--dim); }
+  .srcs li{ margin-bottom:8px; }
+  .srcs a{ font:600 12.5px ui-monospace,monospace; color:var(--acc); text-decoration:none;
+           cursor:pointer; }
+  .meth{ font:12px/1.6 ui-sans-serif,sans-serif; color:var(--dim); margin:0;
+         padding-top:14px; border-top:1px solid var(--line); }
+  .lnk{ color:var(--acc); cursor:pointer; text-decoration:underline; }
+  code{ font:11.5px ui-monospace,monospace; background:var(--pull); padding:1px 5px;
+        border-radius:3px; }
+</style>
