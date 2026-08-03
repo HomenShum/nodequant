@@ -380,3 +380,26 @@ def test_a_receipt_without_packets_is_never_acceptable(events, bars):
     assert blind.unauthorized_fills is None
     assert not blind.packets_checked
     assert not blind.acceptable
+
+
+def test_a_claimed_posting_cannot_move_the_curve(bars, packets, events):
+    """`qty` and `position_delta` were two representations of one quantity
+    driving two different authoritative calculations -- the position reducer
+    consumed position_delta, the cost-basis reducer consumed qty. Same family as
+    the strategy-predicate and Rule.result bugs: duplicate authority, one of
+    which can drift.
+
+    Postings are now DERIVED from side/qty/price, so a fabricated position_delta
+    is both ignored by the reduction and flagged by conservation."""
+
+    forged = [e.model_copy(deep=True) for e in events]
+    fill = next(i for i, e in enumerate(forged) if e.type is lg.EventType.ORDER_FILL)
+    forged[fill].position_delta += 5
+
+    honest_curve = lg.reduce_curve(events)
+    forged_curve = lg.reduce_curve(forged)
+
+    assert [p.equity_micros for p in forged_curve] == [
+        p.equity_micros for p in honest_curve
+    ], "a claimed posting must not be able to move equity"
+    assert lg.curve_receipt(forged, bars, packets).inconsistent_events > 0

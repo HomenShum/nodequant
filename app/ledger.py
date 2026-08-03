@@ -185,6 +185,29 @@ class CurveReductionReceipt(BaseModel):
         )
 
 
+def posting(event: LedgerEvent) -> tuple[int, int]:
+    """The canonical (position_delta, cash_delta) DERIVED from side, qty, price.
+
+    `qty` and `position_delta` were two representations of one quantity driving
+    two different authoritative calculations: the position reducer consumed
+    `position_delta` while the cost-basis reducer consumed `qty`. That is the
+    same structural family as the two bugs already fixed here -- the strategy
+    predicate versus the packet's rules, and `Rule.result` versus its own
+    operands. Duplicate authority, one of which can drift.
+
+    So the fields on the wire are now CLAIMED postings, kept for auditability.
+    Everything authoritative derives from this function, and `_inconsistent`
+    rejects any event whose claim disagrees with it. Derivation beats
+    validation: a fabricated `position_delta` is both ignored and flagged,
+    rather than only flagged.
+    """
+
+    if event.type is not EventType.ORDER_FILL:
+        return 0, event.cash_delta_micros
+    signed = event.qty if event.side is Side.BUY else -event.qty
+    return signed, -signed * event.price_micros
+
+
 def _inconsistent(event: LedgerEvent) -> bool:
     """Is this event internally impossible?
 
@@ -335,7 +358,8 @@ def reduce_curve(events: list[LedgerEvent]) -> list[EquityPoint]:
 
     for event in events:
         prefix.append(event.model_dump(mode="json"))
-        cash += event.cash_delta_micros
+        derived_position, derived_cash = posting(event)
+        cash += derived_cash
         if event.type is EventType.FEE:
             fees += -event.cash_delta_micros
         if event.price_micros:
@@ -345,7 +369,7 @@ def reduce_curve(events: list[LedgerEvent]) -> list[EquityPoint]:
                 cost_basis = event.price_micros
             else:
                 realised += (event.price_micros - cost_basis) * event.qty
-            position += event.position_delta
+            position += derived_position
         points.append(
             EquityPoint(
                 at_utc=event.at_utc,
@@ -372,8 +396,8 @@ def _reduce_curve_oracle(events: list[LedgerEvent]) -> list[int]:
     out: list[int] = []
     for i in range(len(events)):
         window = events[: i + 1]
-        cash = sum(e.cash_delta_micros for e in window)
-        position = sum(e.position_delta for e in window)
+        cash = sum(posting(e)[1] for e in window)
+        position = sum(posting(e)[0] for e in window)
         prices = [e.price_micros for e in window if e.price_micros]
         mark = prices[-1] if prices else 0
         out.append(cash + position * mark)
@@ -505,7 +529,7 @@ def curve_receipt(
     running = 0
     negative = 0
     for e in events:
-        running += e.position_delta
+        running += posting(e)[0]
         if running < 0:
             negative += 1
 
@@ -519,7 +543,7 @@ def curve_receipt(
 
     # Only meaningful once flat, because unrealised P&L is legitimately absent
     # from `realised`. Ends flat here by construction (every BUY has its SELL).
-    flat = sum(e.position_delta for e in events) == 0
+    flat = sum(posting(e)[0] for e in events) == 0
     flat_residual = (
         abs(
             (points[-1].realised_pnl_micros - points[-1].cumulative_fees_micros)
