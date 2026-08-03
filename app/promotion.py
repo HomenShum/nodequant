@@ -148,7 +148,7 @@ def evaluate(
 
     blockers: list[Blocker] = []
 
-    if evidence_class not in PROMOTABLE_EVIDENCE:
+    if evidence_class is EvidenceClass.SYNTHETIC_KERNEL:
         blockers.append(
             Blocker(
                 code="SYNTHETIC_CORPUS",
@@ -157,6 +157,16 @@ def evaluate(
                     "proves the verifier, not the strategy. Real bars introduce gaps, "
                     "halts, splits, late prints and revisions, none of which this "
                     "corpus contains."
+                ),
+            )
+        )
+    elif evidence_class not in PROMOTABLE_EVIDENCE:
+        blockers.append(
+            Blocker(
+                code="CORPUS_NOT_CONFORMED",
+                detail=(
+                    f"evidence class is {evidence_class.value}; byte provenance "
+                    "does not establish market-data conformance."
                 ),
             )
         )

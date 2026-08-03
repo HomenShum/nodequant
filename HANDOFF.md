@@ -10,10 +10,17 @@ may investigate and challenge, but may never author a number.** Every displayed
 figure traces to a deterministic probe or computation, carries a receipt, and is
 re-derivable. The design is in [DESIGN.md](DESIGN.md); the authority law is §2.
 
+**Read [docs/THREAD_DECISIONS.md](docs/THREAD_DECISIONS.md) before self-directing.**
+The reasoning behind this design lives in an external conversation you cannot
+see. That file is the part which constrains the code — including which
+unbuilt things are deliberate, and the one identity that looks rigorous and is
+tautological. Without it you will re-derive decisions or "fix" a scope choice.
+
 ## State as of 2026-08-03
 
 - 20 commits on `main`, single branch, tree clean.
-- **499 passed, 29 skipped.** `npx tsc --noEmit` clean. `node web/lib/money.mjs` runs.
+- **504 passed, 29 skipped.** `(cd web && npx tsc --noEmit)` clean.
+  `node web/lib/money.mjs` runs.
 - Proof Kernel v0 (`decision-packet`) and the review surface (`backtest-review`)
   both render in the chat UI and are DOM-verified in both pass and fail states.
 - The promotion gate returns **BLOCKED on five grounds**, deliberately. That is
@@ -104,7 +111,12 @@ Not oversights — scope decisions, each of which blocks promotion by design:
 ## Next, in the order the design thread recommends
 
 1. **Real bars.** The smallest increment that falsifies "synthetic changes
-   nothing structural". Everything else is downstream of this.
+   nothing structural". Everything else is downstream of this. The bounded
+   `app.market_data.load_csv_snapshot` seam now preserves a provider locator and
+   exact source hash through every fact receipt; it deliberately does not call a
+   provider or self-certify market-data conformance. Feed it an actual export,
+   retain the raw snapshot, then build the gap/halt/split/revision conformance
+   suite before changing that gate from `NOT_RUN`.
 2. **A separate-agent oracle**: give a fresh agent only the frozen manifest, the
    raw fixture and the output schema — no access to either implementation — and
    have it write a third replay path. That lifts `semantic_independence` from
@@ -129,9 +141,11 @@ Not oversights — scope decisions, each of which blocks promotion by design:
   before touching the assertion.
 - **The curve samples at event times**, not every bar. With marks now emitted per
   held bar the gap is small, but drawdown is strictly "sampled at event times".
-- **`FactReceipt` names a probe but carries no probe inputs, source hash, or
-  replay parameters.** Presence is checked; reproducibility is not established by
-  the receipt itself.
+- **Provider replay is not built.** `FactReceipt` now carries bounded replay
+  inputs and a source hash for external snapshots, but NodeQuant does not yet
+  re-fetch a provider locator or prove that its bytes match the venue's
+  point-in-time record. Byte reproducibility is established; market-data
+  conformance is not.
 
 ## Working agreements from this session
 

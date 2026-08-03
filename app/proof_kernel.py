@@ -38,6 +38,7 @@ from app.decision_packet import (
     CheckStatus,
     DecisionPacket,
     Direction,
+    EvidenceClass,
     Fact,
     FactReceipt,
     MutationEvidence,
@@ -67,6 +68,7 @@ class Bar:
     index: int
     ts: datetime
     close: float
+    receipt: FactReceipt
 
 
 def fixture_bars(count: int = 2400) -> list[Bar]:
@@ -81,8 +83,19 @@ def fixture_bars(count: int = 2400) -> list[Bar]:
     bars: list[Bar] = []
     for i in range(count):
         close = 600.0 + 30.0 * math.sin(i / 17.0) + 8.0 * math.sin(i / 3.3)
+        ts = EPOCH + timedelta(minutes=i)
         bars.append(
-            Bar(index=i, ts=EPOCH + timedelta(minutes=i), close=round(close, 4))
+            Bar(
+                index=i,
+                ts=ts,
+                close=round(close, 4),
+                receipt=FactReceipt(
+                    probe_id=PROBE,
+                    source="fixture",
+                    retrieved_at_utc=ts,
+                    probe_inputs=(("formula", "closed-sine-v1"), ("index", str(i))),
+                ),
+            )
         )
     return bars
 
@@ -128,7 +141,7 @@ def _facts_and_rules(bars: list[Bar], i: int) -> tuple[list[Fact], list[Rule]] |
     fast = _sma(bars, i, FAST)
     slow = _sma(bars, i, SLOW)
     known_at = bars[i].ts
-    receipt = FactReceipt(probe_id=PROBE, source="fixture", retrieved_at_utc=known_at)
+    receipt = bars[i].receipt
 
     facts = [
         Fact(fact_id="close", label=f"{SYMBOL} close", value=close, unit="USD",
@@ -248,7 +261,12 @@ def mutation_evidence(bars: list[Bar], i: int) -> MutationEvidence:
 
     truncated = bars[: i + 1]
     poisoned = truncated + [
-        Bar(index=b.index, ts=b.ts, close=round(-b.close * 13.7 + 4242.0, 4))
+        Bar(
+            index=b.index,
+            ts=b.ts,
+            close=round(-b.close * 13.7 + 4242.0, 4),
+            receipt=b.receipt,
+        )
         for b in bars[i + 1 :]
     ]
     return MutationEvidence(
@@ -278,7 +296,14 @@ def _rebuild(series: list[Bar], i: int) -> DecisionPacket:
         series
         if i + 1 < len(series)
         else series
-        + [Bar(index=i + 1, ts=series[i].ts + timedelta(minutes=1), close=series[i].close)],
+        + [
+            Bar(
+                index=i + 1,
+                ts=series[i].ts + timedelta(minutes=1),
+                close=series[i].close,
+                receipt=series[i].receipt,
+            )
+        ],
         i,
     )
 
@@ -288,7 +313,11 @@ def _rebuild(series: list[Bar], i: int) -> DecisionPacket:
 # --------------------------------------------------------------------------
 
 
-def run_gate(limit: int = 25, bars: list[Bar] | None = None) -> dict:
+def run_gate(
+    limit: int = 25,
+    bars: list[Bar] | None = None,
+    evidence_class: EvidenceClass = EvidenceClass.SYNTHETIC_KERNEL,
+) -> dict:
     """Verify the first `limit` signals and return the gate result.
 
     Reports counts per failure mode rather than one number, because "24 of 25"
@@ -296,6 +325,14 @@ def run_gate(limit: int = 25, bars: list[Bar] | None = None) -> dict:
     a strategy reading tomorrow's price.
     """
 
+    if evidence_class not in {
+        EvidenceClass.SYNTHETIC_KERNEL,
+        EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
+    }:
+        raise ValueError(
+            "the generic kernel cannot self-award promotable evidence; use a "
+            "market-data conformance runner"
+        )
     bars = bars or fixture_bars()
     indices = detect(bars)[:limit]
     tally = {
@@ -313,7 +350,12 @@ def run_gate(limit: int = 25, bars: list[Bar] | None = None) -> dict:
     passed = 0
     for i in indices:
         packet = build_packet(bars, i)
-        result = verify(packet, oracle(bars, i), mutation_evidence(bars, i))
+        result = verify(
+            packet,
+            oracle(bars, i),
+            mutation_evidence(bars, i),
+            evidence_class,
+        )
         if result.status is CheckStatus.PASS:
             passed += 1
         for check in result.failed:
@@ -338,14 +380,30 @@ def packets(limit: int = 25, bars: list[Bar] | None = None) -> Iterable[Decision
         yield build_packet(bars, i)
 
 
-def verified_panel(index: int, bars: list[Bar] | None = None) -> dict:
+def verified_panel(
+    index: int,
+    bars: list[Bar] | None = None,
+    evidence_class: EvidenceClass = EvidenceClass.SYNTHETIC_KERNEL,
+) -> dict:
     """One packet rendered to its SSE panel envelope, evidence attached."""
 
     from app.decision_packet import to_panel
 
+    if evidence_class not in {
+        EvidenceClass.SYNTHETIC_KERNEL,
+        EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
+    }:
+        raise ValueError(
+            "the generic panel cannot self-award promotable evidence; use a "
+            "market-data conformance runner"
+        )
     bars = bars or fixture_bars()
-    return to_panel(build_packet(bars, index), oracle(bars, index),
-                    mutation_evidence(bars, index))
+    return to_panel(
+        build_packet(bars, index),
+        oracle(bars, index),
+        mutation_evidence(bars, index),
+        evidence_class,
+    )
 
 
 # --------------------------------------------------------------------------

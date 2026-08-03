@@ -31,7 +31,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Annotated, Any, Literal
 
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 SCHEMA_VERSION = 1
 
@@ -52,9 +52,31 @@ class CheckStatus(str, Enum):
 class FactReceipt(BaseModel):
     """Where a number came from. Without one, a fact is unsupported."""
 
+    model_config = ConfigDict(frozen=True)
+
     probe_id: Annotated[str, Field(min_length=1, max_length=200)]
     source: Annotated[str, Field(min_length=1, max_length=200)]
     retrieved_at_utc: datetime
+    probe_inputs: Annotated[tuple[tuple[str, str], ...], Field(max_length=16)] = ()
+    source_hash: Annotated[
+        str | None, Field(pattern=r"^sha256:[0-9a-f]{64}$")
+    ] = None
+
+    @field_validator("probe_inputs")
+    @classmethod
+    def _bounded_canonical_inputs(
+        cls, value: tuple[tuple[str, str], ...]
+    ) -> tuple[tuple[str, str], ...]:
+        if value != tuple(sorted(value)):
+            raise ValueError("probe_inputs must be sorted by key and value")
+        keys = [key for key, _ in value]
+        if len(keys) != len(set(keys)):
+            raise ValueError("probe_inputs keys must be unique")
+        if any(not 1 <= len(key) <= 64 for key in keys):
+            raise ValueError("probe_inputs keys must contain 1-64 characters")
+        if any(len(item) > 500 for _, item in value):
+            raise ValueError("probe_inputs values must contain at most 500 characters")
+        return value
 
 
 class Fact(BaseModel):
@@ -168,6 +190,7 @@ class EvidenceClass(str, Enum):
     """
 
     SYNTHETIC_KERNEL = "SYNTHETIC_KERNEL"
+    EXTERNAL_BAR_SNAPSHOT = "EXTERNAL_BAR_SNAPSHOT"
     REAL_BAR_REPLAY = "REAL_BAR_REPLAY"
     POINT_IN_TIME_MARKET_REPLAY = "POINT_IN_TIME_MARKET_REPLAY"
 
@@ -228,6 +251,7 @@ class Assurance(BaseModel):
 
         scope = {
             EvidenceClass.SYNTHETIC_KERNEL: "VERIFIER KERNEL",
+            EvidenceClass.EXTERNAL_BAR_SNAPSHOT: "EXTERNAL BAR SNAPSHOT",
             EvidenceClass.REAL_BAR_REPLAY: "REAL BAR REPLAY",
             EvidenceClass.POINT_IN_TIME_MARKET_REPLAY: "POINT-IN-TIME REPLAY",
         }[self.evidence_class]
@@ -293,13 +317,32 @@ def canonical_hash(packet: DecisionPacket) -> str:
 # --------------------------------------------------------------------------
 
 
-def _check_receipts(packet: DecisionPacket) -> Check:
+def _check_receipts(packet: DecisionPacket, evidence_class: EvidenceClass) -> Check:
     missing = [f.fact_id for f in packet.facts if f.receipt is None]
+    incomplete = [
+        f.fact_id
+        for f in packet.facts
+        if evidence_class is not EvidenceClass.SYNTHETIC_KERNEL
+        and f.receipt is not None
+        and (not f.receipt.probe_inputs or f.receipt.source_hash is None)
+    ]
     return Check(
         check_id="fact_receipts",
         label="Every displayed value has a receipt",
-        status=CheckStatus.FAIL if missing else CheckStatus.PASS,
-        detail=f"{len(missing)} fact(s) without a receipt: {missing}" if missing else "",
+        status=CheckStatus.FAIL if missing or incomplete else CheckStatus.PASS,
+        detail="; ".join(
+            detail
+            for detail in (
+                f"{len(missing)} fact(s) without a receipt: {missing}" if missing else "",
+                (
+                    f"{len(incomplete)} real-bar fact(s) without replay inputs or "
+                    f"source hash: {incomplete}"
+                    if incomplete
+                    else ""
+                ),
+            )
+            if detail
+        ),
     )
 
 
@@ -484,7 +527,7 @@ def verify(
 
     packet_hash = canonical_hash(packet)
     checks = [
-        _check_receipts(packet),
+        _check_receipts(packet, evidence_class),
         _check_no_dangling_refs(packet),
         _check_rule_evaluation(packet),
         _check_admissibility(packet),
@@ -524,6 +567,7 @@ def to_panel(
     packet: DecisionPacket,
     oracle: OracleResult | None = None,
     mutation: MutationEvidence | None = None,
+    evidence_class: EvidenceClass = EvidenceClass.SYNTHETIC_KERNEL,
 ) -> dict[str, Any]:
     """Render to the SSE panel envelope consumed as `data-decision-packet`.
 
@@ -538,7 +582,7 @@ def to_panel(
     assertion. With them present a client can recompute the comparison itself.
     """
 
-    result = verify(packet, oracle, mutation)
+    result = verify(packet, oracle, mutation, evidence_class)
     return {
         "name": "decision-packet",
         "data": {
@@ -637,7 +681,9 @@ def demo() -> None:
     # A fact with no receipt cannot be displayed.
     unreceipted = packet.model_copy(deep=True)
     unreceipted.facts[0].receipt = None
-    assert _check_receipts(unreceipted).status is CheckStatus.FAIL
+    assert _check_receipts(
+        unreceipted, EvidenceClass.SYNTHETIC_KERNEL
+    ).status is CheckStatus.FAIL
 
     # Reading the future moves the hash, and that must fail.
     moved = MutationEvidence(
