@@ -28,6 +28,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
+from . import proof_kernel
 from .ctgov import CTGovClient, CTGovError
 from .neuromap import VENDOR as CYTOSCAPE_BUNDLE, render_neuromap
 from .executor import execute
@@ -295,6 +296,57 @@ def _panels(response: QueryResponse) -> list[dict[str, Any]]:
 
 def _sse(frame: dict[str, Any]) -> str:
     return f"data: {json.dumps(frame, separators=(',', ':'))}\n\n"
+
+
+@app.post("/api/kernel/chat")
+async def kernel_chat(request: dict[str, Any]) -> StreamingResponse:
+    """Proof Kernel v0's surface: one panel, `data-decision-packet`.
+
+    Deliberately not routed through the planner. The kernel's claim is that a
+    packet is reproducible, and putting a language model between the request and
+    the packet would add a nondeterministic step to the one path whose entire
+    purpose is determinism. The model's turn comes later, when there is a
+    research loop for it to reason inside.
+
+    The verdict on the wire is computed by `to_panel`, so what the client renders
+    is the outcome of running the checks, never a status this route chose.
+    """
+
+    index = request.get("index")
+
+    async def frames() -> AsyncIterator[str]:
+        yield _sse({"type": "start", "messageId": "kernel-0"})
+        yield _sse({"type": "start-step"})
+
+        bars = proof_kernel.fixture_bars()
+        signals = proof_kernel.detect(bars)
+        chosen = int(index) if isinstance(index, (int, str)) and str(index).isdigit() else signals[0]
+        if chosen not in signals:
+            yield _sse({"type": "error", "errorText": f"no signal at bar {chosen}"})
+            yield _sse({"type": "finish-step"})
+            yield _sse({"type": "finish", "finishReason": "error"})
+            return
+
+        panel = proof_kernel.verified_panel(chosen, bars)
+        verdict = panel["data"]["verification"]["status"]
+        yield _sse({"type": "text-start", "id": "t0"})
+        yield _sse({
+            "type": "text-delta", "id": "t0",
+            "delta": (
+                f"Signal at bar {chosen} on {proof_kernel.SYMBOL}. "
+                f"Independent replay says {verdict}."
+            ),
+        })
+        yield _sse({"type": "text-end", "id": "t0"})
+        yield _sse({"type": "data-decision-packet", "data": panel["data"]})
+        yield _sse({"type": "finish-step"})
+        yield _sse({"type": "finish", "finishReason": "stop"})
+
+    return StreamingResponse(
+        frames(),
+        media_type="text/event-stream",
+        headers={"x-vercel-ai-ui-message-stream": "v1", "cache-control": "no-cache"},
+    )
 
 
 @app.post("/api/chat")

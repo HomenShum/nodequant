@@ -15,6 +15,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { ThreadListSidebar } from "@/components/threadlist-sidebar";
+import { NodeQuantPanels } from "@/components/nodequant-panels";
 import { TrialScopePanels } from "@/components/trialscope-panels";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -58,7 +59,13 @@ export const Assistant = () => {
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      {/* Registers the validated panel vocabulary the backend composes from. */}
+      {/* Registers the validated panel vocabulary the backend composes from.
+          Both sets are mounted during the port: NodeQuant's panels are the
+          destination, TrialScope's are still what the current chat route emits.
+          The TrialScope set comes out with the domain cut, not before, so the
+          app keeps running while the vocabulary is replaced one panel at a
+          time. */}
+      <NodeQuantPanels />
       <TrialScopePanels />
       <SidebarProvider>
         <div className="flex h-dvh w-full pr-0.5">
