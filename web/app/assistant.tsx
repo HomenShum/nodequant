@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/sidebar";
 import { ThreadListSidebar } from "@/components/threadlist-sidebar";
 import { NodeQuantPanels } from "@/components/nodequant-panels";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { TrialScopePanels } from "@/components/trialscope-panels";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -85,6 +86,9 @@ export const Assistant = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
+              <div className="ml-auto">
+                <ThemeToggle />
+              </div>
             </header>
             <div className="flex-1 overflow-hidden">
               <Thread onSend={sendMessage} />

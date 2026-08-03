@@ -25,7 +25,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Applies the theme class before first paint. It has to run blocking
+            and inline: React cannot do this, because any class set during
+            hydration lands after the browser has already painted the default
+            palette, which is the white flash on every load in dark mode.
+            suppressHydrationWarning above is required precisely because this
+            script mutates <html> before React sees it. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}`,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

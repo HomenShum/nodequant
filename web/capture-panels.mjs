@@ -36,12 +36,25 @@ await page.waitForTimeout(600); // let fonts settle before the shot
 const verdict = await panel.getAttribute("data-verdict");
 const checks = await panel.locator("[data-check]").count();
 const notRun = await panel.locator('[data-status="NOT_RUN"]').count();
+// Report the resolved theme, not the requested one: asking for dark and
+// silently rendering light is exactly the bug this capture is meant to catch.
+const applied = await page.evaluate(() => ({
+  htmlClass: document.documentElement.className,
+  bodyBg: getComputedStyle(document.body).backgroundColor,
+}));
 
 await panel.screenshot({ path: `${OUT}/${label}.png` });
 await page.screenshot({ path: `${OUT}/${label}-full.png`, fullPage: true });
 
 console.log(
-  JSON.stringify({ label, verdict, checks, notRun, theme: dark ? "dark" : "light" })
+  JSON.stringify({
+    label,
+    verdict,
+    checks,
+    notRun,
+    requested: dark ? "dark" : "light",
+    ...applied,
+  })
 );
 
 await browser.close();
