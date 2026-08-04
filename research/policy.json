@@ -2,7 +2,7 @@
   "version": "nodequant-graph-research-policy-v1",
   "corpus_scope": "synthetic_fixture_diagnostic_not_promotion_evidence",
   "immutable_files": {
-    "app/proof_kernel.py": "sha256:7b086f2e4ce7387696fb482c42cb92b343725a5b12cf2c1c671b1abee5294270",
+    "app/proof_kernel.py": "sha256:3c087c617dd8971bf1043f136c63929a6960816c86e05db4210e1298b77b7304",
     "app/experiment.py": "sha256:8a3949eae29abef775c80347d6248d396c74dc8f10988a1b8da9d5297cd8b0b2",
     "app/robustness.py": "sha256:ac561e5c3157cdd399352b4ee36c65d22233002967890799dc6c007e61de96c5",
     "app/walk_forward.py": "sha256:501dd262bedf98c223568b13d2a60765cc21579230ca2aafb6db9241a1287ca1",
@@ -12,8 +12,14 @@
     "app/research_loop.py": "sha256:5dc5d2e8e4c4c89a76ebea8df8cc6936cbe1bd34a1ff056436cd5e90232dbd51",
     "experiment/manifest.json": "sha256:b78da52c6871ae6c8c199a72b338b1f25bbf065391febe18fef686de20bf2702"
   },
-  "optimizer_accessible_splits": ["DEVELOPMENT", "VALIDATION"],
-  "forbidden_optimizer_splits": ["TEST", "OPENED_HOLDOUT"],
+  "optimizer_accessible_splits": [
+    "DEVELOPMENT",
+    "VALIDATION"
+  ],
+  "forbidden_optimizer_splits": [
+    "TEST",
+    "OPENED_HOLDOUT"
+  ],
   "metric": {
     "name": "robust_sharpe_floor",
     "annualization": "none_episode_level",
@@ -42,17 +48,39 @@
     "maximum_seconds_per_generation": 3600,
     "synthesis_interval": 16
   },
-  "seed_set": [240803],
+  "seed_set": [
+    240803
+  ],
   "node_types": [
-    "source", "source_claim", "mechanism", "hypothesis",
-    "dataset_manifest", "evaluation_policy", "strategy_candidate",
-    "experiment", "result", "counterexample", "failure_pattern",
-    "synthesis", "promotion"
+    "source",
+    "source_claim",
+    "mechanism",
+    "hypothesis",
+    "dataset_manifest",
+    "evaluation_policy",
+    "strategy_candidate",
+    "experiment",
+    "result",
+    "counterexample",
+    "failure_pattern",
+    "synthesis",
+    "promotion"
   ],
   "edge_types": [
-    "SUPPORTS", "CONTRADICTS", "DERIVED_FROM", "IMPLEMENTS", "MUTATES",
-    "TESTED_ON", "EVALUATED_UNDER", "PRODUCED", "REFUTES", "SURVIVES",
-    "FAILS_BECAUSE", "GENERALIZES", "SUPERSEDES", "COMBINES_WITH",
+    "SUPPORTS",
+    "CONTRADICTS",
+    "DERIVED_FROM",
+    "IMPLEMENTS",
+    "MUTATES",
+    "TESTED_ON",
+    "EVALUATED_UNDER",
+    "PRODUCED",
+    "REFUTES",
+    "SURVIVES",
+    "FAILS_BECAUSE",
+    "GENERALIZES",
+    "SUPERSEDES",
+    "COMBINES_WITH",
     "PROMOTED_AS"
   ]
 }

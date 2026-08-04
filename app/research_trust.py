@@ -6,7 +6,7 @@ still only a local code anchor; signed external run-controller authority is a
 documented promotion blocker.
 """
 
-EXPECTED_POLICY_HASH = "sha256:09d5c180fdbc3f57e2227f806dd099eaf5ee39856ccb3ffb82de0c59a3ba05f4"
+EXPECTED_POLICY_HASH = "sha256:8e8c4d303115f1085507935ad691818037437f5b079c4f1e8bb0f81801caa4bf"
 EXPECTED_IMMUTABLE_FILES = frozenset(
     {
         "app/proof_kernel.py",
