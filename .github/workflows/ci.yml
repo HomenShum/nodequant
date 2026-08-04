@@ -1,0 +1,60 @@
+# CI — the first release-engineering item from docs/PRODUCTION_PATH.md.
+#
+# 763 tests existed and ran nowhere automatically. This file is the gate.
+# The self-check modules run BEFORE the suite: each prints its own verdict
+# (kernel gate, ledger receipt, promotion blockers), so a failure names the
+# broken layer without reading pytest output.
+#
+# Known risk, on the record: two tests are load-sensitive under CPU contention
+# (see HANDOFF.md), and the quota-fairness tolerance was fitted to one
+# machine. A shared runner may surface exactly that flake. If it does, that is
+# the audit's prediction confirmed — measure it there, do not widen the bound
+# from a CI log.
+
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.13"
+      - name: Install
+        run: uv sync --extra dev
+      - name: Self-checks — each prints its own gate
+        run: |
+          uv run --no-sync python -m app.proof_kernel
+          uv run --no-sync python -m app.ledger
+          uv run --no-sync python -m app.promotion
+      - name: Suite
+        run: uv run --no-sync pytest -q
+
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install
+        run: npm ci
+      - name: Types
+        run: npx tsc --noEmit
+      - name: Money invariant self-check
+        run: node lib/money.mjs
+      - name: Build
+        run: npm run build
