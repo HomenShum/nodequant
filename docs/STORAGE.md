@@ -48,3 +48,24 @@ at v0.
 
 NOT VERIFIED: the design thread has not reviewed this split. Council it before
 the bar store lands with the conformance runner.
+
+## The quant-grade threshold — when a "real" database is justified
+
+Asked directly: at what feature does a quant-desk-approved database become
+necessary? By feature, not by size vibes. Bars alone almost never force it:
+500 symbols x 5 years of minute bars is roughly 250M rows, a few GB of
+Parquet, and DuckDB queries it on a laptop. DuckDB + Parquet IS the modern
+single-node quant research stack; ArcticDB exists because a systematic fund
+wanted exactly this serverless shape.
+
+| Trigger feature | First honest need | Tool that earns the slot |
+|---|---|---|
+| **T1 — live concurrent write + read**: the market-time loop ingests while research reads. SQLite's single writer and Parquet's append story both break here | Execution shadow (paper trading) | QuestDB or TimescaleDB — this is the first true *server* |
+| **T2 — bitemporal / as-of queries at scale**: tick data, quote history, options-chain surfaces queried "as known at T". Event time vs knowledge time as a query dimension, not a field | Options modelling on real chains | ArcticDB (still serverless) or ClickHouse |
+| **T3 — compliance-grade immutable journal**: live capital, retention policy, regulator-readable order trail | Live capital | Postgres (already integrated) + retention policy |
+
+T1 is the threshold that matters: **the day one process writes market data
+while another reads it.** Everything before that day, files win on every axis
+a reviewer can check. Everything after it, files are the wrong answer and the
+escalation is pre-named. The autonomy ladder's own stages gate this: no
+promotion to execution shadow, no T1, no server.
