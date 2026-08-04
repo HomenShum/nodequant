@@ -1,0 +1,13 @@
+# Sealed evaluator files: the research trust root hashes their raw
+# bytes. Line endings ARE the bytes, so they are pinned. A CRLF
+# checkout made the same commit hash differently on Windows and CI.
+app/proof_kernel.py text eol=lf
+app/experiment.py text eol=lf
+app/robustness.py text eol=lf
+app/walk_forward.py text eol=lf
+app/promotion.py text eol=lf
+app/research_evaluator.py text eol=lf
+app/research_graph.py text eol=lf
+app/research_loop.py text eol=lf
+experiment/manifest.json text eol=lf
+research/policy.json text eol=lf

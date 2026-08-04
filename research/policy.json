@@ -2,11 +2,11 @@
   "version": "nodequant-graph-research-policy-v1",
   "corpus_scope": "synthetic_fixture_diagnostic_not_promotion_evidence",
   "immutable_files": {
-    "app/proof_kernel.py": "sha256:3c087c617dd8971bf1043f136c63929a6960816c86e05db4210e1298b77b7304",
+    "app/proof_kernel.py": "sha256:1990ad1d811249475dc8b4746ee113a7cfd7062c6e4721cfe0c70d7d77460676",
     "app/experiment.py": "sha256:8a3949eae29abef775c80347d6248d396c74dc8f10988a1b8da9d5297cd8b0b2",
     "app/robustness.py": "sha256:ac561e5c3157cdd399352b4ee36c65d22233002967890799dc6c007e61de96c5",
     "app/walk_forward.py": "sha256:501dd262bedf98c223568b13d2a60765cc21579230ca2aafb6db9241a1287ca1",
-    "app/promotion.py": "sha256:76296b929cd5ca0a5b83ffcbd783e93b25ff479f53a5247775480d7f570557ef",
+    "app/promotion.py": "sha256:69c1c590ca224eea96b30cb49bebc7e9724099622c6a0f6aeb7f92b4a878dfea",
     "app/research_evaluator.py": "sha256:6757c5de97bc099b0aaedbcdf49ed672f4b1940e9871d1563bbc17b0b502efcd",
     "app/research_graph.py": "sha256:61125d2450245bf58eb3a80752bf611baf4b3ff0174207b8540ccb066ce0bb66",
     "app/research_loop.py": "sha256:5dc5d2e8e4c4c89a76ebea8df8cc6936cbe1bd34a1ff056436cd5e90232dbd51",
