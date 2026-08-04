@@ -113,7 +113,7 @@ def assess_market_data(
             EvidenceClass.SYNTHETIC_KERNEL
             if synthetic
             else (
-                EvidenceClass.EXTERNAL_BAR_SNAPSHOT
+                EvidenceClass.BYTE_ADDRESSED_BAR_SNAPSHOT
                 if byte_addressed
                 else EvidenceClass.UNPROVEN_BAR_INPUT
             )

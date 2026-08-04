@@ -112,7 +112,7 @@ never zero.
 | Provider replay | Re-fetched bytes differ from the frozen raw-file hash | Flip one byte; refetch counter increases |
 
 Only all-zero observed counters over a genuine, re-fetchable corpus may produce
-`REAL_BAR_REPLAY`. `EXTERNAL_BAR_SNAPSHOT` remains a useful ingestion rung and
+`REAL_BAR_REPLAY`. `BYTE_ADDRESSED_BAR_SNAPSHOT` remains a useful ingestion rung and
 is intentionally absent from `PROMOTABLE_EVIDENCE`.
 
 ## Procurement boundary

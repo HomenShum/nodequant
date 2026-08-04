@@ -33,7 +33,7 @@ audit log, sandbox attestation, signed identity or external build receipt that
 can independently prove which files were read. Therefore the correct status is
 `SEPARATE_AGENT_REPLAY_MATCHED_PROVENANCE_NOT_MACHINE_VERIFIABLE`.
 
-`EXTERNAL_BAR_SNAPSHOT` remains absent from promotable evidence, and this local
+`BYTE_ADDRESSED_BAR_SNAPSHOT` remains absent from promotable evidence, and this local
 receipt must not be relabelled `REAL_BAR_REPLAY` or
 `separate_agent_from_frozen_spec` by caller assertion alone.
 

@@ -353,7 +353,7 @@ def run_gate(
 
     if evidence_class not in {
         EvidenceClass.SYNTHETIC_KERNEL,
-        EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
+        EvidenceClass.BYTE_ADDRESSED_BAR_SNAPSHOT,
     }:
         raise ValueError(
             "the generic kernel cannot self-award promotable evidence; use a "
@@ -421,7 +421,7 @@ def verified_panel(
 
     if evidence_class not in {
         EvidenceClass.SYNTHETIC_KERNEL,
-        EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
+        EvidenceClass.BYTE_ADDRESSED_BAR_SNAPSHOT,
     }:
         raise ValueError(
             "the generic panel cannot self-award promotable evidence; use a "

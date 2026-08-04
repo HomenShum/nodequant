@@ -50,7 +50,7 @@ def run_snapshot_gate(snapshot: BarSnapshot, limit: int = 25) -> dict:
     return run_gate(
         limit,
         list(snapshot.bars),
-        EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
+        EvidenceClass.BYTE_ADDRESSED_BAR_SNAPSHOT,
     )
 
 

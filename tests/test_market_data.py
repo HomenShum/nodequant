@@ -61,13 +61,13 @@ def test_researcher_can_replay_a_snapshot_without_laundering_conformance(tmp_pat
     signal_index = pk.detect(bars)[0]
     packet = pk.build_packet(bars, signal_index)
     panel = pk.verified_panel(
-        signal_index, bars, EvidenceClass.EXTERNAL_BAR_SNAPSHOT
+        signal_index, bars, EvidenceClass.BYTE_ADDRESSED_BAR_SNAPSHOT
     )
     result = verify(
         packet,
         pk.oracle(bars, signal_index),
         pk.mutation_evidence(bars, signal_index),
-        EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
+        EvidenceClass.BYTE_ADDRESSED_BAR_SNAPSHOT,
     )
     packets = list(pk.packets(25, bars))
     events = lg.build_ledger(bars, packets)
@@ -83,11 +83,11 @@ def test_researcher_can_replay_a_snapshot_without_laundering_conformance(tmp_pat
     assert gate["status"] == "PASS"
     assert gate["packetsPassed"] == 25
     assert result.status is CheckStatus.PASS
-    assert result.assurance.evidence_class is EvidenceClass.EXTERNAL_BAR_SNAPSHOT
+    assert result.assurance.evidence_class is EvidenceClass.BYTE_ADDRESSED_BAR_SNAPSHOT
     assert result.assurance.market_data_conformance is CheckStatus.NOT_RUN
     assert (
         panel["data"]["verification"]["assurance"]["evidence_class"]
-        == "EXTERNAL_BAR_SNAPSHOT"
+        == "BYTE_ADDRESSED_BAR_SNAPSHOT"
     )
     assert {fact.receipt.source_hash for fact in packet.facts} == {snapshot.source_hash}
     assert all(dict(fact.receipt.probe_inputs)["symbol"] == "SPY" for fact in packet.facts)
@@ -181,7 +181,7 @@ def test_snapshot_assurance_rejects_legacy_receipts_and_cannot_self_promote():
         pk.build_packet(bars, index),
         pk.oracle(bars, index),
         pk.mutation_evidence(bars, index),
-        EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
+        EvidenceClass.BYTE_ADDRESSED_BAR_SNAPSHOT,
     )
 
     assert result.status is CheckStatus.FAIL
