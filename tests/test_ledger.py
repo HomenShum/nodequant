@@ -8,6 +8,7 @@ that is the bug, not the test.
 from __future__ import annotations
 
 import pytest
+from dataclasses import replace
 
 from app import ledger as lg
 from app import proof_kernel as pk
@@ -26,6 +27,22 @@ def packets(bars):
 @pytest.fixture(scope="module")
 def events(bars, packets):
     return lg.build_ledger(bars, packets)
+
+
+def _reprice_from_frozen_policy(event, bar, packet):
+    """Move a fill to another genuine bar without introducing a cost-model error."""
+
+    policy = packet.strategy.execution_cost_policy
+    reference = lg.to_micros(bar.close)
+    spread_per_unit = lg._round_half_even_ratio(reference * policy.half_spread_ppm)
+    slippage_per_unit = lg._round_half_even_ratio(reference * policy.slippage_ppm)
+    adverse = spread_per_unit + slippage_per_unit
+    event.reference_price_micros = reference
+    event.spread_cost_micros = spread_per_unit * event.qty
+    event.slippage_cost_micros = slippage_per_unit * event.qty
+    event.execution_policy_hash = lg.canonical_hash(policy)
+    event.price_micros = reference + adverse if event.side is lg.Side.BUY else reference - adverse
+    event.cash_delta_micros = -event.position_delta * event.price_micros
 
 
 # --------------------------------------------------------------------------
@@ -88,6 +105,79 @@ def test_a_fee_reduces_cash_and_equity_equally(events):
     after = lg.reduce_curve(events[: fee_index + 1])[-1]
     assert before.cash_micros - after.cash_micros == lg.FEE_MICROS
     assert before.equity_micros - after.equity_micros == lg.FEE_MICROS
+
+
+def test_modeled_costs_are_positive_visible_and_adverse(events, bars, packets):
+    """A reviewer sees real dollar impact, and the first fill cannot mark an
+    immediate profit by executing and valuing at the same favorable price."""
+
+    receipt = lg.curve_receipt(events, bars, packets)
+    points = lg.reduce_curve(events)
+    first_fill_index = next(i for i, e in enumerate(events) if e.type is lg.EventType.ORDER_FILL)
+    first_fill = events[first_fill_index]
+    after_fill = points[first_fill_index]
+
+    assert receipt.spread_cost_micros and receipt.spread_cost_micros > 0
+    assert receipt.slippage_cost_micros and receipt.slippage_cost_micros > 0
+    assert after_fill.equity_micros == (
+        lg.STARTING_CAPITAL_MICROS
+        - first_fill.spread_cost_micros
+        - first_fill.slippage_cost_micros
+    )
+    assert points[-1].cumulative_spread_cost_micros == receipt.spread_cost_micros
+    assert points[-1].cumulative_slippage_cost_micros == receipt.slippage_cost_micros
+
+
+def test_harsher_frozen_cost_policy_cannot_improve_equity(bars, packets):
+    harsher = []
+    for packet in packets:
+        policy = packet.strategy.execution_cost_policy
+        harsher_policy = policy.model_copy(
+            update={
+                "half_spread_ppm": policy.half_spread_ppm * 2,
+                "slippage_ppm": policy.slippage_ppm * 2,
+            }
+        )
+        harsher.append(
+            packet.model_copy(
+                update={
+                    "strategy": packet.strategy.model_copy(
+                        update={"execution_cost_policy": harsher_policy}
+                    )
+                }
+            )
+        )
+
+    baseline = lg.reduce_curve(lg.build_ledger(bars, packets))[-1]
+    stressed = lg.reduce_curve(lg.build_ledger(bars, harsher))[-1]
+    assert stressed.equity_micros < baseline.equity_micros
+
+
+def test_claimed_cost_cannot_certify_itself(events, bars, packets):
+    forged = [event.model_copy(deep=True) for event in events]
+    fill = next(event for event in forged if event.type is lg.EventType.ORDER_FILL)
+    fill.spread_cost_micros += 1
+
+    receipt = lg.curve_receipt(forged, bars, packets)
+    assert receipt.spread_model_mismatches == 1
+    assert not receipt.acceptable
+
+
+def test_positive_policy_never_rounds_a_fill_component_to_zero(events, bars, packets):
+    first_fill = next(event for event in events if event.type is lg.EventType.ORDER_FILL)
+    tiny_bars = [
+        replace(bar, close=0.005) if bar.ts == first_fill.at_utc else bar
+        for bar in bars
+    ]
+    tiny_events = lg.build_ledger(tiny_bars, packets)
+    tiny_fill = next(event for event in tiny_events if event.type is lg.EventType.ORDER_FILL)
+    receipt = lg.curve_receipt(tiny_events, tiny_bars, packets)
+
+    assert tiny_fill.reference_price_micros == 5_000
+    assert tiny_fill.spread_cost_micros >= tiny_fill.qty
+    assert tiny_fill.slippage_cost_micros >= tiny_fill.qty
+    assert receipt.spread_model_mismatches == 0
+    assert receipt.slippage_model_mismatches == 0
 
 
 def test_buy_then_sell_at_the_same_price_costs_exactly_the_fees(bars):
@@ -221,7 +311,7 @@ def test_money_never_becomes_a_float(events):
         assert isinstance(p.cash_micros, int)
 
 
-def test_a_fabricated_price_is_caught_only_by_bar_conformance(events, bars):
+def test_a_fabricated_execution_price_is_caught_by_cost_conformance(events, bars, packets):
     """The P0 an adversarial pass found.
 
     Inventing a price and re-deriving cash_delta satisfies conservation exactly
@@ -236,11 +326,12 @@ def test_a_fabricated_price_is_caught_only_by_bar_conformance(events, bars):
     forged[i].cash_delta_micros = -forged[i].position_delta * forged[i].price_micros
 
     blind = lg.curve_receipt(forged)            # no bars supplied
-    seeing = lg.curve_receipt(forged, bars)     # bars supplied
+    seeing = lg.curve_receipt(forged, bars, packets)
 
     assert blind.inconsistent_events == 0, "conservation cannot see a forged price"
     assert blind.full_curve_matched, "the oracle cannot see it either"
-    assert seeing.price_mismatches == 1
+    assert seeing.price_mismatches == 0, "the claimed reference still matches the bar"
+    assert seeing.execution_price_mismatches == 1
     assert not seeing.acceptable
 
 
@@ -285,11 +376,13 @@ def test_a_ghost_fill_with_no_packet_is_caught(bars, packets):
                        at_utc=bars[0].ts, cash_delta_micros=lg.STARTING_CAPITAL_MICROS,
                        receipt=rc(bars[0])),
         lg.LedgerEvent(seq=1, event_id="g1", type=lg.EventType.ORDER_FILL, at_utc=low.ts,
-                       side=lg.Side.BUY, qty=1, price_micros=lg.to_micros(low.close),
+                       side=lg.Side.BUY, qty=1, reference_price_micros=lg.to_micros(low.close),
+                       price_micros=lg.to_micros(low.close),
                        cash_delta_micros=-lg.to_micros(low.close), position_delta=1,
                        receipt=rc(low)),
         lg.LedgerEvent(seq=2, event_id="g2", type=lg.EventType.ORDER_FILL, at_utc=high.ts,
-                       side=lg.Side.SELL, qty=1, price_micros=lg.to_micros(high.close),
+                       side=lg.Side.SELL, qty=1, reference_price_micros=lg.to_micros(high.close),
+                       price_micros=lg.to_micros(high.close),
                        cash_delta_micros=lg.to_micros(high.close), position_delta=-1,
                        receipt=rc(high)),
     ]
@@ -313,8 +406,8 @@ def test_an_entry_on_the_signal_bar_itself_is_caught(bars, packets, events):
         if e.type is lg.EventType.ORDER_FILL and e.side is lg.Side.BUY:
             prev = bars[by_ts[e.at_utc].index - 1]
             e.at_utc = prev.ts
-            e.price_micros = lg.to_micros(prev.close)
-            e.cash_delta_micros = -e.price_micros
+            packet = next(packet for packet in packets if packet.packet_id == e.packet_id)
+            _reprice_from_frozen_policy(e, prev, packet)
 
     receipt = lg.curve_receipt(shifted, bars, packets)
     assert receipt.price_mismatches == 0, "bar conformance is blind to relocation"
@@ -368,8 +461,69 @@ def test_deleting_every_fee_is_caught(bars, packets, events):
         e.seq = i
 
     receipt = lg.curve_receipt(nofee, bars, packets)
-    assert receipt.flat_pnl_residual_micros == 0, "the residual is blind to this"
     assert receipt.uncosted_fills > 0, "completeness is what must catch it"
+    assert not receipt.acceptable
+
+
+def test_a_coherently_inflated_authorized_round_trip_is_rejected(bars, packets, events):
+    """An operator reviews 25 signal episodes after an adversarial export mutates
+    one BUY/SELL pair from one share to six. Cash and position postings remain
+    internally consistent, so only the frozen packet quantity can catch it.
+
+    The reducer is pure and has no concurrent/shared state; burst and sustained
+    coverage come from checking the complete multi-episode ledger, not threads.
+    """
+
+    forged = [e.model_copy(deep=True) for e in events]
+    packet_id = next(e.packet_id for e in forged if e.type is lg.EventType.ORDER_FILL)
+    for event in forged:
+        if event.type is lg.EventType.ORDER_FILL and event.packet_id == packet_id:
+            event.qty += 5
+            event.position_delta = event.qty if event.side is lg.Side.BUY else -event.qty
+            event.cash_delta_micros = -event.position_delta * event.price_micros
+
+    receipt = lg.curve_receipt(forged, bars, packets)
+
+    assert receipt.inconsistent_events == 0, "the forged postings conserve internally"
+    assert receipt.unauthorized_fills == 2, "both sides exceed frozen packet authority"
+    assert receipt.cross_stream_reconciliation == "NOT_RUN"
+    assert not receipt.acceptable
+
+
+def test_strategy_authority_is_immutable_and_not_shared_mutable_state(packets):
+    """Two concurrent reviewers may retain packets from the same strategy. One
+    packet must not be able to rewrite sizing policy underneath every other run.
+    """
+
+    with pytest.raises(Exception):
+        packets[0].strategy.position_qty = 7
+    assert all(packet.strategy.position_qty == 1 for packet in packets)
+
+
+def test_a_sell_relocated_to_another_real_bar_is_rejected(bars, packets, events):
+    """A hindsight attacker moves an exit and its fee to the next genuine bar,
+    reprices consistently, and preserves sequence order. Bar validity alone must
+    not be mistaken for exit authorization.
+    """
+
+    moved = [e.model_copy(deep=True) for e in events]
+    sell = next(e for e in moved if e.type is lg.EventType.ORDER_FILL and e.side is lg.Side.SELL)
+    next_bar = bars[next(i for i, bar in enumerate(bars) if bar.ts == sell.at_utc) + 1]
+    old_time = sell.at_utc
+    sell.at_utc = next_bar.ts
+    packet = next(packet for packet in packets if packet.packet_id == sell.packet_id)
+    _reprice_from_frozen_policy(sell, next_bar, packet)
+    for fee in moved:
+        if fee.type is lg.EventType.FEE and fee.packet_id == sell.packet_id and fee.at_utc == old_time:
+            fee.at_utc = next_bar.ts
+
+    moved.sort(key=lambda event: (event.at_utc, event.seq))
+    for seq, event in enumerate(moved):
+        event.seq = seq
+
+    receipt = lg.curve_receipt(moved, bars, packets)
+    assert receipt.price_mismatches == 0, "the relocated price belongs to a real bar"
+    assert receipt.mistimed_exits == 1, "the frozen hold policy must catch hindsight relocation"
     assert not receipt.acceptable
 
 
@@ -380,6 +534,23 @@ def test_a_receipt_without_packets_is_never_acceptable(events, bars):
     assert blind.unauthorized_fills is None
     assert not blind.packets_checked
     assert not blind.acceptable
+
+
+def test_a_malformed_fill_is_rejected_without_crashing_the_receipt(bars, packets, events):
+    """A reviewer receives schema-valid but incomplete external evidence. A
+    missing side must become explicit negative evidence rather than taking the
+    verification surface down before it can issue a receipt.
+    """
+
+    malformed = [event.model_copy(deep=True) for event in events]
+    fill = next(event for event in malformed if event.type is lg.EventType.ORDER_FILL)
+    fill.side = None
+
+    receipt = lg.curve_receipt(malformed, bars, packets)
+
+    assert receipt.inconsistent_events > 0
+    assert receipt.unauthorized_fills > 0
+    assert not receipt.acceptable
 
 
 def test_a_claimed_posting_cannot_move_the_curve(bars, packets, events):

@@ -1,0 +1,494 @@
+{
+  "version": "nodequant-research-evidence-catalog-v1",
+  "claim_boundary": "graph_organizes_content_addressed_evidence_but_does_not_author_measurements_or_decisions",
+  "maximum_nodes": 512,
+  "maximum_edges": 2048,
+  "maximum_artifact_bytes": 1000000,
+  "items": [
+    {
+      "key": "program",
+      "label": "Frozen research program",
+      "kind": "program",
+      "layer": "governance",
+      "status": "ACTIVE",
+      "known_at_utc": "2026-08-03T00:00:00Z",
+      "time_authority": "document_date",
+      "artifact": "program.md",
+      "authority": "checked_in_specification",
+      "summary": "Defines the bounded graph-engineering loop, immutable search inputs, trial history, and promotion ceiling."
+    },
+    {
+      "key": "real-alpha-g2",
+      "label": "Daily ETF alpha generation 2",
+      "kind": "experiment",
+      "layer": "experiment",
+      "status": "NO_ROBUST_POSITIVE_ALPHA",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/real-alpha-search/result-g2.json",
+      "authority": "deterministic_evaluator",
+      "summary": "Preregistered genuine-daily-data diagnostic; no robust positive alpha found.",
+      "expand_object_path": "trials"
+    },
+    {
+      "key": "breadth-v4",
+      "label": "Breadth-first alpha search v4",
+      "kind": "experiment",
+      "layer": "experiment",
+      "status": "NO_REPLICATION_SURVIVOR",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/breadth-first-alpha-v4/result.json",
+      "authority": "deterministic_evaluator",
+      "summary": "Broad frozen family search with one sealed replication stage and no surviving primary.",
+      "expand_object_path": "discovery.trials"
+    },
+    {
+      "key": "prospective-v3",
+      "label": "Prospective August 2026 packet",
+      "kind": "forecast_packet",
+      "layer": "temporal",
+      "status": "FROZEN_AWAITING_FUTURE_OUTCOMES",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/prospective-alpha-v3/packet-2026-08.json",
+      "authority": "content_addressed_future_packet",
+      "summary": "Forecast allocation frozen before its return window; no outcome exists yet."
+    },
+    {
+      "key": "crypto-v2",
+      "label": "BTC discovery / ETH replication v2",
+      "kind": "experiment",
+      "layer": "experiment",
+      "status": "INVALIDATED",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/crypto-seasonality/result-v2.json",
+      "authority": "invalidated_evaluator_output",
+      "summary": "The apparent calendar result is quarantined because bucket-start timestamps were treated as close instants.",
+      "expand_object_path": "replication.trials"
+    },
+    {
+      "key": "crypto-invalidation",
+      "label": "Crypto timestamp-semantics invalidation",
+      "kind": "invalidation",
+      "layer": "falsification",
+      "status": "INVALIDATES_PRIOR_RESULT",
+      "known_at_utc": "2026-08-04T23:59:59Z",
+      "time_authority": "conservative_day_end_upper_bound",
+      "artifact": "evidence/crypto-seasonality/INVALIDATED_V2.md",
+      "authority": "adversarial_audit",
+      "summary": "Preserves the causal defect, corrected sensitivity, and prohibition on treating stale metrics as evidence."
+    },
+    {
+      "key": "factor-policy-v2",
+      "label": "Factor persistence policy v2",
+      "kind": "policy",
+      "layer": "governance",
+      "status": "FROZEN",
+      "known_at_utc": "2026-08-04T07:52:44.452Z",
+      "time_authority": "external_notion_anchor",
+      "artifact": "research/factor_premia_policy_v2.json",
+      "authority": "externally_anchored_policy",
+      "summary": "Freezes 15 U.S. subsets, one primary, stress assumptions, one ex-U.S. gate, seed, block length, and promotion ceiling."
+    },
+    {
+      "key": "factor-discovery",
+      "label": "U.S. factor discovery",
+      "kind": "experiment",
+      "layer": "experiment",
+      "status": "PRIMARY_SELECTED",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/factor-premia/discovery-result.json",
+      "authority": "deterministic_evaluator",
+      "summary": "All 15 nonempty HML/RMW/CMA/momentum subsets measured on the frozen U.S. window.",
+      "expand_object_path": "trials"
+    },
+    {
+      "key": "factor-authority",
+      "label": "Single-primary replication authority",
+      "kind": "authority",
+      "layer": "governance",
+      "status": "EXTERNALLY_ANCHORED",
+      "known_at_json_field": "frozen_at_utc",
+      "artifact": "research/factor_premia_replication_authority_v1.json",
+      "authority": "notion_server_timestamp",
+      "summary": "Binds the one selected factor mix and confirmatory statistic before ex-U.S. return bytes were read."
+    },
+    {
+      "key": "factor-result",
+      "label": "Developed ex-U.S. factor replication",
+      "kind": "result",
+      "layer": "evidence",
+      "status": "FACTOR_PREMIUM_PERSISTS",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/factor-premia/result.json",
+      "authority": "deterministic_evaluator_plus_independent_recount",
+      "summary": "The frozen HML/RMW/momentum primary passes its sole registered factor-persistence gate; promotion remains false."
+    },
+    {
+      "key": "factor-visual",
+      "label": "Factor before/after proof",
+      "kind": "visual_proof",
+      "layer": "evidence",
+      "status": "AUDITED",
+      "known_at_utc": "2026-08-04T23:59:59Z",
+      "time_authority": "conservative_day_end_upper_bound",
+      "artifact": "evidence/factor-premia/comparison.png",
+      "authority": "rendered_from_hashed_result",
+      "summary": "Shows the preserved before state, 15-to-1 isolation, holdout gate, fold signs, receipts, and non-investable boundary."
+    },
+    {
+      "key": "execution-gap",
+      "label": "Implementation-cost evidence gap",
+      "kind": "limitation",
+      "layer": "falsification",
+      "status": "OPEN",
+      "known_at_utc": "2026-08-04T23:59:59Z",
+      "time_authority": "conservative_day_end_upper_bound",
+      "artifact": "docs/FACTOR_PREMIA.md",
+      "authority": "documented_claim_boundary",
+      "summary": "Constituent turnover, borrow, financing, taxes, impact, point-in-time revisions, and executable prices remain unmeasured."
+    },
+    {
+      "key": "market-activity-contract",
+      "label": "U.S. Large-Cap Market Activity Graph contract",
+      "kind": "product_contract",
+      "layer": "governance",
+      "status": "STRUCTURAL_COVERAGE_PROVEN_ACTIVITY_FEEDS_OPEN",
+      "known_at_utc": "2026-08-04T23:59:59Z",
+      "time_authority": "conservative_day_end_upper_bound",
+      "artifact": "docs/MARKET_ACTIVITY_GRAPH.md",
+      "authority": "user_directed_design_contract",
+      "summary": "Freezes the activity-not-flow language, declared universe, multiplex layers, rotation river, seven demo scenes and reconciliation invariant; structural coverage is proven while qualified activity feeds remain open."
+    },
+    {
+      "key": "market-activity-structural-manifest",
+      "label": "U.S. large-cap structural market manifest",
+      "kind": "authority",
+      "layer": "evidence",
+      "status": "STRUCTURAL_COVERAGE_PROVEN",
+      "known_at_json_field": "source.retrieved_at_utc",
+      "artifact": "web/app/market-map/data.json",
+      "authority": "official_ivv_holdings_snapshot_plus_deterministic_reconciliation",
+      "summary": "Projects 504 official IVV equity rows into 11 stable sector regions with exact weights, zero unmapped rows, zero duplicate tickers and a strict no-live-activity claim boundary."
+    },
+    {
+      "key": "investable-factor-policy",
+      "label": "Liquid factor-proxy policy",
+      "kind": "policy",
+      "layer": "governance",
+      "status": "FROZEN",
+      "known_at_utc": "2026-08-04T08:56:47.511Z",
+      "time_authority": "external_notion_anchor",
+      "artifact": "research/investable_factor_policy_v1.json",
+      "authority": "externally_anchored_policy",
+      "summary": "Freezes one equal MTUM/QUAL/VLUE portfolio, SPY, closed dates, costs, folds, seed and conjunctive gate before return bytes."
+    },
+    {
+      "key": "investable-factor-authority",
+      "label": "Unopened ETF return authority",
+      "kind": "authority",
+      "layer": "governance",
+      "status": "EXTERNALLY_ANCHORED",
+      "known_at_json_field": "notion_refetch_as_of_utc",
+      "artifact": "research/investable_factor_authority_v1.json",
+      "authority": "notion_server_timestamp",
+      "summary": "Proves the one-primary ETF contract existed while all four adjusted-close return streams were still unread."
+    },
+    {
+      "key": "investable-factor-result",
+      "label": "Liquid factor-proxy result",
+      "kind": "result",
+      "layer": "falsification",
+      "status": "INVESTABLE_FACTOR_PROXY_FAILS",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/investable-factor/result.json",
+      "authority": "deterministic_evaluator_plus_independent_recount",
+      "summary": "The one frozen long-only factor proxy trails SPY and fails bootstrap, fold-breadth and remove-best-month gates; promotion remains false."
+    },
+    {
+      "key": "investable-factor-visual",
+      "label": "Investable factor before/after proof",
+      "kind": "visual_proof",
+      "layer": "evidence",
+      "status": "AUDITED",
+      "known_at_utc": "2026-08-04T23:59:59Z",
+      "time_authority": "conservative_day_end_upper_bound",
+      "artifact": "evidence/investable-factor/comparison.png",
+      "authority": "rendered_from_hashed_result",
+      "summary": "Shows the command-absent baseline beside the independently reconstructed negative result and explicit claim ceiling."
+    },
+    {
+      "key": "insider-cluster-policy",
+      "label": "SEC Form 4 cluster-purchase policy",
+      "kind": "policy",
+      "layer": "governance",
+      "status": "BLOCKED_SEC_ARCHIVE_TRANSPORT",
+      "known_at_utc": "2026-08-04T09:37:35.5311398Z",
+      "time_authority": "external_notion_anchor",
+      "artifact": "research/insider_cluster_policy_v1.json",
+      "authority": "externally_anchored_policy",
+      "summary": "Freezes one cluster-purchase event rule and calendar-time evaluator; official archive transport failed before any archive or price byte was read."
+    },
+    {
+      "key": "insider-cluster-blocker",
+      "label": "SEC official archive transport blocker",
+      "kind": "limitation",
+      "layer": "falsification",
+      "status": "OPEN",
+      "known_at_utc": "2026-08-04T09:37:35.5311398Z",
+      "time_authority": "observed_tool_time",
+      "artifact": "docs/INSIDER_CLUSTER.md",
+      "authority": "programmatic_403_plus_browser_download_probe",
+      "summary": "Direct official retrieval returned 403 and signed-in Chrome produced no archive; no mirror substitution was allowed."
+    },
+    {
+      "key": "cftc-flow-policy",
+      "label": "CFTC producer-hedging-pressure policy",
+      "kind": "policy",
+      "layer": "governance",
+      "status": "FROZEN",
+      "known_at_utc": "2026-08-04T09:42:51.3711873Z",
+      "time_authority": "external_notion_anchor",
+      "artifact": "research/cftc_flow_policy_v1.json",
+      "authority": "externally_anchored_policy",
+      "summary": "Freezes one eight-contract top-three hedging-pressure portfolio, a 70-day release embargo, costs, folds, seed and gate before CFTC observations."
+    },
+    {
+      "key": "cftc-flow-manifest",
+      "label": "Official CFTC positioning manifest",
+      "kind": "dataset",
+      "layer": "evidence",
+      "status": "CONTENT_ADDRESSED",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/cftc-flow/manifest-receipt.json",
+      "authority": "official_cftc_pre_plus_independent_hash_rebuild",
+      "summary": "Contains 678 complete eight-contract reports from 5,424 official rows and binds every delayed signal before return bytes."
+    },
+    {
+      "key": "cftc-flow-authority",
+      "label": "CFTC ETF-price authority",
+      "kind": "authority",
+      "layer": "governance",
+      "status": "EXTERNALLY_ANCHORED",
+      "known_at_json_field": "authorized_at_utc",
+      "artifact": "research/cftc_flow_price_authority_v1.json",
+      "authority": "notion_refetch_then_local_receipt",
+      "summary": "Binds exactly one manifest, eight symbols and one closed provider window before price creation."
+    },
+    {
+      "key": "cftc-flow-result",
+      "label": "CFTC hedging-pressure measured result",
+      "kind": "result",
+      "layer": "evidence",
+      "status": "NON_AUTHORITATIVE_RESULT",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/cftc-flow/result.json",
+      "authority": "deterministic_evaluator_plus_independent_recount",
+      "summary": "The hashed evaluator failed its gate, but the result cannot be interpreted because executable accounting contradicts the registered prose."
+    },
+    {
+      "key": "cftc-flow-invalidation",
+      "label": "CFTC accounting-contract invalidation",
+      "kind": "invalidation",
+      "layer": "falsification",
+      "status": "INVALID_EVALUATOR_ACCOUNTING_CONTRACT",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/cftc-flow/invalidation.json",
+      "authority": "raw_diff_plus_post_outcome_accounting_sensitivity",
+      "summary": "Preserves the measured bytes but blocks the trial from counting for or against alpha because portfolio weight drift and benchmark semantics disagree."
+    },
+    {
+      "key": "cftc-flow-visual",
+      "label": "CFTC invalidation before/after proof",
+      "kind": "visual_proof",
+      "layer": "evidence",
+      "status": "AUDITED",
+      "known_at_utc": "2026-08-04T09:48:30Z",
+      "time_authority": "observed_browser_capture_time",
+      "artifact": "evidence/cftc-flow/comparison.png",
+      "authority": "rendered_browser_before_after_plus_hash",
+      "summary": "Shows the stale-inspector defect before and the causally aligned CFTC invalidation detail after, with an exact one-node filter and zero console errors."
+    },
+    {
+      "key": "oracle-rung2-spec",
+      "label": "Frozen oracle input contract",
+      "kind": "policy",
+      "layer": "governance",
+      "status": "FROZEN",
+      "known_at_utc": "2026-08-04T10:00:00Z",
+      "time_authority": "bounded_fresh_agent_assignment",
+      "artifact": "independent_oracle/spec/manifest.json",
+      "authority": "content_addressed_frozen_spec",
+      "summary": "Exposes only the raw fixture contract and output schema needed to replay the signal rule without project implementation access."
+    },
+    {
+      "key": "oracle-rung2-result",
+      "label": "Fresh-agent frozen-spec replay",
+      "kind": "result",
+      "layer": "evidence",
+      "status": "SEPARATE_AGENT_REPLAY_MATCHED",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/oracle-rung2/receipt.json",
+      "authority": "fresh_agent_output_plus_parent_recount",
+      "summary": "A PowerShell and .NET replay produced 25 semantically identical bounded signals and passed five realistic scenario groups."
+    },
+    {
+      "key": "oracle-rung2-provenance-gap",
+      "label": "Oracle read-isolation attestation gap",
+      "kind": "limitation",
+      "layer": "falsification",
+      "status": "OPEN",
+      "known_at_utc": "2026-08-04T10:12:28.9409431Z",
+      "time_authority": "orchestrator_observation_time",
+      "artifact": "docs/ORACLE_RUNG2.md",
+      "authority": "documented_claim_boundary",
+      "summary": "Fresh-task isolation was observed but no signed OS audit or external build receipt makes file-read provenance independently machine-verifiable."
+    },
+    {
+      "key": "fomc-drift-policy-v3",
+      "label": "Post-publication FOMC drift policy v3",
+      "kind": "policy",
+      "layer": "governance",
+      "status": "FROZEN",
+      "known_at_json_field": "frozen_at_utc",
+      "artifact": "research/fomc_drift_policy_v3.json",
+      "authority": "externally_anchored_policy_before_price_bytes",
+      "summary": "Freezes one 2016-2025 scheduled-statement daily-bar falsifier, 79 events, IVV, costs, folds, seed and gate."
+    },
+    {
+      "key": "fomc-drift-manifest",
+      "label": "Official FOMC statement-date manifest",
+      "kind": "dataset",
+      "layer": "evidence",
+      "status": "CONTENT_ADDRESSED",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/fomc-drift/manifest-receipt.json",
+      "authority": "official_federal_reserve_pages_plus_independent_hash_rebuild",
+      "summary": "Binds 79 scheduled statement dates with exact year counts after excluding unscheduled and notation-vote contamination."
+    },
+    {
+      "key": "fomc-drift-authority",
+      "label": "FOMC IVV-price authority",
+      "kind": "authority",
+      "layer": "governance",
+      "status": "EXTERNALLY_ANCHORED",
+      "known_at_json_field": "authorized_at_utc",
+      "artifact": "research/fomc_drift_price_authority_v1.json",
+      "authority": "notion_refetch_then_local_receipt",
+      "summary": "Binds policy v3, the exact event manifest, IVV and a closed provider window before adjusted-close bytes were created."
+    },
+    {
+      "key": "fomc-drift-result",
+      "label": "Post-publication FOMC drift result",
+      "kind": "result",
+      "layer": "falsification",
+      "status": "POST_PUBLICATION_FOMC_DRIFT_FAILS",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/fomc-drift/result.json",
+      "authority": "deterministic_evaluator_plus_independent_reconstruction",
+      "summary": "The zero-cost residual is too small to survive the frozen round-trip cost; both time folds and every preregistered gate check fail."
+    },
+    {
+      "key": "fomc-drift-visual",
+      "label": "FOMC drift before/after proof",
+      "kind": "visual_proof",
+      "layer": "evidence",
+      "status": "AUDITED",
+      "known_at_utc": "2026-08-04T10:32:34.6718552Z",
+      "time_authority": "observed_browser_capture_time",
+      "artifact": "evidence/fomc-drift/comparison.png",
+      "authority": "rendered_browser_before_after_plus_hash",
+      "summary": "Shows the result absent before ingest and the exact failing node selected after ingest, with one visible node and zero console errors."
+    },
+    {
+      "key": "crypto-rebalancing-v1-invalidation",
+      "label": "Crypto rebalancing v1 ingestion invalidation",
+      "kind": "invalidation",
+      "layer": "falsification",
+      "status": "INVALID_PROVIDER_OVERLAP_CONTRACT",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/crypto-rebalancing/invalidation-v1.json",
+      "authority": "raw_chunk_overlap_audit",
+      "summary": "V1 produced no result because the parser rejected documented identical cross-chunk boundary repeats; all five opened products are quarantined."
+    },
+    {
+      "key": "crypto-rebalancing-v2-policy",
+      "label": "Fresh-universe crypto rebalancing policy v2",
+      "kind": "policy",
+      "layer": "governance",
+      "status": "FROZEN",
+      "known_at_json_field": "frozen_at_utc",
+      "artifact": "research/crypto_rebalancing_policy_v2.json",
+      "authority": "corrected_external_notion_anchor_before_v2_bytes",
+      "summary": "Freezes one monthly equal-weight five-product portfolio, drifting buy-and-hold comparator, exact overlap rule, costs, folds, seed and gate."
+    },
+    {
+      "key": "crypto-rebalancing-v2-result",
+      "label": "Crypto rebalancing v2 result",
+      "kind": "result",
+      "layer": "evidence",
+      "status": "CRYPTO_REBALANCING_PREMIUM_FAILS",
+      "known_at_json_field": "created_at_utc",
+      "artifact": "evidence/crypto-rebalancing/result-v2.json",
+      "authority": "deterministic_evaluator_plus_independent_reconstruction",
+      "summary": "Fixed-weight materially beats buy-and-hold and both folds are positive, but block uncertainty and remove-best-ten dependence fail the preregistered gate."
+    },
+    {
+      "key": "crypto-rebalancing-v2-visual",
+      "label": "Crypto rebalancing before/after proof",
+      "kind": "visual_proof",
+      "layer": "evidence",
+      "status": "AUDITED",
+      "known_at_utc": "2026-08-04T11:16:45.1880472Z",
+      "time_authority": "observed_browser_capture_time",
+      "artifact": "evidence/crypto-rebalancing/comparison.png",
+      "authority": "rendered_browser_before_after_plus_hash",
+      "summary": "Shows the result absent before ingest and the exact failed result selected after ingest, with one visible node and zero console errors."
+    }
+  ],
+  "relations": [
+    {"source": "program", "target": "real-alpha-g2", "relation": "GOVERNS", "layer": "governance"},
+    {"source": "real-alpha-g2", "target": "breadth-v4", "relation": "MOTIVATES", "layer": "research"},
+    {"source": "breadth-v4", "target": "prospective-v3", "relation": "MOTIVATES", "layer": "research"},
+    {"source": "breadth-v4", "target": "crypto-v2", "relation": "MOTIVATES", "layer": "research"},
+    {"source": "crypto-invalidation", "target": "crypto-v2", "relation": "INVALIDATES", "layer": "falsification"},
+    {"source": "crypto-invalidation", "target": "factor-policy-v2", "relation": "MOTIVATES", "layer": "research"},
+    {"source": "program", "target": "factor-policy-v2", "relation": "GOVERNS", "layer": "governance"},
+    {"source": "factor-policy-v2", "target": "factor-discovery", "relation": "GOVERNS", "layer": "governance"},
+    {"source": "factor-discovery", "target": "factor-authority", "relation": "SELECTS", "layer": "research"},
+    {"source": "factor-authority", "target": "factor-result", "relation": "OPENS", "layer": "governance"},
+    {"source": "factor-result", "target": "factor-visual", "relation": "RENDERED_AS", "layer": "evidence"},
+    {"source": "factor-result", "target": "execution-gap", "relation": "LIMITED_BY", "layer": "falsification"},
+    {"source": "factor-result", "target": "prospective-v3", "relation": "COMPLEMENTS", "layer": "research"},
+    {"source": "program", "target": "market-activity-contract", "relation": "GOVERNS", "layer": "governance"},
+    {"source": "execution-gap", "target": "market-activity-contract", "relation": "BLOCKS", "layer": "falsification"},
+    {"source": "market-activity-contract", "target": "market-activity-structural-manifest", "relation": "REALIZED_AS_STRUCTURAL_PROJECTION", "layer": "evidence"},
+    {"source": "program", "target": "investable-factor-policy", "relation": "GOVERNS", "layer": "governance"},
+    {"source": "factor-result", "target": "investable-factor-policy", "relation": "MOTIVATES", "layer": "research"},
+    {"source": "investable-factor-policy", "target": "investable-factor-authority", "relation": "FROZEN_BY", "layer": "governance"},
+    {"source": "investable-factor-authority", "target": "investable-factor-result", "relation": "OPENS", "layer": "governance"},
+    {"source": "investable-factor-result", "target": "factor-result", "relation": "CONTRADICTS_TRANSLATION_OF", "layer": "falsification"},
+    {"source": "investable-factor-result", "target": "investable-factor-visual", "relation": "RENDERED_AS", "layer": "evidence"}
+    ,{"source": "program", "target": "insider-cluster-policy", "relation": "GOVERNS", "layer": "governance"}
+    ,{"source": "insider-cluster-blocker", "target": "insider-cluster-policy", "relation": "BLOCKS", "layer": "falsification"}
+    ,{"source": "program", "target": "cftc-flow-policy", "relation": "GOVERNS", "layer": "governance"}
+    ,{"source": "cftc-flow-policy", "target": "cftc-flow-manifest", "relation": "COMPILES", "layer": "research"}
+    ,{"source": "cftc-flow-manifest", "target": "cftc-flow-authority", "relation": "BOUND_BY", "layer": "governance"}
+    ,{"source": "cftc-flow-authority", "target": "cftc-flow-result", "relation": "OPENS", "layer": "governance"}
+    ,{"source": "cftc-flow-invalidation", "target": "cftc-flow-result", "relation": "INVALIDATES", "layer": "falsification"}
+    ,{"source": "cftc-flow-invalidation", "target": "cftc-flow-visual", "relation": "RENDERED_AS", "layer": "evidence"}
+    ,{"source": "insider-cluster-blocker", "target": "cftc-flow-policy", "relation": "MOTIVATES_PIVOT_TO", "layer": "research"}
+    ,{"source": "program", "target": "oracle-rung2-spec", "relation": "GOVERNS", "layer": "governance"}
+    ,{"source": "oracle-rung2-spec", "target": "oracle-rung2-result", "relation": "IMPLEMENTED_BY", "layer": "research"}
+    ,{"source": "oracle-rung2-provenance-gap", "target": "oracle-rung2-result", "relation": "LIMITS", "layer": "falsification"}
+    ,{"source": "program", "target": "fomc-drift-policy-v3", "relation": "GOVERNS", "layer": "governance"}
+    ,{"source": "fomc-drift-policy-v3", "target": "fomc-drift-manifest", "relation": "COMPILES", "layer": "research"}
+    ,{"source": "fomc-drift-manifest", "target": "fomc-drift-authority", "relation": "BOUND_BY", "layer": "governance"}
+    ,{"source": "fomc-drift-authority", "target": "fomc-drift-result", "relation": "OPENS", "layer": "governance"}
+    ,{"source": "fomc-drift-result", "target": "market-activity-contract", "relation": "POPULATES_RESEARCH_EVENT_LAYER", "layer": "research"}
+    ,{"source": "fomc-drift-result", "target": "fomc-drift-visual", "relation": "RENDERED_AS", "layer": "evidence"}
+    ,{"source": "program", "target": "crypto-rebalancing-v2-policy", "relation": "GOVERNS", "layer": "governance"}
+    ,{"source": "crypto-rebalancing-v1-invalidation", "target": "crypto-rebalancing-v2-policy", "relation": "MOTIVATES_CORRECTION", "layer": "falsification"}
+    ,{"source": "crypto-rebalancing-v2-policy", "target": "crypto-rebalancing-v2-result", "relation": "GOVERNS", "layer": "governance"}
+    ,{"source": "crypto-rebalancing-v2-result", "target": "market-activity-contract", "relation": "POPULATES_CROSS_ASSET_RESEARCH_LAYER", "layer": "research"}
+    ,{"source": "crypto-rebalancing-v2-result", "target": "crypto-rebalancing-v2-visual", "relation": "RENDERED_AS", "layer": "evidence"}
+  ]
+}

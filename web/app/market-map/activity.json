@@ -1,0 +1,5162 @@
+{
+  "claim_boundary": "TRADING_ACTIVITY_ONLY_PROVIDER_REPORTED_SHARE_VOLUME_NOT_FLOW_NOT_RELATIVE_VOLUME_NOT_HISTORICALLY_REFETCHABLE",
+  "coverage": {
+    "eligible_rows": 503,
+    "inactive_structural_rows": 1,
+    "missing_rows": 0,
+    "observed_rows": 503,
+    "structural_rows": 504
+  },
+  "inactive_structural_rows": [
+    {
+      "effective_at_utc": "2026-04-07T13:30:00Z",
+      "reason": "ACQUISITION_COMPLETED_TRADING_CEASED_AND_DELISTING_REQUESTED",
+      "sources": [
+        "https://www.hologic.com/about/press-release/blackstone-and-tpg-complete-acquisition-hologic",
+        "https://www.sec.gov/Archives/edgar/data/859737/000119312526144632/0001193125-26-144632-index.htm"
+      ],
+      "ticker": "HOLX"
+    }
+  ],
+  "market": {
+    "reported_share_volume": 3789979303
+  },
+  "policy_hash": "sha256:84667b81602e7281cd302586112145820e1a3d0b00a97485a2ff2ac1dfa66b34",
+  "promotion_evidence": false,
+  "sectors": [
+    {
+      "eligible_constituents": 73,
+      "holdings": [
+        {
+          "last_sale_micros": 162660000,
+          "name": "PALANTIR TECHNOLOGIES INC CLASS A",
+          "net_change_micros": 37010000,
+          "pct_change_micropct": 29455000,
+          "provider_symbol": "PLTR",
+          "reported_share_volume": 174296451,
+          "sector": "Information Technology",
+          "ticker": "PLTR"
+        },
+        {
+          "last_sale_micros": 211940000,
+          "name": "NVIDIA CORP",
+          "net_change_micros": 5300000,
+          "pct_change_micropct": 2565000,
+          "provider_symbol": "NVDA",
+          "reported_share_volume": 133408629,
+          "sector": "Information Technology",
+          "ticker": "NVDA"
+        },
+        {
+          "last_sale_micros": 100860000,
+          "name": "INTEL CORPORATION",
+          "net_change_micros": 9860000,
+          "pct_change_micropct": 10835000,
+          "provider_symbol": "INTC",
+          "reported_share_volume": 123082946,
+          "sector": "Information Technology",
+          "ticker": "INTC"
+        },
+        {
+          "last_sale_micros": 309380000,
+          "name": "APPLE INC",
+          "net_change_micros": 5960000,
+          "pct_change_micropct": 1964000,
+          "provider_symbol": "AAPL",
+          "reported_share_volume": 67862984,
+          "sector": "Information Technology",
+          "ticker": "AAPL"
+        },
+        {
+          "last_sale_micros": 31690000,
+          "name": "SUPER MICRO COMPUTER INC",
+          "net_change_micros": 3050000,
+          "pct_change_micropct": 10649000,
+          "provider_symbol": "SMCI",
+          "reported_share_volume": 56191746,
+          "sector": "Information Technology",
+          "ticker": "SMCI"
+        },
+        {
+          "last_sale_micros": 492810000,
+          "name": "MICROSOFT CORP",
+          "net_change_micros": 5160000,
+          "pct_change_micropct": 1058000,
+          "provider_symbol": "MSFT",
+          "reported_share_volume": 50245497,
+          "sector": "Information Technology",
+          "ticker": "MSFT"
+        },
+        {
+          "last_sale_micros": 518580000,
+          "name": "ADVANCED MICRO DEVICES INC",
+          "net_change_micros": 33940000,
+          "pct_change_micropct": 7003000,
+          "provider_symbol": "AMD",
+          "reported_share_volume": 47090609,
+          "sector": "Information Technology",
+          "ticker": "AMD"
+        },
+        {
+          "last_sale_micros": 145740000,
+          "name": "ORACLE CORP",
+          "net_change_micros": 3890000,
+          "pct_change_micropct": 2742000,
+          "provider_symbol": "ORCL",
+          "reported_share_volume": 43435295,
+          "sector": "Information Technology",
+          "ticker": "ORCL"
+        },
+        {
+          "last_sale_micros": 892670000,
+          "name": "MICRON TECHNOLOGY INC",
+          "net_change_micros": 63170000,
+          "pct_change_micropct": 7615000,
+          "provider_symbol": "MU",
+          "reported_share_volume": 37205432,
+          "sector": "Information Technology",
+          "ticker": "MU"
+        },
+        {
+          "last_sale_micros": 218590000,
+          "name": "MARVELL TECHNOLOGY INC",
+          "net_change_micros": 24815000,
+          "pct_change_micropct": 12806000,
+          "provider_symbol": "MRVL",
+          "reported_share_volume": 33762640,
+          "sector": "Information Technology",
+          "ticker": "MRVL"
+        },
+        {
+          "last_sale_micros": 418160000,
+          "name": "BROADCOM INC",
+          "net_change_micros": 25930000,
+          "pct_change_micropct": 6611000,
+          "provider_symbol": "AVGO",
+          "reported_share_volume": 29502377,
+          "sector": "Information Technology",
+          "ticker": "AVGO"
+        },
+        {
+          "last_sale_micros": 121740000,
+          "name": "CISCO SYSTEMS INC",
+          "net_change_micros": 5880000,
+          "pct_change_micropct": 5075000,
+          "provider_symbol": "CSCO",
+          "reported_share_volume": 26621171,
+          "sector": "Information Technology",
+          "ticker": "CSCO"
+        },
+        {
+          "last_sale_micros": 52390000,
+          "name": "HEWLETT PACKARD ENTERPRISE",
+          "net_change_micros": 2150000,
+          "pct_change_micropct": 4279000,
+          "provider_symbol": "HPE",
+          "reported_share_volume": 25644903,
+          "sector": "Information Technology",
+          "ticker": "HPE"
+        },
+        {
+          "last_sale_micros": 80780000,
+          "name": "ON SEMICONDUCTOR CORP",
+          "net_change_micros": 380000,
+          "pct_change_micropct": 473000,
+          "provider_symbol": "ON",
+          "reported_share_volume": 24682126,
+          "sector": "Information Technology",
+          "ticker": "ON"
+        },
+        {
+          "last_sale_micros": 159890000,
+          "name": "CORNING INC",
+          "net_change_micros": 13250000,
+          "pct_change_micropct": 9036000,
+          "provider_symbol": "GLW",
+          "reported_share_volume": 19389688,
+          "sector": "Information Technology",
+          "ticker": "GLW"
+        },
+        {
+          "last_sale_micros": 118140000,
+          "name": "SERVICENOW INC",
+          "net_change_micros": 3950000,
+          "pct_change_micropct": 3459000,
+          "provider_symbol": "NOW",
+          "reported_share_volume": 19355463,
+          "sector": "Information Technology",
+          "ticker": "NOW"
+        },
+        {
+          "last_sale_micros": 56130000,
+          "name": "COGNIZANT TECHNOLOGY SOLUTIONS COR",
+          "net_change_micros": 960000,
+          "pct_change_micropct": 1740000,
+          "provider_symbol": "CTSH",
+          "reported_share_volume": 18717164,
+          "sector": "Information Technology",
+          "ticker": "CTSH"
+        },
+        {
+          "last_sale_micros": 162670000,
+          "name": "QUALCOMM INC",
+          "net_change_micros": 11100000,
+          "pct_change_micropct": 7323000,
+          "provider_symbol": "QCOM",
+          "reported_share_volume": 16330818,
+          "sector": "Information Technology",
+          "ticker": "QCOM"
+        },
+        {
+          "last_sale_micros": 80670000,
+          "name": "MICROCHIP TECHNOLOGY INC",
+          "net_change_micros": 5450000,
+          "pct_change_micropct": 7245000,
+          "provider_symbol": "MCHP",
+          "reported_share_volume": 16065104,
+          "sector": "Information Technology",
+          "ticker": "MCHP"
+        },
+        {
+          "last_sale_micros": 317740000,
+          "name": "LAM RESEARCH CORP",
+          "net_change_micros": 23130000,
+          "pct_change_micropct": 7851000,
+          "provider_symbol": "LRCX",
+          "reported_share_volume": 15785086,
+          "sector": "Information Technology",
+          "ticker": "LRCX"
+        },
+        {
+          "last_sale_micros": 1427620000,
+          "name": "SANDISK CORP",
+          "net_change_micros": 139590000,
+          "pct_change_micropct": 10837000,
+          "provider_symbol": "SNDK",
+          "reported_share_volume": 14517824,
+          "sector": "Information Technology",
+          "ticker": "SNDK"
+        },
+        {
+          "last_sale_micros": 190510000,
+          "name": "ARISTA NETWORKS INC",
+          "net_change_micros": 5620000,
+          "pct_change_micropct": 3040000,
+          "provider_symbol": "ANET",
+          "reported_share_volume": 13974306,
+          "sector": "Information Technology",
+          "ticker": "ANET"
+        },
+        {
+          "last_sale_micros": 28820000,
+          "name": "HP INC",
+          "net_change_micros": 1700000,
+          "pct_change_micropct": 6268000,
+          "provider_symbol": "HPQ",
+          "reported_share_volume": 13695956,
+          "sector": "Information Technology",
+          "ticker": "HPQ"
+        },
+        {
+          "last_sale_micros": 195450000,
+          "name": "KLA CORP",
+          "net_change_micros": 12700000,
+          "pct_change_micropct": 6949000,
+          "provider_symbol": "KLAC",
+          "reported_share_volume": 13235861,
+          "sector": "Information Technology",
+          "ticker": "KLAC"
+        },
+        {
+          "last_sale_micros": 190990000,
+          "name": "SALESFORCE INC",
+          "net_change_micros": 5040000,
+          "pct_change_micropct": 2710000,
+          "provider_symbol": "CRM",
+          "reported_share_volume": 9316740,
+          "sector": "Information Technology",
+          "ticker": "CRM"
+        },
+        {
+          "last_sale_micros": 283630000,
+          "name": "TEXAS INSTRUMENT INC",
+          "net_change_micros": 14590000,
+          "pct_change_micropct": 5423000,
+          "provider_symbol": "TXN",
+          "reported_share_volume": 8974108,
+          "sector": "Information Technology",
+          "ticker": "TXN"
+        },
+        {
+          "last_sale_micros": 323730000,
+          "name": "COHERENT CORP",
+          "net_change_micros": 35590000,
+          "pct_change_micropct": 12352000,
+          "provider_symbol": "COHR",
+          "reported_share_volume": 8945568,
+          "sector": "Information Technology",
+          "ticker": "COHR"
+        },
+        {
+          "last_sale_micros": 211220000,
+          "name": "CROWDSTRIKE HOLDINGS INC CLASS A",
+          "net_change_micros": 8680000,
+          "pct_change_micropct": 4286000,
+          "provider_symbol": "CRWD",
+          "reported_share_volume": 8346531,
+          "sector": "Information Technology",
+          "ticker": "CRWD"
+        },
+        {
+          "last_sale_micros": 366340000,
+          "name": "PALO ALTO NETWORKS INC",
+          "net_change_micros": 19210000,
+          "pct_change_micropct": 5534000,
+          "provider_symbol": "PANW",
+          "reported_share_volume": 8179590,
+          "sector": "Information Technology",
+          "ticker": "PANW"
+        },
+        {
+          "last_sale_micros": 171330000,
+          "name": "AMPHENOL CORP CLASS A",
+          "net_change_micros": 7990000,
+          "pct_change_micropct": 4892000,
+          "provider_symbol": "APH",
+          "reported_share_volume": 8172912,
+          "sector": "Information Technology",
+          "ticker": "APH"
+        },
+        {
+          "last_sale_micros": 546620000,
+          "name": "APPLIED MATERIAL INC",
+          "net_change_micros": 28410000,
+          "pct_change_micropct": 5482000,
+          "provider_symbol": "AMAT",
+          "reported_share_volume": 7960311,
+          "sector": "Information Technology",
+          "ticker": "AMAT"
+        },
+        {
+          "last_sale_micros": 548560000,
+          "name": "WESTERN DIGITAL CORP",
+          "net_change_micros": 21340000,
+          "pct_change_micropct": 4048000,
+          "provider_symbol": "WDC",
+          "reported_share_volume": 7779842,
+          "sector": "Information Technology",
+          "ticker": "WDC"
+        },
+        {
+          "last_sale_micros": 467270000,
+          "name": "DELL TECHNOLOGIES INC CLASS C",
+          "net_change_micros": 38250000,
+          "pct_change_micropct": 8916000,
+          "provider_symbol": "DELL",
+          "reported_share_volume": 7548990,
+          "sector": "Information Technology",
+          "ticker": "DELL"
+        },
+        {
+          "last_sale_micros": 235150000,
+          "name": "INTERNATIONAL BUSINESS MACHINES CO",
+          "net_change_micros": 8840000,
+          "pct_change_micropct": 3906000,
+          "provider_symbol": "IBM",
+          "reported_share_volume": 7522308,
+          "sector": "Information Technology",
+          "ticker": "IBM"
+        },
+        {
+          "last_sale_micros": 849470000,
+          "name": "LUMENTUM HOLDINGS INC",
+          "net_change_micros": 69580000,
+          "pct_change_micropct": 8922000,
+          "provider_symbol": "LITE",
+          "reported_share_volume": 6632697,
+          "sector": "Information Technology",
+          "ticker": "LITE"
+        },
+        {
+          "last_sale_micros": 237600000,
+          "name": "NXP SEMICONDUCTORS NV",
+          "net_change_micros": 13430000,
+          "pct_change_micropct": 5991000,
+          "provider_symbol": "NXPI",
+          "reported_share_volume": 6538582,
+          "sector": "Information Technology",
+          "ticker": "NXPI"
+        },
+        {
+          "last_sale_micros": 168290000,
+          "name": "FORTINET INC",
+          "net_change_micros": 5080000,
+          "pct_change_micropct": 3113000,
+          "provider_symbol": "FTNT",
+          "reported_share_volume": 6432458,
+          "sector": "Information Technology",
+          "ticker": "FTNT"
+        },
+        {
+          "last_sale_micros": 66790000,
+          "name": "SKYWORKS SOLUTIONS INC",
+          "net_change_micros": 5500000,
+          "pct_change_micropct": 8974000,
+          "provider_symbol": "SWKS",
+          "reported_share_volume": 5818195,
+          "sector": "Information Technology",
+          "ticker": "SWKS"
+        },
+        {
+          "last_sale_micros": 170430000,
+          "name": "ACCENTURE PLC CLASS A",
+          "net_change_micros": 4670000,
+          "pct_change_micropct": 2817000,
+          "provider_symbol": "ACN",
+          "reported_share_volume": 5455463,
+          "sector": "Information Technology",
+          "ticker": "ACN"
+        },
+        {
+          "last_sale_micros": 28270000,
+          "name": "GEN DIGITAL INC",
+          "net_change_micros": 100000,
+          "pct_change_micropct": 355000,
+          "provider_symbol": "GEN",
+          "reported_share_volume": 5420269,
+          "sector": "Information Technology",
+          "ticker": "GEN"
+        },
+        {
+          "last_sale_micros": 380290000,
+          "name": "ANALOG DEVICES INC",
+          "net_change_micros": 18410000,
+          "pct_change_micropct": 5087000,
+          "provider_symbol": "ADI",
+          "reported_share_volume": 5081987,
+          "sector": "Information Technology",
+          "ticker": "ADI"
+        },
+        {
+          "last_sale_micros": 845350000,
+          "name": "SEAGATE TECHNOLOGY HOLDINGS PLC",
+          "net_change_micros": 14290000,
+          "pct_change_micropct": 1719000,
+          "provider_symbol": "STX",
+          "reported_share_volume": 5020304,
+          "sector": "Information Technology",
+          "ticker": "STX"
+        },
+        {
+          "last_sale_micros": 288150000,
+          "name": "DATADOG INC CLASS A",
+          "net_change_micros": 14550000,
+          "pct_change_micropct": 5318000,
+          "provider_symbol": "DDOG",
+          "reported_share_volume": 4818051,
+          "sector": "Information Technology",
+          "ticker": "DDOG"
+        },
+        {
+          "last_sale_micros": 126710000,
+          "name": "FLEX LTD",
+          "net_change_micros": 9260000,
+          "pct_change_micropct": 7884000,
+          "provider_symbol": "FLEX",
+          "reported_share_volume": 4710174,
+          "sector": "Information Technology",
+          "ticker": "FLEX"
+        },
+        {
+          "last_sale_micros": 123350000,
+          "name": "AKAMAI TECHNOLOGIES INC",
+          "net_change_micros": 5470000,
+          "pct_change_micropct": 4640000,
+          "provider_symbol": "AKAM",
+          "reported_share_volume": 4284362,
+          "sector": "Information Technology",
+          "ticker": "AKAM"
+        },
+        {
+          "last_sale_micros": 243630000,
+          "name": "FIRST SOLAR INC",
+          "net_change_micros": 10900000,
+          "pct_change_micropct": 4684000,
+          "provider_symbol": "FSLR",
+          "reported_share_volume": 4250074,
+          "sector": "Information Technology",
+          "ticker": "FSLR"
+        },
+        {
+          "last_sale_micros": 257490000,
+          "name": "ADOBE INC",
+          "net_change_micros": 6150000,
+          "pct_change_micropct": 2447000,
+          "provider_symbol": "ADBE",
+          "reported_share_volume": 4199318,
+          "sector": "Information Technology",
+          "ticker": "ADBE"
+        },
+        {
+          "last_sale_micros": 403560000,
+          "name": "TERADYNE INC",
+          "net_change_micros": 37760000,
+          "pct_change_micropct": 10323000,
+          "provider_symbol": "TER",
+          "reported_share_volume": 4139478,
+          "sector": "Information Technology",
+          "ticker": "TER"
+        },
+        {
+          "last_sale_micros": 190460000,
+          "name": "NETAPP INC",
+          "net_change_micros": 7540000,
+          "pct_change_micropct": 4122000,
+          "provider_symbol": "NTAP",
+          "reported_share_volume": 3764862,
+          "sector": "Information Technology",
+          "ticker": "NTAP"
+        },
+        {
+          "last_sale_micros": 185790000,
+          "name": "GARTNER INC",
+          "net_change_micros": 34260000,
+          "pct_change_micropct": 22609000,
+          "provider_symbol": "IT",
+          "reported_share_volume": 3693741,
+          "sector": "Information Technology",
+          "ticker": "IT"
+        },
+        {
+          "last_sale_micros": 323600000,
+          "name": "INTUIT INC",
+          "net_change_micros": 5210000,
+          "pct_change_micropct": 1636000,
+          "provider_symbol": "INTU",
+          "reported_share_volume": 3487998,
+          "sector": "Information Technology",
+          "ticker": "INTU"
+        },
+        {
+          "last_sale_micros": 171280000,
+          "name": "WORKDAY INC CLASS A",
+          "net_change_micros": 6230000,
+          "pct_change_micropct": 3775000,
+          "provider_symbol": "WDAY",
+          "reported_share_volume": 3362989,
+          "sector": "Information Technology",
+          "ticker": "WDAY"
+        },
+        {
+          "last_sale_micros": 141670000,
+          "name": "QNITY ELECTRONICS INC",
+          "net_change_micros": 8370000,
+          "pct_change_micropct": 6279000,
+          "provider_symbol": "Q",
+          "reported_share_volume": 3111803,
+          "sector": "Information Technology",
+          "ticker": "Q"
+        },
+        {
+          "last_sale_micros": 154000000,
+          "name": "CDW CORP",
+          "net_change_micros": 6300000,
+          "pct_change_micropct": 4265000,
+          "provider_symbol": "CDW",
+          "reported_share_volume": 2932088,
+          "sector": "Information Technology",
+          "ticker": "CDW"
+        },
+        {
+          "last_sale_micros": 59810000,
+          "name": "TRIMBLE INC",
+          "net_change_micros": 2020000,
+          "pct_change_micropct": 3495000,
+          "provider_symbol": "TRMB",
+          "reported_share_volume": 2715877,
+          "sector": "Information Technology",
+          "ticker": "TRMB"
+        },
+        {
+          "last_sale_micros": 368830000,
+          "name": "ZEBRA TECHNOLOGIES CORP CLASS A",
+          "net_change_micros": 77190000,
+          "pct_change_micropct": 26468000,
+          "provider_symbol": "ZBRA",
+          "reported_share_volume": 2615445,
+          "sector": "Information Technology",
+          "ticker": "ZBRA"
+        },
+        {
+          "last_sale_micros": 216820000,
+          "name": "TE CONNECTIVITY PLC",
+          "net_change_micros": 11850000,
+          "pct_change_micropct": 5781000,
+          "provider_symbol": "TEL",
+          "reported_share_volume": 2588102,
+          "sector": "Information Technology",
+          "ticker": "TEL"
+        },
+        {
+          "last_sale_micros": 89090000,
+          "name": "GODADDY INC CLASS A",
+          "net_change_micros": 640000,
+          "pct_change_micropct": 724000,
+          "provider_symbol": "GDDY",
+          "reported_share_volume": 2209803,
+          "sector": "Information Technology",
+          "ticker": "GDDY"
+        },
+        {
+          "last_sale_micros": 237210000,
+          "name": "AUTODESK INC",
+          "net_change_micros": 2500000,
+          "pct_change_micropct": 1065000,
+          "provider_symbol": "ADSK",
+          "reported_share_volume": 2113940,
+          "sector": "Information Technology",
+          "ticker": "ADSK"
+        },
+        {
+          "last_sale_micros": 411130000,
+          "name": "CIENA CORP",
+          "net_change_micros": 20370000,
+          "pct_change_micropct": 5213000,
+          "provider_symbol": "CIEN",
+          "reported_share_volume": 2068761,
+          "sector": "Information Technology",
+          "ticker": "CIEN"
+        },
+        {
+          "last_sale_micros": 340620000,
+          "name": "CADENCE DESIGN SYSTEMS INC",
+          "net_change_micros": 4470000,
+          "pct_change_micropct": 1330000,
+          "provider_symbol": "CDNS",
+          "reported_share_volume": 2010233,
+          "sector": "Information Technology",
+          "ticker": "CDNS"
+        },
+        {
+          "last_sale_micros": 341240000,
+          "name": "KEYSIGHT TECHNOLOGIES INC",
+          "net_change_micros": 19350000,
+          "pct_change_micropct": 6011000,
+          "provider_symbol": "KEYS",
+          "reported_share_volume": 1525911,
+          "sector": "Information Technology",
+          "ticker": "KEYS"
+        },
+        {
+          "last_sale_micros": 141680000,
+          "name": "PTC INC",
+          "net_change_micros": 1825000,
+          "pct_change_micropct": 1305000,
+          "provider_symbol": "PTC",
+          "reported_share_volume": 1459708,
+          "sector": "Information Technology",
+          "ticker": "PTC"
+        },
+        {
+          "last_sale_micros": 403860000,
+          "name": "SYNOPSYS INC",
+          "net_change_micros": 11790000,
+          "pct_change_micropct": 3007000,
+          "provider_symbol": "SNPS",
+          "reported_share_volume": 1366494,
+          "sector": "Information Technology",
+          "ticker": "SNPS"
+        },
+        {
+          "last_sale_micros": 1335030000,
+          "name": "MONOLITHIC POWER SYSTEMS INC",
+          "net_change_micros": -9340000,
+          "pct_change_micropct": -695000,
+          "provider_symbol": "MPWR",
+          "reported_share_volume": 1227772,
+          "sector": "Information Technology",
+          "ticker": "MPWR"
+        },
+        {
+          "last_sale_micros": 412250000,
+          "name": "F5 INC",
+          "net_change_micros": 5900000,
+          "pct_change_micropct": 1452000,
+          "provider_symbol": "FFIV",
+          "reported_share_volume": 1168394,
+          "sector": "Information Technology",
+          "ticker": "FFIV"
+        },
+        {
+          "last_sale_micros": 442850000,
+          "name": "MOTOROLA SOLUTIONS INC",
+          "net_change_micros": 5660000,
+          "pct_change_micropct": 1295000,
+          "provider_symbol": "MSI",
+          "reported_share_volume": 1023117,
+          "sector": "Information Technology",
+          "ticker": "MSI"
+        },
+        {
+          "last_sale_micros": 340000000,
+          "name": "JABIL INC",
+          "net_change_micros": 21610000,
+          "pct_change_micropct": 6787000,
+          "provider_symbol": "JBL",
+          "reported_share_volume": 1000583,
+          "sector": "Information Technology",
+          "ticker": "JBL"
+        },
+        {
+          "last_sale_micros": 392760000,
+          "name": "ROPER TECHNOLOGIES INC",
+          "net_change_micros": 190000,
+          "pct_change_micropct": 48000,
+          "provider_symbol": "ROP",
+          "reported_share_volume": 922012,
+          "sector": "Information Technology",
+          "ticker": "ROP"
+        },
+        {
+          "last_sale_micros": 313330000,
+          "name": "TYLER TECHNOLOGIES",
+          "net_change_micros": 7790000,
+          "pct_change_micropct": 2550000,
+          "provider_symbol": "TYL",
+          "reported_share_volume": 917828,
+          "sector": "Information Technology",
+          "ticker": "TYL"
+        },
+        {
+          "last_sale_micros": 299200000,
+          "name": "VERISIGN INC",
+          "net_change_micros": 310000,
+          "pct_change_micropct": 104000,
+          "provider_symbol": "VRSN",
+          "reported_share_volume": 821269,
+          "sector": "Information Technology",
+          "ticker": "VRSN"
+        },
+        {
+          "last_sale_micros": 684760000,
+          "name": "TELEDYNE TECHNOLOGIES INC",
+          "net_change_micros": 14200000,
+          "pct_change_micropct": 2118000,
+          "provider_symbol": "TDY",
+          "reported_share_volume": 496220,
+          "sector": "Information Technology",
+          "ticker": "TDY"
+        },
+        {
+          "last_sale_micros": 1046990000,
+          "name": "FAIR ISAAC CORP",
+          "net_change_micros": 1530000,
+          "pct_change_micropct": 146000,
+          "provider_symbol": "FICO",
+          "reported_share_volume": 491708,
+          "sector": "Information Technology",
+          "ticker": "FICO"
+        }
+      ],
+      "key": "information-technology",
+      "label": "Information Technology",
+      "reported_share_volume": 1238745046
+    },
+    {
+      "eligible_constituents": 76,
+      "holdings": [
+        {
+          "last_sale_micros": 17560000,
+          "name": "HUNTINGTON BANCSHARES INC",
+          "net_change_micros": 200000,
+          "pct_change_micropct": 1152000,
+          "provider_symbol": "HBAN",
+          "reported_share_volume": 29157712,
+          "sector": "Financials",
+          "ticker": "HBAN"
+        },
+        {
+          "last_sale_micros": 62900000,
+          "name": "BANK OF AMERICA CORP",
+          "net_change_micros": 420000,
+          "pct_change_micropct": 672000,
+          "provider_symbol": "BAC",
+          "reported_share_volume": 28234659,
+          "sector": "Financials",
+          "ticker": "BAC"
+        },
+        {
+          "last_sale_micros": 93510000,
+          "name": "ROBINHOOD MARKETS INC CLASS A",
+          "net_change_micros": 3170000,
+          "pct_change_micropct": 3509000,
+          "provider_symbol": "HOOD",
+          "reported_share_volume": 22555466,
+          "sector": "Financials",
+          "ticker": "HOOD"
+        },
+        {
+          "last_sale_micros": 88390000,
+          "name": "WELLS FARGO",
+          "net_change_micros": 500000,
+          "pct_change_micropct": 569000,
+          "provider_symbol": "WFC",
+          "reported_share_volume": 16311632,
+          "sector": "Financials",
+          "ticker": "WFC"
+        },
+        {
+          "last_sale_micros": 44260000,
+          "name": "FIDELITY NATIONAL INFORMATION SERV",
+          "net_change_micros": -520000,
+          "pct_change_micropct": -1161000,
+          "provider_symbol": "FIS",
+          "reported_share_volume": 15868343,
+          "sector": "Financials",
+          "ticker": "FIS"
+        },
+        {
+          "last_sale_micros": 55780000,
+          "name": "FISERV INC",
+          "net_change_micros": 1430000,
+          "pct_change_micropct": 2631000,
+          "provider_symbol": "FISV",
+          "reported_share_volume": 13569449,
+          "sector": "Financials",
+          "ticker": "FISV"
+        },
+        {
+          "last_sale_micros": 136870000,
+          "name": "CITIGROUP INC",
+          "net_change_micros": 3300000,
+          "pct_change_micropct": 2471000,
+          "provider_symbol": "C",
+          "reported_share_volume": 11924788,
+          "sector": "Financials",
+          "ticker": "C"
+        },
+        {
+          "last_sale_micros": 58540000,
+          "name": "PAYPAL HOLDINGS INC",
+          "net_change_micros": 670000,
+          "pct_change_micropct": 1158000,
+          "provider_symbol": "PYPL",
+          "reported_share_volume": 10315419,
+          "sector": "Financials",
+          "ticker": "PYPL"
+        },
+        {
+          "last_sale_micros": 64230000,
+          "name": "US BANCORP",
+          "net_change_micros": 290000,
+          "pct_change_micropct": 454000,
+          "provider_symbol": "USB",
+          "reported_share_volume": 9979641,
+          "sector": "Financials",
+          "ticker": "USB"
+        },
+        {
+          "last_sale_micros": 31950000,
+          "name": "REGIONS FINANCIAL CORP",
+          "net_change_micros": 470000,
+          "pct_change_micropct": 1493000,
+          "provider_symbol": "RF",
+          "reported_share_volume": 8968823,
+          "sector": "Financials",
+          "ticker": "RF"
+        },
+        {
+          "last_sale_micros": 217040000,
+          "name": "MORGAN STANLEY",
+          "net_change_micros": 5810000,
+          "pct_change_micropct": 2751000,
+          "provider_symbol": "MS",
+          "reported_share_volume": 8931157,
+          "sector": "Financials",
+          "ticker": "MS"
+        },
+        {
+          "last_sale_micros": 357520000,
+          "name": "JPMORGAN CHASE & CO",
+          "net_change_micros": 4880000,
+          "pct_change_micropct": 1384000,
+          "provider_symbol": "JPM",
+          "reported_share_volume": 8474050,
+          "sector": "Financials",
+          "ticker": "JPM"
+        },
+        {
+          "last_sale_micros": 23100000,
+          "name": "KEYCORP",
+          "net_change_micros": 290000,
+          "pct_change_micropct": 1271000,
+          "provider_symbol": "KEY",
+          "reported_share_volume": 7935302,
+          "sector": "Financials",
+          "ticker": "KEY"
+        },
+        {
+          "last_sale_micros": 369590000,
+          "name": "VISA INC CLASS A",
+          "net_change_micros": 3920000,
+          "pct_change_micropct": 1072000,
+          "provider_symbol": "V",
+          "reported_share_volume": 7495410,
+          "sector": "Financials",
+          "ticker": "V"
+        },
+        {
+          "last_sale_micros": 150730000,
+          "name": "COINBASE GLOBAL INC CLASS A",
+          "net_change_micros": 4230000,
+          "pct_change_micropct": 2887000,
+          "provider_symbol": "COIN",
+          "reported_share_volume": 7273449,
+          "sector": "Financials",
+          "ticker": "COIN"
+        },
+        {
+          "last_sale_micros": 106350000,
+          "name": "CHARLES SCHWAB CORP",
+          "net_change_micros": 480000,
+          "pct_change_micropct": 453000,
+          "provider_symbol": "SCHW",
+          "reported_share_volume": 6860803,
+          "sector": "Financials",
+          "ticker": "SCHW"
+        },
+        {
+          "last_sale_micros": 57770000,
+          "name": "FIFTH THIRD BANCORP",
+          "net_change_micros": 870000,
+          "pct_change_micropct": 1529000,
+          "provider_symbol": "FITB",
+          "reported_share_volume": 6808935,
+          "sector": "Financials",
+          "ticker": "FITB"
+        },
+        {
+          "last_sale_micros": 32000000,
+          "name": "INVESCO LTD",
+          "net_change_micros": 1090000,
+          "pct_change_micropct": 3526000,
+          "provider_symbol": "IVZ",
+          "reported_share_volume": 5865113,
+          "sector": "Financials",
+          "ticker": "IVZ"
+        },
+        {
+          "last_sale_micros": 137200000,
+          "name": "BLACKSTONE INC",
+          "net_change_micros": 2520000,
+          "pct_change_micropct": 1871000,
+          "provider_symbol": "BX",
+          "reported_share_volume": 5712243,
+          "sector": "Financials",
+          "ticker": "BX"
+        },
+        {
+          "last_sale_micros": 108210000,
+          "name": "KKR AND CO INC",
+          "net_change_micros": 1650000,
+          "pct_change_micropct": 1548000,
+          "provider_symbol": "KKR",
+          "reported_share_volume": 5337455,
+          "sector": "Financials",
+          "ticker": "KKR"
+        },
+        {
+          "last_sale_micros": 52660000,
+          "name": "TRUIST FINANCIAL CORP",
+          "net_change_micros": 740000,
+          "pct_change_micropct": 1425000,
+          "provider_symbol": "TFC",
+          "reported_share_volume": 5327892,
+          "sector": "Financials",
+          "ticker": "TFC"
+        },
+        {
+          "last_sale_micros": 133200000,
+          "name": "APOLLO GLOBAL MANAGEMENT INC",
+          "net_change_micros": 3780000,
+          "pct_change_micropct": 2921000,
+          "provider_symbol": "APO",
+          "reported_share_volume": 5308051,
+          "sector": "Financials",
+          "ticker": "APO"
+        },
+        {
+          "last_sale_micros": 96130000,
+          "name": "METLIFE INC",
+          "net_change_micros": -180000,
+          "pct_change_micropct": -187000,
+          "provider_symbol": "MET",
+          "reported_share_volume": 5265273,
+          "sector": "Financials",
+          "ticker": "MET"
+        },
+        {
+          "last_sale_micros": 517220000,
+          "name": "BERKSHIRE HATHAWAY INC CLASS B",
+          "net_change_micros": 4080000,
+          "pct_change_micropct": 795000,
+          "provider_symbol": "BRK/B",
+          "reported_share_volume": 4766129,
+          "sector": "Financials",
+          "ticker": "BRKB"
+        },
+        {
+          "last_sale_micros": 88630000,
+          "name": "INTERACTIVE BROKERS GROUP INC CLAS",
+          "net_change_micros": 880000,
+          "pct_change_micropct": 1003000,
+          "provider_symbol": "IBKR",
+          "reported_share_volume": 4669551,
+          "sector": "Financials",
+          "ticker": "IBKR"
+        },
+        {
+          "last_sale_micros": 84640000,
+          "name": "BLOCK INC CLASS A",
+          "net_change_micros": 2550000,
+          "pct_change_micropct": 3106000,
+          "provider_symbol": "XYZ",
+          "reported_share_volume": 4650498,
+          "sector": "Financials",
+          "ticker": "XYZ"
+        },
+        {
+          "last_sale_micros": 35770000,
+          "name": "FRANKLIN RESOURCES INC",
+          "net_change_micros": 530000,
+          "pct_change_micropct": 1504000,
+          "provider_symbol": "BEN",
+          "reported_share_volume": 4395566,
+          "sector": "Financials",
+          "ticker": "BEN"
+        },
+        {
+          "last_sale_micros": 88250000,
+          "name": "GLOBAL PAYMENTS INC",
+          "net_change_micros": 2060000,
+          "pct_change_micropct": 2390000,
+          "provider_symbol": "GPN",
+          "reported_share_volume": 4024909,
+          "sector": "Financials",
+          "ticker": "GPN"
+        },
+        {
+          "last_sale_micros": 221910000,
+          "name": "CAPITAL ONE FINANCIAL CORP",
+          "net_change_micros": 4230000,
+          "pct_change_micropct": 1943000,
+          "provider_symbol": "COF",
+          "reported_share_volume": 3838740,
+          "sector": "Financials",
+          "ticker": "COF"
+        },
+        {
+          "last_sale_micros": 149200000,
+          "name": "INTERCONTINENTAL EXCHANGE INC",
+          "net_change_micros": -2600000,
+          "pct_change_micropct": -1713000,
+          "provider_symbol": "ICE",
+          "reported_share_volume": 3819514,
+          "sector": "Financials",
+          "ticker": "ICE"
+        },
+        {
+          "last_sale_micros": 93620000,
+          "name": "NASDAQ INC",
+          "net_change_micros": -520000,
+          "pct_change_micropct": -552000,
+          "provider_symbol": "NDAQ",
+          "reported_share_volume": 3783392,
+          "sector": "Financials",
+          "ticker": "NDAQ"
+        },
+        {
+          "last_sale_micros": 79080000,
+          "name": "SYNCHRONY FINANCIAL",
+          "net_change_micros": 1240000,
+          "pct_change_micropct": 1593000,
+          "provider_symbol": "SYF",
+          "reported_share_volume": 3690127,
+          "sector": "Financials",
+          "ticker": "SYF"
+        },
+        {
+          "last_sale_micros": 142910000,
+          "name": "ARES MANAGEMENT CORP CLASS A",
+          "net_change_micros": 4340000,
+          "pct_change_micropct": 3132000,
+          "provider_symbol": "ARES",
+          "reported_share_volume": 3460261,
+          "sector": "Financials",
+          "ticker": "ARES"
+        },
+        {
+          "last_sale_micros": 412530000,
+          "name": "S&P GLOBAL INC",
+          "net_change_micros": -3720000,
+          "pct_change_micropct": -894000,
+          "provider_symbol": "SPGI",
+          "reported_share_volume": 3331796,
+          "sector": "Financials",
+          "ticker": "SPGI"
+        },
+        {
+          "last_sale_micros": 73680000,
+          "name": "CITIZENS FINANCIAL GROUP INC",
+          "net_change_micros": 980000,
+          "pct_change_micropct": 1348000,
+          "provider_symbol": "CFG",
+          "reported_share_volume": 3301695,
+          "sector": "Financials",
+          "ticker": "CFG"
+        },
+        {
+          "last_sale_micros": 571100000,
+          "name": "MASTERCARD INC CLASS A",
+          "net_change_micros": 130000,
+          "pct_change_micropct": 23000,
+          "provider_symbol": "MA",
+          "reported_share_volume": 3207059,
+          "sector": "Financials",
+          "ticker": "MA"
+        },
+        {
+          "last_sale_micros": 156820000,
+          "name": "BANK OF NEW YORK MELLON CORP",
+          "net_change_micros": 620000,
+          "pct_change_micropct": 397000,
+          "provider_symbol": "BNY",
+          "reported_share_volume": 3034677,
+          "sector": "Financials",
+          "ticker": "BNY"
+        },
+        {
+          "last_sale_micros": 79320000,
+          "name": "AMERICAN INTERNATIONAL GROUP INC",
+          "net_change_micros": 530000,
+          "pct_change_micropct": 673000,
+          "provider_symbol": "AIG",
+          "reported_share_volume": 2875542,
+          "sector": "Financials",
+          "ticker": "AIG"
+        },
+        {
+          "last_sale_micros": 346710000,
+          "name": "AMERICAN EXPRESS",
+          "net_change_micros": 1990000,
+          "pct_change_micropct": 577000,
+          "provider_symbol": "AXP",
+          "reported_share_volume": 2731893,
+          "sector": "Financials",
+          "ticker": "AXP"
+        },
+        {
+          "last_sale_micros": 1052980000,
+          "name": "GOLDMAN SACHS GROUP INC",
+          "net_change_micros": 25920000,
+          "pct_change_micropct": 2524000,
+          "provider_symbol": "GS",
+          "reported_share_volume": 2647603,
+          "sector": "Financials",
+          "ticker": "GS"
+        },
+        {
+          "last_sale_micros": 115790000,
+          "name": "T ROWE PRICE GROUP INC",
+          "net_change_micros": 2280000,
+          "pct_change_micropct": 2009000,
+          "provider_symbol": "TROW",
+          "reported_share_volume": 2557289,
+          "sector": "Financials",
+          "ticker": "TROW"
+        },
+        {
+          "last_sale_micros": 125150000,
+          "name": "AFLAC INC",
+          "net_change_micros": -1560000,
+          "pct_change_micropct": -1231000,
+          "provider_symbol": "AFL",
+          "reported_share_volume": 2495143,
+          "sector": "Financials",
+          "ticker": "AFL"
+        },
+        {
+          "last_sale_micros": 210750000,
+          "name": "PROGRESSIVE CORP",
+          "net_change_micros": 290000,
+          "pct_change_micropct": 138000,
+          "provider_symbol": "PGR",
+          "reported_share_volume": 2413596,
+          "sector": "Financials",
+          "ticker": "PGR"
+        },
+        {
+          "last_sale_micros": 191450000,
+          "name": "MARSH INC",
+          "net_change_micros": -1390000,
+          "pct_change_micropct": -721000,
+          "provider_symbol": "MRSH",
+          "reported_share_volume": 2329720,
+          "sector": "Financials",
+          "ticker": "MRSH"
+        },
+        {
+          "last_sale_micros": 262630000,
+          "name": "CME GROUP INC CLASS A",
+          "net_change_micros": -3540000,
+          "pct_change_micropct": -1330000,
+          "provider_symbol": "CME",
+          "reported_share_volume": 2294741,
+          "sector": "Financials",
+          "ticker": "CME"
+        },
+        {
+          "last_sale_micros": 142050000,
+          "name": "HARTFORD INSURANCE GROUP INC",
+          "net_change_micros": -850000,
+          "pct_change_micropct": -595000,
+          "provider_symbol": "HIG",
+          "reported_share_volume": 2226363,
+          "sector": "Financials",
+          "ticker": "HIG"
+        },
+        {
+          "last_sale_micros": 71170000,
+          "name": "BROWN & BROWN INC",
+          "net_change_micros": -610000,
+          "pct_change_micropct": -850000,
+          "provider_symbol": "BRO",
+          "reported_share_volume": 2190579,
+          "sector": "Financials",
+          "ticker": "BRO"
+        },
+        {
+          "last_sale_micros": 71390000,
+          "name": "WR BERKLEY CORP",
+          "net_change_micros": -700000,
+          "pct_change_micropct": -971000,
+          "provider_symbol": "WRB",
+          "reported_share_volume": 2061974,
+          "sector": "Financials",
+          "ticker": "WRB"
+        },
+        {
+          "last_sale_micros": 123540000,
+          "name": "PRUDENTIAL FINANCIAL INC",
+          "net_change_micros": 560000,
+          "pct_change_micropct": 455000,
+          "provider_symbol": "PRU",
+          "reported_share_volume": 2000212,
+          "sector": "Financials",
+          "ticker": "PRU"
+        },
+        {
+          "last_sale_micros": 377150000,
+          "name": "TRAVELERS COMPANIES INC",
+          "net_change_micros": 3330000,
+          "pct_change_micropct": 891000,
+          "provider_symbol": "TRV",
+          "reported_share_volume": 1983765,
+          "sector": "Financials",
+          "ticker": "TRV"
+        },
+        {
+          "last_sale_micros": 99520000,
+          "name": "ARCH CAPITAL GROUP LTD",
+          "net_change_micros": -1600000,
+          "pct_change_micropct": -1582000,
+          "provider_symbol": "ACGL",
+          "reported_share_volume": 1943609,
+          "sector": "Financials",
+          "ticker": "ACGL"
+        },
+        {
+          "last_sale_micros": 185230000,
+          "name": "STATE STREET CORP",
+          "net_change_micros": 1560000,
+          "pct_change_micropct": 849000,
+          "provider_symbol": "STT",
+          "reported_share_volume": 1939593,
+          "sector": "Financials",
+          "ticker": "STT"
+        },
+        {
+          "last_sale_micros": 262560000,
+          "name": "ALLSTATE CORP",
+          "net_change_micros": -120000,
+          "pct_change_micropct": -46000,
+          "provider_symbol": "ALL",
+          "reported_share_volume": 1931570,
+          "sector": "Financials",
+          "ticker": "ALL"
+        },
+        {
+          "last_sale_micros": 348300000,
+          "name": "CHUBB",
+          "net_change_micros": 70000,
+          "pct_change_micropct": 20000,
+          "provider_symbol": "CB",
+          "reported_share_volume": 1521625,
+          "sector": "Financials",
+          "ticker": "CB"
+        },
+        {
+          "last_sale_micros": 248060000,
+          "name": "ARTHUR J GALLAGHER",
+          "net_change_micros": 270000,
+          "pct_change_micropct": 109000,
+          "provider_symbol": "AJG",
+          "reported_share_volume": 1413284,
+          "sector": "Financials",
+          "ticker": "AJG"
+        },
+        {
+          "last_sale_micros": 254140000,
+          "name": "PNC FINANCIAL SERVICES GROUP INC",
+          "net_change_micros": 2420000,
+          "pct_change_micropct": 961000,
+          "provider_symbol": "PNC",
+          "reported_share_volume": 1327739,
+          "sector": "Financials",
+          "ticker": "PNC"
+        },
+        {
+          "last_sale_micros": 115250000,
+          "name": "PRINCIPAL FINANCIAL GROUP INC",
+          "net_change_micros": 120000,
+          "pct_change_micropct": 104000,
+          "provider_symbol": "PFG",
+          "reported_share_volume": 1304220,
+          "sector": "Financials",
+          "ticker": "PFG"
+        },
+        {
+          "last_sale_micros": 356650000,
+          "name": "AON PLC CLASS A",
+          "net_change_micros": -980000,
+          "pct_change_micropct": -274000,
+          "provider_symbol": "AON",
+          "reported_share_volume": 1125592,
+          "sector": "Financials",
+          "ticker": "AON"
+        },
+        {
+          "last_sale_micros": 182410000,
+          "name": "NORTHERN TRUST CORP",
+          "net_change_micros": 210000,
+          "pct_change_micropct": 115000,
+          "provider_symbol": "NTRS",
+          "reported_share_volume": 1040450,
+          "sector": "Financials",
+          "ticker": "NTRS"
+        },
+        {
+          "last_sale_micros": 253060000,
+          "name": "M&T BANK",
+          "net_change_micros": 3580000,
+          "pct_change_micropct": 1435000,
+          "provider_symbol": "MTB",
+          "reported_share_volume": 1009208,
+          "sector": "Financials",
+          "ticker": "MTB"
+        },
+        {
+          "last_sale_micros": 178570000,
+          "name": "RAYMOND JAMES INC",
+          "net_change_micros": 890000,
+          "pct_change_micropct": 501000,
+          "provider_symbol": "RJF",
+          "reported_share_volume": 962663,
+          "sector": "Financials",
+          "ticker": "RJF"
+        },
+        {
+          "last_sale_micros": 288420000,
+          "name": "CBOE GLOBAL MARKETS",
+          "net_change_micros": -9410000,
+          "pct_change_micropct": -3160000,
+          "provider_symbol": "CBOE",
+          "reported_share_volume": 948574,
+          "sector": "Financials",
+          "ticker": "CBOE"
+        },
+        {
+          "last_sale_micros": 571470000,
+          "name": "MSCI INC",
+          "net_change_micros": -2960000,
+          "pct_change_micropct": -515000,
+          "provider_symbol": "MSCI",
+          "reported_share_volume": 827911,
+          "sector": "Financials",
+          "ticker": "MSCI"
+        },
+        {
+          "last_sale_micros": 274490000,
+          "name": "FACTSET RESEARCH SYSTEMS INC",
+          "net_change_micros": 4810000,
+          "pct_change_micropct": 1784000,
+          "provider_symbol": "FDS",
+          "reported_share_volume": 783870,
+          "sector": "Financials",
+          "ticker": "FDS"
+        },
+        {
+          "last_sale_micros": 156630000,
+          "name": "JACK HENRY AND ASSOCIATES INC",
+          "net_change_micros": 100000,
+          "pct_change_micropct": 64000,
+          "provider_symbol": "JKHY",
+          "reported_share_volume": 712231,
+          "sector": "Financials",
+          "ticker": "JKHY"
+        },
+        {
+          "last_sale_micros": 396520000,
+          "name": "CORPAY INC",
+          "net_change_micros": 10740000,
+          "pct_change_micropct": 2784000,
+          "provider_symbol": "CPAY",
+          "reported_share_volume": 680383,
+          "sector": "Financials",
+          "ticker": "CPAY"
+        },
+        {
+          "last_sale_micros": 339630000,
+          "name": "WILLIS TOWERS WATSON PLC",
+          "net_change_micros": -2000000,
+          "pct_change_micropct": -585000,
+          "provider_symbol": "WTW",
+          "reported_share_volume": 637121,
+          "sector": "Financials",
+          "ticker": "WTW"
+        },
+        {
+          "last_sale_micros": 1131130000,
+          "name": "BLACKROCK INC",
+          "net_change_micros": 4500000,
+          "pct_change_micropct": 399000,
+          "provider_symbol": "BLK",
+          "reported_share_volume": 622152,
+          "sector": "Financials",
+          "ticker": "BLK"
+        },
+        {
+          "last_sale_micros": 115980000,
+          "name": "LOEWS CORP",
+          "net_change_micros": -270000,
+          "pct_change_micropct": -232000,
+          "provider_symbol": "L",
+          "reported_share_volume": 616018,
+          "sector": "Financials",
+          "ticker": "L"
+        },
+        {
+          "last_sale_micros": 483670000,
+          "name": "MOODYS CORP",
+          "net_change_micros": 310000,
+          "pct_change_micropct": 64000,
+          "provider_symbol": "MCO",
+          "reported_share_volume": 541734,
+          "sector": "Financials",
+          "ticker": "MCO"
+        },
+        {
+          "last_sale_micros": 553580000,
+          "name": "AMERIPRISE FINANCE INC",
+          "net_change_micros": 1510000,
+          "pct_change_micropct": 274000,
+          "provider_symbol": "AMP",
+          "reported_share_volume": 537842,
+          "sector": "Financials",
+          "ticker": "AMP"
+        },
+        {
+          "last_sale_micros": 179420000,
+          "name": "CINCINNATI FINANCIAL CORP",
+          "net_change_micros": 1390000,
+          "pct_change_micropct": 781000,
+          "provider_symbol": "CINF",
+          "reported_share_volume": 525758,
+          "sector": "Financials",
+          "ticker": "CINF"
+        },
+        {
+          "last_sale_micros": 183900000,
+          "name": "GLOBE LIFE INC",
+          "net_change_micros": -190000,
+          "pct_change_micropct": -103000,
+          "provider_symbol": "GL",
+          "reported_share_volume": 487400,
+          "sector": "Financials",
+          "ticker": "GL"
+        },
+        {
+          "last_sale_micros": 281310000,
+          "name": "ASSURANT INC",
+          "net_change_micros": -1080000,
+          "pct_change_micropct": -382000,
+          "provider_symbol": "AIZ",
+          "reported_share_volume": 425601,
+          "sector": "Financials",
+          "ticker": "AIZ"
+        },
+        {
+          "last_sale_micros": 369210000,
+          "name": "EVEREST GROUP LTD",
+          "net_change_micros": -2840000,
+          "pct_change_micropct": -763000,
+          "provider_symbol": "EG",
+          "reported_share_volume": 338599,
+          "sector": "Financials",
+          "ticker": "EG"
+        },
+        {
+          "last_sale_micros": 244530000,
+          "name": "ERIE INDEMNITY CLASS A",
+          "net_change_micros": 7670000,
+          "pct_change_micropct": 3238000,
+          "provider_symbol": "ERIE",
+          "reported_share_volume": 259452,
+          "sector": "Financials",
+          "ticker": "ERIE"
+        }
+      ],
+      "key": "financials",
+      "label": "Financials",
+      "reported_share_volume": 362727598
+    },
+    {
+      "eligible_constituents": 24,
+      "holdings": [
+        {
+          "last_sale_micros": 23380000,
+          "name": "AT&T INC",
+          "net_change_micros": -210000,
+          "pct_change_micropct": -890000,
+          "provider_symbol": "T",
+          "reported_share_volume": 55560663,
+          "sector": "Communication Services",
+          "ticker": "T"
+        },
+        {
+          "last_sale_micros": 209700000,
+          "name": "ELECTRONIC ARTS INC",
+          "net_change_micros": -210000,
+          "pct_change_micropct": -100000,
+          "provider_symbol": "EA",
+          "reported_share_volume": 48628514,
+          "sector": "Communication Services",
+          "ticker": "EA"
+        },
+        {
+          "last_sale_micros": 73570000,
+          "name": "NETFLIX INC",
+          "net_change_micros": 240000,
+          "pct_change_micropct": 327000,
+          "provider_symbol": "NFLX",
+          "reported_share_volume": 42776888,
+          "sector": "Communication Services",
+          "ticker": "NFLX"
+        },
+        {
+          "last_sale_micros": 377650000,
+          "name": "ALPHABET INC CLASS A",
+          "net_change_micros": 4140000,
+          "pct_change_micropct": 1108000,
+          "provider_symbol": "GOOGL",
+          "reported_share_volume": 35634726,
+          "sector": "Communication Services",
+          "ticker": "GOOGL"
+        },
+        {
+          "last_sale_micros": 25790000,
+          "name": "WARNER BROS. DISCOVERY INC SERIES",
+          "net_change_micros": -300000,
+          "pct_change_micropct": -1150000,
+          "provider_symbol": "WBD",
+          "reported_share_volume": 33284042,
+          "sector": "Communication Services",
+          "ticker": "WBD"
+        },
+        {
+          "last_sale_micros": 24930000,
+          "name": "COMCAST CORP CLASS A",
+          "net_change_micros": 370000,
+          "pct_change_micropct": 1507000,
+          "provider_symbol": "CMCSA",
+          "reported_share_volume": 31964990,
+          "sector": "Communication Services",
+          "ticker": "CMCSA"
+        },
+        {
+          "last_sale_micros": 46880000,
+          "name": "VERIZON COMMUNICATIONS INC",
+          "net_change_micros": -480000,
+          "pct_change_micropct": -1014000,
+          "provider_symbol": "VZ",
+          "reported_share_volume": 23484708,
+          "sector": "Communication Services",
+          "ticker": "VZ"
+        },
+        {
+          "last_sale_micros": 19340000,
+          "name": "TRADE DESK INC CLASS A",
+          "net_change_micros": 1040000,
+          "pct_change_micropct": 5683000,
+          "provider_symbol": "TTD",
+          "reported_share_volume": 21794980,
+          "sector": "Communication Services",
+          "ticker": "TTD"
+        },
+        {
+          "last_sale_micros": 375350000,
+          "name": "ALPHABET INC CLASS C",
+          "net_change_micros": 2880000,
+          "pct_change_micropct": 773000,
+          "provider_symbol": "GOOG",
+          "reported_share_volume": 19928564,
+          "sector": "Communication Services",
+          "ticker": "GOOG"
+        },
+        {
+          "last_sale_micros": 587940000,
+          "name": "META PLATFORMS INC CLASS A",
+          "net_change_micros": -2300000,
+          "pct_change_micropct": -390000,
+          "provider_symbol": "META",
+          "reported_share_volume": 17900125,
+          "sector": "Communication Services",
+          "ticker": "META"
+        },
+        {
+          "last_sale_micros": 98180000,
+          "name": "WALT DISNEY",
+          "net_change_micros": 40000,
+          "pct_change_micropct": 41000,
+          "provider_symbol": "DIS",
+          "reported_share_volume": 16456026,
+          "sector": "Communication Services",
+          "ticker": "DIS"
+        },
+        {
+          "last_sale_micros": 8380000,
+          "name": "PARAMOUNT SKYDANCE CORP CLASS B",
+          "net_change_micros": 160000,
+          "pct_change_micropct": 1946000,
+          "provider_symbol": "PSKY",
+          "reported_share_volume": 16248019,
+          "sector": "Communication Services",
+          "ticker": "PSKY"
+        },
+        {
+          "last_sale_micros": 91600000,
+          "name": "ECHOSTAR CORP CLASS A",
+          "net_change_micros": 5970000,
+          "pct_change_micropct": 6972000,
+          "provider_symbol": "ECHO",
+          "reported_share_volume": 7419274,
+          "sector": "Communication Services",
+          "ticker": "ECHO"
+        },
+        {
+          "last_sale_micros": 419700000,
+          "name": "APPLOVIN CORP CLASS A",
+          "net_change_micros": 13540000,
+          "pct_change_micropct": 3334000,
+          "provider_symbol": "APP",
+          "reported_share_volume": 7117728,
+          "sector": "Communication Services",
+          "ticker": "APP"
+        },
+        {
+          "last_sale_micros": 177210000,
+          "name": "T MOBILE US INC",
+          "net_change_micros": 120000,
+          "pct_change_micropct": 68000,
+          "provider_symbol": "TMUS",
+          "reported_share_volume": 5779849,
+          "sector": "Communication Services",
+          "ticker": "TMUS"
+        },
+        {
+          "last_sale_micros": 59080000,
+          "name": "FOX CORP CLASS A",
+          "net_change_micros": 380000,
+          "pct_change_micropct": 647000,
+          "provider_symbol": "FOXA",
+          "reported_share_volume": 5642598,
+          "sector": "Communication Services",
+          "ticker": "FOXA"
+        },
+        {
+          "last_sale_micros": 28590000,
+          "name": "NEWS CORP CLASS A",
+          "net_change_micros": 650000,
+          "pct_change_micropct": 2326000,
+          "provider_symbol": "NWSA",
+          "reported_share_volume": 5046289,
+          "sector": "Communication Services",
+          "ticker": "NWSA"
+        },
+        {
+          "last_sale_micros": 81810000,
+          "name": "OMNICOM GROUP INC",
+          "net_change_micros": 2540000,
+          "pct_change_micropct": 3204000,
+          "provider_symbol": "OMC",
+          "reported_share_volume": 3727145,
+          "sector": "Communication Services",
+          "ticker": "OMC"
+        },
+        {
+          "last_sale_micros": 153070000,
+          "name": "CHARTER COMMUNICATIONS INC CLASS A",
+          "net_change_micros": 8970000,
+          "pct_change_micropct": 6225000,
+          "provider_symbol": "CHTR",
+          "reported_share_volume": 3247221,
+          "sector": "Communication Services",
+          "ticker": "CHTR"
+        },
+        {
+          "last_sale_micros": 183700000,
+          "name": "LIVE NATION ENTERTAINMENT INC",
+          "net_change_micros": 2010000,
+          "pct_change_micropct": 1106000,
+          "provider_symbol": "LYV",
+          "reported_share_volume": 3043751,
+          "sector": "Communication Services",
+          "ticker": "LYV"
+        },
+        {
+          "last_sale_micros": 184510000,
+          "name": "TKO GROUP HOLDINGS INC CLASS A",
+          "net_change_micros": 600000,
+          "pct_change_micropct": 326000,
+          "provider_symbol": "TKO",
+          "reported_share_volume": 3016344,
+          "sector": "Communication Services",
+          "ticker": "TKO"
+        },
+        {
+          "last_sale_micros": 240220000,
+          "name": "TAKE TWO INTERACTIVE SOFTWARE INC",
+          "net_change_micros": -4930000,
+          "pct_change_micropct": -2011000,
+          "provider_symbol": "TTWO",
+          "reported_share_volume": 2095982,
+          "sector": "Communication Services",
+          "ticker": "TTWO"
+        },
+        {
+          "last_sale_micros": 32720000,
+          "name": "NEWS CORP CLASS B",
+          "net_change_micros": 930000,
+          "pct_change_micropct": 2925000,
+          "provider_symbol": "NWS",
+          "reported_share_volume": 1601647,
+          "sector": "Communication Services",
+          "ticker": "NWS"
+        },
+        {
+          "last_sale_micros": 52820000,
+          "name": "FOX CORP CLASS B",
+          "net_change_micros": 200000,
+          "pct_change_micropct": 380000,
+          "provider_symbol": "FOX",
+          "reported_share_volume": 1343318,
+          "sector": "Communication Services",
+          "ticker": "FOX"
+        }
+      ],
+      "key": "communication-services",
+      "label": "Communication Services",
+      "reported_share_volume": 412743391
+    },
+    {
+      "eligible_constituents": 47,
+      "holdings": [
+        {
+          "last_sale_micros": 277420000,
+          "name": "AMAZON.COM INC",
+          "net_change_micros": -6600000,
+          "pct_change_micropct": -2324000,
+          "provider_symbol": "AMZN",
+          "reported_share_volume": 69621584,
+          "sector": "Consumer Discretionary",
+          "ticker": "AMZN"
+        },
+        {
+          "last_sale_micros": 14240000,
+          "name": "FORD MOTOR CO",
+          "net_change_micros": -190000,
+          "pct_change_micropct": -1317000,
+          "provider_symbol": "F",
+          "reported_share_volume": 52649695,
+          "sector": "Consumer Discretionary",
+          "ticker": "F"
+        },
+        {
+          "last_sale_micros": 33820000,
+          "name": "CHIPOTLE MEXICAN GRILL INC",
+          "net_change_micros": -3640000,
+          "pct_change_micropct": -9717000,
+          "provider_symbol": "CMG",
+          "reported_share_volume": 51659414,
+          "sector": "Consumer Discretionary",
+          "ticker": "CMG"
+        },
+        {
+          "last_sale_micros": 327350000,
+          "name": "TESLA INC",
+          "net_change_micros": 5270000,
+          "pct_change_micropct": 1636000,
+          "provider_symbol": "TSLA",
+          "reported_share_volume": 33153906,
+          "sector": "Consumer Discretionary",
+          "ticker": "TSLA"
+        },
+        {
+          "last_sale_micros": 41530000,
+          "name": "NIKE INC CLASS B",
+          "net_change_micros": -1110000,
+          "pct_change_micropct": -2603000,
+          "provider_symbol": "NKE",
+          "reported_share_volume": 27735181,
+          "sector": "Consumer Discretionary",
+          "ticker": "NKE"
+        },
+        {
+          "last_sale_micros": 29590000,
+          "name": "CARNIVAL CORP LTD",
+          "net_change_micros": 850000,
+          "pct_change_micropct": 2958000,
+          "provider_symbol": "CCL",
+          "reported_share_volume": 21562323,
+          "sector": "Consumer Discretionary",
+          "ticker": "CCL"
+        },
+        {
+          "last_sale_micros": 20070000,
+          "name": "NORWEGIAN CRUISE LINE HOLDINGS LTD",
+          "net_change_micros": 310000,
+          "pct_change_micropct": 1569000,
+          "provider_symbol": "NCLH",
+          "reported_share_volume": 18947752,
+          "sector": "Consumer Discretionary",
+          "ticker": "NCLH"
+        },
+        {
+          "last_sale_micros": 47720000,
+          "name": "APTIV PLC",
+          "net_change_micros": -9510000,
+          "pct_change_micropct": -16617000,
+          "provider_symbol": "APTV",
+          "reported_share_volume": 16944045,
+          "sector": "Consumer Discretionary",
+          "ticker": "APTV"
+        },
+        {
+          "last_sale_micros": 33120000,
+          "name": "TRACTOR SUPPLY",
+          "net_change_micros": 1010000,
+          "pct_change_micropct": 3145000,
+          "provider_symbol": "TSCO",
+          "reported_share_volume": 10245726,
+          "sector": "Consumer Discretionary",
+          "ticker": "TSCO"
+        },
+        {
+          "last_sale_micros": 104970000,
+          "name": "STARBUCKS CORP",
+          "net_change_micros": 1600000,
+          "pct_change_micropct": 1548000,
+          "provider_symbol": "SBUX",
+          "reported_share_volume": 9526791,
+          "sector": "Consumer Discretionary",
+          "ticker": "SBUX"
+        },
+        {
+          "last_sale_micros": 194270000,
+          "name": "BOOKING HOLDINGS INC",
+          "net_change_micros": 1560000,
+          "pct_change_micropct": 810000,
+          "provider_symbol": "BKNG",
+          "reported_share_volume": 9348305,
+          "sector": "Consumer Discretionary",
+          "ticker": "BKNG"
+        },
+        {
+          "last_sale_micros": 68030000,
+          "name": "CARVANA CLASS A",
+          "net_change_micros": 1900000,
+          "pct_change_micropct": 2873000,
+          "provider_symbol": "CVNA",
+          "reported_share_volume": 7785862,
+          "sector": "Consumer Discretionary",
+          "ticker": "CVNA"
+        },
+        {
+          "last_sale_micros": 157550000,
+          "name": "TJX INC",
+          "net_change_micros": 50000,
+          "pct_change_micropct": 32000,
+          "provider_symbol": "TJX",
+          "reported_share_volume": 7351544,
+          "sector": "Consumer Discretionary",
+          "ticker": "TJX"
+        },
+        {
+          "last_sale_micros": 268340000,
+          "name": "MCDONALDS CORP",
+          "net_change_micros": 3110000,
+          "pct_change_micropct": 1173000,
+          "provider_symbol": "MCD",
+          "reported_share_volume": 7343564,
+          "sector": "Consumer Discretionary",
+          "ticker": "MCD"
+        },
+        {
+          "last_sale_micros": 91830000,
+          "name": "OREILLY AUTOMOTIVE INC",
+          "net_change_micros": 2070000,
+          "pct_change_micropct": 2306000,
+          "provider_symbol": "ORLY",
+          "reported_share_volume": 6403074,
+          "sector": "Consumer Discretionary",
+          "ticker": "ORLY"
+        },
+        {
+          "last_sale_micros": 46020000,
+          "name": "LAS VEGAS SANDS CORP",
+          "net_change_micros": -1260000,
+          "pct_change_micropct": -2665000,
+          "provider_symbol": "LVS",
+          "reported_share_volume": 5873910,
+          "sector": "Consumer Discretionary",
+          "ticker": "LVS"
+        },
+        {
+          "last_sale_micros": 88310000,
+          "name": "GENERAL MOTORS",
+          "net_change_micros": 630000,
+          "pct_change_micropct": 719000,
+          "provider_symbol": "GM",
+          "reported_share_volume": 5326812,
+          "sector": "Consumer Discretionary",
+          "ticker": "GM"
+        },
+        {
+          "last_sale_micros": 109610000,
+          "name": "EBAY INC",
+          "net_change_micros": 2480000,
+          "pct_change_micropct": 2315000,
+          "provider_symbol": "EBAY",
+          "reported_share_volume": 4585602,
+          "sector": "Consumer Discretionary",
+          "ticker": "EBAY"
+        },
+        {
+          "last_sale_micros": 45720000,
+          "name": "MGM RESORTS INTERNATIONAL",
+          "net_change_micros": 1220000,
+          "pct_change_micropct": 2742000,
+          "provider_symbol": "MGM",
+          "reported_share_volume": 4277499,
+          "sector": "Consumer Discretionary",
+          "ticker": "MGM"
+        },
+        {
+          "last_sale_micros": 348240000,
+          "name": "HOME DEPOT INC",
+          "net_change_micros": 8220000,
+          "pct_change_micropct": 2418000,
+          "provider_symbol": "HD",
+          "reported_share_volume": 4273803,
+          "sector": "Consumer Discretionary",
+          "ticker": "HD"
+        },
+        {
+          "last_sale_micros": 202370000,
+          "name": "DOORDASH INC CLASS A",
+          "net_change_micros": 1870000,
+          "pct_change_micropct": 933000,
+          "provider_symbol": "DASH",
+          "reported_share_volume": 3840356,
+          "sector": "Consumer Discretionary",
+          "ticker": "DASH"
+        },
+        {
+          "last_sale_micros": 86350000,
+          "name": "BEST BUY INC",
+          "net_change_micros": 1100000,
+          "pct_change_micropct": 1290000,
+          "provider_symbol": "BBY",
+          "reported_share_volume": 3726608,
+          "sector": "Consumer Discretionary",
+          "ticker": "BBY"
+        },
+        {
+          "last_sale_micros": 149920000,
+          "name": "AIRBNB INC CLASS A",
+          "net_change_micros": -720000,
+          "pct_change_micropct": -478000,
+          "provider_symbol": "ABNB",
+          "reported_share_volume": 3579421,
+          "sector": "Consumer Discretionary",
+          "ticker": "ABNB"
+        },
+        {
+          "last_sale_micros": 345200000,
+          "name": "MARRIOTT INTERNATIONAL INC CLASS A",
+          "net_change_micros": -1630000,
+          "pct_change_micropct": -470000,
+          "provider_symbol": "MAR",
+          "reported_share_volume": 3375285,
+          "sector": "Consumer Discretionary",
+          "ticker": "MAR"
+        },
+        {
+          "last_sale_micros": 218080000,
+          "name": "LOWES COMPANIES INC",
+          "net_change_micros": 6020000,
+          "pct_change_micropct": 2839000,
+          "provider_symbol": "LOW",
+          "reported_share_volume": 2802871,
+          "sector": "Consumer Discretionary",
+          "ticker": "LOW"
+        },
+        {
+          "last_sale_micros": 147680000,
+          "name": "YUM BRANDS INC",
+          "net_change_micros": -1120000,
+          "pct_change_micropct": -753000,
+          "provider_symbol": "YUM",
+          "reported_share_volume": 2525521,
+          "sector": "Consumer Discretionary",
+          "ticker": "YUM"
+        },
+        {
+          "last_sale_micros": 97600000,
+          "name": "WYNN RESORTS LTD",
+          "net_change_micros": -760000,
+          "pct_change_micropct": -773000,
+          "provider_symbol": "WYNN",
+          "reported_share_volume": 2496490,
+          "sector": "Consumer Discretionary",
+          "ticker": "WYNN"
+        },
+        {
+          "last_sale_micros": 91510000,
+          "name": "HASBRO INC",
+          "net_change_micros": 40000,
+          "pct_change_micropct": 44000,
+          "provider_symbol": "HAS",
+          "reported_share_volume": 2409971,
+          "sector": "Consumer Discretionary",
+          "ticker": "HAS"
+        },
+        {
+          "last_sale_micros": 251060000,
+          "name": "ROSS STORES INC",
+          "net_change_micros": -1850000,
+          "pct_change_micropct": -731000,
+          "provider_symbol": "ROST",
+          "reported_share_volume": 2261630,
+          "sector": "Consumer Discretionary",
+          "ticker": "ROST"
+        },
+        {
+          "last_sale_micros": 312070000,
+          "name": "HILTON WORLDWIDE HOLDINGS INC",
+          "net_change_micros": -2270000,
+          "pct_change_micropct": -722000,
+          "provider_symbol": "HLT",
+          "reported_share_volume": 2249484,
+          "sector": "Consumer Discretionary",
+          "ticker": "HLT"
+        },
+        {
+          "last_sale_micros": 312060000,
+          "name": "EXPEDIA GROUP INC",
+          "net_change_micros": 14030000,
+          "pct_change_micropct": 4708000,
+          "provider_symbol": "EXPE",
+          "reported_share_volume": 2206625,
+          "sector": "Consumer Discretionary",
+          "ticker": "EXPE"
+        },
+        {
+          "last_sale_micros": 123030000,
+          "name": "LULULEMON ATHLETICA INC",
+          "net_change_micros": -640000,
+          "pct_change_micropct": -518000,
+          "provider_symbol": "LULU",
+          "reported_share_volume": 2159492,
+          "sector": "Consumer Discretionary",
+          "ticker": "LULU"
+        },
+        {
+          "last_sale_micros": 150370000,
+          "name": "D R HORTON INC",
+          "net_change_micros": 3710000,
+          "pct_change_micropct": 2530000,
+          "provider_symbol": "DHI",
+          "reported_share_volume": 2159294,
+          "sector": "Consumer Discretionary",
+          "ticker": "DHI"
+        },
+        {
+          "last_sale_micros": 99870000,
+          "name": "DECKERS OUTDOOR CORP",
+          "net_change_micros": 370000,
+          "pct_change_micropct": 372000,
+          "provider_symbol": "DECK",
+          "reported_share_volume": 1783305,
+          "sector": "Consumer Discretionary",
+          "ticker": "DECK"
+        },
+        {
+          "last_sale_micros": 131680000,
+          "name": "PULTEGROUP INC",
+          "net_change_micros": 2390000,
+          "pct_change_micropct": 1849000,
+          "provider_symbol": "PHM",
+          "reported_share_volume": 1739281,
+          "sector": "Consumer Discretionary",
+          "ticker": "PHM"
+        },
+        {
+          "last_sale_micros": 87020000,
+          "name": "LENNAR A CORP CLASS A",
+          "net_change_micros": 1820000,
+          "pct_change_micropct": 2136000,
+          "provider_symbol": "LEN",
+          "reported_share_volume": 1710006,
+          "sector": "Consumer Discretionary",
+          "ticker": "LEN"
+        },
+        {
+          "last_sale_micros": 155970000,
+          "name": "TAPESTRY INC",
+          "net_change_micros": 340000,
+          "pct_change_micropct": 218000,
+          "provider_symbol": "TPR",
+          "reported_share_volume": 1647769,
+          "sector": "Consumer Discretionary",
+          "ticker": "TPR"
+        },
+        {
+          "last_sale_micros": 248880000,
+          "name": "WILLIAMS SONOMA INC",
+          "net_change_micros": 9080000,
+          "pct_change_micropct": 3786000,
+          "provider_symbol": "WSM",
+          "reported_share_volume": 1531661,
+          "sector": "Consumer Discretionary",
+          "ticker": "WSM"
+        },
+        {
+          "last_sale_micros": 325740000,
+          "name": "ROYAL CARIBBEAN GROUP LTD",
+          "net_change_micros": 1740000,
+          "pct_change_micropct": 537000,
+          "provider_symbol": "RCL",
+          "reported_share_volume": 1520354,
+          "sector": "Consumer Discretionary",
+          "ticker": "RCL"
+        },
+        {
+          "last_sale_micros": 307360000,
+          "name": "GARMIN LTD",
+          "net_change_micros": 2600000,
+          "pct_change_micropct": 853000,
+          "provider_symbol": "GRMN",
+          "reported_share_volume": 1347751,
+          "sector": "Consumer Discretionary",
+          "ticker": "GRMN"
+        },
+        {
+          "last_sale_micros": 132550000,
+          "name": "GENUINE PARTS",
+          "net_change_micros": 4030000,
+          "pct_change_micropct": 3136000,
+          "provider_symbol": "GPC",
+          "reported_share_volume": 1291889,
+          "sector": "Consumer Discretionary",
+          "ticker": "GPC"
+        },
+        {
+          "last_sale_micros": 204570000,
+          "name": "DARDEN RESTAURANTS INC",
+          "net_change_micros": -1670000,
+          "pct_change_micropct": -810000,
+          "provider_symbol": "DRI",
+          "reported_share_volume": 1099760,
+          "sector": "Consumer Discretionary",
+          "ticker": "DRI"
+        },
+        {
+          "last_sale_micros": 367630000,
+          "name": "DOMINOS PIZZA INC",
+          "net_change_micros": 3220000,
+          "pct_change_micropct": 884000,
+          "provider_symbol": "DPZ",
+          "reported_share_volume": 1002927,
+          "sector": "Consumer Discretionary",
+          "ticker": "DPZ"
+        },
+        {
+          "last_sale_micros": 377920000,
+          "name": "RALPH LAUREN CORP CLASS A",
+          "net_change_micros": -2250000,
+          "pct_change_micropct": -592000,
+          "provider_symbol": "RL",
+          "reported_share_volume": 924622,
+          "sector": "Consumer Discretionary",
+          "ticker": "RL"
+        },
+        {
+          "last_sale_micros": 543860000,
+          "name": "ULTA BEAUTY INC",
+          "net_change_micros": 9450000,
+          "pct_change_micropct": 1768000,
+          "provider_symbol": "ULTA",
+          "reported_share_volume": 494675,
+          "sector": "Consumer Discretionary",
+          "ticker": "ULTA"
+        },
+        {
+          "last_sale_micros": 3028030000,
+          "name": "AUTOZONE INC",
+          "net_change_micros": 37760000,
+          "pct_change_micropct": 1263000,
+          "provider_symbol": "AZO",
+          "reported_share_volume": 155562,
+          "sector": "Consumer Discretionary",
+          "ticker": "AZO"
+        },
+        {
+          "last_sale_micros": 6267350000,
+          "name": "NVR INC",
+          "net_change_micros": 63250000,
+          "pct_change_micropct": 1019000,
+          "provider_symbol": "NVR",
+          "reported_share_volume": 42797,
+          "sector": "Consumer Discretionary",
+          "ticker": "NVR"
+        }
+      ],
+      "key": "consumer-discretionary",
+      "label": "Consumer Discretionary",
+      "reported_share_volume": 426701799
+    },
+    {
+      "eligible_constituents": 59,
+      "holdings": [
+        {
+          "last_sale_micros": 25410000,
+          "name": "PFIZER INC",
+          "net_change_micros": 380000,
+          "pct_change_micropct": 1518000,
+          "provider_symbol": "PFE",
+          "reported_share_volume": 61345736,
+          "sector": "Health Care",
+          "ticker": "PFE"
+        },
+        {
+          "last_sale_micros": 65890000,
+          "name": "BRISTOL MYERS SQUIBB",
+          "net_change_micros": 420000,
+          "pct_change_micropct": 642000,
+          "provider_symbol": "BMY",
+          "reported_share_volume": 23290529,
+          "sector": "Health Care",
+          "ticker": "BMY"
+        },
+        {
+          "last_sale_micros": 49090000,
+          "name": "BOSTON SCIENTIFIC CORP",
+          "net_change_micros": 660000,
+          "pct_change_micropct": 1363000,
+          "provider_symbol": "BSX",
+          "reported_share_volume": 21563180,
+          "sector": "Health Care",
+          "ticker": "BSX"
+        },
+        {
+          "last_sale_micros": 128000000,
+          "name": "MERCK & CO INC",
+          "net_change_micros": 230000,
+          "pct_change_micropct": 180000,
+          "provider_symbol": "MRK",
+          "reported_share_volume": 10725396,
+          "sector": "Health Care",
+          "ticker": "MRK"
+        },
+        {
+          "last_sale_micros": 28350000,
+          "name": "BAXTER INTERNATIONAL INC",
+          "net_change_micros": 250000,
+          "pct_change_micropct": 890000,
+          "provider_symbol": "BAX",
+          "reported_share_volume": 10209112,
+          "sector": "Health Care",
+          "ticker": "BAX"
+        },
+        {
+          "last_sale_micros": 135250000,
+          "name": "GILEAD SCIENCES INC",
+          "net_change_micros": 4100000,
+          "pct_change_micropct": 3126000,
+          "provider_symbol": "GILD",
+          "reported_share_volume": 10084344,
+          "sector": "Health Care",
+          "ticker": "GILD"
+        },
+        {
+          "last_sale_micros": 17700000,
+          "name": "VIATRIS INC",
+          "net_change_micros": 70000,
+          "pct_change_micropct": 397000,
+          "provider_symbol": "VTRS",
+          "reported_share_volume": 8892421,
+          "sector": "Health Care",
+          "ticker": "VTRS"
+        },
+        {
+          "last_sale_micros": 105460000,
+          "name": "ABBOTT LABORATORIES",
+          "net_change_micros": -1660000,
+          "pct_change_micropct": -1550000,
+          "provider_symbol": "ABT",
+          "reported_share_volume": 8156327,
+          "sector": "Health Care",
+          "ticker": "ABT"
+        },
+        {
+          "last_sale_micros": 243800000,
+          "name": "ABBVIE INC",
+          "net_change_micros": -1300000,
+          "pct_change_micropct": -530000,
+          "provider_symbol": "ABBV",
+          "reported_share_volume": 7839486,
+          "sector": "Health Care",
+          "ticker": "ABBV"
+        },
+        {
+          "last_sale_micros": 76040000,
+          "name": "ZOETIS INC CLASS A",
+          "net_change_micros": -1060000,
+          "pct_change_micropct": -1375000,
+          "provider_symbol": "ZTS",
+          "reported_share_volume": 7600040,
+          "sector": "Health Care",
+          "ticker": "ZTS"
+        },
+        {
+          "last_sale_micros": 254930000,
+          "name": "JOHNSON & JOHNSON",
+          "net_change_micros": 520000,
+          "pct_change_micropct": 204000,
+          "provider_symbol": "JNJ",
+          "reported_share_volume": 7303257,
+          "sector": "Health Care",
+          "ticker": "JNJ"
+        },
+        {
+          "last_sale_micros": 104420000,
+          "name": "CVS HEALTH CORP",
+          "net_change_micros": -950000,
+          "pct_change_micropct": -902000,
+          "provider_symbol": "CVS",
+          "reported_share_volume": 7217738,
+          "sector": "Health Care",
+          "ticker": "CVS"
+        },
+        {
+          "last_sale_micros": 194780000,
+          "name": "DANAHER CORP",
+          "net_change_micros": -2720000,
+          "pct_change_micropct": -1377000,
+          "provider_symbol": "DHR",
+          "reported_share_volume": 6972427,
+          "sector": "Health Care",
+          "ticker": "DHR"
+        },
+        {
+          "last_sale_micros": 86200000,
+          "name": "MEDTRONIC PLC",
+          "net_change_micros": -480000,
+          "pct_change_micropct": -554000,
+          "provider_symbol": "MDT",
+          "reported_share_volume": 6359686,
+          "sector": "Health Care",
+          "ticker": "MDT"
+        },
+        {
+          "last_sale_micros": 86940000,
+          "name": "DEXCOM INC",
+          "net_change_micros": -370000,
+          "pct_change_micropct": -424000,
+          "provider_symbol": "DXCM",
+          "reported_share_volume": 6123529,
+          "sector": "Health Care",
+          "ticker": "DXCM"
+        },
+        {
+          "last_sale_micros": 64070000,
+          "name": "CENTENE CORP",
+          "net_change_micros": 310000,
+          "pct_change_micropct": 486000,
+          "provider_symbol": "CNC",
+          "reported_share_volume": 6025416,
+          "sector": "Health Care",
+          "ticker": "CNC"
+        },
+        {
+          "last_sale_micros": 407550000,
+          "name": "UNITEDHEALTH GROUP INC",
+          "net_change_micros": -7810000,
+          "pct_change_micropct": -1880000,
+          "provider_symbol": "UNH",
+          "reported_share_volume": 5258957,
+          "sector": "Health Care",
+          "ticker": "UNH"
+        },
+        {
+          "last_sale_micros": 1115680000,
+          "name": "ELI LILLY",
+          "net_change_micros": -5680000,
+          "pct_change_micropct": -507000,
+          "provider_symbol": "LLY",
+          "reported_share_volume": 4081498,
+          "sector": "Health Care",
+          "ticker": "LLY"
+        },
+        {
+          "last_sale_micros": 89600000,
+          "name": "EDWARDS LIFESCIENCES CORP",
+          "net_change_micros": 780000,
+          "pct_change_micropct": 878000,
+          "provider_symbol": "EW",
+          "reported_share_volume": 4073885,
+          "sector": "Health Care",
+          "ticker": "EW"
+        },
+        {
+          "last_sale_micros": 56990000,
+          "name": "MODERNA INC",
+          "net_change_micros": 1850000,
+          "pct_change_micropct": 3355000,
+          "provider_symbol": "MRNA",
+          "reported_share_volume": 3996934,
+          "sector": "Health Care",
+          "ticker": "MRNA"
+        },
+        {
+          "last_sale_micros": 368265000,
+          "name": "INTUITIVE SURGICAL INC",
+          "net_change_micros": -7145000,
+          "pct_change_micropct": -1903000,
+          "provider_symbol": "ISRG",
+          "reported_share_volume": 3937130,
+          "sector": "Health Care",
+          "ticker": "ISRG"
+        },
+        {
+          "last_sale_micros": 390020000,
+          "name": "AMGEN INC",
+          "net_change_micros": 11150000,
+          "pct_change_micropct": 2943000,
+          "provider_symbol": "AMGN",
+          "reported_share_volume": 3620007,
+          "sector": "Health Care",
+          "ticker": "AMGN"
+        },
+        {
+          "last_sale_micros": 95810000,
+          "name": "ZIMMER BIOMET HOLDINGS INC",
+          "net_change_micros": -1170000,
+          "pct_change_micropct": -1206000,
+          "provider_symbol": "ZBH",
+          "reported_share_volume": 3547165,
+          "sector": "Health Care",
+          "ticker": "ZBH"
+        },
+        {
+          "last_sale_micros": 70260000,
+          "name": "GE HEALTHCARE TECHNOLOGIES INC",
+          "net_change_micros": 530000,
+          "pct_change_micropct": 760000,
+          "provider_symbol": "GEHC",
+          "reported_share_volume": 3427236,
+          "sector": "Health Care",
+          "ticker": "GEHC"
+        },
+        {
+          "last_sale_micros": 89110000,
+          "name": "HENRY SCHEIN INC",
+          "net_change_micros": 2600000,
+          "pct_change_micropct": 3005000,
+          "provider_symbol": "HSIC",
+          "reported_share_volume": 3360881,
+          "sector": "Health Care",
+          "ticker": "HSIC"
+        },
+        {
+          "last_sale_micros": 335960000,
+          "name": "STRYKER CORP",
+          "net_change_micros": -5240000,
+          "pct_change_micropct": -1536000,
+          "provider_symbol": "SYK",
+          "reported_share_volume": 3163510,
+          "sector": "Health Care",
+          "ticker": "SYK"
+        },
+        {
+          "last_sale_micros": 72090000,
+          "name": "BIO TECHNE CORP",
+          "net_change_micros": -50000,
+          "pct_change_micropct": -69000,
+          "provider_symbol": "TECH",
+          "reported_share_volume": 3040990,
+          "sector": "Health Care",
+          "ticker": "TECH"
+        },
+        {
+          "last_sale_micros": 274050000,
+          "name": "CIGNA",
+          "net_change_micros": -8010000,
+          "pct_change_micropct": -2840000,
+          "provider_symbol": "CI",
+          "reported_share_volume": 2798241,
+          "sector": "Health Care",
+          "ticker": "CI"
+        },
+        {
+          "last_sale_micros": 227990000,
+          "name": "DAVITA INC",
+          "net_change_micros": -5690000,
+          "pct_change_micropct": -2435000,
+          "provider_symbol": "DVA",
+          "reported_share_volume": 2604636,
+          "sector": "Health Care",
+          "ticker": "DVA"
+        },
+        {
+          "last_sale_micros": 111390000,
+          "name": "REVVITY INC",
+          "net_change_micros": -3830000,
+          "pct_change_micropct": -3324000,
+          "provider_symbol": "RVTY",
+          "reported_share_volume": 2587388,
+          "sector": "Health Care",
+          "ticker": "RVTY"
+        },
+        {
+          "last_sale_micros": 233550000,
+          "name": "CARDINAL HEALTH INC",
+          "net_change_micros": -2050000,
+          "pct_change_micropct": -870000,
+          "provider_symbol": "CAH",
+          "reported_share_volume": 2579078,
+          "sector": "Health Care",
+          "ticker": "CAH"
+        },
+        {
+          "last_sale_micros": 306280000,
+          "name": "CENCORA INC",
+          "net_change_micros": -2090000,
+          "pct_change_micropct": -678000,
+          "provider_symbol": "COR",
+          "reported_share_volume": 2389736,
+          "sector": "Health Care",
+          "ticker": "COR"
+        },
+        {
+          "last_sale_micros": 170120000,
+          "name": "BECTON DICKINSON",
+          "net_change_micros": -90000,
+          "pct_change_micropct": -53000,
+          "provider_symbol": "BDX",
+          "reported_share_volume": 2104789,
+          "sector": "Health Care",
+          "ticker": "BDX"
+        },
+        {
+          "last_sale_micros": 120600000,
+          "name": "INCYTE CORP",
+          "net_change_micros": 2170000,
+          "pct_change_micropct": 1832000,
+          "provider_symbol": "INCY",
+          "reported_share_volume": 2076929,
+          "sector": "Health Care",
+          "ticker": "INCY"
+        },
+        {
+          "last_sale_micros": 478705000,
+          "name": "VERTEX PHARMACEUTICALS INC",
+          "net_change_micros": 7985000,
+          "pct_change_micropct": 1696000,
+          "provider_symbol": "VRTX",
+          "reported_share_volume": 2025651,
+          "sector": "Health Care",
+          "ticker": "VRTX"
+        },
+        {
+          "last_sale_micros": 396080000,
+          "name": "WATERS CORP",
+          "net_change_micros": 21340000,
+          "pct_change_micropct": 5695000,
+          "provider_symbol": "WAT",
+          "reported_share_volume": 1999941,
+          "sector": "Health Care",
+          "ticker": "WAT"
+        },
+        {
+          "last_sale_micros": 74690000,
+          "name": "COOPER INC",
+          "net_change_micros": 460000,
+          "pct_change_micropct": 620000,
+          "provider_symbol": "COO",
+          "reported_share_volume": 1970134,
+          "sector": "Health Care",
+          "ticker": "COO"
+        },
+        {
+          "last_sale_micros": 564750000,
+          "name": "THERMO FISHER SCIENTIFIC INC",
+          "net_change_micros": -9280000,
+          "pct_change_micropct": -1617000,
+          "provider_symbol": "TMO",
+          "reported_share_volume": 1941840,
+          "sector": "Health Care",
+          "ticker": "TMO"
+        },
+        {
+          "last_sale_micros": 87940000,
+          "name": "SOLVENTUM CORP",
+          "net_change_micros": -130000,
+          "pct_change_micropct": -148000,
+          "provider_symbol": "SOLV",
+          "reported_share_volume": 1808584,
+          "sector": "Health Care",
+          "ticker": "SOLV"
+        },
+        {
+          "last_sale_micros": 166820000,
+          "name": "INSULET CORP",
+          "net_change_micros": -2880000,
+          "pct_change_micropct": -1697000,
+          "provider_symbol": "PODD",
+          "reported_share_volume": 1749243,
+          "sector": "Health Care",
+          "ticker": "PODD"
+        },
+        {
+          "last_sale_micros": 223140000,
+          "name": "RESMED INC",
+          "net_change_micros": 7950000,
+          "pct_change_micropct": 3694000,
+          "provider_symbol": "RMD",
+          "reported_share_volume": 1742538,
+          "sector": "Health Care",
+          "ticker": "RMD"
+        },
+        {
+          "last_sale_micros": 139200000,
+          "name": "AGILENT TECHNOLOGIES INC",
+          "net_change_micros": -600000,
+          "pct_change_micropct": -429000,
+          "provider_symbol": "A",
+          "reported_share_volume": 1623679,
+          "sector": "Health Care",
+          "ticker": "A"
+        },
+        {
+          "last_sale_micros": 588090000,
+          "name": "IDEXX LABORATORIES INC",
+          "net_change_micros": 20250000,
+          "pct_change_micropct": 3566000,
+          "provider_symbol": "IDXX",
+          "reported_share_volume": 1561657,
+          "sector": "Health Care",
+          "ticker": "IDXX"
+        },
+        {
+          "last_sale_micros": 362160000,
+          "name": "HUMANA INC",
+          "net_change_micros": -12340000,
+          "pct_change_micropct": -3295000,
+          "provider_symbol": "HUM",
+          "reported_share_volume": 1552084,
+          "sector": "Health Care",
+          "ticker": "HUM"
+        },
+        {
+          "last_sale_micros": 211860000,
+          "name": "VEEVA SYSTEMS INC CLASS A",
+          "net_change_micros": 5610000,
+          "pct_change_micropct": 2720000,
+          "provider_symbol": "VEEV",
+          "reported_share_volume": 1475707,
+          "sector": "Health Care",
+          "ticker": "VEEV"
+        },
+        {
+          "last_sale_micros": 228200000,
+          "name": "IQVIA HOLDINGS INC",
+          "net_change_micros": -5160000,
+          "pct_change_micropct": -2211000,
+          "provider_symbol": "IQV",
+          "reported_share_volume": 1471737,
+          "sector": "Health Care",
+          "ticker": "IQV"
+        },
+        {
+          "last_sale_micros": 378000000,
+          "name": "ELEVANCE HEALTH INC",
+          "net_change_micros": -4770000,
+          "pct_change_micropct": -1246000,
+          "provider_symbol": "ELV",
+          "reported_share_volume": 1439021,
+          "sector": "Health Care",
+          "ticker": "ELV"
+        },
+        {
+          "last_sale_micros": 400730000,
+          "name": "HCA HEALTHCARE INC",
+          "net_change_micros": -5880000,
+          "pct_change_micropct": -1446000,
+          "provider_symbol": "HCA",
+          "reported_share_volume": 1318751,
+          "sector": "Health Care",
+          "ticker": "HCA"
+        },
+        {
+          "last_sale_micros": 208450000,
+          "name": "BIOGEN INC",
+          "net_change_micros": 6630000,
+          "pct_change_micropct": 3285000,
+          "provider_symbol": "BIIB",
+          "reported_share_volume": 1205348,
+          "sector": "Health Care",
+          "ticker": "BIIB"
+        },
+        {
+          "last_sale_micros": 234120000,
+          "name": "CHARLES RIVER LABORATORIES INTERNA",
+          "net_change_micros": 3250000,
+          "pct_change_micropct": 1408000,
+          "provider_symbol": "CRL",
+          "reported_share_volume": 1146632,
+          "sector": "Health Care",
+          "ticker": "CRL"
+        },
+        {
+          "last_sale_micros": 173270000,
+          "name": "ALIGN TECHNOLOGY INC",
+          "net_change_micros": 380000,
+          "pct_change_micropct": 220000,
+          "provider_symbol": "ALGN",
+          "reported_share_volume": 1116248,
+          "sector": "Health Care",
+          "ticker": "ALGN"
+        },
+        {
+          "last_sale_micros": 830430000,
+          "name": "MCKESSON CORP",
+          "net_change_micros": 3290000,
+          "pct_change_micropct": 398000,
+          "provider_symbol": "MCK",
+          "reported_share_volume": 1089421,
+          "sector": "Health Care",
+          "ticker": "MCK"
+        },
+        {
+          "last_sale_micros": 232850000,
+          "name": "STERIS",
+          "net_change_micros": 210000,
+          "pct_change_micropct": 90000,
+          "provider_symbol": "STE",
+          "reported_share_volume": 910858,
+          "sector": "Health Care",
+          "ticker": "STE"
+        },
+        {
+          "last_sale_micros": 233720000,
+          "name": "QUEST DIAGNOSTICS INC",
+          "net_change_micros": 1770000,
+          "pct_change_micropct": 763000,
+          "provider_symbol": "DGX",
+          "reported_share_volume": 903895,
+          "sector": "Health Care",
+          "ticker": "DGX"
+        },
+        {
+          "last_sale_micros": 760660000,
+          "name": "REGENERON PHARMACEUTICALS INC",
+          "net_change_micros": 1420000,
+          "pct_change_micropct": 187000,
+          "provider_symbol": "REGN",
+          "reported_share_volume": 817241,
+          "sector": "Health Care",
+          "ticker": "REGN"
+        },
+        {
+          "last_sale_micros": 312340000,
+          "name": "LABCORP HOLDINGS INC",
+          "net_change_micros": 4920000,
+          "pct_change_micropct": 1600000,
+          "provider_symbol": "LH",
+          "reported_share_volume": 738322,
+          "sector": "Health Care",
+          "ticker": "LH"
+        },
+        {
+          "last_sale_micros": 167870000,
+          "name": "UNIVERSAL HEALTH SERVICES INC CLAS",
+          "net_change_micros": -1170000,
+          "pct_change_micropct": -692000,
+          "provider_symbol": "UHS",
+          "reported_share_volume": 733206,
+          "sector": "Health Care",
+          "ticker": "UHS"
+        },
+        {
+          "last_sale_micros": 348760000,
+          "name": "WEST PHARMACEUTICAL SERVICES INC",
+          "net_change_micros": 820000,
+          "pct_change_micropct": 236000,
+          "provider_symbol": "WST",
+          "reported_share_volume": 476670,
+          "sector": "Health Care",
+          "ticker": "WST"
+        },
+        {
+          "last_sale_micros": 1437000000,
+          "name": "METTLER TOLEDO",
+          "net_change_micros": -8000000,
+          "pct_change_micropct": -554000,
+          "provider_symbol": "MTD",
+          "reported_share_volume": 175219,
+          "sector": "Health Care",
+          "ticker": "MTD"
+        }
+      ],
+      "key": "health-care",
+      "label": "Health Care",
+      "reported_share_volume": 301351241
+    },
+    {
+      "eligible_constituents": 82,
+      "holdings": [
+        {
+          "last_sale_micros": 71990000,
+          "name": "UBER TECHNOLOGIES INC",
+          "net_change_micros": 380000,
+          "pct_change_micropct": 531000,
+          "provider_symbol": "UBER",
+          "reported_share_volume": 19642055,
+          "sector": "Industrials",
+          "ticker": "UBER"
+        },
+        {
+          "last_sale_micros": 51030000,
+          "name": "CSX CORP",
+          "net_change_micros": 1200000,
+          "pct_change_micropct": 2408000,
+          "provider_symbol": "CSX",
+          "reported_share_volume": 14454109,
+          "sector": "Industrials",
+          "ticker": "CSX"
+        },
+        {
+          "last_sale_micros": 29400000,
+          "name": "COPART INC",
+          "net_change_micros": 50000,
+          "pct_change_micropct": 170000,
+          "provider_symbol": "CPRT",
+          "reported_share_volume": 9409114,
+          "sector": "Industrials",
+          "ticker": "CPRT"
+        },
+        {
+          "last_sale_micros": 49710000,
+          "name": "FASTENAL",
+          "net_change_micros": 1600000,
+          "pct_change_micropct": 3326000,
+          "provider_symbol": "FAST",
+          "reported_share_volume": 9159975,
+          "sector": "Industrials",
+          "ticker": "FAST"
+        },
+        {
+          "last_sale_micros": 237160000,
+          "name": "BOEING",
+          "net_change_micros": 3670000,
+          "pct_change_micropct": 1572000,
+          "provider_symbol": "BA",
+          "reported_share_volume": 7842396,
+          "sector": "Industrials",
+          "ticker": "BA"
+        },
+        {
+          "last_sale_micros": 65690000,
+          "name": "CARRIER GLOBAL CORP",
+          "net_change_micros": 2520000,
+          "pct_change_micropct": 3989000,
+          "provider_symbol": "CARR",
+          "reported_share_volume": 6910850,
+          "sector": "Industrials",
+          "ticker": "CARR"
+        },
+        {
+          "last_sale_micros": 217930000,
+          "name": "RTX CORP",
+          "net_change_micros": 1280000,
+          "pct_change_micropct": 591000,
+          "provider_symbol": "RTX",
+          "reported_share_volume": 6383926,
+          "sector": "Industrials",
+          "ticker": "RTX"
+        },
+        {
+          "last_sale_micros": 876540000,
+          "name": "CATERPILLAR INC",
+          "net_change_micros": 46510000,
+          "pct_change_micropct": 5603000,
+          "provider_symbol": "CAT",
+          "reported_share_volume": 6207614,
+          "sector": "Industrials",
+          "ticker": "CAT"
+        },
+        {
+          "last_sale_micros": 135960000,
+          "name": "PACCAR INC",
+          "net_change_micros": 3900000,
+          "pct_change_micropct": 2953000,
+          "provider_symbol": "PCAR",
+          "reported_share_volume": 6158408,
+          "sector": "Industrials",
+          "ticker": "PCAR"
+        },
+        {
+          "last_sale_micros": 48700000,
+          "name": "SOUTHWEST AIRLINES",
+          "net_change_micros": 1630000,
+          "pct_change_micropct": 3463000,
+          "provider_symbol": "LUV",
+          "reported_share_volume": 5885535,
+          "sector": "Industrials",
+          "ticker": "LUV"
+        },
+        {
+          "last_sale_micros": 269930000,
+          "name": "VERTIV HOLDINGS CLASS A",
+          "net_change_micros": 6880000,
+          "pct_change_micropct": 2615000,
+          "provider_symbol": "VRT",
+          "reported_share_volume": 5795629,
+          "sector": "Industrials",
+          "ticker": "VRT"
+        },
+        {
+          "last_sale_micros": 158840000,
+          "name": "EMERSON ELECTRIC",
+          "net_change_micros": 3990000,
+          "pct_change_micropct": 2577000,
+          "provider_symbol": "EMR",
+          "reported_share_volume": 5253430,
+          "sector": "Industrials",
+          "ticker": "EMR"
+        },
+        {
+          "last_sale_micros": 92770000,
+          "name": "DELTA AIR LINES INC",
+          "net_change_micros": 1180000,
+          "pct_change_micropct": 1288000,
+          "provider_symbol": "DAL",
+          "reported_share_volume": 5163744,
+          "sector": "Industrials",
+          "ticker": "DAL"
+        },
+        {
+          "last_sale_micros": 89460000,
+          "name": "INGERSOLL RAND INC",
+          "net_change_micros": 1680000,
+          "pct_change_micropct": 1914000,
+          "provider_symbol": "IR",
+          "reported_share_volume": 4590286,
+          "sector": "Industrials",
+          "ticker": "IR"
+        },
+        {
+          "last_sale_micros": 153620000,
+          "name": "JOHNSON CONTROLS INTERNATIONAL PLC",
+          "net_change_micros": 7230000,
+          "pct_change_micropct": 4939000,
+          "provider_symbol": "JCI",
+          "reported_share_volume": 4569514,
+          "sector": "Industrials",
+          "ticker": "JCI"
+        },
+        {
+          "last_sale_micros": 109110000,
+          "name": "UNITED PARCEL SERVICE INC CLASS B",
+          "net_change_micros": 2240000,
+          "pct_change_micropct": 2096000,
+          "provider_symbol": "UPS",
+          "reported_share_volume": 4301399,
+          "sector": "Industrials",
+          "ticker": "UPS"
+        },
+        {
+          "last_sale_micros": 377280000,
+          "name": "GE AEROSPACE",
+          "net_change_micros": 8350000,
+          "pct_change_micropct": 2263000,
+          "provider_symbol": "GE",
+          "reported_share_volume": 4139300,
+          "sector": "Industrials",
+          "ticker": "GE"
+        },
+        {
+          "last_sale_micros": 37810000,
+          "name": "ROLLINS INC",
+          "net_change_micros": -380000,
+          "pct_change_micropct": -995000,
+          "provider_symbol": "ROL",
+          "reported_share_volume": 3802950,
+          "sector": "Industrials",
+          "ticker": "ROL"
+        },
+        {
+          "last_sale_micros": 132620000,
+          "name": "UNITED AIRLINES HOLDINGS INC",
+          "net_change_micros": 4230000,
+          "pct_change_micropct": 3295000,
+          "provider_symbol": "UAL",
+          "reported_share_volume": 3765521,
+          "sector": "Industrials",
+          "ticker": "UAL"
+        },
+        {
+          "last_sale_micros": 248790000,
+          "name": "HONEYWELL INTERNATIONAL INC",
+          "net_change_micros": 2020000,
+          "pct_change_micropct": 819000,
+          "provider_symbol": "HON",
+          "reported_share_volume": 3568737,
+          "sector": "Industrials",
+          "ticker": "HON"
+        },
+        {
+          "last_sale_micros": 73640000,
+          "name": "OTIS WORLDWIDE CORP",
+          "net_change_micros": 1450000,
+          "pct_change_micropct": 2009000,
+          "provider_symbol": "OTIS",
+          "reported_share_volume": 3355472,
+          "sector": "Industrials",
+          "ticker": "OTIS"
+        },
+        {
+          "last_sale_micros": 225250000,
+          "name": "WASTE MANAGEMENT INC",
+          "net_change_micros": -1180000,
+          "pct_change_micropct": -521000,
+          "provider_symbol": "WM",
+          "reported_share_volume": 3077899,
+          "sector": "Industrials",
+          "ticker": "WM"
+        },
+        {
+          "last_sale_micros": 444770000,
+          "name": "EATON PLC",
+          "net_change_micros": 6540000,
+          "pct_change_micropct": 1492000,
+          "provider_symbol": "ETN",
+          "reported_share_volume": 3026881,
+          "sector": "Industrials",
+          "ticker": "ETN"
+        },
+        {
+          "last_sale_micros": 142930000,
+          "name": "DUPONT DE NEMOURS INC",
+          "net_change_micros": 1650000,
+          "pct_change_micropct": 1168000,
+          "provider_symbol": "DD",
+          "reported_share_volume": 2999750,
+          "sector": "Industrials",
+          "ticker": "DD"
+        },
+        {
+          "last_sale_micros": 118660000,
+          "name": "PAYCHEX INC",
+          "net_change_micros": 990000,
+          "pct_change_micropct": 841000,
+          "provider_symbol": "PAYX",
+          "reported_share_volume": 2988674,
+          "sector": "Industrials",
+          "ticker": "PAYX"
+        },
+        {
+          "last_sale_micros": 181450000,
+          "name": "3M",
+          "net_change_micros": 4220000,
+          "pct_change_micropct": 2381000,
+          "provider_symbol": "MMM",
+          "reported_share_volume": 2967864,
+          "sector": "Industrials",
+          "ticker": "MMM"
+        },
+        {
+          "last_sale_micros": 77080000,
+          "name": "MASCO CORP",
+          "net_change_micros": 2350000,
+          "pct_change_micropct": 3145000,
+          "provider_symbol": "MAS",
+          "reported_share_volume": 2967599,
+          "sector": "Industrials",
+          "ticker": "MAS"
+        },
+        {
+          "last_sale_micros": 60510000,
+          "name": "FORTIVE CORP",
+          "net_change_micros": 1050000,
+          "pct_change_micropct": 1766000,
+          "provider_symbol": "FTV",
+          "reported_share_volume": 2824257,
+          "sector": "Industrials",
+          "ticker": "FTV"
+        },
+        {
+          "last_sale_micros": 130600000,
+          "name": "LEIDOS HOLDINGS INC",
+          "net_change_micros": 11880000,
+          "pct_change_micropct": 10007000,
+          "provider_symbol": "LDOS",
+          "reported_share_volume": 2822827,
+          "sector": "Industrials",
+          "ticker": "LDOS"
+        },
+        {
+          "last_sale_micros": 216480000,
+          "name": "HONEYWELL AEROSPACE INC",
+          "net_change_micros": 8210000,
+          "pct_change_micropct": 3942000,
+          "provider_symbol": "HONA",
+          "reported_share_volume": 2814324,
+          "sector": "Industrials",
+          "ticker": "HONA"
+        },
+        {
+          "last_sale_micros": 181480000,
+          "name": "EXPEDITORS INTERNATIONAL OF WASHIN",
+          "net_change_micros": 10890000,
+          "pct_change_micropct": 6384000,
+          "provider_symbol": "EXPD",
+          "reported_share_volume": 2765421,
+          "sector": "Industrials",
+          "ticker": "EXPD"
+        },
+        {
+          "last_sale_micros": 102400000,
+          "name": "STANLEY BLACK & DECKER INC",
+          "net_change_micros": 4290000,
+          "pct_change_micropct": 4373000,
+          "provider_symbol": "SWK",
+          "reported_share_volume": 2751011,
+          "sector": "Industrials",
+          "ticker": "SWK"
+        },
+        {
+          "last_sale_micros": 203650000,
+          "name": "CINTAS CORP",
+          "net_change_micros": -360000,
+          "pct_change_micropct": -176000,
+          "provider_symbol": "CTAS",
+          "reported_share_volume": 2653186,
+          "sector": "Industrials",
+          "ticker": "CTAS"
+        },
+        {
+          "last_sale_micros": 68480000,
+          "name": "PENTAIR",
+          "net_change_micros": 1410000,
+          "pct_change_micropct": 2102000,
+          "provider_symbol": "PNR",
+          "reported_share_volume": 2624291,
+          "sector": "Industrials",
+          "ticker": "PNR"
+        },
+        {
+          "last_sale_micros": 254050000,
+          "name": "AMETEK INC",
+          "net_change_micros": 10280000,
+          "pct_change_micropct": 4217000,
+          "provider_symbol": "AME",
+          "reported_share_volume": 2617201,
+          "sector": "Industrials",
+          "ticker": "AME"
+        },
+        {
+          "last_sale_micros": 270620000,
+          "name": "AUTOMATIC DATA PROCESSING INC",
+          "net_change_micros": 840000,
+          "pct_change_micropct": 311000,
+          "provider_symbol": "ADP",
+          "reported_share_volume": 2586330,
+          "sector": "Industrials",
+          "ticker": "ADP"
+        },
+        {
+          "last_sale_micros": 635960000,
+          "name": "CUMMINS INC",
+          "net_change_micros": -12890000,
+          "pct_change_micropct": -1987000,
+          "provider_symbol": "CMI",
+          "reported_share_volume": 2534952,
+          "sector": "Industrials",
+          "ticker": "CMI"
+        },
+        {
+          "last_sale_micros": 168410000,
+          "name": "BROADRIDGE FINANCIAL SOLUTIONS INC",
+          "net_change_micros": 11070000,
+          "pct_change_micropct": 7036000,
+          "provider_symbol": "BR",
+          "reported_share_volume": 2516810,
+          "sector": "Industrials",
+          "ticker": "BR"
+        },
+        {
+          "last_sale_micros": 296350000,
+          "name": "UNION PACIFIC CORP",
+          "net_change_micros": 5120000,
+          "pct_change_micropct": 1758000,
+          "provider_symbol": "UNP",
+          "reported_share_volume": 2476581,
+          "sector": "Industrials",
+          "ticker": "UNP"
+        },
+        {
+          "last_sale_micros": 288200000,
+          "name": "HOWMET AEROSPACE INC",
+          "net_change_micros": 1860000,
+          "pct_change_micropct": 650000,
+          "provider_symbol": "HWM",
+          "reported_share_volume": 2436325,
+          "sector": "Industrials",
+          "ticker": "HWM"
+        },
+        {
+          "last_sale_micros": 445230000,
+          "name": "ROCKWELL AUTOMATION INC",
+          "net_change_micros": -35750000,
+          "pct_change_micropct": -7433000,
+          "provider_symbol": "ROK",
+          "reported_share_volume": 2346904,
+          "sector": "Industrials",
+          "ticker": "ROK"
+        },
+        {
+          "last_sale_micros": 1018530000,
+          "name": "GE VERNOVA INC",
+          "net_change_micros": 11770000,
+          "pct_change_micropct": 1169000,
+          "provider_symbol": "GEV",
+          "reported_share_volume": 2176569,
+          "sector": "Industrials",
+          "ticker": "GEV"
+        },
+        {
+          "last_sale_micros": 75370000,
+          "name": "BUILDERS FIRSTSOURCE INC",
+          "net_change_micros": 2890000,
+          "pct_change_micropct": 3987000,
+          "provider_symbol": "BLDR",
+          "reported_share_volume": 2168090,
+          "sector": "Industrials",
+          "ticker": "BLDR"
+        },
+        {
+          "last_sale_micros": 154750000,
+          "name": "CH ROBINSON WORLDWIDE INC",
+          "net_change_micros": 7750000,
+          "pct_change_micropct": 5272000,
+          "provider_symbol": "CHRW",
+          "reported_share_volume": 1873133,
+          "sector": "Industrials",
+          "ticker": "CHRW"
+        },
+        {
+          "last_sale_micros": 219320000,
+          "name": "OLD DOMINION FREIGHT LINE INC",
+          "net_change_micros": 7800000,
+          "pct_change_micropct": 3688000,
+          "provider_symbol": "ODFL",
+          "reported_share_volume": 1833240,
+          "sector": "Industrials",
+          "ticker": "ODFL"
+        },
+        {
+          "last_sale_micros": 63370000,
+          "name": "A O SMITH CORP",
+          "net_change_micros": 2640000,
+          "pct_change_micropct": 4347000,
+          "provider_symbol": "AOS",
+          "reported_share_volume": 1774447,
+          "sector": "Industrials",
+          "ticker": "AOS"
+        },
+        {
+          "last_sale_micros": 122170000,
+          "name": "XYLEM INC",
+          "net_change_micros": 3090000,
+          "pct_change_micropct": 2595000,
+          "provider_symbol": "XYL",
+          "reported_share_volume": 1734986,
+          "sector": "Industrials",
+          "ticker": "XYL"
+        },
+        {
+          "last_sale_micros": 218630000,
+          "name": "GENERAC HOLDINGS INC",
+          "net_change_micros": 17420000,
+          "pct_change_micropct": 8658000,
+          "provider_symbol": "GNRC",
+          "reported_share_volume": 1682788,
+          "sector": "Industrials",
+          "ticker": "GNRC"
+        },
+        {
+          "last_sale_micros": 285300000,
+          "name": "L3HARRIS TECHNOLOGIES INC",
+          "net_change_micros": 7440000,
+          "pct_change_micropct": 2678000,
+          "provider_symbol": "LHX",
+          "reported_share_volume": 1633950,
+          "sector": "Industrials",
+          "ticker": "LHX"
+        },
+        {
+          "last_sale_micros": 207660000,
+          "name": "REPUBLIC SERVICES INC",
+          "net_change_micros": -1960000,
+          "pct_change_micropct": -935000,
+          "provider_symbol": "RSG",
+          "reported_share_volume": 1593980,
+          "sector": "Industrials",
+          "ticker": "RSG"
+        },
+        {
+          "last_sale_micros": 385760000,
+          "name": "GENERAL DYNAMICS CORP",
+          "net_change_micros": 3330000,
+          "pct_change_micropct": 871000,
+          "provider_symbol": "GD",
+          "reported_share_volume": 1502489,
+          "sector": "Industrials",
+          "ticker": "GD"
+        },
+        {
+          "last_sale_micros": 89120000,
+          "name": "TEXTRON INC",
+          "net_change_micros": 2730000,
+          "pct_change_micropct": 3160000,
+          "provider_symbol": "TXT",
+          "reported_share_volume": 1474002,
+          "sector": "Industrials",
+          "ticker": "TXT"
+        },
+        {
+          "last_sale_micros": 472240000,
+          "name": "TRANE TECHNOLOGIES PLC",
+          "net_change_micros": 11030000,
+          "pct_change_micropct": 2392000,
+          "provider_symbol": "TT",
+          "reported_share_volume": 1452922,
+          "sector": "Industrials",
+          "ticker": "TT"
+        },
+        {
+          "last_sale_micros": 693000000,
+          "name": "QUANTA SERVICES INC",
+          "net_change_micros": 12800000,
+          "pct_change_micropct": 1882000,
+          "provider_symbol": "PWR",
+          "reported_share_volume": 1394119,
+          "sector": "Industrials",
+          "ticker": "PWR"
+        },
+        {
+          "last_sale_micros": 96450000,
+          "name": "VERALTO CORP",
+          "net_change_micros": 1630000,
+          "pct_change_micropct": 1719000,
+          "provider_symbol": "VLTO",
+          "reported_share_volume": 1393543,
+          "sector": "Industrials",
+          "ticker": "VLTO"
+        },
+        {
+          "last_sale_micros": 142680000,
+          "name": "JACOBS SOLUTIONS INC",
+          "net_change_micros": 3960000,
+          "pct_change_micropct": 2855000,
+          "provider_symbol": "J",
+          "reported_share_volume": 1359612,
+          "sector": "Industrials",
+          "ticker": "J"
+        },
+        {
+          "last_sale_micros": 313340000,
+          "name": "FEDEX CORP",
+          "net_change_micros": 4100000,
+          "pct_change_micropct": 1326000,
+          "provider_symbol": "FDX",
+          "reported_share_volume": 1273498,
+          "sector": "Industrials",
+          "ticker": "FDX"
+        },
+        {
+          "last_sale_micros": 295060000,
+          "name": "ILLINOIS TOOL INC",
+          "net_change_micros": 6570000,
+          "pct_change_micropct": 2277000,
+          "provider_symbol": "ITW",
+          "reported_share_volume": 1213987,
+          "sector": "Industrials",
+          "ticker": "ITW"
+        },
+        {
+          "last_sale_micros": 192800000,
+          "name": "VERISK ANALYTICS INC",
+          "net_change_micros": -310000,
+          "pct_change_micropct": -161000,
+          "provider_symbol": "VRSK",
+          "reported_share_volume": 1181529,
+          "sector": "Industrials",
+          "ticker": "VRSK"
+        },
+        {
+          "last_sale_micros": 589330000,
+          "name": "LOCKHEED MARTIN CORP",
+          "net_change_micros": 3040000,
+          "pct_change_micropct": 519000,
+          "provider_symbol": "LMT",
+          "reported_share_volume": 1180623,
+          "sector": "Industrials",
+          "ticker": "LMT"
+        },
+        {
+          "last_sale_micros": 177120000,
+          "name": "EQUIFAX INC",
+          "net_change_micros": 3010000,
+          "pct_change_micropct": 1729000,
+          "provider_symbol": "EFX",
+          "reported_share_volume": 1142881,
+          "sector": "Industrials",
+          "ticker": "EFX"
+        },
+        {
+          "last_sale_micros": 142700000,
+          "name": "FEDEX FREIGHT HOLDING COMPANY INC",
+          "net_change_micros": 3680000,
+          "pct_change_micropct": 2647000,
+          "provider_symbol": "FDXF",
+          "reported_share_volume": 1125572,
+          "sector": "Industrials",
+          "ticker": "FDXF"
+        },
+        {
+          "last_sale_micros": 165360000,
+          "name": "ALLEGION PLC",
+          "net_change_micros": 4080000,
+          "pct_change_micropct": 2530000,
+          "provider_symbol": "ALLE",
+          "reported_share_volume": 1008691,
+          "sector": "Industrials",
+          "ticker": "ALLE"
+        },
+        {
+          "last_sale_micros": 992650000,
+          "name": "PARKER-HANNIFIN CORP",
+          "net_change_micros": -4870000,
+          "pct_change_micropct": -488000,
+          "provider_symbol": "PH",
+          "reported_share_volume": 1006635,
+          "sector": "Industrials",
+          "ticker": "PH"
+        },
+        {
+          "last_sale_micros": 607200000,
+          "name": "AXON ENTERPRISE INC",
+          "net_change_micros": 31320000,
+          "pct_change_micropct": 5439000,
+          "provider_symbol": "AXON",
+          "reported_share_volume": 930203,
+          "sector": "Industrials",
+          "ticker": "AXON"
+        },
+        {
+          "last_sale_micros": 299070000,
+          "name": "WESTINGHOUSE AIR BRAKE TECHNOLOGIE",
+          "net_change_micros": 2600000,
+          "pct_change_micropct": 877000,
+          "provider_symbol": "WAB",
+          "reported_share_volume": 925124,
+          "sector": "Industrials",
+          "ticker": "WAB"
+        },
+        {
+          "last_sale_micros": 617370000,
+          "name": "DEERE",
+          "net_change_micros": 12310000,
+          "pct_change_micropct": 2035000,
+          "provider_symbol": "DE",
+          "reported_share_volume": 912320,
+          "sector": "Industrials",
+          "ticker": "DE"
+        },
+        {
+          "last_sale_micros": 1275050000,
+          "name": "TRANSDIGM GROUP INC",
+          "net_change_micros": -10510000,
+          "pct_change_micropct": -818000,
+          "provider_symbol": "TDG",
+          "reported_share_volume": 912258,
+          "sector": "Industrials",
+          "ticker": "TDG"
+        },
+        {
+          "last_sale_micros": 274480000,
+          "name": "JB HUNT TRANSPORT SERVICES INC",
+          "net_change_micros": 7570000,
+          "pct_change_micropct": 2836000,
+          "provider_symbol": "JBHT",
+          "reported_share_volume": 860405,
+          "sector": "Industrials",
+          "ticker": "JBHT"
+        },
+        {
+          "last_sale_micros": 341270000,
+          "name": "NORFOLK SOUTHERN CORP",
+          "net_change_micros": 4620000,
+          "pct_change_micropct": 1372000,
+          "provider_symbol": "NSC",
+          "reported_share_volume": 761045,
+          "sector": "Industrials",
+          "ticker": "NSC"
+        },
+        {
+          "last_sale_micros": 551550000,
+          "name": "NORTHROP GRUMMAN CORP",
+          "net_change_micros": 3080000,
+          "pct_change_micropct": 562000,
+          "provider_symbol": "NOC",
+          "reported_share_volume": 751918,
+          "sector": "Industrials",
+          "ticker": "NOC"
+        },
+        {
+          "last_sale_micros": 209930000,
+          "name": "DOVER CORP",
+          "net_change_micros": 4210000,
+          "pct_change_micropct": 2046000,
+          "provider_symbol": "DOV",
+          "reported_share_volume": 734211,
+          "sector": "Industrials",
+          "ticker": "DOV"
+        },
+        {
+          "last_sale_micros": 502240000,
+          "name": "HUBBELL INC",
+          "net_change_micros": 26200000,
+          "pct_change_micropct": 5504000,
+          "provider_symbol": "HUBB",
+          "reported_share_volume": 713909,
+          "sector": "Industrials",
+          "ticker": "HUBB"
+        },
+        {
+          "last_sale_micros": 237890000,
+          "name": "IDEX CORP",
+          "net_change_micros": 5190000,
+          "pct_change_micropct": 2230000,
+          "provider_symbol": "IEX",
+          "reported_share_volume": 662900,
+          "sector": "Industrials",
+          "ticker": "IEX"
+        },
+        {
+          "last_sale_micros": 446740000,
+          "name": "LENNOX INTERNATIONAL INC",
+          "net_change_micros": 11740000,
+          "pct_change_micropct": 2699000,
+          "provider_symbol": "LII",
+          "reported_share_volume": 628733,
+          "sector": "Industrials",
+          "ticker": "LII"
+        },
+        {
+          "last_sale_micros": 1150130000,
+          "name": "UNITED RENTALS INC",
+          "net_change_micros": 34210000,
+          "pct_change_micropct": 3066000,
+          "provider_symbol": "URI",
+          "reported_share_volume": 597513,
+          "sector": "Industrials",
+          "ticker": "URI"
+        },
+        {
+          "last_sale_micros": 1300450000,
+          "name": "WW GRAINGER INC",
+          "net_change_micros": -70800000,
+          "pct_change_micropct": -5163000,
+          "provider_symbol": "GWW",
+          "reported_share_volume": 587618,
+          "sector": "Industrials",
+          "ticker": "GWW"
+        },
+        {
+          "last_sale_micros": 323060000,
+          "name": "HUNTINGTON INGALLS INDUSTRIES INC",
+          "net_change_micros": -2890000,
+          "pct_change_micropct": -887000,
+          "provider_symbol": "HII",
+          "reported_share_volume": 587064,
+          "sector": "Industrials",
+          "ticker": "HII"
+        },
+        {
+          "last_sale_micros": 1775860000,
+          "name": "COMFORT SYSTEMS USA INC",
+          "net_change_micros": 4900000,
+          "pct_change_micropct": 277000,
+          "provider_symbol": "FIX",
+          "reported_share_volume": 554099,
+          "sector": "Industrials",
+          "ticker": "FIX"
+        },
+        {
+          "last_sale_micros": 418340000,
+          "name": "SNAP ON INC",
+          "net_change_micros": 8930000,
+          "pct_change_micropct": 2181000,
+          "provider_symbol": "SNA",
+          "reported_share_volume": 516354,
+          "sector": "Industrials",
+          "ticker": "SNA"
+        },
+        {
+          "last_sale_micros": 819880000,
+          "name": "EMCOR GROUP INC",
+          "net_change_micros": 2460000,
+          "pct_change_micropct": 301000,
+          "provider_symbol": "EME",
+          "reported_share_volume": 451700,
+          "sector": "Industrials",
+          "ticker": "EME"
+        },
+        {
+          "last_sale_micros": 309670000,
+          "name": "NORDSON CORP",
+          "net_change_micros": 7050000,
+          "pct_change_micropct": 2330000,
+          "provider_symbol": "NDSN",
+          "reported_share_volume": 368195,
+          "sector": "Industrials",
+          "ticker": "NDSN"
+        }
+      ],
+      "key": "industrials",
+      "label": "Industrials",
+      "reported_share_volume": 241795906
+    },
+    {
+      "eligible_constituents": 34,
+      "holdings": [
+        {
+          "last_sale_micros": 111550000,
+          "name": "WALMART INC",
+          "net_change_micros": 840000,
+          "pct_change_micropct": 759000,
+          "provider_symbol": "WMT",
+          "reported_share_volume": 29569342,
+          "sector": "Consumer Staples",
+          "ticker": "WMT"
+        },
+        {
+          "last_sale_micros": 19550000,
+          "name": "KENVUE INC",
+          "net_change_micros": 540000,
+          "pct_change_micropct": 2841000,
+          "provider_symbol": "KVUE",
+          "reported_share_volume": 23586906,
+          "sector": "Consumer Staples",
+          "ticker": "KVUE"
+        },
+        {
+          "last_sale_micros": 86560000,
+          "name": "COCA-COLA",
+          "net_change_micros": -300000,
+          "pct_change_micropct": -345000,
+          "provider_symbol": "KO",
+          "reported_share_volume": 17074424,
+          "sector": "Consumer Staples",
+          "ticker": "KO"
+        },
+        {
+          "last_sale_micros": 26640000,
+          "name": "KRAFT HEINZ",
+          "net_change_micros": 220000,
+          "pct_change_micropct": 833000,
+          "provider_symbol": "KHC",
+          "reported_share_volume": 16246395,
+          "sector": "Consumer Staples",
+          "ticker": "KHC"
+        },
+        {
+          "last_sale_micros": 31100000,
+          "name": "KEURIG DR PEPPER INC",
+          "net_change_micros": 190000,
+          "pct_change_micropct": 615000,
+          "provider_symbol": "KDP",
+          "reported_share_volume": 13075603,
+          "sector": "Consumer Staples",
+          "ticker": "KDP"
+        },
+        {
+          "last_sale_micros": 62080000,
+          "name": "MONDELEZ INTERNATIONAL INC CLASS A",
+          "net_change_micros": 350000,
+          "pct_change_micropct": 567000,
+          "provider_symbol": "MDLZ",
+          "reported_share_volume": 12199859,
+          "sector": "Consumer Staples",
+          "ticker": "MDLZ"
+        },
+        {
+          "last_sale_micros": 68070000,
+          "name": "ALTRIA GROUP INC",
+          "net_change_micros": -190000,
+          "pct_change_micropct": -278000,
+          "provider_symbol": "MO",
+          "reported_share_volume": 10624523,
+          "sector": "Consumer Staples",
+          "ticker": "MO"
+        },
+        {
+          "last_sale_micros": 111570000,
+          "name": "KIMBERLY CLARK CORP",
+          "net_change_micros": 4010000,
+          "pct_change_micropct": 3728000,
+          "provider_symbol": "KMB",
+          "reported_share_volume": 8622107,
+          "sector": "Consumer Staples",
+          "ticker": "KMB"
+        },
+        {
+          "last_sale_micros": 139100000,
+          "name": "PEPSICO INC",
+          "net_change_micros": -530000,
+          "pct_change_micropct": -380000,
+          "provider_symbol": "PEP",
+          "reported_share_volume": 8520499,
+          "sector": "Consumer Staples",
+          "ticker": "PEP"
+        },
+        {
+          "last_sale_micros": 82790000,
+          "name": "SYSCO CORP",
+          "net_change_micros": -2190000,
+          "pct_change_micropct": -2577000,
+          "provider_symbol": "SYY",
+          "reported_share_volume": 8141060,
+          "sector": "Consumer Staples",
+          "ticker": "SYY"
+        },
+        {
+          "last_sale_micros": 36190000,
+          "name": "GENERAL MILLS INC",
+          "net_change_micros": 190000,
+          "pct_change_micropct": 528000,
+          "provider_symbol": "GIS",
+          "reported_share_volume": 7941049,
+          "sector": "Consumer Staples",
+          "ticker": "GIS"
+        },
+        {
+          "last_sale_micros": 148010000,
+          "name": "PROCTER & GAMBLE",
+          "net_change_micros": 3040000,
+          "pct_change_micropct": 2097000,
+          "provider_symbol": "PG",
+          "reported_share_volume": 7359793,
+          "sector": "Consumer Staples",
+          "ticker": "PG"
+        },
+        {
+          "last_sale_micros": 92530000,
+          "name": "COLGATE-PALMOLIVE",
+          "net_change_micros": 2650000,
+          "pct_change_micropct": 2948000,
+          "provider_symbol": "CL",
+          "reported_share_volume": 6831029,
+          "sector": "Consumer Staples",
+          "ticker": "CL"
+        },
+        {
+          "last_sale_micros": 94180000,
+          "name": "MONSTER BEVERAGE CORP",
+          "net_change_micros": 630000,
+          "pct_change_micropct": 673000,
+          "provider_symbol": "MNST",
+          "reported_share_volume": 6807293,
+          "sector": "Consumer Staples",
+          "ticker": "MNST"
+        },
+        {
+          "last_sale_micros": 57790000,
+          "name": "KROGER",
+          "net_change_micros": -430000,
+          "pct_change_micropct": -739000,
+          "provider_symbol": "KR",
+          "reported_share_volume": 6650982,
+          "sector": "Consumer Staples",
+          "ticker": "KR"
+        },
+        {
+          "last_sale_micros": 186910000,
+          "name": "PHILIP MORRIS INTERNATIONAL INC",
+          "net_change_micros": -500000,
+          "pct_change_micropct": -267000,
+          "provider_symbol": "PM",
+          "reported_share_volume": 5385453,
+          "sector": "Consumer Staples",
+          "ticker": "PM"
+        },
+        {
+          "last_sale_micros": 104670000,
+          "name": "CLOROX",
+          "net_change_micros": 6410000,
+          "pct_change_micropct": 6524000,
+          "provider_symbol": "CLX",
+          "reported_share_volume": 5256082,
+          "sector": "Consumer Staples",
+          "ticker": "CLX"
+        },
+        {
+          "last_sale_micros": 79870000,
+          "name": "ARCHER DANIELS MIDLAND",
+          "net_change_micros": 1810000,
+          "pct_change_micropct": 2319000,
+          "provider_symbol": "ADM",
+          "reported_share_volume": 4978749,
+          "sector": "Consumer Staples",
+          "ticker": "ADM"
+        },
+        {
+          "last_sale_micros": 58740000,
+          "name": "TYSON FOODS INC CLASS A",
+          "net_change_micros": -870000,
+          "pct_change_micropct": -1459000,
+          "provider_symbol": "TSN",
+          "reported_share_volume": 4629710,
+          "sector": "Consumer Staples",
+          "ticker": "TSN"
+        },
+        {
+          "last_sale_micros": 86970000,
+          "name": "ESTEE LAUDER INC CLASS A",
+          "net_change_micros": 2290000,
+          "pct_change_micropct": 2704000,
+          "provider_symbol": "EL",
+          "reported_share_volume": 3232772,
+          "sector": "Consumer Staples",
+          "ticker": "EL"
+        },
+        {
+          "last_sale_micros": 148110000,
+          "name": "TARGET CORP",
+          "net_change_micros": -1240000,
+          "pct_change_micropct": -830000,
+          "provider_symbol": "TGT",
+          "reported_share_volume": 3181025,
+          "sector": "Consumer Staples",
+          "ticker": "TGT"
+        },
+        {
+          "last_sale_micros": 25340000,
+          "name": "HORMEL FOODS CORP",
+          "net_change_micros": 110000,
+          "pct_change_micropct": 436000,
+          "provider_symbol": "HRL",
+          "reported_share_volume": 2771703,
+          "sector": "Consumer Staples",
+          "ticker": "HRL"
+        },
+        {
+          "last_sale_micros": 130710000,
+          "name": "DOLLAR TREE INC",
+          "net_change_micros": 1360000,
+          "pct_change_micropct": 1051000,
+          "provider_symbol": "DLTR",
+          "reported_share_volume": 2763204,
+          "sector": "Consumer Staples",
+          "ticker": "DLTR"
+        },
+        {
+          "last_sale_micros": 42290000,
+          "name": "MOLSON COORS BREWING  CLASS B",
+          "net_change_micros": 370000,
+          "pct_change_micropct": 883000,
+          "provider_symbol": "TAP",
+          "reported_share_volume": 2572917,
+          "sector": "Consumer Staples",
+          "ticker": "TAP"
+        },
+        {
+          "last_sale_micros": 947850000,
+          "name": "COSTCO WHOLESALE CORP",
+          "net_change_micros": -6230000,
+          "pct_change_micropct": -653000,
+          "provider_symbol": "COST",
+          "reported_share_volume": 2434225,
+          "sector": "Consumer Staples",
+          "ticker": "COST"
+        },
+        {
+          "last_sale_micros": 52060000,
+          "name": "MCCORMICK & CO NON-VOTING INC",
+          "net_change_micros": 540000,
+          "pct_change_micropct": 1048000,
+          "provider_symbol": "MKC",
+          "reported_share_volume": 2353690,
+          "sector": "Consumer Staples",
+          "ticker": "MKC"
+        },
+        {
+          "last_sale_micros": 106730000,
+          "name": "BUNGE GLOBAL SA",
+          "net_change_micros": 1330000,
+          "pct_change_micropct": 1262000,
+          "provider_symbol": "BG",
+          "reported_share_volume": 2187471,
+          "sector": "Consumer Staples",
+          "ticker": "BG"
+        },
+        {
+          "last_sale_micros": 103000000,
+          "name": "CHURCH AND DWIGHT INC",
+          "net_change_micros": 2990000,
+          "pct_change_micropct": 2990000,
+          "provider_symbol": "CHD",
+          "reported_share_volume": 2150429,
+          "sector": "Consumer Staples",
+          "ticker": "CHD"
+        },
+        {
+          "last_sale_micros": 28470000,
+          "name": "BROWN FORMAN CORP CLASS B",
+          "net_change_micros": 660000,
+          "pct_change_micropct": 2373000,
+          "provider_symbol": "BF/B",
+          "reported_share_volume": 2123466,
+          "sector": "Consumer Staples",
+          "ticker": "BFB"
+        },
+        {
+          "last_sale_micros": 127260000,
+          "name": "DOLLAR GENERAL CORP",
+          "net_change_micros": -460000,
+          "pct_change_micropct": -360000,
+          "provider_symbol": "DG",
+          "reported_share_volume": 1928471,
+          "sector": "Consumer Staples",
+          "ticker": "DG"
+        },
+        {
+          "last_sale_micros": 131420000,
+          "name": "CONSTELLATION BRANDS INC CLASS A",
+          "net_change_micros": 60000,
+          "pct_change_micropct": 46000,
+          "provider_symbol": "STZ",
+          "reported_share_volume": 1821682,
+          "sector": "Consumer Staples",
+          "ticker": "STZ"
+        },
+        {
+          "last_sale_micros": 179040000,
+          "name": "HERSHEY FOODS",
+          "net_change_micros": 1370000,
+          "pct_change_micropct": 771000,
+          "provider_symbol": "HSY",
+          "reported_share_volume": 1676401,
+          "sector": "Consumer Staples",
+          "ticker": "HSY"
+        },
+        {
+          "last_sale_micros": 119170000,
+          "name": "JM SMUCKER",
+          "net_change_micros": 1670000,
+          "pct_change_micropct": 1421000,
+          "provider_symbol": "SJM",
+          "reported_share_volume": 1163091,
+          "sector": "Consumer Staples",
+          "ticker": "SJM"
+        },
+        {
+          "last_sale_micros": 850660000,
+          "name": "CASEYS GENERAL STORES INC",
+          "net_change_micros": -9710000,
+          "pct_change_micropct": -1129000,
+          "provider_symbol": "CASY",
+          "reported_share_volume": 376888,
+          "sector": "Consumer Staples",
+          "ticker": "CASY"
+        }
+      ],
+      "key": "consumer-staples",
+      "label": "Consumer Staples",
+      "reported_share_volume": 236238293
+    },
+    {
+      "eligible_constituents": 21,
+      "holdings": [
+        {
+          "last_sale_micros": 153960000,
+          "name": "EXXONMOBIL HOLDINGS CORP",
+          "net_change_micros": -1100000,
+          "pct_change_micropct": -709000,
+          "provider_symbol": "XOM",
+          "reported_share_volume": 14344827,
+          "sector": "Energy",
+          "ticker": "XOM"
+        },
+        {
+          "last_sale_micros": 32360000,
+          "name": "HALLIBURTON",
+          "net_change_micros": 470000,
+          "pct_change_micropct": 1474000,
+          "provider_symbol": "HAL",
+          "reported_share_volume": 13958676,
+          "sector": "Energy",
+          "ticker": "HAL"
+        },
+        {
+          "last_sale_micros": 71510000,
+          "name": "WILLIAMS INC",
+          "net_change_micros": 1080000,
+          "pct_change_micropct": 1533000,
+          "provider_symbol": "WMB",
+          "reported_share_volume": 13763647,
+          "sector": "Energy",
+          "ticker": "WMB"
+        },
+        {
+          "last_sale_micros": 31380000,
+          "name": "KINDER MORGAN INC",
+          "net_change_micros": -20000,
+          "pct_change_micropct": -64000,
+          "provider_symbol": "KMI",
+          "reported_share_volume": 12057281,
+          "sector": "Energy",
+          "ticker": "KMI"
+        },
+        {
+          "last_sale_micros": 50810000,
+          "name": "SLB NV",
+          "net_change_micros": 1500000,
+          "pct_change_micropct": 3042000,
+          "provider_symbol": "SLB",
+          "reported_share_volume": 11163412,
+          "sector": "Energy",
+          "ticker": "SLB"
+        },
+        {
+          "last_sale_micros": 44050000,
+          "name": "DEVON ENERGY CORP",
+          "net_change_micros": -520000,
+          "pct_change_micropct": -1167000,
+          "provider_symbol": "DVN",
+          "reported_share_volume": 9795820,
+          "sector": "Energy",
+          "ticker": "DVN"
+        },
+        {
+          "last_sale_micros": 190400000,
+          "name": "CHEVRON CORP",
+          "net_change_micros": -2780000,
+          "pct_change_micropct": -1439000,
+          "provider_symbol": "CVX",
+          "reported_share_volume": 9448086,
+          "sector": "Energy",
+          "ticker": "CVX"
+        },
+        {
+          "last_sale_micros": 55090000,
+          "name": "OCCIDENTAL PETROLEUM CORP",
+          "net_change_micros": -380000,
+          "pct_change_micropct": -685000,
+          "provider_symbol": "OXY",
+          "reported_share_volume": 9024347,
+          "sector": "Energy",
+          "ticker": "OXY"
+        },
+        {
+          "last_sale_micros": 61730000,
+          "name": "BAKER HUGHES CLASS A",
+          "net_change_micros": 920000,
+          "pct_change_micropct": 1513000,
+          "provider_symbol": "BKR",
+          "reported_share_volume": 7353997,
+          "sector": "Energy",
+          "ticker": "BKR"
+        },
+        {
+          "last_sale_micros": 87650000,
+          "name": "ONEOK INC",
+          "net_change_micros": -590000,
+          "pct_change_micropct": -669000,
+          "provider_symbol": "OKE",
+          "reported_share_volume": 7156413,
+          "sector": "Energy",
+          "ticker": "OKE"
+        },
+        {
+          "last_sale_micros": 117940000,
+          "name": "CONOCOPHILLIPS",
+          "net_change_micros": -1220000,
+          "pct_change_micropct": -1024000,
+          "provider_symbol": "COP",
+          "reported_share_volume": 7077985,
+          "sector": "Energy",
+          "ticker": "COP"
+        },
+        {
+          "last_sale_micros": 35800000,
+          "name": "APA CORP",
+          "net_change_micros": -1070000,
+          "pct_change_micropct": -2902000,
+          "provider_symbol": "APA",
+          "reported_share_volume": 6176097,
+          "sector": "Energy",
+          "ticker": "APA"
+        },
+        {
+          "last_sale_micros": 52770000,
+          "name": "EQT CORP",
+          "net_change_micros": -790000,
+          "pct_change_micropct": -1475000,
+          "provider_symbol": "EQT",
+          "reported_share_volume": 6022212,
+          "sector": "Energy",
+          "ticker": "EQT"
+        },
+        {
+          "last_sale_micros": 191870000,
+          "name": "DIAMONDBACK ENERGY INC",
+          "net_change_micros": -6880000,
+          "pct_change_micropct": -3462000,
+          "provider_symbol": "FANG",
+          "reported_share_volume": 4159512,
+          "sector": "Energy",
+          "ticker": "FANG"
+        },
+        {
+          "last_sale_micros": 308730000,
+          "name": "VALERO ENERGY CORP",
+          "net_change_micros": 1190000,
+          "pct_change_micropct": 387000,
+          "provider_symbol": "VLO",
+          "reported_share_volume": 3535582,
+          "sector": "Energy",
+          "ticker": "VLO"
+        },
+        {
+          "last_sale_micros": 205890000,
+          "name": "PHILLIPS 66",
+          "net_change_micros": -300000,
+          "pct_change_micropct": -145000,
+          "provider_symbol": "PSX",
+          "reported_share_volume": 3489143,
+          "sector": "Energy",
+          "ticker": "PSX"
+        },
+        {
+          "last_sale_micros": 143520000,
+          "name": "EOG RESOURCES INC",
+          "net_change_micros": -2160000,
+          "pct_change_micropct": -1483000,
+          "provider_symbol": "EOG",
+          "reported_share_volume": 2908187,
+          "sector": "Energy",
+          "ticker": "EOG"
+        },
+        {
+          "last_sale_micros": 93070000,
+          "name": "EXPAND ENERGY CORP",
+          "net_change_micros": -1590000,
+          "pct_change_micropct": -1680000,
+          "provider_symbol": "EXE",
+          "reported_share_volume": 2510735,
+          "sector": "Energy",
+          "ticker": "EXE"
+        },
+        {
+          "last_sale_micros": 312610000,
+          "name": "MARATHON PETROLEUM CORP",
+          "net_change_micros": 5580000,
+          "pct_change_micropct": 1817000,
+          "provider_symbol": "MPC",
+          "reported_share_volume": 2507061,
+          "sector": "Energy",
+          "ticker": "MPC"
+        },
+        {
+          "last_sale_micros": 262980000,
+          "name": "TARGA RESOURCES CORP",
+          "net_change_micros": -1620000,
+          "pct_change_micropct": -612000,
+          "provider_symbol": "TRGP",
+          "reported_share_volume": 1825069,
+          "sector": "Energy",
+          "ticker": "TRGP"
+        },
+        {
+          "last_sale_micros": 395520000,
+          "name": "TEXAS PACIFIC LAND CORP",
+          "net_change_micros": -10630000,
+          "pct_change_micropct": -2617000,
+          "provider_symbol": "TPL",
+          "reported_share_volume": 368213,
+          "sector": "Energy",
+          "ticker": "TPL"
+        }
+      ],
+      "key": "energy",
+      "label": "Energy",
+      "reported_share_volume": 148646302
+    },
+    {
+      "eligible_constituents": 31,
+      "holdings": [
+        {
+          "last_sale_micros": 17450000,
+          "name": "PG&E CORP",
+          "net_change_micros": 20000,
+          "pct_change_micropct": 115000,
+          "provider_symbol": "PCG",
+          "reported_share_volume": 41401580,
+          "sector": "Utilities",
+          "ticker": "PCG"
+        },
+        {
+          "last_sale_micros": 117040000,
+          "name": "NRG ENERGY INC",
+          "net_change_micros": -21430000,
+          "pct_change_micropct": -15476000,
+          "provider_symbol": "NRG",
+          "reported_share_volume": 13652391,
+          "sector": "Utilities",
+          "ticker": "NRG"
+        },
+        {
+          "last_sale_micros": 143230000,
+          "name": "VISTRA CORP",
+          "net_change_micros": -12710000,
+          "pct_change_micropct": -8151000,
+          "provider_symbol": "VST",
+          "reported_share_volume": 11477580,
+          "sector": "Utilities",
+          "ticker": "VST"
+        },
+        {
+          "last_sale_micros": 93250000,
+          "name": "SOUTHERN",
+          "net_change_micros": 310000,
+          "pct_change_micropct": 334000,
+          "provider_symbol": "SO",
+          "reported_share_volume": 11142749,
+          "sector": "Utilities",
+          "ticker": "SO"
+        },
+        {
+          "last_sale_micros": 87200000,
+          "name": "NEXTERA ENERGY INC",
+          "net_change_micros": 650000,
+          "pct_change_micropct": 751000,
+          "provider_symbol": "NEE",
+          "reported_share_volume": 10622081,
+          "sector": "Utilities",
+          "ticker": "NEE"
+        },
+        {
+          "last_sale_micros": 45840000,
+          "name": "EXELON CORP",
+          "net_change_micros": 210000,
+          "pct_change_micropct": 460000,
+          "provider_symbol": "EXC",
+          "reported_share_volume": 10290121,
+          "sector": "Utilities",
+          "ticker": "EXC"
+        },
+        {
+          "last_sale_micros": 41580000,
+          "name": "CENTERPOINT ENERGY INC",
+          "net_change_micros": -340000,
+          "pct_change_micropct": -811000,
+          "provider_symbol": "CNP",
+          "reported_share_volume": 9067776,
+          "sector": "Utilities",
+          "ticker": "CNP"
+        },
+        {
+          "last_sale_micros": 14680000,
+          "name": "AES CORP",
+          "net_change_micros": -30000,
+          "pct_change_micropct": -204000,
+          "provider_symbol": "AES",
+          "reported_share_volume": 7275157,
+          "sector": "Utilities",
+          "ticker": "AES"
+        },
+        {
+          "last_sale_micros": 76270000,
+          "name": "PUBLIC SERVICE ENTERPRISE GROUP IN",
+          "net_change_micros": -350000,
+          "pct_change_micropct": -457000,
+          "provider_symbol": "PEG",
+          "reported_share_volume": 7069676,
+          "sector": "Utilities",
+          "ticker": "PEG"
+        },
+        {
+          "last_sale_micros": 44530000,
+          "name": "NISOURCE INC",
+          "net_change_micros": 0,
+          "pct_change_micropct": 0,
+          "provider_symbol": "NI",
+          "reported_share_volume": 6765762,
+          "sector": "Utilities",
+          "ticker": "NI"
+        },
+        {
+          "last_sale_micros": 35180000,
+          "name": "PPL CORP",
+          "net_change_micros": -20000,
+          "pct_change_micropct": -57000,
+          "provider_symbol": "PPL",
+          "reported_share_volume": 6585323,
+          "sector": "Utilities",
+          "ticker": "PPL"
+        },
+        {
+          "last_sale_micros": 86650000,
+          "name": "SEMPRA",
+          "net_change_micros": -1080000,
+          "pct_change_micropct": -1231000,
+          "provider_symbol": "SRE",
+          "reported_share_volume": 6325104,
+          "sector": "Utilities",
+          "ticker": "SRE"
+        },
+        {
+          "last_sale_micros": 70690000,
+          "name": "EDISON INTERNATIONAL",
+          "net_change_micros": -770000,
+          "pct_change_micropct": -1078000,
+          "provider_symbol": "EIX",
+          "reported_share_volume": 5988544,
+          "sector": "Utilities",
+          "ticker": "EIX"
+        },
+        {
+          "last_sale_micros": 124270000,
+          "name": "DUKE ENERGY CORP",
+          "net_change_micros": -10000,
+          "pct_change_micropct": -8000,
+          "provider_symbol": "DUK",
+          "reported_share_volume": 5392409,
+          "sector": "Utilities",
+          "ticker": "DUK"
+        },
+        {
+          "last_sale_micros": 77750000,
+          "name": "XCEL ENERGY INC",
+          "net_change_micros": 60000,
+          "pct_change_micropct": 77000,
+          "provider_symbol": "XEL",
+          "reported_share_volume": 4676358,
+          "sector": "Utilities",
+          "ticker": "XEL"
+        },
+        {
+          "last_sale_micros": 71730000,
+          "name": "CMS ENERGY CORP",
+          "net_change_micros": -10000,
+          "pct_change_micropct": -14000,
+          "provider_symbol": "CMS",
+          "reported_share_volume": 4593831,
+          "sector": "Utilities",
+          "ticker": "CMS"
+        },
+        {
+          "last_sale_micros": 48280000,
+          "name": "FIRSTENERGY CORP",
+          "net_change_micros": -150000,
+          "pct_change_micropct": -310000,
+          "provider_symbol": "FE",
+          "reported_share_volume": 4586156,
+          "sector": "Utilities",
+          "ticker": "FE"
+        },
+        {
+          "last_sale_micros": 128350000,
+          "name": "AMERICAN ELECTRIC POWER INC",
+          "net_change_micros": 30000,
+          "pct_change_micropct": 23000,
+          "provider_symbol": "AEP",
+          "reported_share_volume": 3964328,
+          "sector": "Utilities",
+          "ticker": "AEP"
+        },
+        {
+          "last_sale_micros": 267250000,
+          "name": "CONSTELLATION ENERGY CORP",
+          "net_change_micros": -6460000,
+          "pct_change_micropct": -2360000,
+          "provider_symbol": "CEG",
+          "reported_share_volume": 3814049,
+          "sector": "Utilities",
+          "ticker": "CEG"
+        },
+        {
+          "last_sale_micros": 134010000,
+          "name": "AMERICAN WATER WORKS INC",
+          "net_change_micros": 2710000,
+          "pct_change_micropct": 2064000,
+          "provider_symbol": "AWK",
+          "reported_share_volume": 3673381,
+          "sector": "Utilities",
+          "ticker": "AWK"
+        },
+        {
+          "last_sale_micros": 70660000,
+          "name": "ALLIANT ENERGY CORP",
+          "net_change_micros": -610000,
+          "pct_change_micropct": -856000,
+          "provider_symbol": "LNT",
+          "reported_share_volume": 3365186,
+          "sector": "Utilities",
+          "ticker": "LNT"
+        },
+        {
+          "last_sale_micros": 108860000,
+          "name": "ENTERGY CORP",
+          "net_change_micros": 800000,
+          "pct_change_micropct": 740000,
+          "provider_symbol": "ETR",
+          "reported_share_volume": 2894550,
+          "sector": "Utilities",
+          "ticker": "ETR"
+        },
+        {
+          "last_sale_micros": 69220000,
+          "name": "DOMINION ENERGY INC",
+          "net_change_micros": 470000,
+          "pct_change_micropct": 684000,
+          "provider_symbol": "D",
+          "reported_share_volume": 2785850,
+          "sector": "Utilities",
+          "ticker": "D"
+        },
+        {
+          "last_sale_micros": 72700000,
+          "name": "EVERSOURCE ENERGY",
+          "net_change_micros": 750000,
+          "pct_change_micropct": 1042000,
+          "provider_symbol": "ES",
+          "reported_share_volume": 2617190,
+          "sector": "Utilities",
+          "ticker": "ES"
+        },
+        {
+          "last_sale_micros": 108410000,
+          "name": "CONSOLIDATED EDISON INC",
+          "net_change_micros": 460000,
+          "pct_change_micropct": 426000,
+          "provider_symbol": "ED",
+          "reported_share_volume": 2376030,
+          "sector": "Utilities",
+          "ticker": "ED"
+        },
+        {
+          "last_sale_micros": 83840000,
+          "name": "EVERGY INC",
+          "net_change_micros": 610000,
+          "pct_change_micropct": 733000,
+          "provider_symbol": "EVRG",
+          "reported_share_volume": 2088229,
+          "sector": "Utilities",
+          "ticker": "EVRG"
+        },
+        {
+          "last_sale_micros": 109250000,
+          "name": "WEC ENERGY GROUP INC",
+          "net_change_micros": -30000,
+          "pct_change_micropct": -27000,
+          "provider_symbol": "WEC",
+          "reported_share_volume": 1983845,
+          "sector": "Utilities",
+          "ticker": "WEC"
+        },
+        {
+          "last_sale_micros": 109440000,
+          "name": "AMEREN CORP",
+          "net_change_micros": -60000,
+          "pct_change_micropct": -55000,
+          "provider_symbol": "AEE",
+          "reported_share_volume": 1698355,
+          "sector": "Utilities",
+          "ticker": "AEE"
+        },
+        {
+          "last_sale_micros": 101450000,
+          "name": "PINNACLE WEST CORP",
+          "net_change_micros": 640000,
+          "pct_change_micropct": 635000,
+          "provider_symbol": "PNW",
+          "reported_share_volume": 1564718,
+          "sector": "Utilities",
+          "ticker": "PNW"
+        },
+        {
+          "last_sale_micros": 141720000,
+          "name": "DTE ENERGY",
+          "net_change_micros": 0,
+          "pct_change_micropct": 0,
+          "provider_symbol": "DTE",
+          "reported_share_volume": 1501261,
+          "sector": "Utilities",
+          "ticker": "DTE"
+        },
+        {
+          "last_sale_micros": 172650000,
+          "name": "ATMOS ENERGY CORP",
+          "net_change_micros": -240000,
+          "pct_change_micropct": -139000,
+          "provider_symbol": "ATO",
+          "reported_share_volume": 1348325,
+          "sector": "Utilities",
+          "ticker": "ATO"
+        }
+      ],
+      "key": "utilities",
+      "label": "Utilities",
+      "reported_share_volume": 202587895
+    },
+    {
+      "eligible_constituents": 31,
+      "holdings": [
+        {
+          "last_sale_micros": 26590000,
+          "name": "VICI PPTYS INC",
+          "net_change_micros": 50000,
+          "pct_change_micropct": 188000,
+          "provider_symbol": "VICI",
+          "reported_share_volume": 20789941,
+          "sector": "Real Estate",
+          "ticker": "VICI"
+        },
+        {
+          "last_sale_micros": 139050000,
+          "name": "PROLOGIS REIT INC",
+          "net_change_micros": -5100000,
+          "pct_change_micropct": -3538000,
+          "provider_symbol": "PLD",
+          "reported_share_volume": 16284365,
+          "sector": "Real Estate",
+          "ticker": "PLD"
+        },
+        {
+          "last_sale_micros": 24980000,
+          "name": "HOST HOTELS & RESORTS REIT INC",
+          "net_change_micros": -110000,
+          "pct_change_micropct": -438000,
+          "provider_symbol": "HST",
+          "reported_share_volume": 9563915,
+          "sector": "Real Estate",
+          "ticker": "HST"
+        },
+        {
+          "last_sale_micros": 25010000,
+          "name": "KIMCO REALTY REIT CORP",
+          "net_change_micros": -400000,
+          "pct_change_micropct": -1574000,
+          "provider_symbol": "KIM",
+          "reported_share_volume": 8282204,
+          "sector": "Real Estate",
+          "ticker": "KIM"
+        },
+        {
+          "last_sale_micros": 21620000,
+          "name": "HEALTHPEAK PROPERTIES INC",
+          "net_change_micros": -20000,
+          "pct_change_micropct": -92000,
+          "provider_symbol": "DOC",
+          "reported_share_volume": 7352488,
+          "sector": "Real Estate",
+          "ticker": "DOC"
+        },
+        {
+          "last_sale_micros": 29815000,
+          "name": "COSTAR GROUP INC",
+          "net_change_micros": -215000,
+          "pct_change_micropct": -716000,
+          "provider_symbol": "CSGP",
+          "reported_share_volume": 5794109,
+          "sector": "Real Estate",
+          "ticker": "CSGP"
+        },
+        {
+          "last_sale_micros": 25830000,
+          "name": "WEYERHAEUSER REIT",
+          "net_change_micros": 600000,
+          "pct_change_micropct": 2378000,
+          "provider_symbol": "WY",
+          "reported_share_volume": 5447669,
+          "sector": "Real Estate",
+          "ticker": "WY"
+        },
+        {
+          "last_sale_micros": 62900000,
+          "name": "REALTY INCOME REIT",
+          "net_change_micros": -580000,
+          "pct_change_micropct": -914000,
+          "provider_symbol": "O",
+          "reported_share_volume": 5365429,
+          "sector": "Real Estate",
+          "ticker": "O"
+        },
+        {
+          "last_sale_micros": 231570000,
+          "name": "WELLTOWER INC",
+          "net_change_micros": -1530000,
+          "pct_change_micropct": -656000,
+          "provider_symbol": "WELL",
+          "reported_share_volume": 5216317,
+          "sector": "Real Estate",
+          "ticker": "WELL"
+        },
+        {
+          "last_sale_micros": 48870000,
+          "name": "ALEXANDRIA REAL ESTATE EQUITIES RE",
+          "net_change_micros": -4160000,
+          "pct_change_micropct": -7845000,
+          "provider_symbol": "ARE",
+          "reported_share_volume": 4170881,
+          "sector": "Real Estate",
+          "ticker": "ARE"
+        },
+        {
+          "last_sale_micros": 77660000,
+          "name": "CROWN CASTLE INC",
+          "net_change_micros": 920000,
+          "pct_change_micropct": 1199000,
+          "provider_symbol": "CCI",
+          "reported_share_volume": 4042376,
+          "sector": "Real Estate",
+          "ticker": "CCI"
+        },
+        {
+          "last_sale_micros": 38550000,
+          "name": "UDR REIT INC",
+          "net_change_micros": -140000,
+          "pct_change_micropct": -362000,
+          "provider_symbol": "UDR",
+          "reported_share_volume": 3858206,
+          "sector": "Real Estate",
+          "ticker": "UDR"
+        },
+        {
+          "last_sale_micros": 30470000,
+          "name": "INVITATION HOMES",
+          "net_change_micros": -20000,
+          "pct_change_micropct": -66000,
+          "provider_symbol": "INVH",
+          "reported_share_volume": 3840352,
+          "sector": "Real Estate",
+          "ticker": "INVH"
+        },
+        {
+          "last_sale_micros": 90850000,
+          "name": "VENTAS REIT INC",
+          "net_change_micros": 0,
+          "pct_change_micropct": 0,
+          "provider_symbol": "VTR",
+          "reported_share_volume": 3250162,
+          "sector": "Real Estate",
+          "ticker": "VTR"
+        },
+        {
+          "last_sale_micros": 175250000,
+          "name": "AMERICAN TOWER REIT CORP",
+          "net_change_micros": 2250000,
+          "pct_change_micropct": 1301000,
+          "provider_symbol": "AMT",
+          "reported_share_volume": 2990400,
+          "sector": "Real Estate",
+          "ticker": "AMT"
+        },
+        {
+          "last_sale_micros": 125510000,
+          "name": "IRON MOUNTAIN INC",
+          "net_change_micros": 1430000,
+          "pct_change_micropct": 1152000,
+          "provider_symbol": "IRM",
+          "reported_share_volume": 2473686,
+          "sector": "Real Estate",
+          "ticker": "IRM"
+        },
+        {
+          "last_sale_micros": 187900000,
+          "name": "SBA COMMUNICATIONS REIT CORP CLASS",
+          "net_change_micros": 8360000,
+          "pct_change_micropct": 4656000,
+          "provider_symbol": "SBAC",
+          "reported_share_volume": 2378177,
+          "sector": "Real Estate",
+          "ticker": "SBAC"
+        },
+        {
+          "last_sale_micros": 193890000,
+          "name": "DIGITAL REALTY TRUST REIT INC",
+          "net_change_micros": 2670000,
+          "pct_change_micropct": 1396000,
+          "provider_symbol": "DLR",
+          "reported_share_volume": 2307035,
+          "sector": "Real Estate",
+          "ticker": "DLR"
+        },
+        {
+          "last_sale_micros": 67690000,
+          "name": "EQUITY RESIDENTIAL REIT",
+          "net_change_micros": 120000,
+          "pct_change_micropct": 178000,
+          "provider_symbol": "EQR",
+          "reported_share_volume": 2165554,
+          "sector": "Real Estate",
+          "ticker": "EQR"
+        },
+        {
+          "last_sale_micros": 79430000,
+          "name": "REGENCY CENTERS REIT CORP",
+          "net_change_micros": -870000,
+          "pct_change_micropct": -1083000,
+          "provider_symbol": "REG",
+          "reported_share_volume": 1915929,
+          "sector": "Real Estate",
+          "ticker": "REG"
+        },
+        {
+          "last_sale_micros": 225900000,
+          "name": "SIMON PROPERTY GROUP REIT INC",
+          "net_change_micros": -3260000,
+          "pct_change_micropct": -1423000,
+          "provider_symbol": "SPG",
+          "reported_share_volume": 1868104,
+          "sector": "Real Estate",
+          "ticker": "SPG"
+        },
+        {
+          "last_sale_micros": 151050000,
+          "name": "CBRE GROUP INC CLASS A",
+          "net_change_micros": 2620000,
+          "pct_change_micropct": 1765000,
+          "provider_symbol": "CBRE",
+          "reported_share_volume": 1778270,
+          "sector": "Real Estate",
+          "ticker": "CBRE"
+        },
+        {
+          "last_sale_micros": 70670000,
+          "name": "BXP INC",
+          "net_change_micros": 260000,
+          "pct_change_micropct": 369000,
+          "provider_symbol": "BXP",
+          "reported_share_volume": 1184578,
+          "sector": "Real Estate",
+          "ticker": "BXP"
+        },
+        {
+          "last_sale_micros": 149860000,
+          "name": "EXTRA SPACE STORAGE REIT INC",
+          "net_change_micros": 130000,
+          "pct_change_micropct": 87000,
+          "provider_symbol": "EXR",
+          "reported_share_volume": 1151281,
+          "sector": "Real Estate",
+          "ticker": "EXR"
+        },
+        {
+          "last_sale_micros": 111030000,
+          "name": "CAMDEN PROPERTY TRUST REIT",
+          "net_change_micros": 310000,
+          "pct_change_micropct": 280000,
+          "provider_symbol": "CPT",
+          "reported_share_volume": 1067783,
+          "sector": "Real Estate",
+          "ticker": "CPT"
+        },
+        {
+          "last_sale_micros": 133210000,
+          "name": "MID AMERICA APARTMENT COMMUNITIES",
+          "net_change_micros": -260000,
+          "pct_change_micropct": -195000,
+          "provider_symbol": "MAA",
+          "reported_share_volume": 960102,
+          "sector": "Real Estate",
+          "ticker": "MAA"
+        },
+        {
+          "last_sale_micros": 326490000,
+          "name": "PUBLIC STORAGE REIT",
+          "net_change_micros": 590000,
+          "pct_change_micropct": 181000,
+          "provider_symbol": "PSA",
+          "reported_share_volume": 923248,
+          "sector": "Real Estate",
+          "ticker": "PSA"
+        },
+        {
+          "last_sale_micros": 1051530000,
+          "name": "EQUINIX REIT INC",
+          "net_change_micros": 20090000,
+          "pct_change_micropct": 1948000,
+          "provider_symbol": "EQIX",
+          "reported_share_volume": 740603,
+          "sector": "Real Estate",
+          "ticker": "EQIX"
+        },
+        {
+          "last_sale_micros": 122820000,
+          "name": "FEDERAL REALTY INVESTMENT TRUST RE",
+          "net_change_micros": -830000,
+          "pct_change_micropct": -671000,
+          "provider_symbol": "FRT",
+          "reported_share_volume": 656300,
+          "sector": "Real Estate",
+          "ticker": "FRT"
+        },
+        {
+          "last_sale_micros": 287210000,
+          "name": "ESSEX PROPERTY TRUST REIT INC",
+          "net_change_micros": 1330000,
+          "pct_change_micropct": 465000,
+          "provider_symbol": "ESS",
+          "reported_share_volume": 587507,
+          "sector": "Real Estate",
+          "ticker": "ESS"
+        },
+        {
+          "last_sale_micros": 189250000,
+          "name": "AVALONBAY COMMUNITIES REIT INC",
+          "net_change_micros": 470000,
+          "pct_change_micropct": 249000,
+          "provider_symbol": "AVB",
+          "reported_share_volume": 451967,
+          "sector": "Real Estate",
+          "ticker": "AVB"
+        }
+      ],
+      "key": "real-estate",
+      "label": "Real Estate",
+      "reported_share_volume": 128858938
+    },
+    {
+      "eligible_constituents": 25,
+      "holdings": [
+        {
+          "last_sale_micros": 67300000,
+          "name": "FREEPORT MCMORAN INC",
+          "net_change_micros": 3660000,
+          "pct_change_micropct": 5751000,
+          "provider_symbol": "FCX",
+          "reported_share_volume": 16268783,
+          "sector": "Materials",
+          "ticker": "FCX"
+        },
+        {
+          "last_sale_micros": 30330000,
+          "name": "DOW INC",
+          "net_change_micros": 440000,
+          "pct_change_micropct": 1472000,
+          "provider_symbol": "DOW",
+          "reported_share_volume": 9288002,
+          "sector": "Materials",
+          "ticker": "DOW"
+        },
+        {
+          "last_sale_micros": 22710000,
+          "name": "MOSAIC",
+          "net_change_micros": 900000,
+          "pct_change_micropct": 4127000,
+          "provider_symbol": "MOS",
+          "reported_share_volume": 6718246,
+          "sector": "Materials",
+          "ticker": "MOS"
+        },
+        {
+          "last_sale_micros": 78310000,
+          "name": "CORTEVA INC",
+          "net_change_micros": 2270000,
+          "pct_change_micropct": 2985000,
+          "provider_symbol": "CTVA",
+          "reported_share_volume": 6087226,
+          "sector": "Materials",
+          "ticker": "CTVA"
+        },
+        {
+          "last_sale_micros": 97730000,
+          "name": "NEWMONT",
+          "net_change_micros": 2360000,
+          "pct_change_micropct": 2475000,
+          "provider_symbol": "NEM",
+          "reported_share_volume": 5447877,
+          "sector": "Materials",
+          "ticker": "NEM"
+        },
+        {
+          "last_sale_micros": 98840000,
+          "name": "CRH PUBLIC LIMITED PLC",
+          "net_change_micros": 250000,
+          "pct_change_micropct": 254000,
+          "provider_symbol": "CRH",
+          "reported_share_volume": 4494145,
+          "sector": "Materials",
+          "ticker": "CRH"
+        },
+        {
+          "last_sale_micros": 48520000,
+          "name": "SMURFIT WESTROCK PLC",
+          "net_change_micros": 1640000,
+          "pct_change_micropct": 3498000,
+          "provider_symbol": "SW",
+          "reported_share_volume": 4432369,
+          "sector": "Materials",
+          "ticker": "SW"
+        },
+        {
+          "last_sale_micros": 42310000,
+          "name": "INTERNATIONAL PAPER",
+          "net_change_micros": 860000,
+          "pct_change_micropct": 2075000,
+          "provider_symbol": "IP",
+          "reported_share_volume": 4351586,
+          "sector": "Materials",
+          "ticker": "IP"
+        },
+        {
+          "last_sale_micros": 61110000,
+          "name": "LYONDELLBASELL INDUSTRIES CLASS A",
+          "net_change_micros": 490000,
+          "pct_change_micropct": 808000,
+          "provider_symbol": "LYB",
+          "reported_share_volume": 3988033,
+          "sector": "Materials",
+          "ticker": "LYB"
+        },
+        {
+          "last_sale_micros": 63750000,
+          "name": "BALL CORP",
+          "net_change_micros": -1400000,
+          "pct_change_micropct": -2149000,
+          "provider_symbol": "BALL",
+          "reported_share_volume": 3440083,
+          "sector": "Materials",
+          "ticker": "BALL"
+        },
+        {
+          "last_sale_micros": 484640000,
+          "name": "LINDE PLC",
+          "net_change_micros": 4180000,
+          "pct_change_micropct": 870000,
+          "provider_symbol": "LIN",
+          "reported_share_volume": 2973183,
+          "sector": "Materials",
+          "ticker": "LIN"
+        },
+        {
+          "last_sale_micros": 47140000,
+          "name": "AMCOR PLC",
+          "net_change_micros": 1120000,
+          "pct_change_micropct": 2434000,
+          "provider_symbol": "AMCR",
+          "reported_share_volume": 2910720,
+          "sector": "Materials",
+          "ticker": "AMCR"
+        },
+        {
+          "last_sale_micros": 361570000,
+          "name": "SHERWIN WILLIAMS",
+          "net_change_micros": 7350000,
+          "pct_change_micropct": 2075000,
+          "provider_symbol": "SHW",
+          "reported_share_volume": 2530837,
+          "sector": "Materials",
+          "ticker": "SHW"
+        },
+        {
+          "last_sale_micros": 120820000,
+          "name": "ALBEMARLE CORP",
+          "net_change_micros": 2110000,
+          "pct_change_micropct": 1777000,
+          "provider_symbol": "ALB",
+          "reported_share_volume": 2292097,
+          "sector": "Materials",
+          "ticker": "ALB"
+        },
+        {
+          "last_sale_micros": 118110000,
+          "name": "CF INDUSTRIES HOLDINGS INC",
+          "net_change_micros": -190000,
+          "pct_change_micropct": -161000,
+          "provider_symbol": "CF",
+          "reported_share_volume": 2031104,
+          "sector": "Materials",
+          "ticker": "CF"
+        },
+        {
+          "last_sale_micros": 274040000,
+          "name": "NUCOR CORP",
+          "net_change_micros": 12760000,
+          "pct_change_micropct": 4884000,
+          "provider_symbol": "NUE",
+          "reported_share_volume": 1890737,
+          "sector": "Materials",
+          "ticker": "NUE"
+        },
+        {
+          "last_sale_micros": 80890000,
+          "name": "INTERNATIONAL FLAVORS & FRAGRANCES",
+          "net_change_micros": 310000,
+          "pct_change_micropct": 385000,
+          "provider_symbol": "IFF",
+          "reported_share_volume": 1811518,
+          "sector": "Materials",
+          "ticker": "IFF"
+        },
+        {
+          "last_sale_micros": 265100000,
+          "name": "STEEL DYNAMICS INC",
+          "net_change_micros": 6720000,
+          "pct_change_micropct": 2601000,
+          "provider_symbol": "STLD",
+          "reported_share_volume": 1659939,
+          "sector": "Materials",
+          "ticker": "STLD"
+        },
+        {
+          "last_sale_micros": 117800000,
+          "name": "PPG INDUSTRIES INC",
+          "net_change_micros": 3790000,
+          "pct_change_micropct": 3324000,
+          "provider_symbol": "PPG",
+          "reported_share_volume": 1486419,
+          "sector": "Materials",
+          "ticker": "PPG"
+        },
+        {
+          "last_sale_micros": 285100000,
+          "name": "VULCAN MATERIALS",
+          "net_change_micros": 1510000,
+          "pct_change_micropct": 532000,
+          "provider_symbol": "VMC",
+          "reported_share_volume": 1237161,
+          "sector": "Materials",
+          "ticker": "VMC"
+        },
+        {
+          "last_sale_micros": 283140000,
+          "name": "ECOLAB INC",
+          "net_change_micros": 3710000,
+          "pct_change_micropct": 1328000,
+          "provider_symbol": "ECL",
+          "reported_share_volume": 1196491,
+          "sector": "Materials",
+          "ticker": "ECL"
+        },
+        {
+          "last_sale_micros": 294710000,
+          "name": "AIR PRODUCTS AND CHEMICALS INC",
+          "net_change_micros": 1770000,
+          "pct_change_micropct": 604000,
+          "provider_symbol": "APD",
+          "reported_share_volume": 1055229,
+          "sector": "Materials",
+          "ticker": "APD"
+        },
+        {
+          "last_sale_micros": 173300000,
+          "name": "AVERY DENNISON CORP",
+          "net_change_micros": 1030000,
+          "pct_change_micropct": 598000,
+          "provider_symbol": "AVY",
+          "reported_share_volume": 895900,
+          "sector": "Materials",
+          "ticker": "AVY"
+        },
+        {
+          "last_sale_micros": 555820000,
+          "name": "MARTIN MARIETTA MATERIALS INC",
+          "net_change_micros": 13550000,
+          "pct_change_micropct": 2499000,
+          "provider_symbol": "MLM",
+          "reported_share_volume": 647577,
+          "sector": "Materials",
+          "ticker": "MLM"
+        },
+        {
+          "last_sale_micros": 255480000,
+          "name": "PACKAGING CORP OF AMERICA",
+          "net_change_micros": 4390000,
+          "pct_change_micropct": 1748000,
+          "provider_symbol": "PKG",
+          "reported_share_volume": 447632,
+          "sector": "Materials",
+          "ticker": "PKG"
+        }
+      ],
+      "key": "materials",
+      "label": "Materials",
+      "reported_share_volume": 89582894
+    }
+  ],
+  "snapshot_hash": "sha256:a252067d6dd0f71dcae7b246f79c1590019dbcf4d1156ca08d119ed4395b69b8",
+  "source": {
+    "name": "Nasdaq stock screener current observation",
+    "provider_date_utc": "2026-08-04T22:18:16Z",
+    "raw_sha256": "sha256:117e803e1474e12696d9ee6f67fe2e3050bccf493b1bd521f34b5873970770ab",
+    "replayability": "RAW_BYTES_REPLAYABLE_PROVIDER_LOCATOR_NOT_HISTORICALLY_REFETCHABLE",
+    "retrieved_at_utc": "2026-08-04T22:18:17.272923Z",
+    "url": "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=10000&download=true"
+  },
+  "status": "OBSERVED_CURRENT_SNAPSHOT_EXACT_ELIGIBLE_COVERAGE",
+  "structural_universe": {
+    "as_of": "2026-08-03",
+    "manifest_hash": "sha256:f128a79c538f59a71ac01c8f67049276795ada35acabcb19103ec07ebc9b13ea",
+    "retrieved_at_utc": "2026-08-04T20:36:41Z"
+  },
+  "version": "nodequant-market-activity-observation-v0"
+}

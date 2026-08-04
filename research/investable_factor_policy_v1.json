@@ -1,0 +1,92 @@
+{
+  "version": "nodequant-investable-factor-policy-v1",
+  "frozen_at_utc": "2026-08-04T08:55:00Z",
+  "purpose": "one_primary_investability_falsifier_for_published_factor_persistence",
+  "claim_boundary": "cost_adjusted_liquid_etf_translation_diagnostic_not_independent_alpha_confirmation_or_execution_evidence",
+  "evaluator_hash": "sha256:ccf8f175ea31c81a5489c1093fad55b9f2a72245b86319585add6b9be12eeb1e",
+  "sources": [
+    {
+      "id": "ishares-mtum",
+      "url": "https://www.ishares.com/us/products/251614/MTUM",
+      "claim": "MTUM tracks a U.S. momentum index; inception 2013-04-16; current prospectus expense ratio 0.15%."
+    },
+    {
+      "id": "ishares-qual",
+      "url": "https://www.ishares.com/us/products/256101/QUAL",
+      "claim": "QUAL tracks a U.S. sector-neutral quality index; inception 2013-07-16; current prospectus expense ratio 0.15%."
+    },
+    {
+      "id": "ishares-vlue",
+      "url": "https://www.ishares.com/us/products/251616/VLUE",
+      "claim": "VLUE tracks a U.S. enhanced-value index; inception 2013-04-16; current prospectus expense ratio 0.15%."
+    },
+    {
+      "id": "ssga-spy-fact-sheet",
+      "url": "https://www.ssga.com/library-content/products/factsheets/etfs/us/factsheet-us-en-spy.pdf",
+      "claim": "SPY tracks the S&P 500; inception 1993-01-22; current gross and net expense ratio 0.0945%."
+    }
+  ],
+  "provider": {
+    "name": "Yahoo Finance chart endpoint",
+    "authority": "secondary_unofficial_revisable_diagnostic_source",
+    "host": "query1.finance.yahoo.com",
+    "timeout_seconds": 30,
+    "maximum_response_bytes_per_symbol": 2000000,
+    "maximum_rows_per_symbol": 4000
+  },
+  "data": {
+    "symbols": ["MTUM", "QUAL", "VLUE", "SPY"],
+    "download_start": "2013-12-01",
+    "download_end_exclusive": "2026-01-01",
+    "price_field": "adjusted_close",
+    "return_bytes_state_at_policy_freeze": "UNREAD",
+    "expected_symbols": 4
+  },
+  "portfolio": {
+    "candidate_id": "equal_mtum_qual_vlue",
+    "factor_symbols": ["MTUM", "QUAL", "VLUE"],
+    "benchmark_symbol": "SPY",
+    "target_weights": {"MTUM": 0.3333333333333333, "QUAL": 0.3333333333333333, "VLUE": 0.3333333333333333},
+    "rebalance": "monthly_at_last_common_close",
+    "initial_and_terminal_turnover_charged": true,
+    "dividends_splits_and_fund_expenses": "provider_adjusted_close; disclosed fund expense ratios are not subtracted again",
+    "shorting": false,
+    "leverage": false
+  },
+  "evaluation": {
+    "required_first_month_end": "201312",
+    "start_month": "201401",
+    "end_month": "202512",
+    "expected_return_months": 144
+  },
+  "folds": [
+    {"id": "F1", "start": "201401", "end": "201612"},
+    {"id": "F2", "start": "201701", "end": "201912"},
+    {"id": "F3", "start": "202001", "end": "202212"},
+    {"id": "F4", "start": "202301", "end": "202512"}
+  ],
+  "costs": {
+    "primary_one_way_bps": 10,
+    "one_way_bps_sensitivity": [0, 5, 10, 20, 25],
+    "scope": "initial_purchase_plus_monthly_factor_rebalance_plus_terminal_liquidation; no spread slippage_tax_impact_or_capacity_claim"
+  },
+  "bootstrap": {
+    "method": "circular_moving_block_percentile",
+    "seed": 240804,
+    "samples": 10000,
+    "block_months": 12,
+    "one_sided_confidence": 0.95
+  },
+  "gate": {
+    "annualized_active_mean_lower_must_exceed": 0.0,
+    "minimum_positive_folds": 3,
+    "remove_best_months": 12,
+    "remove_best_months_sharpe_must_exceed": 0.0
+  },
+  "trial_accounting": {
+    "candidate_count": 1,
+    "candidate_search": false,
+    "cost_sensitivities_are_robustness_only": true
+  },
+  "promotion_ceiling": "LIQUID_ETF_TRANSLATION_DIAGNOSTIC_NOT_INDEPENDENT_ALPHA_CONFIRMATION_OR_EXECUTION_EVIDENCE"
+}

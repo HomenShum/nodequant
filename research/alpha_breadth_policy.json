@@ -1,0 +1,101 @@
+{
+  "version": "nodequant-alpha-breadth-policy-v1",
+  "frozen_at_utc": "2026-08-03T18:00:00Z",
+  "purpose": "breadth_first_discovery_then_pre_fetch_cross_universe_replication",
+  "discovery_data": {
+    "provider": "Yahoo Finance chart endpoint",
+    "provider_authority": "secondary_unofficial_diagnostic_source",
+    "endpoint_template": "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+    "start": "2007-06-01",
+    "end_exclusive": "2026-01-01",
+    "interval": "1d",
+    "price_field": "adjclose",
+    "risky_symbols": ["SPY", "QQQ", "IWM", "TLT", "GLD"],
+    "cash_proxy_symbol": "BIL",
+    "maximum_symbols": 6,
+    "maximum_response_bytes_per_symbol": 2000000,
+    "maximum_rows_per_symbol": 6000,
+    "minimum_common_rows": 4000,
+    "expected_raw_hashes": {
+      "BIL": "sha256:7786c69baa7553a255e40db61177b7dd7e3c1a8e372ee0b327bac7579a5cc99b",
+      "GLD": "sha256:5603432acc552b71a50b9377ff90d71e5043a7947d9afa25915a425bc595ae83",
+      "IWM": "sha256:0712d25cb879079307d691241a46087495d5f9e06120c26716e069fae07b71f0",
+      "QQQ": "sha256:68e572824d97321f2a86cb211c954a1cd15b7ee2c819c88cde31d6d9ee0fb75c",
+      "SPY": "sha256:8d765704aec3d222abb0317ffde24a0ea073bfd141b7a0f4ed4a1987203e9186",
+      "TLT": "sha256:88dadef2e95b2e1f4409ef030489f71a16f2c4fb50facbe156ee65952cd37e1f"
+    },
+    "expected_panel_hash": "sha256:6c27e1c2b0865c82b4825f4e6d0391e2ffbbab3a2b5cdea2cf90ce9081499ae0"
+  },
+  "replication_data": {
+    "provider": "Yahoo Finance chart endpoint",
+    "provider_authority": "secondary_unofficial_diagnostic_source",
+    "endpoint_template": "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+    "start": "2008-01-01",
+    "end_exclusive": "2026-01-01",
+    "interval": "1d",
+    "price_field": "adjclose",
+    "risky_symbols": ["EFA", "EEM", "VNQ", "DBC", "HYG"],
+    "cash_proxy_symbol": "BIL",
+    "maximum_symbols": 6,
+    "maximum_response_bytes_per_symbol": 2000000,
+    "maximum_rows_per_symbol": 6000,
+    "minimum_common_rows": 4000
+  },
+  "temporal_contract": {
+    "signal_information_cutoff": "previous_month_end_adjusted_close",
+    "execution": "one_full_daily_bar_after_signal_observation",
+    "rebalance": "monthly_for_price_signals; daily_for_preregistered_calendar_signals",
+    "same_bar_execution_allowed": false
+  },
+  "discovery_periods": [
+    {"id": "D1", "start": "2008-01-01", "end": "2010-12-31"},
+    {"id": "D2", "start": "2011-01-01", "end": "2013-12-31"},
+    {"id": "D3", "start": "2014-01-01", "end": "2016-12-31"},
+    {"id": "D4", "start": "2017-01-01", "end": "2019-12-31"},
+    {"id": "D5", "start": "2020-01-01", "end": "2022-12-31"},
+    {"id": "D6", "start": "2023-01-01", "end": "2025-12-31"}
+  ],
+  "replication_periods": [
+    {"id": "R1", "start": "2008-01-01", "end": "2013-12-31"},
+    {"id": "R2", "start": "2014-01-01", "end": "2019-12-31"},
+    {"id": "R3", "start": "2020-01-01", "end": "2025-12-31"}
+  ],
+  "candidate_families": [
+    {"id": "absolute_trend", "rule": "absolute_trend", "source_ids": ["moskowitz-ooi-pedersen-tsmom"], "grid": {"lookback_days": [21, 42, 63, 84, 126, 168, 210, 252]}},
+    {"id": "moving_average", "rule": "moving_average", "source_ids": ["faber-tactical-asset-allocation"], "grid": {"lookback_days": [42, 63, 84, 126, 168, 210, 252, 294]}},
+    {"id": "relative_momentum", "rule": "relative_momentum", "source_ids": ["jegadeesh-titman-momentum", "antonacci-optimal-momentum"], "grid": {"lookback_days": [63, 126, 252, 378], "top_n": [1, 2, 3]}},
+    {"id": "dual_momentum", "rule": "dual_momentum", "source_ids": ["antonacci-optimal-momentum", "clare-trend-momentum"], "grid": {"lookback_days": [63, 126, 252, 378], "top_n": [1, 2, 3]}},
+    {"id": "composite_momentum", "rule": "composite_momentum", "source_ids": ["moskowitz-ooi-pedersen-tsmom", "antonacci-optimal-momentum"], "grid": {"top_n": [1, 2, 3]}},
+    {"id": "inverse_volatility", "rule": "inverse_volatility", "source_ids": ["lohre-diversifying-risk-parity"], "grid": {"volatility_days": [21, 42, 63, 126]}},
+    {"id": "inverse_volatility_trend", "rule": "inverse_volatility_trend", "source_ids": ["baltas-trend-risk-parity"], "grid": {"lookback_days": [63, 126, 252], "volatility_days": [21, 42, 63, 126]}},
+    {"id": "volatility_managed_equal", "rule": "volatility_managed_equal", "source_ids": ["moreira-muir-volatility-managed", "cederburg-volatility-managed-oos"], "grid": {"volatility_days": [21, 42, 63, 126], "target_volatility_bps": [800, 1000, 1200]}},
+    {"id": "short_term_reversal", "rule": "short_term_reversal", "source_ids": ["jegadeesh-short-term-reversal"], "grid": {"lookback_days": [5, 21, 42], "top_n": [1, 2, 3]}},
+    {"id": "correlation_gated_inverse_volatility", "rule": "correlation_gated_inverse_volatility", "source_ids": ["baltas-trend-risk-parity"], "grid": {"volatility_days": [21, 63, 126], "correlation_days": [63, 126], "maximum_correlation_bps": [3000, 5000]}}
+    ,{"id": "turn_of_month", "rule": "turn_of_month", "source_ids": ["mcconnell-xu-turn-of-month"], "grid": {"window": ["turn", "mid_month_falsifier"]}}
+    ,{"id": "option_expiration_week", "rule": "option_expiration_week", "source_ids": ["stivers-sun-option-expiration"], "grid": {"week_offset": [-1, 0, 1]}}
+    ,{"id": "halloween", "rule": "halloween", "source_ids": ["bouman-jacobsen-halloween"], "grid": {"window": ["november_april", "may_october_falsifier"]}}
+  ],
+  "costs": {
+    "base_one_way_bps": 10,
+    "stress_one_way_bps": [10, 25]
+  },
+  "selection": {
+    "objective": "minimum_of_fold_sharpe_25th_percentile_25bps_sharpe_and_remove_best_days_sharpe",
+    "stress_one_way_bps": 25,
+    "remove_best_days": 5,
+    "minimum_floor_improvement": 0.05,
+    "minimum_folds_beating_baseline": 4,
+    "maximum_syntheses_for_replication": 3,
+    "tie_break": "lexicographic_candidate_id"
+  },
+  "replication_gate": {
+    "minimum_floor_improvement": 0.05,
+    "minimum_folds_beating_baseline": 2
+  },
+  "bootstrap": {"seed": 240803, "samples": 5000, "block_days": 20},
+  "trial_accounting": {
+    "prior_genuine_daily_trials": 18,
+    "registered_discovery_candidates": 100
+  },
+  "promotion_ceiling": "DIAGNOSTIC_ONLY_UNTIL_LICENSED_POINT_IN_TIME_DATA_AND_EXECUTABLE_COST_CONFORMANCE_PASS"
+}

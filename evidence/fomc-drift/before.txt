@@ -1,0 +1,1 @@
+Before: no nodequant-fomc-drift command, no content-addressed official meeting manifest, no manifest-bound IVV authority, and no post-publication anomaly falsifier in the evidence graph.

@@ -1,0 +1,43 @@
+Authority-vocabulary AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Fresh production Next build
+- Production Assistant mounts NodeQuantPanels only; no TrialScope or freeform registry
+- Default unmocked POST /api/nodequant-chat returned HTTP 200 from the real backend review
+- Strict representative intercept also used /api/nodequant-chat and a real /api/kernel/review HTTP 200 payload
+- Exact verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 5600 CSS px for the complete single-message vocabulary
+- Temporary representative-payload intercept; production source unchanged
+- Research nodes use opaque IDs matching n_[0-9a-f]{16}; no semantic IDs or prose fields
+- Zero browser console errors
+
+Registered vocabulary, exactly once and in order
+- decision-packet
+- evidence-packet
+- option-structure
+- trade-intent
+- risk-gate-verdict
+- execution-receipt
+- position-state
+- adjudication-verdict
+- backtest-review
+- research-diagram
+
+Measured layout
+- Every panel client width equals scroll width: 654 px / 654 px.
+- No registered panel overflows horizontally.
+- No unknown top-level panel rendered.
+- The final research diagram remains within the assistant-message bounds.
+
+Research-diagram authority treatment
+- data-authority: quarantined
+- computed border style: dashed
+- Visible copy: generated · quarantined · no facts, figures or verdicts
+- Visible controlled topology: 2 controlled-concept nodes · 1 edges
+- It carries no facts, market figures, trading scores, or verdicts.
+
+Judgment
+- APPROVED: the exact ten-panel closed vocabulary renders coherently in one production assistant message.
+- Typed panels are visually resolved; research-diagram is visibly quarantined and cannot be skimmed as factual authority.
+- This representative render proves vocabulary and authority cues only, not market claims or promotion readiness.

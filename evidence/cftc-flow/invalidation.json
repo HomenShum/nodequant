@@ -1,0 +1,30 @@
+{
+  "version": "nodequant-cftc-flow-invalidation-v1",
+  "created_at_utc": "2026-08-04T09:47:12.7222409Z",
+  "policy_hash": "sha256:1e912eb74cda6a64b78b511d36aae9a48f56b688182c4e7fd4f6751dcf1df190",
+  "manifest_hash": "sha256:2da057db2fcbd93bdadc8e295cdd5b2dfadf4999d77fa0e93d871fef190ace1c",
+  "measured_result_hash": "sha256:2cdf0a3fb2b66d3cd332577a667d57ee839e9d08bf90afbf1d0835ed59b2a226",
+  "status": "INVALID_EVALUATOR_ACCOUNTING_CONTRACT",
+  "reason": "The frozen prose names a buy-and-hold equal-weight benchmark and turnover from rebalance weights, but the evaluator applies equal weights mechanically each day and does not drift strategy or benchmark weights between rebalances. The hashed evaluator therefore measures a different accounting contract from the human-readable preregistration.",
+  "registered_result": {
+    "verdict": "CFTC_HEDGING_PRESSURE_FAILS",
+    "primary_active_annualized_mean": 0.01585371959201367,
+    "primary_active_sharpe": 0.12282111317389766,
+    "block_lower": -0.03677978840536357,
+    "positive_folds": 1,
+    "remove_best_10_sharpe": -0.10947142606395083,
+    "all_three_gates_pass": false
+  },
+  "post_outcome_accounting_sensitivity_not_a_registered_trial": {
+    "description": "Drift strategy and benchmark weights, charge initial cash-to-risky turnover, rebalance the strategy only, and keep the equal-eight benchmark buy-and-hold.",
+    "primary_active_annualized_mean": -0.00008479985420002882,
+    "primary_active_sharpe": -0.0007563035908456071,
+    "block_lower": -0.041989874911339334,
+    "fold_annualized_means": [-0.02952891275367583, 0.04088342036489723],
+    "remove_best_10_sharpe": -0.36278869626981974,
+    "total_strategy_one_way_turnover": 59.655328734253345,
+    "all_three_gates_pass": false
+  },
+  "inference": "Neither accounting treatment clears the frozen gate, but the experiment cannot be counted as authoritative alpha evidence because the registered semantic and executable contracts disagree.",
+  "promotion_eligible": false
+}

@@ -1,0 +1,58 @@
+Worst-drawdown AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: one POST /api/kernel/review through the chat composer, HTTP 200
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 2100 CSS px for the complete unobscured panel
+- Worst-drawdown client width and scroll width: 622 px / 622 px; no horizontal overflow
+- Zero browser console errors
+- Caption: worst drawdown by split - event-time sampled - recovery may be censored
+
+DEVELOPMENT
+- depth: -$312.74 (-312744165 micros)
+- peak: 2026-01-05 16:58:00Z
+- trough: 2026-01-06 09:07:00Z
+- recovery: NOT_OBSERVED (censored)
+- decline: 58140s
+- recovery time: NOT_OBSERVED
+- interval underwater: 58560s
+- total underwater across the split: 58980s
+- overlapping episodes: 10
+- spans: pkt-spy-1093, pkt-spy-137, pkt-spy-241, pkt-spy-346, pkt-spy-452, pkt-spy-570, pkt-spy-674, pkt-spy-779, pkt-spy-884, pkt-spy-988
+
+VALIDATION
+- depth: -$200.93 (-200931169 micros)
+- peak: 2026-01-06 10:43:00Z
+- trough: 2026-01-06 18:06:00Z
+- recovery: NOT_OBSERVED (censored)
+- decline: 26580s
+- recovery time: NOT_OBSERVED
+- interval underwater: 26880s
+- total underwater across the split: 26880s
+- overlapping episodes: 5
+- spans: pkt-spy-1212, pkt-spy-1317, pkt-spy-1421, pkt-spy-1526, pkt-spy-1630
+
+TEST
+- depth: -$51.97 (-51967086 micros)
+- peak: 2026-01-06 19:36:00Z
+- trough: 2026-01-06 21:41:00Z
+- recovery: NOT_OBSERVED (censored)
+- decline: 7500s
+- recovery time: NOT_OBSERVED
+- interval underwater: 7500s
+- total underwater across the split: 7620s
+- overlapping episodes: 2
+- spans: pkt-spy-1735, pkt-spy-1840
+
+Boundary and interpretation
+- OPENED_HOLDOUT is absent from worst-drawdown observations and remains NOT_RUN - no observations in split-local performance.
+- Span overlap is measured; causal loss attribution is not yet built.
+- Sampling is at ledger event times; no intrabar-extrema claim is made.
+- No new performance arithmetic, QuantStats authority, or promotion-policy change.
+
+Unchanged neighbors
+- Four promotion blockers and four split bands remain unchanged.
+- Absolute equity payload remains 579 points with sha256:a090044c7e6af01c4cd396d15cd46a425b450c18fcb833785a391c1cb600a55f.
+- Economics, execution stress, TEST null benchmarks, journal/oracle/split footer remain unchanged.
+- Policy remains sha256:d43ce2609622099a2b96a92c132a05145a33ae4e2c4a0875c12a155b6b877519.

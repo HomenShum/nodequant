@@ -1,0 +1,51 @@
+
+  [L1 race] 8 concurrent identical count() calls
+    upstream requests : 1  (ideal 1)
+    cache             : {'entries': 1, 'hits': 0, 'misses': 8, 'expired': 0, 'coalesced': 7, 'inflight': 0}
+    redundant probes  : 0 (0% wasted)
+    rate-budget cost  : 0.00s of shared pacing spent on duplicates
+.
+  [L1 sequential] 8 identical count() calls -> upstream=1 cache={'entries': 1, 'hits': 7, 'misses': 1, 'expired': 0, 'coalesced': 0, 'inflight': 0}
+.
+  [cooldown re-check] cooldown applied at t=0.017s, window ends t=1.517s
+    _pace() releases: [0.0, 1.696, 1.877, 2.064, 2.248, 2.43]
+    RELEASED INSIDE THE COOLDOWN WINDOW: 0 of 6
+.
+  [cooldown blast radius] 8-probe fan-out, first probe 429s
+    request start offsets: [0.0, 1.7, 1.894, 2.093, 2.294, 2.489, 2.673, 2.858, 3.045]
+    started during the 1.5s cooldown: 0
+    MAX_CONCURRENT_PROBES = 3
+.
+  [shared pacing] inter-request gaps: [0.188, 0.185, 0.184, 0.184, 0.187] (MIN_REQUEST_INTERVAL_S=0.18)
+.
+  [session isolation] alice follow-up -> drug=Pembrolizumab condition=None
+.
+  [shared-session leak] alice asked about Pembrolizumab; her follow-up resolved to:
+    query     = 'Melanoma trials in PHASE3 by country'
+    drug_name = None   <- Alice's subject, LOST
+    condition = 'Melanoma'   <- Bob's subject, INHERITED
+.
+  [end-to-end /api/chat] filters_applied per request
+    alice #1 : {'query.intr': 'Pembrolizumab'}
+    bob   #1 : {'query.cond': 'melanoma'}
+    alice #2 : {'query.intr': 'Pembrolizumab'}   <- should still be Pembrolizumab
+.
+  [concurrent writes] 8 threads x 200 turns -> turns=8 bytes=2968 errors=0
+.
+  [orphaned session] held object turns=2, store's alice turns=0
+.
+  [failure isolation] 1 failed, 2 succeeded concurrently
+    survivor results        : [99, 99]
+    cache entry for failure : None
+    post-failure count      : 99
+.
+  [failed turn] follow-up subject after a failed request: 'Pembrolizumab'
+.
+  [load_index race] 8 concurrent cold callers
+    file connections opened : 8
+    retained in _CACHE      : 1
+    ORPHANED                : 7 (still open and unreachable: 7)
+.
+  [shared index] 8 threads x 25 reads -> distinct results={2500} errors=0
+.
+14 passed in 9.98s

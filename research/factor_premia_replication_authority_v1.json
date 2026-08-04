@@ -1,0 +1,26 @@
+{
+  "version": "nodequant-factor-premia-replication-authority-v1",
+  "frozen_at_utc": "2026-08-04T07:53:15.648Z",
+  "external_anchor": {
+    "system": "notion_page_comment",
+    "page_id": "3b09539b-8f9a-81a0-a3d8-c401d02e8480",
+    "comment_id": "3b29539b-8f9a-812f-96f3-001d415690ff",
+    "server_datetime_utc": "2026-08-04T07:53:15.648Z"
+  },
+  "policy_hash": "sha256:6257c0f77c86da6ed352a27e9a126eb4253f066e2ea3bfd69e2affebea43c44c",
+  "evaluator_hash": "sha256:19846cafd4c001f6f031ac672f8fb9bb20e36b1636c9742c8755a06cf5bb8e57",
+  "discovery_panel_hash": "sha256:76ea38dbaa209ff6c36339b1d78b8597b2de7e60dae492d4e25af216be5e5956",
+  "discovery_result_hash": "sha256:033f3d2cdaa6a41d8edbe209fed78e9fb65418bcaa3dc3fa6c1626c12f4765e2",
+  "selection_seal_hash": "sha256:971be80bbec2166400a28e80ae74218570c9c6dd7508d291d7a01a768f45c318",
+  "primary_candidate_id": "equal__HML_RMW_MOM",
+  "primary_factors": ["HML", "RMW", "MOM"],
+  "primary_weights": [0.3333333333333333, 0.3333333333333333, 0.3333333333333333],
+  "confirmatory_statistic": "annualized_mean_studentized_moving_block_bootstrap_onesided_95pct_lower",
+  "confirmatory_threshold": 0.0,
+  "replication_window": {"start_month": "199101", "end_month": "202512", "expected_months": 420},
+  "replication_sources": [
+    "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Developed_ex_US_5_Factors_CSV.zip",
+    "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Developed_ex_US_Mom_Factor_CSV.zip"
+  ],
+  "replication_source_state": "RETURN_BYTES_UNREAD"
+}

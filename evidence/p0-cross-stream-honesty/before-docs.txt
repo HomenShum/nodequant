@@ -1,0 +1,53 @@
+120:2. **A separate-agent oracle**: give a fresh agent only the frozen manifest, the
+121:   raw fixture and the output schema — no access to either implementation — and
+122:   have it write a third replay path. That lifts `semantic_independence` from
+123:   `LIMITED` and clears one blocker.
+124:3. **Spread and slippage**, which clears two more.
+125:4. **The order-lifecycle journal** (`ORDER_CREATED` … `ORDER_FILLED`). Only then
+126:   does the P&L identity become a genuine cross-stream reconciliation rather than
+127:   a tautology — see trap 1.
+128:5. The remaining eight panels of the ten-panel vocabulary (DESIGN.md §3).
+129:
+130:## Known-open, honestly
+131:
+132:- **`flat_pnl_residual_micros` is still rendered.** It is real (its sides are not
+133:  literally identical) but weaker than its name implies, and it is blind to fee
+134:  deletion. The design thread wants it off the panel until the order journal
+135:  exists. Not yet done.
+136:- **Two load-sensitive tests.** `test_attack1b_l2_store_is_tenant_namespaced` and
+154:**Conservation is incomplete as built.** The thread wants inventory and P&L
+155:conservation with a frozen cost-basis policy:
+156:
+157:```
+158:remaining_cost_basis >= 0
+159:remaining_cost_basis == 0 when position == 0
+160:unrealized_pnl = marked_position_value - remaining_cost_basis
+161:realized + unrealized - fees == equity - initial_capital
+162:```
+163:
+164:⚠️ **That last identity is TAUTOLOGICAL as currently derivable** — I measured it:
+165:0 residual on the honest ledger *and* 0 on a ledger with fabricated inventory,
+166:because `position_value` appears on both sides. It only becomes real evidence
+167:once `remaining_cost_basis` comes from an **independent inventory stream** — i.e.
+168:after the order journal exists. Do not put it on the panel before then.
+169:
+170:**Keep the financial ledger separate from the order journal.** A second
+171:append-only lifecycle stream, not yet built:
+172:
+173:```
+174:ORDER_CREATED  ORDER_APPROVED  ORDER_SUBMITTED  ORDER_PARTIALLY_FILLED
+175:ORDER_FILLED   ORDER_CANCELLED ORDER_REJECTED   ORDER_EXPIRED
+176:```
+177:
+178:Every `ORDER_FILL` financial event references exactly one lifecycle order. This
+179:is what turns the P&L identity into a genuine cross-stream reconciliation.
+180:
+296:manifest.
+297:
+298:## 8. Panel rules the thread set
+299:
+300:- **Show no reconciliation residual today.** Better to show nothing than a number
+301:  that can only ever be zero. (`flat_pnl_residual_micros` is still rendered —
+302:  known-open in HANDOFF.md.)
+303:- **A non-zero authoritative monetary value may never render as zero.** Enforced
+304:  with a runnable self-check in `web/lib/money.mjs`. The architecture can be

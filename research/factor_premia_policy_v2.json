@@ -1,0 +1,49 @@
+{
+  "version": "nodequant-factor-premia-policy-v2",
+  "frozen_at_utc": "2026-08-04T07:51:18.658Z",
+  "purpose": "select_one_us_factor_subset_then_test_persistence_on_unread_developed_ex_us_returns",
+  "claim_boundary": "revised_published_factor_persistence_diagnostic_not_investable_or_cost_adjusted_alpha",
+  "supersedes": {"policy": "factor_premia_policy_v1.json", "status": "INVALID_HEADER_DETECTION", "reason": "v1 could select prose containing Mom instead of the comma-delimited CSV header; no strategy metric or discovery result was produced"},
+  "evaluator_hash": "sha256:19846cafd4c001f6f031ac672f8fb9bb20e36b1636c9742c8755a06cf5bb8e57",
+  "sources": [
+    {"id": "french-data-library", "role": "data_contract_and_revision_record", "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/Data_Library.html"},
+    {"id": "fama-french-five-factor", "role": "economic_prior", "url": "https://doi.org/10.1016/j.jfineco.2014.10.010"},
+    {"id": "value-momentum-everywhere", "role": "cross_geography_prior", "url": "https://doi.org/10.1111/jofi.12021"}
+  ],
+  "provider": {"host": "mba.tuck.dartmouth.edu", "timeout_seconds": 30, "maximum_response_bytes": 1000000, "maximum_uncompressed_bytes": 2000000},
+  "candidate_factors": ["HML", "RMW", "CMA", "MOM"],
+  "trial_accounting": {"discovery_candidates": 15, "replication_candidates": 1},
+  "haircuts": {"interpretation": "implementation_stress_not_measured_transaction_cost", "stress_annual_bps_by_factor": {"HML": 100, "RMW": 100, "CMA": 100, "MOM": 300}},
+  "discovery_data": {
+    "universe": "US", "start_month": "196401", "end_month": "199012", "expected_months": 324,
+    "source_state_at_v2_freeze": "RAW_BYTES_FROZEN_AFTER_SCHEMA_FETCH_NO_STRATEGY_METRICS_COMPUTED",
+    "sources": [
+      {"role": "five_factor", "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_CSV.zip", "filename": "us-five-factor.zip", "allowed_columns": ["HML", "RMW", "CMA"], "expected_sha256": "cbc3724812132654fbbe8daae3c46e0f90e70008434f94a7986fe49f1db6ad3b", "head_content_length": 11901, "head_last_modified": "Mon, 03 Aug 2026 19:17:07 GMT"},
+      {"role": "momentum", "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Momentum_Factor_CSV.zip", "filename": "us-momentum.zip", "allowed_columns": ["Mom"], "expected_sha256": "f405ee2d47a5c75ce05025f789733d0599879361e9836a553504240b89159871", "head_content_length": 5610, "head_last_modified": "Mon, 03 Aug 2026 19:17:08 GMT"}
+    ]
+  },
+  "replication_data": {
+    "universe": "Developed ex US", "start_month": "199101", "end_month": "202512", "expected_months": 420,
+    "source_state_at_v2_freeze": "HEAD_ONLY_RETURN_BYTES_UNREAD",
+    "sources": [
+      {"role": "five_factor", "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Developed_ex_US_5_Factors_CSV.zip", "filename": "developed-ex-us-five-factor.zip", "allowed_columns": ["HML", "RMW", "CMA"], "head_content_length": 6746, "head_last_modified": "Thu, 30 Jul 2026 20:24:24 GMT"},
+      {"role": "momentum", "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Developed_ex_US_Mom_Factor_CSV.zip", "filename": "developed-ex-us-momentum.zip", "allowed_columns": ["Mom", "WML"], "head_content_length": 2227, "head_last_modified": "Thu, 30 Jul 2026 20:24:25 GMT"}
+    ]
+  },
+  "discovery_periods": [
+    {"id": "D1", "start": "196401", "end": "197212"},
+    {"id": "D2", "start": "197301", "end": "198112"},
+    {"id": "D3", "start": "198201", "end": "199012"}
+  ],
+  "replication_periods": [
+    {"id": "R1", "start": "199101", "end": "199712"},
+    {"id": "R2", "start": "199801", "end": "200412"},
+    {"id": "R3", "start": "200501", "end": "201112"},
+    {"id": "R4", "start": "201201", "end": "201812"},
+    {"id": "R5", "start": "201901", "end": "202512"}
+  ],
+  "selection": {"score": "minimum_of_three_fold_sharpes_and_remove_best_12_months_sharpe_after_factor_specific_stress_haircuts", "remove_best_months": 12, "minimum_positive_folds": 2, "no_go_if_robust_floor_not_positive": true, "tie_break": ["higher_robust_floor", "fewer_factors", "lexicographic_id"]},
+  "bootstrap": {"method": "studentized_circular_moving_block", "seed": 240804, "samples": 10000, "block_months": 12, "one_sided_confidence": 0.95},
+  "replication_gate": {"single_confirmatory_statistic": "annualized_mean_studentized_moving_block_bootstrap_onesided_95pct_lower", "annualized_mean_studentized_bootstrap_lower_must_exceed": 0.0},
+  "promotion_ceiling": "REVISED_PUBLISHED_FACTOR_DIAGNOSTIC_NOT_INVESTABLE_OR_EXECUTABLE_ALPHA"
+}

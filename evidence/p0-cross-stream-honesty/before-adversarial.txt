@@ -1,0 +1,8 @@
+scenario=authorized_round_trip_inflated_from_1_to_6
+receipt_acceptable=True
+flat_pnl_residual_micros=0
+unauthorized_fills=0
+promotion=PROMOTABLE
+blockers=
+honest_final_equity_micros=99449124700
+forged_final_equity_micros=99295209700

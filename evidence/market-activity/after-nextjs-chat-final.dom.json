@@ -1,0 +1,8 @@
+{
+  "launcher": true,
+  "headerLink": "Market Map",
+  "countText": true,
+  "sectorText": true,
+  "claimBoundary": true,
+  "bodyOverflow": 0
+}

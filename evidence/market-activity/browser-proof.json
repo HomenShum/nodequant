@@ -1,0 +1,13 @@
+{
+  "origin": "http://127.0.0.1:3207",
+  "viewport": {
+    "width": 1728,
+    "height": 1117
+  },
+  "http_status": 200,
+  "tiles": 504,
+  "unique_tickers": 504,
+  "exact_ticker_search": "MU -> 1 IN FOCUS",
+  "health_care_filter": "60 IN FOCUS",
+  "console_errors": 0
+}

@@ -1,0 +1,73 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_count": 6,
+    "blocker_codes": [
+      "CROSS_STREAM_RECONCILIATION_NOT_IMPLEMENTED",
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "NO_SPREAD_MODEL",
+      "NO_SLIPPAGE_MODEL"
+    ],
+    "footer_text": "curve matched true · unauthorized fills 0 · early entries 0 · price mismatches 0 · 579 events\npolicy sha256:e966fc74d666886681b79ea0adc5f9a1efd6fe9603b7e82bdac46cce1a1c87ca",
+    "panel_css_box": {
+      "x": 349,
+      "y": 107,
+      "width": 656,
+      "height": 677.265625
+    },
+    "console_errors": [],
+    "artifact": "change-boundary.png",
+    "annotations": [
+      "CHANGE A · cost blockers",
+      "CHANGE B · modeled cost metrics"
+    ],
+    "boundary_contract": {
+      "change_a": "promotion blocker list only",
+      "change_b": "summary dl only; no curve pixels enclosed",
+      "curve": {
+        "unchanged": [
+          "container geometry",
+          "SVG structure",
+          "styling",
+          "event timestamps"
+        ],
+        "expected_to_change": [
+          "equity y-values",
+          "drawdown y-values"
+        ]
+      },
+      "policy_hash_expected_to_change": true,
+      "event_count_expected": 579
+    }
+  }
+}

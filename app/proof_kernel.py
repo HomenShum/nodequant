@@ -30,6 +30,8 @@ Two honest limitations, stated rather than buried:
 from __future__ import annotations
 
 import math
+import hashlib
+import json
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from typing import Iterable
@@ -39,6 +41,7 @@ from app.decision_packet import (
     DecisionPacket,
     Direction,
     EvidenceClass,
+    ExecutionCostPolicy,
     Fact,
     FactReceipt,
     MutationEvidence,
@@ -51,7 +54,14 @@ from app.decision_packet import (
 )
 
 SYMBOL = "SPY"
-STRATEGY = Strategy(id="spy-pullback", version="0.1.0", config_hash="fast20-slow50")
+STRATEGY = Strategy(
+    id="spy-pullback",
+    version="0.1.0",
+    config_hash="fast20-slow50-cost-v1",
+    execution_cost_policy=ExecutionCostPolicy(
+        version="fixed-adverse-v1", half_spread_ppm=50, slippage_ppm=25
+    ),
+)
 FAST, SLOW = 20, 50
 EPOCH = datetime(2026, 1, 5, 14, 30, tzinfo=timezone.utc)  # a Monday open, UTC
 PROBE = "bars.spy.1m.fixture"
@@ -69,6 +79,22 @@ class Bar:
     ts: datetime
     close: float
     receipt: FactReceipt
+
+
+def bars_hash(bars: list[Bar]) -> str:
+    """Bind every bar byte-equivalent field into the verifier gate."""
+
+    payload = [
+        {
+            "index": bar.index,
+            "timestamp_utc": bar.ts.isoformat(),
+            "close": bar.close,
+            "receipt": bar.receipt.model_dump(mode="json"),
+        }
+        for bar in bars
+    ]
+    encoded = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+    return "sha256:" + hashlib.sha256(encoded.encode("utf-8")).hexdigest()
 
 
 def fixture_bars(count: int = 2400) -> list[Bar]:
@@ -348,8 +374,10 @@ def run_gate(
     }
 
     passed = 0
+    packet_hashes: list[str] = []
     for i in indices:
         packet = build_packet(bars, i)
+        packet_hashes.append(canonical_hash(packet))
         result = verify(
             packet,
             oracle(bars, i),
@@ -370,6 +398,8 @@ def run_gate(
         "status": "PASS" if passed == len(indices) == limit else "FAIL",
         "packetsExpected": limit,
         "packetsPassed": passed,
+        "packetHashes": packet_hashes,
+        "barsHash": bars_hash(bars),
         **tally,
     }
 

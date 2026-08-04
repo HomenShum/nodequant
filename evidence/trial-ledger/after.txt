@@ -1,0 +1,40 @@
+Trial-ledger AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: one POST /api/kernel/review through the chat composer, HTTP 200
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 3300 CSS px for the complete unobscured panel
+- Trial-ledger client width and scroll width: 622 px / 622 px; no horizontal overflow
+- Zero browser console errors
+- Caption: current candidate-trial batch · lineage only · not promotion evidence
+
+Visible trial-ledger state
+- records preserved: 9/9
+- batch complete: true
+- global completeness: UNVERIFIED
+- pre-test registration: UNVERIFIED
+- OPENED_HOLDOUT observed: 2/9
+- Nine aligned rows are visible with trial, definition-hash prefix, and result-hash prefix.
+- Full ledger hash: sha256:d4b3d0f51df71089b7268b3370b2e181072986b8b50f553b67f2d6355781656d
+
+Authority chain
+- Robustness result root: sha256:8f16d8440cfe21c3e7392a22c90c396ac13ace63fcddb453be602dc6ecaf3a21
+- Robustness receipt hash: sha256:b37a668908b9290b6d7576ae5dd102f4500c7eb870838169f25d384fdea7fa90
+- Trial-ledger hash: sha256:d4b3d0f51df71089b7268b3370b2e181072986b8b50f553b67f2d6355781656d
+- The observation JSON records every full definition hash and result hash, not only the visible prefixes.
+
+Statistical handoff
+- FAIL | candidate_trial_ledger | current batch preserves 9 trials, but global completeness and pre-test registration are unverified. | observed 9
+- NOT_RUN | test_confidence_interval | observed 2 · required 30
+- NOT_RUN | deflated_sharpe | observed NOT_RUN
+- NOT_RUN | probability_of_backtest_overfitting | observed NOT_RUN
+
+Unchanged blockers
+- SYNTHETIC_CORPUS
+- MARKET_DATA_CONFORMANCE_NOT_RUN
+- ORACLE_NOT_INDEPENDENT_ENOUGH
+- SPLIT_DISCIPLINE_NOT_PROVEN
+
+Interpretation
+The current nine-trial batch has immutable, policy-bound lineage, but it is not a complete or pre-registered universe. The UI therefore fails candidate-ledger adequacy and does not promote the strategy.

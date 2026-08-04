@@ -1,0 +1,3 @@
+diff --git a/evidence/p0-cross-stream-honesty/before-adversarial.txt b/evidence/p0-cross-stream-honesty/after-adversarial.txt
+index 41838f2..453581d 100644
+Binary files a/evidence/p0-cross-stream-honesty/before-adversarial.txt and b/evidence/p0-cross-stream-honesty/after-adversarial.txt differ

@@ -1,0 +1,94 @@
+{
+  "version": "nodequant-real-daily-alpha-policy-v2",
+  "frozen_at_utc": "2026-08-03T00:30:00Z",
+  "purpose": "diagnostic_real_data_alpha_search_not_promotion_evidence",
+  "supersedes_policy_hash": "sha256:d58d2e80c14ca0aebf1a4b6ed9a3b49d9143cc130d86cbbe09e925ab2a762387",
+  "prior_result_hash": "sha256:39c145d41547cf077d7fe08f6f8b305985d05e3bf8d15c3025da5311c0d7b018",
+  "evaluator_revision": "frozen_byte_replay_and_timestamp_excluded_from_result_identity",
+  "prior_failure": "absolute trend improved development-validation robustness but failed 2016-2019 test versus always-long",
+  "data": {
+    "provider": "Yahoo Finance chart endpoint",
+    "provider_authority": "secondary_unofficial_diagnostic_source",
+    "endpoint_template": "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+    "start": "2007-06-01",
+    "end_exclusive": "2026-01-01",
+    "interval": "1d",
+    "price_field": "adjclose",
+    "risky_symbols": ["SPY", "QQQ", "IWM", "TLT", "GLD"],
+    "cash_proxy_symbol": "BIL",
+    "maximum_symbols": 6,
+    "maximum_response_bytes_per_symbol": 2000000,
+    "maximum_rows_per_symbol": 6000,
+    "minimum_common_rows": 4000
+  },
+  "temporal_contract": {
+    "signal_information_cutoff": "previous_month_end_adjusted_close",
+    "execution": "one_full_daily_bar_after_signal_observation",
+    "rebalance": "monthly",
+    "same_bar_execution_allowed": false
+  },
+  "splits": [
+    {"id": "DEVELOPMENT", "start": "2007-06-01", "end": "2011-12-31", "optimizer_accessible": true},
+    {"id": "VALIDATION", "start": "2012-01-01", "end": "2019-12-31", "optimizer_accessible": true},
+    {"id": "TEST", "start": "2020-01-01", "end": "2022-12-31", "optimizer_accessible": false},
+    {"id": "OPENED_HOLDOUT", "start": "2023-01-01", "end": "2025-12-31", "optimizer_accessible": false}
+  ],
+  "candidate_family": "cross_asset_relative_and_dual_momentum",
+  "candidates": [
+    {"id": "always_long", "rule": "always_long", "lookback_days": 0},
+    {"id": "relative_top1_126", "rule": "top_n_lookback", "lookback_days": 126, "top_n": 1},
+    {"id": "relative_top2_126", "rule": "top_n_lookback", "lookback_days": 126, "top_n": 2},
+    {"id": "relative_top1_252", "rule": "top_n_lookback", "lookback_days": 252, "top_n": 1},
+    {"id": "relative_top2_252", "rule": "top_n_lookback", "lookback_days": 252, "top_n": 2},
+    {"id": "dual_top1_252", "rule": "top_n_positive_lookback", "lookback_days": 252, "top_n": 1},
+    {"id": "dual_top2_252", "rule": "top_n_positive_lookback", "lookback_days": 252, "top_n": 2},
+    {"id": "composite_top2", "rule": "top_n_composite_positive", "lookback_days": 252, "top_n": 2}
+  ],
+  "controls": [
+    {"id": "bottom1_252", "rule": "bottom_n_lookback", "lookback_days": 252, "top_n": 1}
+  ],
+  "portfolio": {
+    "risky_allocation": "equal_weight_across_selected_risky_symbols",
+    "inactive_allocation": "BIL_cash_proxy",
+    "shorting": false,
+    "leverage": false,
+    "dividends_and_splits": "provider_adjusted_close"
+  },
+  "costs": {
+    "base_one_way_bps": 10,
+    "stress_one_way_bps": [5, 10, 20, 25],
+    "scope": "turnover_charge_only; taxes, borrow, market impact, and account-specific fees excluded"
+  },
+  "selection": {
+    "metric": "robust_excess_sharpe_floor",
+    "annualization_days": 252,
+    "components": [
+      "development_excess_sharpe_at_base_cost",
+      "validation_excess_sharpe_at_base_cost",
+      "development_plus_validation_excess_sharpe_at_25bps",
+      "development_plus_validation_excess_sharpe_after_removing_best_5_days"
+    ],
+    "minimum_improvement_over_always_long": 0.05,
+    "tie_break": "lower_turnover_then_lexicographic_candidate_id"
+  },
+  "test_gate": {
+    "excess_sharpe_improvement_over_always_long": 0.0,
+    "net_cagr_minimum": 0.0,
+    "max_drawdown_must_improve_over_always_long": true,
+    "excess_sharpe_at_25bps_minimum": 0.0,
+    "leave_one_risky_asset_out_excess_sharpe_minimum": 0.0
+  },
+  "holdout_gate": {
+    "net_cagr_minimum": 0.0,
+    "excess_sharpe_minimum": 0.0,
+    "paired_active_mean_bootstrap_lower_bound_minimum": 0.0
+  },
+  "bootstrap": {"seed": 240803, "samples": 5000, "block_days": 20},
+  "trial_accounting": {
+    "prior_trials": 9,
+    "registered_candidate_count": 8,
+    "registered_control_count": 1,
+    "cumulative_trials_after_run": 18
+  },
+  "promotion_ceiling": "DIAGNOSTIC_ONLY_UNTIL_PROVIDER_REFETCH_AND_MARKET_CONFORMANCE_PASS"
+}

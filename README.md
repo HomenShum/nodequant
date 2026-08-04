@@ -60,6 +60,61 @@ uv run uvicorn app.main:app --port 8000
 cd web && npm install && npm run dev
 ```
 
+The preregistered genuine-daily-data diagnostic is reproducible from the frozen
+snapshot with `uv run nodequant-alpha --policy research/real_alpha_policy_g2.json
+--raw-directory evidence/real-alpha-search/raw --reuse-raw`. Its current verdict
+is negative; see [docs/REAL_ALPHA_SEARCH.md](docs/REAL_ALPHA_SEARCH.md).
+
+The breadth-first successor runs 100 discovery candidates across 13 families,
+seals the replication set and drift-aware evaluator before reading a new ETF
+universe, and preserves all 116 measured trials. Composite momentum improved
+replication point estimates but was not a discovery survivor and failed fold and
+active-return uncertainty gates; see
+[docs/ALPHA_BREADTH_SEARCH.md](docs/ALPHA_BREADTH_SEARCH.md).
+
+The next evidence rung is a content-addressed future-time packet rather than
+another historical holdout. See [docs/PROSPECTIVE_ALPHA.md](docs/PROSPECTIVE_ALPHA.md)
+and reproduce it with `uv run --no-sync python -m app.prospective_alpha --reuse-raw`.
+
+An independent-mechanism crypto experiment searched 106 BTC UTC/calendar rules
+and opened an externally sealed ETH 2023-2025 panel, but was invalidated after
+an audit proved Coinbase bucket-start timestamps had been treated as close
+instants. Corrected post-hoc sensitivity remains negative; it is not replacement
+replication or alpha evidence. See
+[docs/CRYPTO_SEASONALITY.md](docs/CRYPTO_SEASONALITY.md).
+
+The first positive confirmatory research result is a cross-geography factor
+persistence diagnostic. A 15-subset U.S. discovery selected equal-weight HML,
+RMW and momentum, then one externally authorized developed-ex-U.S. holdout
+passed its sole frozen gate across 420 months: the one-sided 95% studentized
+block-bootstrap lower bound on annualized stressed mean was +2.25%, and all five
+registered folds were positive. This is revised published zero-cost factor
+evidence, not executable or promotion-eligible alpha. See
+[docs/FACTOR_PREMIA.md](docs/FACTOR_PREMIA.md).
+
+Its next investability falsifier froze one liquid long-only proxy before opening
+return bytes: equal MTUM/QUAL/VLUE versus SPY, monthly, with measured turnover
+charges. The proxy failed all three registered gates over 2014–2025: 12.30%
+versus 13.40% CAGR, −0.95% annual active mean, −2.36% one-sided block lower
+bound, 1/4 positive folds, and −1.03 Sharpe after removing the best 12 months.
+This is a useful contradiction, not a reason to tune the now-open ETF panel.
+See [docs/INVESTABLE_FACTOR.md](docs/INVESTABLE_FACTOR.md).
+
+The research trail is also compiled into a deterministic point-in-time multiplex
+graph at `/research-graph`: the content-addressed nodes and typed edges cover
+the failed daily searches, prospective packet, invalidated crypto branch, factor
+policy/authority/result, visuals, and open implementation gap. Search, temporal
+cutoff, layer filters, and deterministic attention change what a reviewer sees;
+the graph never copies performance values out of their authoritative artifacts.
+See [docs/RESEARCH_EVIDENCE_GRAPH.md](docs/RESEARCH_EVIDENCE_GRAPH.md).
+
+The trader-facing successor is specified separately as the **U.S. Large-Cap
+Market Activity Graph**. It distinguishes activity, directional pressure, fund
+flow, and rotation; freezes a multiscale market→sector→industry→instrument→event
+spine; and refuses to render a fake live map before the point-in-time universe,
+market, options, event, and source corpora reconcile. See
+[docs/MARKET_ACTIVITY_GRAPH.md](docs/MARKET_ACTIVITY_GRAPH.md).
+
 Copy `.env.example` to `.env` and set your model provider key. Postgres is optional — it caches
 measured probes and nothing else. See `docker-compose.yml`.
 

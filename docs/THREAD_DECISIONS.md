@@ -6,8 +6,9 @@ that constrains the code, written down so the next agent can **self-direct**
 instead of re-deriving it or, worse, "fixing" a deliberate decision.
 
 Where a decision is already enforced in code, the file is named. Where it is not
-yet built, it says so. Two items are marked `[heading-only]` — I read the section
-title and not its body, so treat those as leads, not specifications.
+yet built, it says so. One item remains marked `[heading-only]` — its section
+title, but not its body, was recoverable, so treat it as a lead, not a
+specification.
 
 ---
 
@@ -162,9 +163,10 @@ realized + unrealized - fees == equity - initial_capital
 
 ⚠️ **That last identity is TAUTOLOGICAL as currently derivable** — I measured it:
 0 residual on the honest ledger *and* 0 on a ledger with fabricated inventory,
-because `position_value` appears on both sides. It only becomes real evidence
-once `remaining_cost_basis` comes from an **independent inventory stream** — i.e.
-after the order journal exists. Do not put it on the panel before then.
+because `position_value` appears on both sides. An independent cost-basis value
+alone is still insufficient: the other stream must independently author and
+reconcile quantities as well as cash, fees, fills, marks and IDs. Do not put a
+P&L residual on the panel before those mutations are demonstrably detectable.
 
 **Keep the financial ledger separate from the order journal.** A second
 append-only lifecycle stream, not yet built:
@@ -174,8 +176,9 @@ ORDER_CREATED  ORDER_APPROVED  ORDER_SUBMITTED  ORDER_PARTIALLY_FILLED
 ORDER_FILLED   ORDER_CANCELLED ORDER_REJECTED   ORDER_EXPIRED
 ```
 
-Every `ORDER_FILL` financial event references exactly one lifecycle order. This
-is what turns the P&L identity into a genuine cross-stream reconciliation.
+Every `ORDER_FILL` financial event references exactly one lifecycle order. The
+journal is necessary but not sufficient: its quantities and postings must be
+independent authorities, or both streams can share the same fabricated inventory.
 
 **Execution cost contract per authorised fill.** A FEE event's *presence* is not
 enough; its **amount** must be contracted. (A −1 microdollar fee passed
@@ -213,17 +216,46 @@ promote:**
 Absent costs bias the curve in one direction only — upward — which is the
 direction that manufactures a promotable-looking strategy.
 
-**In-sample vs out-of-sample** `[heading-only]`: a mandatory divider on the same
-chart, *and* separate metrics per split. Neither is built.
+**In-sample vs out-of-sample:** use one chart with immutable split markers,
+visibly different background bands, persistent split labels, lower visual
+emphasis for development data, prominent out-of-sample data, and a split tag on
+every point. Do not put the splits in separate panels, where the attractive one
+can be shown alone. Preserve absolute equity in the payload, but default the
+promotion view to equity rebased within each split so a large development gain
+cannot visually hide a weak test period.
+
+Metrics are separate per development, validation, test, and opened holdout
+split. Never blend a promotion Sharpe or expectancy across development and test;
+the combined curve is context, and only the declared out-of-sample split
+participates in promotion. None of this is built.
 
 **`adjudication-verdict` is per EPISODE, not per trade.** Fields established
 earlier in the thread: signal quality, option selection, execution, loss source,
 research lesson.
 
-**QuantStats sections** `[heading-only]`: the thread split them into "mandatory on
-the promotion surface" versus report habits that do not change the decision. Read
-that section before building the review surface out — do not port the whole
-tearsheet.
+**QuantStats sections:** use QuantStats as a calculation/reporting library, not
+as an authority model. Its return-period charts are not automatically promotion
+evidence.
+
+- **Mandatory on the promotion surface:** a worst-drawdown table carrying peak,
+  trough, recovery, depth, decline duration, recovery duration, total time
+  underwater, contributing episodes, and split. Recovery burden and capital
+  lockup distinguish strategies with the same maximum drawdown.
+- **Secondary diagnostic:** the monthly heatmap. Its authoritative source is a
+  typed contribution/concentration table: month, net P&L, gross profit, gross
+  loss, fees, exposure, episode count, share of gross profit, and largest episode
+  contribution. The heatmap gets no unique authority.
+- **Optional diagnostic:** rolling Sharpe. Freeze its window in the experiment
+  manifest, reset at split boundaries, never span development and test, disclose
+  observation count, and keep it out of promotion evidence. Rolling net
+  expectancy, cost-adjusted P&L, drawdown, and confidence intervals are more
+  decision-relevant defaults.
+
+The thread's section order is: evidence/lineage; split-aware equity/drawdown;
+promotion verdict; out-of-sample metrics/confidence intervals; drawdown episodes
+and recovery; parent/benchmark comparison; cost/latency/slippage stress;
+contribution/concentration; episode blotter; diagnostics. Do not lead with a
+monthly heatmap or port a tearsheet wholesale.
 
 ## 6. The real-data increment — what "done" means
 
@@ -267,9 +299,9 @@ manifest.
 
 ## 8. Panel rules the thread set
 
-- **Show no reconciliation residual today.** Better to show nothing than a number
-  that can only ever be zero. (`flat_pnl_residual_micros` is still rendered —
-  known-open in HANDOFF.md.)
+- **Show no reconciliation residual today.** Better to expose reconciliation as
+  `NOT_RUN` than show a scalar blind to coherent inventory fabrication. The old
+  `flat_pnl_residual_micros` field has been removed from the receipt and policy.
 - **A non-zero authoritative monetary value may never render as zero.** Enforced
   with a runnable self-check in `web/lib/money.mjs`. The architecture can be
   mathematically correct while the user-facing authority layer states something
@@ -287,3 +319,86 @@ manifest.
 - The thread can read the GitHub repo — but only the **last pushed commit**.
   Anything unpushed is invisible and it will report those things as ABSENT with
   full confidence. Push before asking it to review, and name the exact SHA.
+
+---
+
+## 10. Terminal UI, staleness, and execution authority — 2026-08-04
+
+Consulted before building the Bloomberg/TradingView-style surface. Full transcript:
+[`research/thread/nodequant-thread-2026-08-04.md`](../research/thread/nodequant-thread-2026-08-04.md).
+
+**The governing invariant, verbatim:**
+
+> A NodeQuant workspace may present itself as current only when every required
+> linked surface shares the same committed context epoch and symbol, every live
+> dependency passes its freshness policy, and no invalidation trigger has fired;
+> otherwise the workspace remains inspectable but becomes explicitly
+> non-actionable.
+
+**A persistent terminal needs a temporal-authority kernel BEFORE it needs a
+layout system.** Do not install `react-resizable-panels` first. Four dimensions
+that must stay separate and are currently collapsed into one:
+
+```
+provenance  |  freshness  |  cross-pane coherence  |  actionability
+```
+
+A receipt proves provenance. It says nothing about freshness. The authority law
+as written is fully satisfied by a screen that is entirely stale — which is the
+same shape as the tautology problem: a check that passes for a state nobody
+should trust.
+
+**Symbol linking must be transactional, not best-effort.** Every required pane
+commits to one new `(symbol, epoch)` or the workspace degrades to explicitly
+non-actionable. A failed *optional* pane permits `PARTIAL`, but its old content
+is masked and labelled as belonging to the previous epoch. **Any SSE frame from
+epoch N-1 arriving after epoch N commits must be rejected** — otherwise a late
+frame silently repaints a pane with superseded data. Best-effort linking produces
+a coherent-looking false state, which is worse than an obviously broken one.
+
+**The price chart is NOT one of the ten agent panels.** It is an always-present
+core market surface with its own `freshnessPolicyHash`, and it needs the
+strictest and most obvious freshness treatment, because it is the surface most
+likely to be believed continuously.
+
+**Yes, the terminal form invites deference** — that was the honest answer to
+"is there a reason not to do this". It is manageable *only* if `stale`,
+`partial`, `replay`, `invalidated` and `diverged` are impossible to visually
+mistake for current authority. That is a design requirement, not a polish item.
+
+### Execution authority — the hole is real, and the missing object is named
+
+Current authority proves a fill belongs to a packet and that the buy waited for
+the permitted entry timestamp. It does **not** prove the complete trade lifecycle
+was authorised. The confirmed attack: `BUY` at the authorised entry, `SELL` at
+the highest later bar before the data ends — perfect-foresight exit under a
+valid packet.
+
+The missing object is an **`ExecutionPlan`**, sitting between the packet and the
+journal:
+
+```
+DecisionPacket -> ExecutionPlan -> RiskGateVerdict -> OrderJournal -> FinancialLedger
+```
+
+Every fill must reconcile against the plan, and the chain must require: packet
+exists, execution plan exists, risk verdict exists, order journal entry exists.
+
+### Evidence class — right boundary, wrong name, wrong shape
+
+The byte-reproducibility vs market-conformance distinction is **correct and
+currently enforced, not decorative** — confirmed against the code. Two changes:
+
+- Rename `EXTERNAL_BAR_SNAPSHOT`; "external" overclaims what has been
+  established. Suggested: **`BYTE_ADDRESSED_BAR_SNAPSHOT`** (alternatives offered:
+  `CALLER_SUPPLIED_BAR_SNAPSHOT`, `UNCONFORMED_BAR_SNAPSHOT`).
+- **Do not make evidence class one ordinal ladder.** It is collapsing several
+  independent claims into a single rank; they need to be separate fields.
+
+### Revised build order for the terminal
+
+1. Temporal-authority kernel: surface freshness envelopes, workspace context
+   epochs, epoch-stamped SSE with stale-frame rejection.
+2. `ExecutionPlan` + lifecycle chain, closing the execution-authority hole.
+3. Evidence-class rename and de-laddering.
+4. Only then: layout, command palette, price surface.

@@ -1,0 +1,15 @@
+{
+  "headerLinkName": "Market Map",
+  "launcher": true,
+  "bodyOverflow": 0,
+  "viewport": [
+    390,
+    844
+  ],
+  "launcherBox": {
+    "x": 20,
+    "y": 256.453125,
+    "width": 333,
+    "height": 345.078125
+  }
+}

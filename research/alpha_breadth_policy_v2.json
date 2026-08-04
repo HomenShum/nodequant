@@ -1,0 +1,25 @@
+{
+  "version": "nodequant-alpha-breadth-policy-v2",
+  "frozen_at_utc": "2026-08-03T20:30:00Z",
+  "purpose": "corrected_baseline_breadth_first_discovery_then_unread_cross_universe_replication",
+  "inherits": "alpha_breadth_policy.json",
+  "inherits_sha256": "sha256:4e2ac00927f9d24e3ae7a1dbceae4d964a463bf62c1db93a1479ae11022b28ec",
+  "supersedes_policy_hash": "sha256:4e2ac00927f9d24e3ae7a1dbceae4d964a463bf62c1db93a1479ae11022b28ec",
+  "evaluator_revision": "always_long_is_invested_from_first_usable_return",
+  "prior_result_status": "INVALID_BASELINE_DELAY_ASYMMETRY",
+  "replication_data": {
+    "provider": "Yahoo Finance chart endpoint",
+    "provider_authority": "secondary_unofficial_diagnostic_source",
+    "endpoint_template": "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+    "start": "2008-01-01",
+    "end_exclusive": "2026-01-01",
+    "interval": "1d",
+    "price_field": "adjclose",
+    "risky_symbols": ["VTI", "VGK", "LQD", "GSG", "IYR"],
+    "cash_proxy_symbol": "BIL",
+    "maximum_symbols": 6,
+    "maximum_response_bytes_per_symbol": 2000000,
+    "maximum_rows_per_symbol": 6000,
+    "minimum_common_rows": 4000
+  }
+}

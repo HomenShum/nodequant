@@ -16,8 +16,8 @@ import {
 } from "@/components/ui/sidebar";
 import { ThreadListSidebar } from "@/components/threadlist-sidebar";
 import { NodeQuantPanels } from "@/components/nodequant-panels";
+import type { MarketMapSummary } from "@/components/market-map-launcher";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { TrialScopePanels } from "@/components/trialscope-panels";
 import { Separator } from "@/components/ui/separator";
 import {
   Breadcrumb,
@@ -27,12 +27,17 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { MapIcon } from "lucide-react";
 
-export const Assistant = () => {
+export const Assistant = ({
+  marketMapSummary,
+}: {
+  marketMapSummary: MarketMapSummary;
+}) => {
   const chat = useChat({
     sendAutomaticallyWhen: lastAssistantMessageIsCompleteWithToolCalls,
     transport: new AssistantChatTransport({
-      api: process.env.NEXT_PUBLIC_API_URL ?? "/api/trialscope-chat",
+      api: process.env.NEXT_PUBLIC_API_URL ?? "/api/nodequant-chat",
     }),
   });
   const runtime = useAISDKRuntime(chat);
@@ -60,14 +65,8 @@ export const Assistant = () => {
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      {/* Registers the validated panel vocabulary the backend composes from.
-          Both sets are mounted during the port: NodeQuant's panels are the
-          destination, TrialScope's are still what the current chat route emits.
-          The TrialScope set comes out with the domain cut, not before, so the
-          app keeps running while the vocabulary is replaced one panel at a
-          time. */}
+      {/* Exact closed NodeQuant authority vocabulary. */}
       <NodeQuantPanels />
-      <TrialScopePanels />
       <SidebarProvider>
         <div className="flex h-dvh w-full pr-0.5">
           <ThreadListSidebar />
@@ -86,12 +85,24 @@ export const Assistant = () => {
                   </BreadcrumbItem>
                 </BreadcrumbList>
               </Breadcrumb>
-              <div className="ml-auto">
+              <div className="ml-auto flex items-center gap-2">
+                <a
+                  href="/market-map"
+                  aria-label="Market Map"
+                  className="hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring inline-flex h-9 items-center gap-2 rounded-md border px-3 text-sm font-medium outline-none focus-visible:ring-2"
+                  data-testid="market-map-header-link"
+                >
+                  <MapIcon className="size-4" />
+                  <span className="hidden sm:inline">Market Map</span>
+                </a>
                 <ThemeToggle />
               </div>
             </header>
             <div className="flex-1 overflow-hidden">
-              <Thread onSend={sendMessage} />
+              <Thread
+                onSend={sendMessage}
+                marketMapSummary={marketMapSummary}
+              />
             </div>
           </SidebarInset>
         </div>

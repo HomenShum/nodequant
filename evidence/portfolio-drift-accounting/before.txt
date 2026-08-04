@@ -1,0 +1,15 @@
+Observable: turnover and return under divergent asset paths between rebalances
+Captured before portfolio-accounting repair on 2026-08-03
+
+Current mechanism:
+- return equation reuses the target weight vector every day;
+- turnover is charged only when that target vector changes;
+- post-return weights are never allowed to drift.
+
+Independent sensitivity on the v3 replication champion:
+- annual turnover: 1.6136 reported versus 2.9134 with drift-aware trades;
+- net CAGR: 10.1868% reported versus 10.0437%;
+- excess Sharpe: 0.64956 reported versus 0.64076;
+- robust floor: 0.53738 reported versus 0.52837.
+
+The direction and FAIL verdict survived, but the exact receipt was invalid.

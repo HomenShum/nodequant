@@ -1,0 +1,743 @@
+{
+  "created_at_utc": "2026-08-04T07:52:48.776958+00:00",
+  "data": {
+    "panel_hash": "sha256:76ea38dbaa209ff6c36339b1d78b8597b2de7e60dae492d4e25af216be5e5956",
+    "quality": {
+      "duplicate_months": 0,
+      "first_month": "196401",
+      "invalid_values": 0,
+      "last_month": "199012",
+      "missing_months": 0,
+      "momentum_source_column": "Mom",
+      "months": 324
+    },
+    "raw_hashes": {
+      "five_factor": "sha256:cbc3724812132654fbbe8daae3c46e0f90e70008434f94a7986fe49f1db6ad3b",
+      "momentum": "sha256:f405ee2d47a5c75ce05025f789733d0599879361e9836a553504240b89159871"
+    }
+  },
+  "evaluator_hash": "sha256:19846cafd4c001f6f031ac672f8fb9bb20e36b1636c9742c8755a06cf5bb8e57",
+  "policy_hash": "sha256:6257c0f77c86da6ed352a27e9a126eb4253f066e2ea3bfd69e2affebea43c44c",
+  "primary_selection": {
+    "candidate": {
+      "factors": [
+        "HML",
+        "RMW",
+        "MOM"
+      ],
+      "id": "equal__HML_RMW_MOM",
+      "weight": 0.3333333333333333
+    },
+    "candidate_id": "equal__HML_RMW_MOM",
+    "discovery_panel_hash": "sha256:76ea38dbaa209ff6c36339b1d78b8597b2de7e60dae492d4e25af216be5e5956",
+    "evaluator_hash": "sha256:19846cafd4c001f6f031ac672f8fb9bb20e36b1636c9742c8755a06cf5bb8e57",
+    "policy_hash": "sha256:6257c0f77c86da6ed352a27e9a126eb4253f066e2ea3bfd69e2affebea43c44c",
+    "seal_hash": "sha256:971be80bbec2166400a28e80ae74218570c9c6dd7508d291d7a01a768f45c318",
+    "selection_rule": {
+      "minimum_positive_folds": 2,
+      "no_go_if_robust_floor_not_positive": true,
+      "remove_best_months": 12,
+      "score": "minimum_of_three_fold_sharpes_and_remove_best_12_months_sharpe_after_factor_specific_stress_haircuts",
+      "tie_break": [
+        "higher_robust_floor",
+        "fewer_factors",
+        "lexicographic_id"
+      ]
+    },
+    "status": "PRIMARY_SELECTED",
+    "trial_count": 15,
+    "version": "nodequant-factor-primary-selection-v1",
+    "winning_candidate_before_no_go": {
+      "factors": [
+        "HML",
+        "RMW",
+        "MOM"
+      ],
+      "id": "equal__HML_RMW_MOM",
+      "weight": 0.3333333333333333
+    },
+    "winning_positive_folds": 3
+  },
+  "promotion_eligible": false,
+  "result_hash": "sha256:033f3d2cdaa6a41d8edbe209fed78e9fb65418bcaa3dc3fa6c1626c12f4765e2",
+  "trials": {
+    "equal__CMA": {
+      "all_period": {
+        "annualized_mean": 0.03212222222222223,
+        "annualized_volatility": 0.06695873773705359,
+        "mean_t_statistic": 2.4927585026794072,
+        "months": 324,
+        "sharpe": 0.4797315975155614
+      },
+      "candidate": {
+        "factors": [
+          "CMA"
+        ],
+        "id": "equal__CMA",
+        "weight": 1.0
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.0031111111111111122,
+          "annualized_volatility": 0.07560389700241803,
+          "mean_t_statistic": 0.1234504265439496,
+          "months": 108,
+          "sharpe": 0.041150142181316525
+        },
+        "D2": {
+          "annualized_mean": 0.04287777777777778,
+          "annualized_volatility": 0.06446250417447684,
+          "mean_t_statistic": 1.99547527637414,
+          "months": 108,
+          "sharpe": 0.6651584254580466
+        },
+        "D3": {
+          "annualized_mean": 0.0503777777777778,
+          "annualized_volatility": 0.05961797348284705,
+          "mean_t_statistic": 2.535029698331102,
+          "months": 108,
+          "sharpe": 0.8450098994437005
+        }
+      },
+      "robust_sharpe_floor": 0.041150142181316525,
+      "score_components": {
+        "minimum_fold_sharpe": 0.041150142181316525,
+        "remove_best_months_sharpe": 0.19670311983740285
+      }
+    },
+    "equal__CMA_MOM": {
+      "all_period": {
+        "annualized_mean": 0.05137962962962962,
+        "annualized_volatility": 0.06640742430229706,
+        "mean_t_statistic": 4.020279204964354,
+        "months": 324,
+        "sharpe": 0.7737030937345416
+      },
+      "candidate": {
+        "factors": [
+          "CMA",
+          "MOM"
+        ],
+        "id": "equal__CMA_MOM",
+        "weight": 0.5
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.026161111111111104,
+          "annualized_volatility": 0.05807260009797347,
+          "mean_t_statistic": 1.3514692505747148,
+          "months": 108,
+          "sharpe": 0.45048975019157145
+        },
+        "D2": {
+          "annualized_mean": 0.06802222222222222,
+          "annualized_volatility": 0.07802102972890361,
+          "mean_t_statistic": 2.615534137087507,
+          "months": 108,
+          "sharpe": 0.8718447123625022
+        },
+        "D3": {
+          "annualized_mean": 0.05995555555555557,
+          "annualized_volatility": 0.06139692693930912,
+          "mean_t_statistic": 2.9295711631376102,
+          "months": 108,
+          "sharpe": 0.97652372104587
+        }
+      },
+      "robust_sharpe_floor": 0.45048975019157145,
+      "score_components": {
+        "minimum_fold_sharpe": 0.45048975019157145,
+        "remove_best_months_sharpe": 0.5129355543256792
+      }
+    },
+    "equal__HML": {
+      "all_period": {
+        "annualized_mean": 0.041355555555555555,
+        "annualized_volatility": 0.08933387035249767,
+        "mean_t_statistic": 2.4054680419023247,
+        "months": 324,
+        "sharpe": 0.4629325405064497
+      },
+      "candidate": {
+        "factors": [
+          "HML"
+        ],
+        "id": "equal__HML",
+        "weight": 1.0
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.019811111111111113,
+          "annualized_volatility": 0.07589494700090375,
+          "mean_t_statistic": 0.7831000044393681,
+          "months": 108,
+          "sharpe": 0.2610333348131227
+        },
+        "D2": {
+          "annualized_mean": 0.06596666666666666,
+          "annualized_volatility": 0.10335070997499943,
+          "mean_t_statistic": 1.9148392889402701,
+          "months": 108,
+          "sharpe": 0.6382797629800899
+        },
+        "D3": {
+          "annualized_mean": 0.038288888888888886,
+          "annualized_volatility": 0.08694019691766906,
+          "mean_t_statistic": 1.3212147054997299,
+          "months": 108,
+          "sharpe": 0.4404049018332433
+        }
+      },
+      "robust_sharpe_floor": 0.17019060279046014,
+      "score_components": {
+        "minimum_fold_sharpe": 0.2610333348131227,
+        "remove_best_months_sharpe": 0.17019060279046014
+      }
+    },
+    "equal__HML_CMA": {
+      "all_period": {
+        "annualized_mean": 0.03673888888888889,
+        "annualized_volatility": 0.07289868683530357,
+        "mean_t_statistic": 2.6187147504980817,
+        "months": 324,
+        "sharpe": 0.5039718887103036
+      },
+      "candidate": {
+        "factors": [
+          "HML",
+          "CMA"
+        ],
+        "id": "equal__HML_CMA",
+        "weight": 0.5
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.011461111111111116,
+          "annualized_volatility": 0.07128079897630143,
+          "mean_t_statistic": 0.4823645894424485,
+          "months": 108,
+          "sharpe": 0.16078819648081616
+        },
+        "D2": {
+          "annualized_mean": 0.05442222222222222,
+          "annualized_volatility": 0.07879364244216824,
+          "mean_t_statistic": 2.0720791881971774,
+          "months": 108,
+          "sharpe": 0.6906930627323924
+        },
+        "D3": {
+          "annualized_mean": 0.044333333333333336,
+          "annualized_volatility": 0.06832055696986741,
+          "mean_t_statistic": 1.946705441213825,
+          "months": 108,
+          "sharpe": 0.6489018137379416
+        }
+      },
+      "robust_sharpe_floor": 0.16078819648081616,
+      "score_components": {
+        "minimum_fold_sharpe": 0.16078819648081616,
+        "remove_best_months_sharpe": 0.2195088534187447
+      }
+    },
+    "equal__HML_CMA_MOM": {
+      "all_period": {
+        "annualized_mean": 0.048038271604938274,
+        "annualized_volatility": 0.05816610665046939,
+        "mean_t_statistic": 4.291402601219569,
+        "months": 324,
+        "sharpe": 0.8258808156717261
+      },
+      "candidate": {
+        "factors": [
+          "HML",
+          "CMA",
+          "MOM"
+        ],
+        "id": "equal__HML_CMA_MOM",
+        "weight": 0.3333333333333333
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.024044444444444445,
+          "annualized_volatility": 0.05143130029516967,
+          "mean_t_statistic": 1.4025181731621112,
+          "months": 108,
+          "sharpe": 0.4675060577207037
+        },
+        "D2": {
+          "annualized_mean": 0.06733703703703706,
+          "annualized_volatility": 0.06609021964559192,
+          "mean_t_statistic": 3.056596152870932,
+          "months": 108,
+          "sharpe": 1.0188653842903106
+        },
+        "D3": {
+          "annualized_mean": 0.05273333333333334,
+          "annualized_volatility": 0.055842873690884455,
+          "mean_t_statistic": 2.832948763985688,
+          "months": 108,
+          "sharpe": 0.9443162546618961
+        }
+      },
+      "robust_sharpe_floor": 0.4675060577207037,
+      "score_components": {
+        "minimum_fold_sharpe": 0.4675060577207037,
+        "remove_best_months_sharpe": 0.5691743272141511
+      }
+    },
+    "equal__HML_MOM": {
+      "all_period": {
+        "annualized_mean": 0.05599629629629629,
+        "annualized_volatility": 0.06813399381662891,
+        "mean_t_statistic": 4.2704863514339415,
+        "months": 324,
+        "sharpe": 0.8218554815236696
+      },
+      "candidate": {
+        "factors": [
+          "HML",
+          "MOM"
+        ],
+        "id": "equal__HML_MOM",
+        "weight": 0.5
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.03451111111111111,
+          "annualized_volatility": 0.05769283219614067,
+          "mean_t_statistic": 1.7945614627021054,
+          "months": 108,
+          "sharpe": 0.598187154234035
+        },
+        "D2": {
+          "annualized_mean": 0.07956666666666667,
+          "annualized_volatility": 0.08100322884991776,
+          "mean_t_statistic": 2.946796114044562,
+          "months": 108,
+          "sharpe": 0.9822653713481871
+        },
+        "D3": {
+          "annualized_mean": 0.053911111111111104,
+          "annualized_volatility": 0.06354199942203867,
+          "mean_t_statistic": 2.5452981461776027,
+          "months": 108,
+          "sharpe": 0.8484327153925342
+        }
+      },
+      "robust_sharpe_floor": 0.566456349556894,
+      "score_components": {
+        "minimum_fold_sharpe": 0.598187154234035,
+        "remove_best_months_sharpe": 0.566456349556894
+      }
+    },
+    "equal__HML_RMW": {
+      "all_period": {
+        "annualized_mean": 0.026246296296296295,
+        "annualized_volatility": 0.03758983839903713,
+        "mean_t_statistic": 3.628101686400692,
+        "months": 324,
+        "sharpe": 0.6982284950969248
+      },
+      "candidate": {
+        "factors": [
+          "HML",
+          "RMW"
+        ],
+        "id": "equal__HML_RMW",
+        "weight": 0.5
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.01492222222222222,
+          "annualized_volatility": 0.027669553015374368,
+          "mean_t_statistic": 1.6179034999876007,
+          "months": 108,
+          "sharpe": 0.5393011666625336
+        },
+        "D2": {
+          "annualized_mean": 0.022600000000000002,
+          "annualized_volatility": 0.040289536221852475,
+          "mean_t_statistic": 1.6828190730879211,
+          "months": 108,
+          "sharpe": 0.5609396910293071
+        },
+        "D3": {
+          "annualized_mean": 0.04121666666666667,
+          "annualized_volatility": 0.04296269491321054,
+          "mean_t_statistic": 2.878078301414445,
+          "months": 108,
+          "sharpe": 0.959359433804815
+        }
+      },
+      "robust_sharpe_floor": 0.41534731413514386,
+      "score_components": {
+        "minimum_fold_sharpe": 0.5393011666625336,
+        "remove_best_months_sharpe": 0.41534731413514386
+      }
+    },
+    "equal__HML_RMW_CMA": {
+      "all_period": {
+        "annualized_mean": 0.028204938271604932,
+        "annualized_volatility": 0.04066287939390663,
+        "mean_t_statistic": 3.6042002070874664,
+        "months": 324,
+        "sharpe": 0.6936286532584178
+      },
+      "candidate": {
+        "factors": [
+          "HML",
+          "RMW",
+          "CMA"
+        ],
+        "id": "equal__HML_RMW_CMA",
+        "weight": 0.3333333333333333
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.010985185185185185,
+          "annualized_volatility": 0.0368766958667676,
+          "mean_t_statistic": 0.8936688816867217,
+          "months": 108,
+          "sharpe": 0.2978896272289072
+        },
+        "D2": {
+          "annualized_mean": 0.02935925925925926,
+          "annualized_volatility": 0.041692534095816185,
+          "mean_t_statistic": 2.112555153768317,
+          "months": 108,
+          "sharpe": 0.7041850512561058
+        },
+        "D3": {
+          "annualized_mean": 0.04427037037037036,
+          "annualized_volatility": 0.0429696983103868,
+          "mean_t_statistic": 3.090808554245946,
+          "months": 108,
+          "sharpe": 1.0302695180819819
+        }
+      },
+      "robust_sharpe_floor": 0.2978896272289072,
+      "score_components": {
+        "minimum_fold_sharpe": 0.2978896272289072,
+        "remove_best_months_sharpe": 0.44119257897245173
+      }
+    },
+    "equal__HML_RMW_CMA_MOM": {
+      "all_period": {
+        "annualized_mean": 0.03881296296296296,
+        "annualized_volatility": 0.04078860990555757,
+        "mean_t_statistic": 4.944470331285879,
+        "months": 324,
+        "sharpe": 0.9515637589226735
+      },
+      "candidate": {
+        "factors": [
+          "HML",
+          "RMW",
+          "CMA",
+          "MOM"
+        ],
+        "id": "equal__HML_RMW_CMA_MOM",
+        "weight": 0.25
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.020541666666666666,
+          "annualized_volatility": 0.03498262076862055,
+          "mean_t_statistic": 1.7615890017959344,
+          "months": 108,
+          "sharpe": 0.5871963339319781
+        },
+        "D2": {
+          "annualized_mean": 0.0453111111111111,
+          "annualized_volatility": 0.04452122552587771,
+          "mean_t_statistic": 3.0532253262957196,
+          "months": 108,
+          "sharpe": 1.0177417754319067
+        },
+        "D3": {
+          "annualized_mean": 0.05058611111111111,
+          "annualized_volatility": 0.04210719584249926,
+          "mean_t_statistic": 3.6040949841680496,
+          "months": 108,
+          "sharpe": 1.201364994722683
+        }
+      },
+      "robust_sharpe_floor": 0.5871963339319781,
+      "score_components": {
+        "minimum_fold_sharpe": 0.5871963339319781,
+        "remove_best_months_sharpe": 0.7223620590490418
+      }
+    },
+    "equal__HML_RMW_MOM": {
+      "all_period": {
+        "annualized_mean": 0.0410432098765432,
+        "annualized_volatility": 0.045687053468035,
+        "mean_t_statistic": 4.667991438425091,
+        "months": 324,
+        "sharpe": 0.8983553711831981
+      },
+      "candidate": {
+        "factors": [
+          "HML",
+          "RMW",
+          "MOM"
+        ],
+        "id": "equal__HML_RMW_MOM",
+        "weight": 0.3333333333333333
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.02635185185185185,
+          "annualized_volatility": 0.0401039626673256,
+          "mean_t_statistic": 1.9712654385638924,
+          "months": 108,
+          "sharpe": 0.6570884795212973
+        },
+        "D2": {
+          "annualized_mean": 0.04612222222222222,
+          "annualized_volatility": 0.05126189176423537,
+          "mean_t_statistic": 2.69921108848353,
+          "months": 108,
+          "sharpe": 0.8997370294945098
+        },
+        "D3": {
+          "annualized_mean": 0.050655555555555565,
+          "annualized_volatility": 0.04513014881755778,
+          "mean_t_statistic": 3.367298150976723,
+          "months": 108,
+          "sharpe": 1.122432716992241
+        }
+      },
+      "robust_sharpe_floor": 0.6570884795212973,
+      "score_components": {
+        "minimum_fold_sharpe": 0.6570884795212973,
+        "remove_best_months_sharpe": 0.6638152294264691
+      }
+    },
+    "equal__MOM": {
+      "all_period": {
+        "annualized_mean": 0.07063703703703703,
+        "annualized_volatility": 0.12063144704166161,
+        "mean_t_statistic": 3.0426627561390007,
+        "months": 324,
+        "sharpe": 0.5855607204367002
+      },
+      "candidate": {
+        "factors": [
+          "MOM"
+        ],
+        "id": "equal__MOM",
+        "weight": 1.0
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.04921111111111111,
+          "annualized_volatility": 0.10883367224308314,
+          "mean_t_statistic": 1.3565041984762767,
+          "months": 108,
+          "sharpe": 0.4521680661587589
+        },
+        "D2": {
+          "annualized_mean": 0.09316666666666665,
+          "annualized_volatility": 0.1458798516639475,
+          "mean_t_statistic": 1.9159602701260154,
+          "months": 108,
+          "sharpe": 0.6386534233753384
+        },
+        "D3": {
+          "annualized_mean": 0.06953333333333332,
+          "annualized_volatility": 0.10354094769929087,
+          "mean_t_statistic": 2.0146618766309454,
+          "months": 108,
+          "sharpe": 0.6715539588769818
+        }
+      },
+      "robust_sharpe_floor": 0.32351312288793327,
+      "score_components": {
+        "minimum_fold_sharpe": 0.4521680661587589,
+        "remove_best_months_sharpe": 0.32351312288793327
+      }
+    },
+    "equal__RMW": {
+      "all_period": {
+        "annualized_mean": 0.011137037037037039,
+        "annualized_volatility": 0.05439876424119325,
+        "mean_t_statistic": 1.0638061873095246,
+        "months": 324,
+        "sharpe": 0.20472959620291448
+      },
+      "candidate": {
+        "factors": [
+          "RMW"
+        ],
+        "id": "equal__RMW",
+        "weight": 1.0
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.010033333333333335,
+          "annualized_volatility": 0.0558696973690761,
+          "mean_t_statistic": 0.538753589466557,
+          "months": 108,
+          "sharpe": 0.17958452982218565
+        },
+        "D2": {
+          "annualized_mean": -0.020766666666666666,
+          "annualized_volatility": 0.058541611528671045,
+          "mean_t_statistic": -1.0642002905828492,
+          "months": 108,
+          "sharpe": -0.354733430194283
+        },
+        "D3": {
+          "annualized_mean": 0.044144444444444444,
+          "annualized_volatility": 0.046979686624623956,
+          "mean_t_statistic": 2.8189488446676796,
+          "months": 108,
+          "sharpe": 0.9396496148892264
+        }
+      },
+      "robust_sharpe_floor": -0.354733430194283,
+      "score_components": {
+        "minimum_fold_sharpe": -0.354733430194283,
+        "remove_best_months_sharpe": -0.10804309856670298
+      }
+    },
+    "equal__RMW_CMA": {
+      "all_period": {
+        "annualized_mean": 0.021629629629629634,
+        "annualized_volatility": 0.02913592445412678,
+        "mean_t_statistic": 3.8574664956727758,
+        "months": 324,
+        "sharpe": 0.7423697732222131
+      },
+      "candidate": {
+        "factors": [
+          "RMW",
+          "CMA"
+        ],
+        "id": "equal__RMW_CMA",
+        "weight": 0.5
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.006572222222222222,
+          "annualized_volatility": 0.02936922590784021,
+          "mean_t_statistic": 0.6713376351333536,
+          "months": 108,
+          "sharpe": 0.22377921171111786
+        },
+        "D2": {
+          "annualized_mean": 0.011055555555555556,
+          "annualized_volatility": 0.025404582746165104,
+          "mean_t_statistic": 1.3055387289001341,
+          "months": 108,
+          "sharpe": 0.43517957630004467
+        },
+        "D3": {
+          "annualized_mean": 0.047261111111111115,
+          "annualized_volatility": 0.03115918675964323,
+          "mean_t_statistic": 4.5502899169681905,
+          "months": 108,
+          "sharpe": 1.5167633056560634
+        }
+      },
+      "robust_sharpe_floor": 0.22377921171111786,
+      "score_components": {
+        "minimum_fold_sharpe": 0.22377921171111786,
+        "remove_best_months_sharpe": 0.48717420267096884
+      }
+    },
+    "equal__RMW_CMA_MOM": {
+      "all_period": {
+        "annualized_mean": 0.03796543209876543,
+        "annualized_volatility": 0.04606429522611016,
+        "mean_t_statistic": 4.282583094146314,
+        "months": 324,
+        "sharpe": 0.8241835007441048
+      },
+      "candidate": {
+        "factors": [
+          "RMW",
+          "CMA",
+          "MOM"
+        ],
+        "id": "equal__RMW_CMA_MOM",
+        "weight": 0.3333333333333333
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.020785185185185184,
+          "annualized_volatility": 0.04093720011547082,
+          "mean_t_statistic": 1.5232003014292712,
+          "months": 108,
+          "sharpe": 0.5077334338097571
+        },
+        "D2": {
+          "annualized_mean": 0.03842592592592592,
+          "annualized_volatility": 0.052033755175153205,
+          "mean_t_statistic": 2.2154422141883847,
+          "months": 108,
+          "sharpe": 0.7384807380627949
+        },
+        "D3": {
+          "annualized_mean": 0.054685185185185184,
+          "annualized_volatility": 0.0444262971647858,
+          "mean_t_statistic": 3.6927578039430453,
+          "months": 108,
+          "sharpe": 1.230919267981015
+        }
+      },
+      "robust_sharpe_floor": 0.5077334338097571,
+      "score_components": {
+        "minimum_fold_sharpe": 0.5077334338097571,
+        "remove_best_months_sharpe": 0.5951849522549206
+      }
+    },
+    "equal__RMW_MOM": {
+      "all_period": {
+        "annualized_mean": 0.04088703703703704,
+        "annualized_volatility": 0.07081053133667722,
+        "mean_t_statistic": 3.0003344495065503,
+        "months": 324,
+        "sharpe": 0.5774146340271714
+      },
+      "candidate": {
+        "factors": [
+          "RMW",
+          "MOM"
+        ],
+        "id": "equal__RMW_MOM",
+        "weight": 0.5
+      },
+      "folds": {
+        "D1": {
+          "annualized_mean": 0.02962222222222223,
+          "annualized_volatility": 0.06860196146861722,
+          "mean_t_statistic": 1.2953954196676987,
+          "months": 108,
+          "sharpe": 0.43179847322256615
+        },
+        "D2": {
+          "annualized_mean": 0.0362,
+          "annualized_volatility": 0.08108695229058556,
+          "mean_t_statistic": 1.3393030189470911,
+          "months": 108,
+          "sharpe": 0.4464343396490304
+        },
+        "D3": {
+          "annualized_mean": 0.0568388888888889,
+          "annualized_volatility": 0.06181317468292774,
+          "mean_t_statistic": 2.7585812820864852,
+          "months": 108,
+          "sharpe": 0.9195270940288285
+        }
+      },
+      "robust_sharpe_floor": 0.32157308192780415,
+      "score_components": {
+        "minimum_fold_sharpe": 0.43179847322256615,
+        "remove_best_months_sharpe": 0.32157308192780415
+      }
+    }
+  },
+  "version": "nodequant-factor-discovery-v1"
+}

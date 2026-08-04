@@ -1,0 +1,395 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "fresh isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "robustness_caption": "post-hoc synthetic ablations + neighbors · self-attested access · not promotion evidence",
+    "robustness_headers": [
+      "variant",
+      "F/S/H",
+      "DEV",
+      "VAL",
+      "TEST",
+      "H/O",
+      "ep D/V/T/H",
+      "A/C/T/X"
+    ],
+    "robustness_rows": [
+      {
+        "variant_id": "baseline",
+        "cells": [
+          "baseline",
+          "20/50/30",
+          "-$310.04",
+          "-$199.68",
+          "-$42.70",
+          "NOT_RUN",
+          "10/5/2/0",
+          "25/8/0/0"
+        ]
+      },
+      {
+        "variant_id": "without-uptrend",
+        "cells": [
+          "without-uptrend",
+          "20/50/30",
+          "-$91.48",
+          "-$95.11",
+          "NOT_RUN",
+          "NOT_RUN",
+          "17/2/0/0",
+          "25/6/0/0"
+        ]
+      },
+      {
+        "variant_id": "without-pullback",
+        "cells": [
+          "without-pullback",
+          "20/50/30",
+          "$318.46",
+          "$158.24",
+          "$132.99",
+          "$52.12",
+          "10/4/4/2",
+          "22/0/0/2"
+        ]
+      },
+      {
+        "variant_id": "fast-15",
+        "cells": [
+          "fast-15",
+          "15/50/30",
+          "-$190.14",
+          "-$6.46",
+          "NOT_RUN",
+          "NOT_RUN",
+          "11/1/0/0",
+          "25/12/0/1"
+        ]
+      },
+      {
+        "variant_id": "fast-25",
+        "cells": [
+          "fast-25",
+          "25/50/30",
+          "-$450.52",
+          "-$193.01",
+          "-$203.10",
+          "-$65.45",
+          "11/5/4/2",
+          "25/3/0/0"
+        ]
+      },
+      {
+        "variant_id": "slow-40",
+        "cells": [
+          "slow-40",
+          "20/40/30",
+          "-$353.13",
+          "-$199.68",
+          "-$23.37",
+          "NOT_RUN",
+          "11/5/1/0",
+          "25/8/0/0"
+        ]
+      },
+      {
+        "variant_id": "slow-60",
+        "cells": [
+          "slow-60",
+          "20/60/30",
+          "-$310.04",
+          "-$199.68",
+          "-$42.70",
+          "NOT_RUN",
+          "10/5/2/0",
+          "25/8/0/0"
+        ]
+      },
+      {
+        "variant_id": "hold-15",
+        "cells": [
+          "hold-15",
+          "20/50/15",
+          "-$66.93",
+          "-$50.07",
+          "-$6.72",
+          "NOT_RUN",
+          "10/5/2/0",
+          "25/8/0/0"
+        ]
+      },
+      {
+        "variant_id": "hold-45",
+        "cells": [
+          "hold-45",
+          "20/50/45",
+          "-$584.27",
+          "-$309.33",
+          "-$106.93",
+          "NOT_RUN",
+          "10/5/2/0",
+          "25/8/0/0"
+        ]
+      }
+    ],
+    "robustness_notes": [
+      "F/S/H fast/slow/hold · ep episodes · A/C/T/X attempted/collision/tail/cross-boundary",
+      "OPENED_HOLDOUT observed for 2/9 variants · suite is post-hoc and unusable for selection",
+      "baseline matches bound ledger true · suite sha256:10ca89c5c47aed29ceac03712b6e293fbfddfc54d2a605c5ec4e1abfd3b645dd"
+    ],
+    "robustness_overflow": {
+      "client_width": 622,
+      "scroll_width": 622,
+      "overflowing": false
+    },
+    "robustness_payload": {
+      "rows": [
+        {
+          "variant_id": "baseline",
+          "fast_window": 20,
+          "slow_window": 50,
+          "hold_bars": 30,
+          "use_uptrend": true,
+          "use_pullback": true,
+          "development_net_pnl_micros": -310041297,
+          "validation_net_pnl_micros": -199681445,
+          "test_net_pnl_micros": -42701743,
+          "opened_holdout_net_pnl_micros": null,
+          "development_episode_count": 10,
+          "validation_episode_count": 5,
+          "test_episode_count": 2,
+          "opened_holdout_episode_count": 0,
+          "attempted_signals": 25,
+          "collision_skips": 8,
+          "tail_drops": 0,
+          "cross_boundary_exclusions": 0
+        },
+        {
+          "variant_id": "without-uptrend",
+          "fast_window": 20,
+          "slow_window": 50,
+          "hold_bars": 30,
+          "use_uptrend": false,
+          "use_pullback": true,
+          "development_net_pnl_micros": -91483852,
+          "validation_net_pnl_micros": -95110536,
+          "test_net_pnl_micros": null,
+          "opened_holdout_net_pnl_micros": null,
+          "development_episode_count": 17,
+          "validation_episode_count": 2,
+          "test_episode_count": 0,
+          "opened_holdout_episode_count": 0,
+          "attempted_signals": 25,
+          "collision_skips": 6,
+          "tail_drops": 0,
+          "cross_boundary_exclusions": 0
+        },
+        {
+          "variant_id": "without-pullback",
+          "fast_window": 20,
+          "slow_window": 50,
+          "hold_bars": 30,
+          "use_uptrend": true,
+          "use_pullback": false,
+          "development_net_pnl_micros": 318458006,
+          "validation_net_pnl_micros": 158237757,
+          "test_net_pnl_micros": 132993905,
+          "opened_holdout_net_pnl_micros": 52123192,
+          "development_episode_count": 10,
+          "validation_episode_count": 4,
+          "test_episode_count": 4,
+          "opened_holdout_episode_count": 2,
+          "attempted_signals": 22,
+          "collision_skips": 0,
+          "tail_drops": 0,
+          "cross_boundary_exclusions": 2
+        },
+        {
+          "variant_id": "fast-15",
+          "fast_window": 15,
+          "slow_window": 50,
+          "hold_bars": 30,
+          "use_uptrend": true,
+          "use_pullback": true,
+          "development_net_pnl_micros": -190138291,
+          "validation_net_pnl_micros": -6462646,
+          "test_net_pnl_micros": null,
+          "opened_holdout_net_pnl_micros": null,
+          "development_episode_count": 11,
+          "validation_episode_count": 1,
+          "test_episode_count": 0,
+          "opened_holdout_episode_count": 0,
+          "attempted_signals": 25,
+          "collision_skips": 12,
+          "tail_drops": 0,
+          "cross_boundary_exclusions": 1
+        },
+        {
+          "variant_id": "fast-25",
+          "fast_window": 25,
+          "slow_window": 50,
+          "hold_bars": 30,
+          "use_uptrend": true,
+          "use_pullback": true,
+          "development_net_pnl_micros": -450520001,
+          "validation_net_pnl_micros": -193006916,
+          "test_net_pnl_micros": -203100396,
+          "opened_holdout_net_pnl_micros": -65448440,
+          "development_episode_count": 11,
+          "validation_episode_count": 5,
+          "test_episode_count": 4,
+          "opened_holdout_episode_count": 2,
+          "attempted_signals": 25,
+          "collision_skips": 3,
+          "tail_drops": 0,
+          "cross_boundary_exclusions": 0
+        },
+        {
+          "variant_id": "slow-40",
+          "fast_window": 20,
+          "slow_window": 40,
+          "hold_bars": 30,
+          "use_uptrend": true,
+          "use_pullback": true,
+          "development_net_pnl_micros": -353128253,
+          "validation_net_pnl_micros": -199681445,
+          "test_net_pnl_micros": -23374618,
+          "opened_holdout_net_pnl_micros": null,
+          "development_episode_count": 11,
+          "validation_episode_count": 5,
+          "test_episode_count": 1,
+          "opened_holdout_episode_count": 0,
+          "attempted_signals": 25,
+          "collision_skips": 8,
+          "tail_drops": 0,
+          "cross_boundary_exclusions": 0
+        },
+        {
+          "variant_id": "slow-60",
+          "fast_window": 20,
+          "slow_window": 60,
+          "hold_bars": 30,
+          "use_uptrend": true,
+          "use_pullback": true,
+          "development_net_pnl_micros": -310041297,
+          "validation_net_pnl_micros": -199681445,
+          "test_net_pnl_micros": -42701743,
+          "opened_holdout_net_pnl_micros": null,
+          "development_episode_count": 10,
+          "validation_episode_count": 5,
+          "test_episode_count": 2,
+          "opened_holdout_episode_count": 0,
+          "attempted_signals": 25,
+          "collision_skips": 8,
+          "tail_drops": 0,
+          "cross_boundary_exclusions": 0
+        },
+        {
+          "variant_id": "hold-15",
+          "fast_window": 20,
+          "slow_window": 50,
+          "hold_bars": 15,
+          "use_uptrend": true,
+          "use_pullback": true,
+          "development_net_pnl_micros": -66929031,
+          "validation_net_pnl_micros": -50066568,
+          "test_net_pnl_micros": -6717442,
+          "opened_holdout_net_pnl_micros": null,
+          "development_episode_count": 10,
+          "validation_episode_count": 5,
+          "test_episode_count": 2,
+          "opened_holdout_episode_count": 0,
+          "attempted_signals": 25,
+          "collision_skips": 8,
+          "tail_drops": 0,
+          "cross_boundary_exclusions": 0
+        },
+        {
+          "variant_id": "hold-45",
+          "fast_window": 20,
+          "slow_window": 50,
+          "hold_bars": 45,
+          "use_uptrend": true,
+          "use_pullback": true,
+          "development_net_pnl_micros": -584268227,
+          "validation_net_pnl_micros": -309329021,
+          "test_net_pnl_micros": -106925325,
+          "opened_holdout_net_pnl_micros": null,
+          "development_episode_count": 10,
+          "validation_episode_count": 5,
+          "test_episode_count": 2,
+          "opened_holdout_episode_count": 0,
+          "attempted_signals": 25,
+          "collision_skips": 8,
+          "tail_drops": 0,
+          "cross_boundary_exclusions": 0
+        }
+      ],
+      "suite_hash": "sha256:10ca89c5c47aed29ceac03712b6e293fbfddfc54d2a605c5ec4e1abfd3b645dd",
+      "manifest_hash": "sha256:a4403529631123c8cff8c74415f656cf1d235a95c8b8726abdf89bef75e707fc",
+      "bars_hash": "sha256:27d753ebebafbb3843e705fbca16da84634ad994b51e091cd54ae7ace3337f7f",
+      "ledger_root_hash": "sha256:eb88cb9122348a8ab89ad5c028da5faba1dbf9a497c74494c5f3c0184dd20282",
+      "journal_root_hash": "sha256:36be10d76fbcba78efb318f01a047abeb64520a8f2afe0145e23720936a69f83",
+      "packet_set_hash": "sha256:e64de8ea94397a07f68ed1bf192221d7cd0ecdc4d7d25b9f7c4b5cff539d9207",
+      "baseline_matches_bound_ledger": true,
+      "opened_holdout_observed_variants": 2,
+      "access_provenance_verified": false,
+      "evidence_scope": "post_hoc_synthetic_diagnostic_not_promotion_evidence"
+    },
+    "baseline_split_parity": {
+      "baseline": {
+        "development": -310041297,
+        "validation": -199681445,
+        "test": -42701743
+      },
+      "bound_split_metrics": {
+        "DEVELOPMENT": -310041297,
+        "VALIDATION": -199681445,
+        "TEST": -42701743
+      },
+      "matches": true
+    },
+    "suite_hash": "sha256:10ca89c5c47aed29ceac03712b6e293fbfddfc54d2a605c5ec4e1abfd3b645dd",
+    "journal_root_hash": "sha256:36be10d76fbcba78efb318f01a047abeb64520a8f2afe0145e23720936a69f83",
+    "console_errors": [],
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 2800
+    },
+    "artifact": "after.png",
+    "capture_note": "request, DOM, console, responsive layout, and no-horizontal-overflow verified at 1100x1000; pixel-only height expanded after verification so the complete panel fits without fixed-composer occlusion; width and DPR unchanged"
+  }
+}

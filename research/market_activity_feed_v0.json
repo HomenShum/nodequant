@@ -1,0 +1,23 @@
+{
+  "inactive_structural_rows": [
+    {
+      "effective_at_utc": "2026-04-07T13:30:00Z",
+      "reason": "ACQUISITION_COMPLETED_TRADING_CEASED_AND_DELISTING_REQUESTED",
+      "sources": [
+        "https://www.hologic.com/about/press-release/blackstone-and-tpg-complete-acquisition-hologic",
+        "https://www.sec.gov/Archives/edgar/data/859737/000119312526144632/0001193125-26-144632-index.htm"
+      ],
+      "ticker": "HOLX"
+    }
+  ],
+  "provider": {
+    "name": "Nasdaq stock screener current observation",
+    "replayability": "RAW_BYTES_REPLAYABLE_PROVIDER_LOCATOR_NOT_HISTORICALLY_REFETCHABLE",
+    "url": "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=10000&download=true"
+  },
+  "symbol_aliases": {
+    "BFB": "BF/B",
+    "BRKB": "BRK/B"
+  },
+  "version": "nodequant-market-activity-feed-policy-v0"
+}

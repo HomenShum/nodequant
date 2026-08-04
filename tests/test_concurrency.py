@@ -163,21 +163,10 @@ async def test_sequential_identical_queries_cost_exactly_one_probe() -> None:
 # ==========================================================================
 
 
-async def test_cooldown_does_not_reach_requests_that_already_reserved_a_slot() -> None:
-    """THE HOLE. `_pace()` computes its wait under the lock, then sleeps OUTSIDE it.
-
-        async with self._pace_lock:
-            wait = self._next_slot - now
-            self._next_slot = max(now, self._next_slot) + MIN_REQUEST_INTERVAL_S
-        if wait > 0:
-            await asyncio.sleep(wait)          # <-- captured BEFORE any cooldown
-
-    `_apply_cooldown` pushes `_next_slot` forward, which correctly delays every
-    request that has not yet entered `_pace`. It cannot delay a request that is
-    already sleeping on a wait computed from the pre-cooldown schedule.
-
-    Measured directly: six requests reserve slots, a cooldown is then applied,
-    and we count how many are released inside the cooldown window anyway.
+async def test_cooldown_reaches_requests_that_were_already_waiting() -> None:
+    """Six concurrent callers are already pacing when a 429 cooldown arrives.
+    Every sleeper must re-check the shared clock before release; a stale sleep
+    calculated before the cooldown is not authorization to start inside it.
     """
     transport = _SlowTransport(latency=0.0)
     async with _client(transport) as client:
@@ -190,32 +179,25 @@ async def test_cooldown_does_not_reach_requests_that_already_reserved_a_slot() -
             released.append(loop.time() - t0)
 
         tasks = [asyncio.create_task(paced()) for _ in range(6)]
-        await asyncio.sleep(0.01)          # let all six reserve their slots
+        await asyncio.sleep(0.01)          # let the remaining five begin waiting
         applied_at = loop.time() - t0
         await client._apply_cooldown(THROTTLE_COOLDOWN_S)
         await asyncio.gather(*tasks)
 
     window_end = applied_at + THROTTLE_COOLDOWN_S
     escaped = [r for r in released if applied_at <= r < window_end]
-    print(f"\n  [cooldown hole] cooldown applied at t={applied_at:.3f}s, "
+    print(f"\n  [cooldown re-check] cooldown applied at t={applied_at:.3f}s, "
           f"window ends t={window_end:.3f}s")
     print(f"    _pace() releases: {[round(r, 3) for r in sorted(released)]}")
     print(f"    RELEASED INSIDE THE COOLDOWN WINDOW: {len(escaped)} of 6")
 
-    assert escaped, (
-        "expected the documented hole: requests that reserved a slot before the "
-        "cooldown ignore it"
-    )
-    # Every reservation made before the cooldown escapes it.
-    assert len(escaped) >= 4
+    assert not escaped
+    assert len([r for r in released if r >= window_end]) == 5
 
 
-async def test_cooldown_escapees_on_the_real_path_are_bounded_by_the_semaphore() -> None:
-    """How bad is the hole in practice? Bounded, and the bound is measurable.
-
-    `_pace()` is only reached while holding the concurrency semaphore, so at
-    most `MAX_CONCURRENT_PROBES - 1` other requests can have a live reservation
-    when a 429 arrives. That is the blast radius: 2, not the whole fan-out.
+async def test_real_429_cooldown_delays_every_pending_request() -> None:
+    """A real-path first probe returns 429 while seven peers and its retry are
+    pending. None may escape through a wait calculated before the cooldown.
     """
     seen: dict[str, float] = {}
     loop_holder: dict[str, object] = {}
@@ -240,16 +222,11 @@ async def test_cooldown_escapees_on_the_real_path_are_bounded_by_the_semaphore()
     print(f"\n  [cooldown blast radius] 8-probe fan-out, first probe 429s")
     print(f"    request start offsets: {offsets}")
     print(f"    started during the {THROTTLE_COOLDOWN_S}s cooldown: {len(escaped)}")
-    print(f"    MAX_CONCURRENT_PROBES = {MAX_CONCURRENT_PROBES} -> "
-          f"bound is {MAX_CONCURRENT_PROBES - 1}")
+    print(f"    MAX_CONCURRENT_PROBES = {MAX_CONCURRENT_PROBES}")
 
-    assert escaped, "the hole is reachable on the real request path"
-    assert len(escaped) <= MAX_CONCURRENT_PROBES - 1, (
-        "escapees must be bounded by the semaphore, not by the fan-out width"
-    )
-    # And the rest DID respect it: the cooldown is genuinely shared for them.
+    assert not escaped
     late = [s for s in starts[1:] if s >= cooldown_at + THROTTLE_COOLDOWN_S]
-    assert len(late) >= 5, "the cooldown delayed the majority of the fan-out"
+    assert len(late) >= 8, "the cooldown must delay every peer and the retry"
 
 
 async def test_pacing_is_shared_across_concurrent_callers() -> None:
@@ -267,6 +244,59 @@ async def test_pacing_is_shared_across_concurrent_callers() -> None:
     assert min(gaps) >= MIN_REQUEST_INTERVAL_S * 0.9, (
         "one shared schedule; per-task schedules would let requests bunch"
     )
+
+
+async def test_pacing_is_fifo_and_cancellation_cannot_leak_waiters(monkeypatch) -> None:
+    """Fifty analysts submit distinct probes in one burst while ten abandon
+    their requests. Survivors must retain arrival order during sustained drain,
+    and cancelled work must leave no hidden queue state for the next request.
+    """
+    import app.ctgov as ctgov_mod
+
+    monkeypatch.setattr(ctgov_mod, "MIN_REQUEST_INTERVAL_S", 0.001)
+    client = CTGovClient(client=httpx.AsyncClient(transport=_SlowTransport()))
+    loop = asyncio.get_running_loop()
+    client._next_slot = loop.time() + 0.02
+    released: list[int] = []
+
+    async def paced(index: int) -> None:
+        await client._pace()
+        released.append(index)
+
+    tasks = []
+    for index in range(50):
+        tasks.append(asyncio.create_task(paced(index)))
+        await asyncio.sleep(0)  # establish the measured arrival order
+    cancelled = set(range(5, 50, 5))
+    for index in cancelled:
+        tasks[index].cancel()
+    await asyncio.gather(*tasks, return_exceptions=True)
+    await client._client.aclose()
+
+    assert released == [i for i in range(50) if i not in cancelled]
+    assert not client._pace_waiters, "completed and cancelled callers must both be evicted"
+
+
+async def test_pacing_waiter_collection_has_a_hard_overflow_boundary(monkeypatch) -> None:
+    """A buggy internal fan-out cannot grow the pacing queue without limit."""
+    import app.ctgov as ctgov_mod
+
+    monkeypatch.setattr(ctgov_mod, "MAX_PACE_WAITERS", 2)
+    client = CTGovClient(client=httpx.AsyncClient(transport=_SlowTransport()))
+    client._next_slot = asyncio.get_running_loop().time() + 60
+    first = asyncio.create_task(client._pace())
+    await asyncio.sleep(0)
+    second = asyncio.create_task(client._pace())
+    await asyncio.sleep(0)
+
+    with pytest.raises(CTGovError, match="pacing queue is full"):
+        await client._pace()
+
+    first.cancel()
+    second.cancel()
+    await asyncio.gather(first, second, return_exceptions=True)
+    await client._client.aclose()
+    assert not client._pace_waiters
 
 
 # ==========================================================================

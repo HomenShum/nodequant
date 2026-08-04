@@ -1,0 +1,19 @@
+Observable: turnover and return under divergent asset paths between rebalances
+Captured after portfolio-accounting repair on 2026-08-03
+
+Scenario:
+- two assets begin at 50/50;
+- FAST doubles while SLOW is flat;
+- before the next return, weights drift to 2/3 and 1/3.
+
+Observed without a scheduled rebalance:
+- first return: 0.500000
+- second return: 0.333333
+- second-day turnover: 0
+
+Observed with a scheduled rebalance:
+- pre-trade turnover: 0.333333
+- restored second return: 0.500000
+
+The engine now drifts weights self-financing between explicit rebalance dates
+and charges turnover against drifted pre-trade weights. Signal logic is unchanged.

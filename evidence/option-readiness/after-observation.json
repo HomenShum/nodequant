@@ -1,0 +1,140 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "fresh isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "no local option definitions or quotes; OPRA/OCC authority external"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "caption": "options scoreboard · point-in-time authority required · selector not run",
+    "visible_rows": [
+      [
+        "definitions",
+        "NOT_RUN"
+      ],
+      [
+        "quotes",
+        "NOT_RUN"
+      ],
+      [
+        "eligible",
+        "NOT_RUN"
+      ],
+      [
+        "duplicate definitions",
+        "NOT_RUN"
+      ],
+      [
+        "duplicate quotes",
+        "NOT_RUN"
+      ],
+      [
+        "missing definitions",
+        "NOT_RUN"
+      ],
+      [
+        "future knowledge",
+        "NOT_RUN"
+      ],
+      [
+        "expired definitions",
+        "NOT_RUN"
+      ],
+      [
+        "future quotes",
+        "NOT_RUN"
+      ],
+      [
+        "receive order",
+        "NOT_RUN"
+      ],
+      [
+        "stale quotes",
+        "NOT_RUN"
+      ],
+      [
+        "crossed quotes",
+        "NOT_RUN"
+      ],
+      [
+        "zero size",
+        "NOT_RUN"
+      ],
+      [
+        "missing IV/Delta",
+        "NOT_RUN"
+      ],
+      [
+        "provenance",
+        "NOT_RUN"
+      ]
+    ],
+    "readiness_line": "provider replay false · point-in-time definitions false · selector ready false",
+    "absence_authority_line": "absence is NOT_RUN, never a clean zero · OPRA/OCC corpus remains external",
+    "option_readiness_overflow": {
+      "client_width": 622,
+      "scroll_width": 622,
+      "overflowing": false
+    },
+    "option_readiness_payload": {
+      "status": "NOT_RUN",
+      "snapshot_hash": null,
+      "definition_count": 0,
+      "quote_count": 0,
+      "eligible_quote_count": null,
+      "duplicate_definition_rows": null,
+      "duplicate_quote_rows": null,
+      "missing_definition_quotes": null,
+      "future_definition_mismatches": null,
+      "expired_definition_mismatches": null,
+      "future_quote_mismatches": null,
+      "receive_order_mismatches": null,
+      "stale_quote_mismatches": null,
+      "crossed_quote_mismatches": null,
+      "zero_size_mismatches": null,
+      "missing_greeks_mismatches": null,
+      "provenance_mismatches": null,
+      "provider_replay_verified": false,
+      "point_in_time_definitions_verified": false,
+      "selector_ready": false,
+      "evidence_scope": "caller_option_snapshot_diagnostic_not_option_authority"
+    },
+    "all_fifteen_render_not_run": true,
+    "console_errors": [],
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 4200
+    },
+    "artifact": "after.png",
+    "capture_note": "request, payload, DOM, console, responsive layout, and no-horizontal-overflow verified at 1100x1000; pixel-only height expanded after verification so the complete panel fits without fixed-composer occlusion; width and DPR unchanged"
+  }
+}

@@ -1,0 +1,72 @@
+- generic [ref=f5e3]:
+  - generic [ref=f5e6]:
+    - list [ref=f5e9]:
+      - listitem [ref=f5e10]:
+        - link "NodeQuant" [ref=f5e11] [cursor=pointer]:
+          - /url: /
+    - generic [ref=f5e19]:
+      - button "New Thread" [ref=f5e20]
+      - searchbox "Search threads" [ref=f5e23]
+      - generic [ref=f5e25]:
+        - button "New Chat" [ref=f5e26]
+        - button "More options" [ref=f5e28]
+    - button "Toggle Sidebar" [ref=f5e30]
+  - main [ref=f5e31]:
+    - generic [ref=f5e32]:
+      - button "Toggle Sidebar" [ref=f5e33]
+      - separator
+      - navigation "breadcrumb" [ref=f5e35]:
+        - list [ref=f5e36]:
+          - listitem [ref=f5e37]:
+            - link "NodeQuant" [ref=f5e38] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=f5e39]
+          - listitem [ref=f5e42]:
+            - link "Proof Kernel v0" [disabled] [ref=f5e43]
+      - generic [ref=f5e44]:
+        - link "Market Map" [ref=f5e45] [cursor=pointer]:
+          - /url: /market-map
+        - button "Toggle dark mode" [ref=f5e49]
+    - generic [ref=f5e59]:
+      - generic [ref=f5e60]:
+        - heading "Start with the market, then interrogate it." [level=1] [ref=f5e61]
+        - generic [ref=f5e62]:
+          - generic [ref=f5e63]:
+            - generic [ref=f5e64]:
+              - paragraph [ref=f5e65]: NODEQUANT / U.S. LARGE-CAP MAP
+              - heading "504 equities. 11 sectors. One surface." [level=2] [ref=f5e66]
+              - paragraph [ref=f5e67]: Area is official portfolio weight. Inspect the market structure before asking the agent.
+            - generic [ref=f5e68]: STRUCTURE ONLY
+          - link "Explore the full market map of 504 equities in 11 sectors" [ref=f5e69] [cursor=pointer]:
+            - /url: /market-map
+            - img "Structural preview of 504 U.S. large-cap equities grouped into 11 sectors" [ref=f5e70]:
+              - generic [ref=f5e71]:
+                - generic [ref=f5e73]: Technology
+                - generic [ref=f5e74]: 73 names
+                - generic [ref=f5e75]: NVDA · AAPL · MSFT · AVGO
+              - generic [ref=f5e76]: Financials
+              - generic [ref=f5e79]: Communication
+              - generic [ref=f5e82]:
+                - generic [ref=f5e84]: Consumer Disc.
+                - generic [ref=f5e85]: 47 names
+                - generic [ref=f5e86]: AMZN · TSLA · HD · MCD
+              - generic [ref=f5e87]:
+                - generic [ref=f5e89]: Health Care
+                - generic [ref=f5e90]: 60 names
+                - generic [ref=f5e91]: LLY · JNJ · ABBV · UNH
+              - generic [ref=f5e92]: Industrials
+          - generic [ref=f5e105]:
+            - generic [ref=f5e106]:
+              - generic [ref=f5e107]: AS OF 2026-08-03
+              - generic [ref=f5e108]: iShares Core S&P 500 ETF (IVV) official holdings
+              - generic "sha256:f128a79c538f59a71ac01c8f67049276795ada35acabcb19103ec07ebc9b13ea" [ref=f5e109]: HASH f128a79c538f
+            - link "EXPLORE FULL MARKET MAP →" [ref=f5e110] [cursor=pointer]:
+              - /url: /market-map
+          - paragraph [ref=f5e111]: "Claim boundary: STRUCTURAL_COVERAGE_ONLY_NO_LIVE_ACTIVITY_OR_FLOW"
+      - generic [ref=f5e114]:
+        - textbox "Message input" [active] [ref=f5e115]:
+          - /placeholder: Send a message...
+        - generic [ref=f5e116]:
+          - button "Add Attachment" [ref=f5e117]
+          - generic [ref=f5e119]:
+            - button "Send message" [disabled]

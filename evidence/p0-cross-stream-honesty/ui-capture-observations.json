@@ -1,0 +1,27 @@
+{
+  "contract": {
+    "viewport_css": {"width": 1100, "height": 1000},
+    "device_scale_factor": 2,
+    "theme": "light",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review"
+  },
+  "before": {
+    "source": "detached worktree at 563244dd71af4d41ea5cc121c9537d7da1e2ab0c",
+    "chat_requests": 1,
+    "verdict": "BLOCKED",
+    "blockers": 5,
+    "events": 579,
+    "policy_hash": "sha256:c81f2d6158bb19a0e38145e7ff20ff37bcd1660b594a0ed446e7034417c69f5d",
+    "artifact": "ui-before.png"
+  },
+  "after": {
+    "source": "working tree",
+    "chat_requests": 1,
+    "verdict": "BLOCKED",
+    "blockers": 6,
+    "events": 579,
+    "policy_hash": "sha256:e966fc74d666886681b79ea0adc5f9a1efd6fe9603b7e82bdac46cce1a1c87ca",
+    "artifact": "ui-after.png"
+  }
+}

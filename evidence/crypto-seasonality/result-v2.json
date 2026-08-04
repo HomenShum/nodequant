@@ -1,0 +1,430 @@
+{
+  "created_at_utc": "2026-08-04T07:15:28.121760+00:00",
+  "data": {
+    "replication_panel_hash": "sha256:2912f1c3f9fae5b6a69fed878d0aef98e898f6d4cb3fd423a95428ca756d6b41",
+    "replication_quality": {
+      "chunk_count": 92,
+      "completeness": 0.9996958637469586,
+      "duplicate_rows": 0,
+      "expected_hours": 26304,
+      "first_timestamp": "2023-01-01T00:00:00+00:00",
+      "invalid_rows": 0,
+      "last_timestamp": "2025-12-31T23:00:00+00:00",
+      "missing_hours": 8,
+      "outside_rows_ignored": 92,
+      "usable_hours": 26296
+    },
+    "replication_raw_hashes": {
+      "0000.json": "sha256:d9a2977049e911a898df7f4db1f4a4d8a013194dcaa7adef2bc6f2d0e29c4260",
+      "0001.json": "sha256:8a6e5143fada6cc10f2e645dfd35ef15d84ed6062d868f933a7902b644689e0c",
+      "0002.json": "sha256:8ded0d66b2d1f78a6db36ce36054cccf0fbe46efb5609c1154d37e9dd53da132",
+      "0003.json": "sha256:342ebfcb6e3caf847724eb3ec53ece360ff1faa973f6a93bcfaeb10c69c9539f",
+      "0004.json": "sha256:ebf992c1326e785e838fd1d95a8040417dc39cd5a4b90239167eaeb2578df742",
+      "0005.json": "sha256:a6021db382e1620a3f777eb465bc0183d25f2a4ca2faa0e12e44437784945a9e",
+      "0006.json": "sha256:c0b1642b65ef5c0d2a1eabd2bb7549e421a828af79e177b93f4731c8ae570e5b",
+      "0007.json": "sha256:18f33edaa3a3abaae38b9329b9c015bf07c0ad3da434e5245eafcf0794ea0956",
+      "0008.json": "sha256:baab064b00d15d10506a4765a2aed13407a71ddbe96bbd7a04ee032defad46e0",
+      "0009.json": "sha256:915313d7148df02e01a58d6e5614ba5fa182d629b79d112b31d1b00215d7c64f",
+      "0010.json": "sha256:84b976e5790459602180da059f4882ae62a4bbf51ff3e11422aa24c921310a10",
+      "0011.json": "sha256:f81f426b5076bacb3fefe544033592f0501be48084eb66909dd23eb16eea013b",
+      "0012.json": "sha256:6802605904dc2479309ec556241a808e8092c9033ba5eea45ecd39e69b98b4c3",
+      "0013.json": "sha256:28d8b68a7100ec08b8c579f299babb462a217224480a17b74d40b49b09516e72",
+      "0014.json": "sha256:a81f7bec81afde3501a69372ebfd0f0146f5313ce6bf50e0e2f8d815aca712a2",
+      "0015.json": "sha256:fe84350ed9cd395235b8f2370e024f39743397774f34be3cf40b06da60a5fa05",
+      "0016.json": "sha256:399eb1615790a693d0bedb32dc896ba901ffcc5bcff2ffccb42fc3fa8e4006b6",
+      "0017.json": "sha256:fb213b4e744f8dea261e5c5169dab7e1ac8f15c96883cddf607477e11f5b53c6",
+      "0018.json": "sha256:ab45794e45370f38a39fbf9decacca41b5e5dda617e90932520cc06477cc6f51",
+      "0019.json": "sha256:48152c07f9e034aa2bc10f2fd6e40a8e3480fb1338dba00264ada9292334fc7b",
+      "0020.json": "sha256:6ee4eba5802aaf4b6e9abc95d1af4119cc482360e07a729367e951fa0fcbd1ef",
+      "0021.json": "sha256:241cb7f0953dc5bd1336e931039fcc5cf20f586716a96e35f455dd528f4dbb1b",
+      "0022.json": "sha256:36782e8b25566ed42bd3d0244d48307d1b9f14191f4ceeb42adf2ed1a2e32ec0",
+      "0023.json": "sha256:41a7be50b151b7aa8b12c2a95690a2bdca1a527a124378ac7b0d952eddfc0149",
+      "0024.json": "sha256:bf5bb19629a92a23e1df6a0174b6fa3eb452c4830de02a2dea8efc29275f9444",
+      "0025.json": "sha256:f8363a0d0913fd5ef955d6b1fad1ce962b1fe6ea88d38e5c7048b2a17be7aa1f",
+      "0026.json": "sha256:df3e1217ca76c6f6a509a4f7c024bfed5a78dc6342b95bc6bbb6cf2a56a243d5",
+      "0027.json": "sha256:30d210a55f5c641feed86b85819e2da7215ba12478ee223d33ecb1650b5d9464",
+      "0028.json": "sha256:f7295a8c28fddc56cd9b9dc5a4882e0ce0a7bed327baad121b05fb997d7dc87c",
+      "0029.json": "sha256:6decd92276d7162c08cde1003fb772e86e0c62afcd92e15cde89e6484107f988",
+      "0030.json": "sha256:dfbc727a13270ea88a9374eda164ddb2d63621b64e564b6ff6467c882e856f9c",
+      "0031.json": "sha256:26703aa5a19e23b5aff5c5f045d94e2ae15625fa779d14293dbd59b121ee0260",
+      "0032.json": "sha256:cba23f15f4f9685800aae2949e65a2a5f083762de0ba6cab2d5438e2df39b4c0",
+      "0033.json": "sha256:c502e54f1c290475b1d2e99c2629ef8ad5ee8a39104551b28833dbda63415387",
+      "0034.json": "sha256:0ded004b87b08a98200ffccc18935386d1fefaa54a93e8d589d72748dd546cad",
+      "0035.json": "sha256:e4c2bd536f8a71eb70e8a12c33c2df245c80f0236bcb907eeb485787b68ec5a6",
+      "0036.json": "sha256:71aae26e97a5da67d5e564484bcaba273d689b6df875cf401e4c080d5dba5eec",
+      "0037.json": "sha256:9d0c086605300daa9f782fdf815a33e3d37d1a5777c869aa41ec29c470728879",
+      "0038.json": "sha256:a2a4f691f2e8c621d09a2456c70138e569ed6fe45796787177d5e5ee2d6357ee",
+      "0039.json": "sha256:224d15a602bed81f2b8034027a838ce905777533124b8796406b3ed1b15f4a34",
+      "0040.json": "sha256:3b980cc27916e72d7bec0087beb7fb6665150f550fb16185e3faf4be3354e436",
+      "0041.json": "sha256:aa983fa9f84a638671edbe6f0bdef3aee62e2b77b8c25fd058649ec83784e67b",
+      "0042.json": "sha256:a17b2a0637c8fd3c3488e4fc3e77845eb897b909d0a269f72422830f48cdcebb",
+      "0043.json": "sha256:f13d9b5bae6b5e201acbdd45a35b5a4cde1d83adda594c2a949013832ddd0609",
+      "0044.json": "sha256:c191f426f459ee02f567dc87f84e19793917cb7ffb286742bdd13fdcb4e10b34",
+      "0045.json": "sha256:b60b1ba0afe51047c3600a95f49b5f7cdb4f7da2d1ea23ad758a6f277158e6b3",
+      "0046.json": "sha256:057a92ab71a102c3d29bb9ccb8e8b0759bfc2786d3d53889f81d675f52b4ea1e",
+      "0047.json": "sha256:71e37c8715fa4e596f1b8e7c2c41ca87a9d03d268e91f8994c7ec8affdd37a17",
+      "0048.json": "sha256:e4a43e92926052d90e015aea68c93a2864860ddcb49c123a066f36e63fbcf16a",
+      "0049.json": "sha256:58dd28ae48ff9297e0cf49c49ddddd77131e5ec3aee59e968cacb4d05d713e06",
+      "0050.json": "sha256:183fdfe7a8883bf3885d56903e844ed9c7aaa63d0bddca22778d0e9b576e41a7",
+      "0051.json": "sha256:2be5b9b9f8531f2b069028a1d6053062fbea2e6d1677ca840796313cedd3d643",
+      "0052.json": "sha256:331d7db3320e983fcdfbd7e34c6c90863c316fe6c7caa410f665788cf488c27f",
+      "0053.json": "sha256:9e71cf25343483492cf5f5e9361ff2fed42b7584a4ad981d0c5d03f4f586b76c",
+      "0054.json": "sha256:f8395662ded81eda50aec4ea9ad9f3d85090ee40f7807afa5b7d27605ea5e54f",
+      "0055.json": "sha256:34c1461012ea4da67bf322a3ca45e7e4936b3d5d2610c0c048eb4b1ac4b1f28e",
+      "0056.json": "sha256:ae81454e83fa926c13fc6a8e89c310ace8337d8644096071724e2d43e26b663b",
+      "0057.json": "sha256:618b3d3f8424b8fe5c946083517fb43761e1759f22489a106af82cafd7faaf61",
+      "0058.json": "sha256:16396b15f881c1ceec7bd73f1428f39f1527897da3e9506dac3df83f62c9f8ae",
+      "0059.json": "sha256:e09f77a1ac52b45d5b2879c98543d06cd66037175e0ec8d71b306afeaf482ce0",
+      "0060.json": "sha256:e607f20321ccbc5de63afb4ded232d168ca838b5ba458f5c20e2a1def1ad7f0d",
+      "0061.json": "sha256:5d442900df3421305f70a3131e50a9cda87b3cee72b0d7d6c297652a4f0657bd",
+      "0062.json": "sha256:ca029fafeab5be0ffb159b1be832e8268e4584c2cde991ef97af2fc93f0cca89",
+      "0063.json": "sha256:7d397ec3ff96b42c3e7985f2f0acb32a47ac65ace9c3cdc1f697a6702ee7cdc0",
+      "0064.json": "sha256:259b009fec54c325c4b19547f54e88cf2c1b6311e443bf3e083d0c8e798dcf5c",
+      "0065.json": "sha256:5a1f0f3830f84355e5a6cdde45e0e6f48dcb6bfc77df7a5d402c1b7581e74ac7",
+      "0066.json": "sha256:9cee8dfa72db7281af55c56fe6ece54a8ebde12d13b0a32504e7774161ba958f",
+      "0067.json": "sha256:d96c786adb1cecf0d58426e3bf3ea8990143a500fcabd04a2d83f48e1d73a0da",
+      "0068.json": "sha256:0a2be02dc4a4ec00b1e9ea259ca20e379fc0951738987a54ce5db131dc8f0709",
+      "0069.json": "sha256:228ee40c1d07a6aa2ad1a089e26716e5dc1b1b2df74412481f4c0eb118f42fdd",
+      "0070.json": "sha256:b09373f8f274f412e97922a9e321e967887ccd7156c1d7cdda55ed7252f0297a",
+      "0071.json": "sha256:b5796505ef6f25683d0dd6acf4b57c8315c9c8df480028f6a74e76be006cc77c",
+      "0072.json": "sha256:2ae713cb216c063b5cb043e256366fbc1a43309979e3cbe4a99d0e85af5403ac",
+      "0073.json": "sha256:8d2da141f8743c1cf55ae75222d2b92e092dbee33b74d8e06a4c70f8bdebd539",
+      "0074.json": "sha256:48cdb5648d64c0c1a6a1784e94b6ba7aa2daf0681600d998d1b622b956263222",
+      "0075.json": "sha256:4f9e8d3a22b7a81a0045cb54c29b9a4ef4584958e874093e6a8a86fb31be6ea4",
+      "0076.json": "sha256:9407ac75657da442f23bb9c0e9da7bfeb370694f6c289f75373728b2b6c4cb76",
+      "0077.json": "sha256:a1983a8bf8abd0f08c695da6713343943a0e5ffda5b0b744db6dcd8a256515de",
+      "0078.json": "sha256:9145e198dced13430a06f2aa41625c997af3d693eaaa26a7d770acde140cb18a",
+      "0079.json": "sha256:c696d71ba9e41d005fb62c3512e843ce20af8d628049cd2aa4f6a0224f0f8725",
+      "0080.json": "sha256:8c50625a0c771620ea2cd0dbf4148ee84cf5351f1173d871f9d30111ec459bc3",
+      "0081.json": "sha256:649922e29da57caf5890c892baf855fead32b2730942fc903f75b09aa88d9572",
+      "0082.json": "sha256:cdac3ccbde9fbc1e9881a1fed87f1deb8358010427cd579287de711ad2b9c463",
+      "0083.json": "sha256:272b0d28501014c11a8df492f736d485e76380f96d7e99ac0b843f9565e88cf5",
+      "0084.json": "sha256:9b3268be7fe5cd7c0ad2615d7c680b7ca31d2b1f676c7c3aebd30916cf996f23",
+      "0085.json": "sha256:1df7de1204a1562029ad21a85f8fac37f1eddf11872e842d9a2cf6b3df9c9138",
+      "0086.json": "sha256:9b1badca86111554568e72f8b942f6d3bbcb034e63369fe4355af8d62a923284",
+      "0087.json": "sha256:7c86348b8b9608a16929d2647f2902726272aa897138288df2d78fe4c043212c",
+      "0088.json": "sha256:6ced6d511faf7f356f30773ec844eb06567d028d593a1480d928acde94b1b8c3",
+      "0089.json": "sha256:1b540a89a5693c71f00e7377e0c683ed9c965631e8515939b396e19ed0c1eb9b",
+      "0090.json": "sha256:8d810f744f5996319b06498abdb6963d3d5e87d5f678f2df668a932bf84e41d0",
+      "0091.json": "sha256:908c596238981368b801159f06a3fb3f5dddd0e46577e3bd03d6a98a799c3893"
+    }
+  },
+  "discovery_family_winners": [
+    {
+      "candidate": {
+        "duration_hours": 1,
+        "family": "utc_hour",
+        "id": "utc_hour__start-20_duration-1",
+        "rule": "utc_session",
+        "start_hour": 20
+      },
+      "discovery_survivor": false,
+      "family": "utc_hour",
+      "floor_improvement": -9.16941717884478,
+      "folds_beating_baseline": 0,
+      "robust_net_sharpe_floor": -9.343878213765832
+    },
+    {
+      "candidate": {
+        "duration_hours": 12,
+        "family": "utc_session",
+        "id": "utc_session__start-9_duration-12",
+        "rule": "utc_session",
+        "start_hour": 9
+      },
+      "discovery_survivor": false,
+      "family": "utc_session",
+      "floor_improvement": -2.0250580276564634,
+      "folds_beating_baseline": 0,
+      "robust_net_sharpe_floor": -2.1995190625775156
+    },
+    {
+      "candidate": {
+        "family": "week_part",
+        "id": "week_part__weekday",
+        "part": "weekday",
+        "rule": "week_part"
+      },
+      "discovery_survivor": false,
+      "family": "week_part",
+      "floor_improvement": 0.07891875771385093,
+      "folds_beating_baseline": 1,
+      "robust_net_sharpe_floor": -0.09554227720720121
+    },
+    {
+      "candidate": {
+        "family": "weekday",
+        "id": "weekday__day-2",
+        "rule": "weekday",
+        "weekday": 2
+      },
+      "discovery_survivor": false,
+      "family": "weekday",
+      "floor_improvement": 0.17726620416985892,
+      "folds_beating_baseline": 1,
+      "robust_net_sharpe_floor": 0.0028051692488067765
+    }
+  ],
+  "discovery_result_hash": "sha256:909019a0d40824702907f418108364e862e54f439c93b6cc4eef12e806687a83",
+  "evaluator_hash": "sha256:58c010afc16765b774abeaba0417b813ba565074de17fbe4f9322b1b570ff549",
+  "limitations": [
+    "Coinbase documents that historical candles may be incomplete and are not executable quotes.",
+    "BTC discovery to ETH replication changes asset and time but not venue.",
+    "UTC windows are falsifiers; they do not reproduce exchange-local or daylight-saving session definitions.",
+    "This is paper-only research and not investment advice."
+  ],
+  "policy_hash": "sha256:9748f3b15e755642192ea7595777edb1e1e949d8f5455f8d25842fa7a5499433",
+  "promotion_ceiling": "PUBLIC_CANDLE_DIAGNOSTIC_ONLY_NOT_EXECUTABLE_OR_LIVE_CAPITAL",
+  "promotion_eligible": false,
+  "replication": {
+    "baseline_id": "always_long",
+    "champion_id": "weekday__day-2",
+    "checks": {
+      "minimum_fold_breadth": false,
+      "paired_active_bootstrap_lower_positive": false,
+      "positive_net_cagr": true,
+      "robust_floor_improves": false
+    },
+    "folds_beating_baseline": 1,
+    "paired_active_annual_return_bootstrap_95pct_lower": -0.8748275665773229,
+    "status": "FAIL",
+    "trials": {
+      "always_long": {
+        "all_period": {
+          "annualized_turnover": 0.33394327538883806,
+          "days": 1093,
+          "max_drawdown": -0.6387653043628225,
+          "net_cagr": 0.35201086319142894,
+          "net_sharpe": 0.7894041435963344
+        },
+        "candidate": {
+          "family": "baseline",
+          "id": "always_long",
+          "rule": "always_long"
+        },
+        "folds": {
+          "R1": {
+            "annualized_turnover": 1.0027472527472527,
+            "days": 364,
+            "max_drawdown": -0.2649626766195594,
+            "net_cagr": 0.9296300411975518,
+            "net_sharpe": 1.577938960103584
+          },
+          "R2": {
+            "annualized_turnover": 0.0,
+            "days": 366,
+            "max_drawdown": -0.4499790604291386,
+            "net_cagr": 0.4616985091803667,
+            "net_sharpe": 0.9089084411735483
+          },
+          "R3": {
+            "annualized_turnover": 0.0,
+            "days": 363,
+            "max_drawdown": -0.6011966602300863,
+            "net_cagr": -0.12521142129024,
+            "net_sharpe": 0.19235859362986338
+          }
+        },
+        "robust_net_sharpe_floor": 0.39654091933515884,
+        "score_components": {
+          "fold_sharpe_25th_percentile": 0.5506335174017059,
+          "remove_best_days_sharpe": 0.39654091933515884,
+          "stressed_25bps_sharpe": 0.7886141828119075
+        },
+        "status": "REGISTERED_COMPLETE"
+      },
+      "utc_hour__start-20_duration-1": {
+        "all_period": {
+          "annualized_turnover": 730.0,
+          "days": 1093,
+          "max_drawdown": -0.817749545532653,
+          "net_cagr": -0.4334471169530765,
+          "net_sharpe": -4.13291714896169
+        },
+        "candidate": {
+          "duration_hours": 1,
+          "family": "utc_hour",
+          "id": "utc_hour__start-20_duration-1",
+          "rule": "utc_session",
+          "start_hour": 20
+        },
+        "folds": {
+          "R1": {
+            "annualized_turnover": 730.0,
+            "days": 364,
+            "max_drawdown": -0.5455735512082898,
+            "net_cagr": -0.5469667597862935,
+            "net_sharpe": -7.268369128106666
+          },
+          "R2": {
+            "annualized_turnover": 730.0,
+            "days": 366,
+            "max_drawdown": -0.3635239980520871,
+            "net_cagr": -0.3421274000532989,
+            "net_sharpe": -2.996090109608927
+          },
+          "R3": {
+            "annualized_turnover": 730.0,
+            "days": 363,
+            "max_drawdown": -0.39015995530620606,
+            "net_cagr": -0.39020951766923007,
+            "net_sharpe": -3.0878761084574924
+          }
+        },
+        "robust_net_sharpe_floor": -12.240658306649104,
+        "score_components": {
+          "fold_sharpe_25th_percentile": -5.178122618282079,
+          "remove_best_days_sharpe": -5.0725703380400065,
+          "stressed_25bps_sharpe": -12.240658306649104
+        },
+        "status": "REGISTERED_COMPLETE"
+      },
+      "utc_session__start-9_duration-12": {
+        "all_period": {
+          "annualized_turnover": 730.0,
+          "days": 1093,
+          "max_drawdown": -0.9498639283295395,
+          "net_cagr": -0.6075976672632197,
+          "net_sharpe": -1.6301095837583164
+        },
+        "candidate": {
+          "duration_hours": 12,
+          "family": "utc_session",
+          "id": "utc_session__start-9_duration-12",
+          "rule": "utc_session",
+          "start_hour": 9
+        },
+        "folds": {
+          "R1": {
+            "annualized_turnover": 730.0,
+            "days": 364,
+            "max_drawdown": -0.5745299608459893,
+            "net_cagr": -0.4613148591602534,
+            "net_sharpe": -1.554227798040243
+          },
+          "R2": {
+            "annualized_turnover": 730.0,
+            "days": 366,
+            "max_drawdown": -0.6750121782219316,
+            "net_cagr": -0.6222521952534292,
+            "net_sharpe": -1.7914433778795384
+          },
+          "R3": {
+            "annualized_turnover": 730.0,
+            "days": 363,
+            "max_drawdown": -0.7240529339131523,
+            "net_cagr": -0.7032331875478078,
+            "net_sharpe": -1.6397499383348493
+          }
+        },
+        "robust_net_sharpe_floor": -3.8378700768216993,
+        "score_components": {
+          "fold_sharpe_25th_percentile": -1.7155966581071938,
+          "remove_best_days_sharpe": -2.229197708370197,
+          "stressed_25bps_sharpe": -3.8378700768216993
+        },
+        "status": "REGISTERED_COMPLETE"
+      },
+      "week_part__weekday": {
+        "all_period": {
+          "annualized_turnover": 103.85635864592864,
+          "days": 1093,
+          "max_drawdown": -0.5727221288170612,
+          "net_cagr": 0.11035776946345299,
+          "net_sharpe": 0.46518843773293056
+        },
+        "candidate": {
+          "family": "week_part",
+          "id": "week_part__weekday",
+          "part": "weekday",
+          "rule": "week_part"
+        },
+        "folds": {
+          "R1": {
+            "annualized_turnover": 103.28296703296704,
+            "days": 364,
+            "max_drawdown": -0.23267777231231046,
+            "net_cagr": 0.5335578240459689,
+            "net_sharpe": 1.1540756842029365
+          },
+          "R2": {
+            "annualized_turnover": 104.71311475409836,
+            "days": 366,
+            "max_drawdown": -0.4803097757353657,
+            "net_cagr": 0.1651611424397157,
+            "net_sharpe": 0.5471190573853456
+          },
+          "R3": {
+            "annualized_turnover": 103.56749311294766,
+            "days": 363,
+            "max_drawdown": -0.535293794729949,
+            "net_cagr": -0.23485558535724627,
+            "net_sharpe": -0.07911298715535955
+          }
+        },
+        "robust_net_sharpe_floor": 0.0059058131097320665,
+        "score_components": {
+          "fold_sharpe_25th_percentile": 0.23400303511499304,
+          "remove_best_days_sharpe": 0.0059058131097320665,
+          "stressed_25bps_sharpe": 0.19291109180897692
+        },
+        "status": "REGISTERED_COMPLETE"
+      },
+      "weekday__day-2": {
+        "all_period": {
+          "annualized_turnover": 104.19030192131747,
+          "days": 1093,
+          "max_drawdown": -0.26638772891190643,
+          "net_cagr": 0.28345774772607557,
+          "net_sharpe": 1.0724265835204105
+        },
+        "candidate": {
+          "family": "weekday",
+          "id": "weekday__day-2",
+          "rule": "weekday",
+          "weekday": 2
+        },
+        "folds": {
+          "R1": {
+            "annualized_turnover": 104.28571428571429,
+            "days": 364,
+            "max_drawdown": -0.26638772891190643,
+            "net_cagr": 0.12541182668887685,
+            "net_sharpe": 0.6038349730883349
+          },
+          "R2": {
+            "annualized_turnover": 103.71584699453553,
+            "days": 366,
+            "max_drawdown": -0.21453961712030056,
+            "net_cagr": 0.17923459554093757,
+            "net_sharpe": 0.7096720241549803
+          },
+          "R3": {
+            "annualized_turnover": 104.57300275482093,
+            "days": 363,
+            "max_drawdown": -0.06657142695532359,
+            "net_cagr": 0.5947559736559713,
+            "net_sharpe": 1.9345597492213005
+          }
+        },
+        "robust_net_sharpe_floor": 0.4817185743718543,
+        "score_components": {
+          "fold_sharpe_25th_percentile": 0.6567534986216577,
+          "remove_best_days_sharpe": 0.5091496343899449,
+          "stressed_25bps_sharpe": 0.4817185743718543
+        },
+        "status": "REGISTERED_COMPLETE"
+      }
+    }
+  },
+  "result_hash": "sha256:f0155de43e8fc0d7128b1a0e6b3d91fb1f1cd83fb6cf2efb58ebf107834e593c",
+  "search_breadth": {
+    "discovery_candidates": 106,
+    "families": 4,
+    "replication_candidates_including_baseline": 5,
+    "total_measured_trials": 111
+  },
+  "selection_seal_hash": "sha256:4df483b638a9eddfc4e7a39908d2a48250f5f06489cfb3a1c23ff7faabaf654d",
+  "verdict": "NO_REPLICATION_SURVIVOR",
+  "version": "nodequant-crypto-seasonality-result-v1"
+}

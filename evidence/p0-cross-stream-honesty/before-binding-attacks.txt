@@ -1,0 +1,11 @@
+scenario=packet_and_fill_co_mutation
+packet_hash_changed=True
+receipt_acceptable=False
+cross_stream=NOT_RUN
+promotion=BLOCKED
+blockers=LEDGER_UNACCEPTABLE,LEDGER_unauthorized_fills
+scenario=packet_and_trade_deletion
+remaining_packets=24
+receipt_acceptable=True
+promotion=PROMOTABLE
+blockers=

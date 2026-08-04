@@ -1,0 +1,53 @@
+- generic [ref=f5e1] [box=0,0,1728,1117]:
+  - generic [ref=f5e3] [box=0,0,1728,1117]:
+    - generic [ref=f5e6] [box=0,0,255,1117]:
+      - list [ref=f5e9] [box=8,8,239,48]:
+        - listitem [ref=f5e10] [box=8,8,239,48]:
+          - link "NodeQuant" [ref=f5e11] [cursor=pointer] [box=8,8,239,48]:
+            - /url: /
+      - generic [ref=f5e19] [box=8,73,239,108]:
+        - button "New Thread" [ref=f5e20] [box=8,73,239,32]
+        - searchbox "Search threads" [ref=f5e23] [box=10,111,235,32]
+        - generic [ref=f5e25] [box=8,149,239,32]:
+          - button "New Chat" [ref=f5e26] [box=8,149,239,32]
+          - button "More options" [ref=f5e28] [box=217,153,24,24]
+      - button "Toggle Sidebar" [ref=f5e30] [box=247,0,16,1117]
+    - main [ref=f5e31] [box=256,0,1470,1117]:
+      - generic [ref=f5e32] [box=256,0,1470,64]:
+        - button "Toggle Sidebar" [ref=f5e33] [box=272,18,28,28]
+        - separator [box=308,24,0,16]
+        - navigation "breadcrumb" [ref=f5e35] [box=324,22,193,20]:
+          - list [ref=f5e36] [box=324,22,193,20]:
+            - listitem [ref=f5e37] [box=324,22,73,20]:
+              - link "NodeQuant" [ref=f5e38] [cursor=pointer] [box=324,22,73,19]:
+                - /url: /
+            - listitem [ref=f5e39] [box=403,25,14,14]
+            - listitem [ref=f5e42] [box=423,22,94,20]:
+              - link "Proof Kernel v0" [disabled] [ref=f5e43] [box=423,22,94,20]
+        - generic [ref=f5e44] [box=1542,14,168,36]:
+          - link "Market Map" [ref=f5e45] [cursor=pointer] [box=1542,14,128,36]:
+            - /url: /market-map
+          - button "Toggle dark mode" [ref=f5e49] [box=1678,16,32,32]
+      - generic [ref=f5e59] [box=632,64,704,1053]:
+        - generic [ref=f5e60] [box=648,333,672,377]:
+          - heading "Start with the market, then interrogate it." [level=1] [ref=f5e61] [box=760,333,448,32]
+          - generic [ref=f5e62] [box=664,381,640,329]:
+            - generic [ref=f5e63] [box=665,382,638,95]:
+              - generic [ref=f5e64] [box=681,394,449,70]
+              - generic [ref=f5e68] [box=1178,394,109,24]: STRUCTURE ONLY
+            - link "Explore the full market map of 504 equities in 11 sectors" [ref=f5e69] [cursor=pointer] [box=665,476,638,177]:
+              - /url: /market-map
+              - img "Structural preview of 504 U.S. large-cap equities grouped into 11 sectors" [ref=f5e70] [box=673,484,622,161]
+            - generic [ref=f5e105] [box=665,653,638,56]:
+              - generic [ref=f5e106] [box=681,666,444,31]
+              - link "EXPLORE FULL MARKET MAP →" [ref=f5e110] [cursor=pointer] [box=1133,668,154,27]:
+                - /url: /market-map
+            - paragraph [ref=f5e111] [box=664,708,1,1]: "Claim boundary: STRUCTURAL_COVERAGE_ONLY_NO_LIVE_ACTIVITY_OR_FLOW"
+        - generic [ref=f5e114] [box=648,730,672,94]:
+          - textbox "Message input" [active] [ref=f5e115] [box=657,739,654,40]:
+            - /placeholder: Send a message...
+          - generic [ref=f5e116] [box=657,787,654,28]:
+            - button "Add Attachment" [ref=f5e117] [box=657,787,28,28]
+            - generic [ref=f5e119] [box=1283,787,28,28]:
+              - button "Send message" [disabled] [box=1283,787,28,28]
+  - alert [ref=f5e120] [box=-1,1116,1,1]

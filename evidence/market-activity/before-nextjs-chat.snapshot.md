@@ -1,0 +1,28 @@
+- generic [active] [ref=e1] [box=0,0,1728,1117]:
+  - generic [ref=e3] [box=0,0,1728,1117]:
+    - generic [ref=e6] [box=0,0,255,1117]:
+      - list [ref=e9] [box=8,8,239,48]:
+        - listitem [ref=e10] [box=8,8,239,48]:
+          - link "NodeQuant" [ref=e11] [cursor=pointer] [box=8,8,239,48]:
+            - /url: /
+      - generic [ref=e19] [box=8,73,239,108]:
+        - button "New Thread" [ref=e20] [box=8,73,239,32]
+        - searchbox "Search threads" [ref=e23] [box=10,111,235,32]
+        - generic [ref=e25] [box=8,149,239,32]:
+          - button "New Chat" [ref=e26] [box=8,149,239,32]
+          - button "More options" [ref=e28] [box=217,153,24,24]
+      - button "Toggle Sidebar" [ref=e30] [box=247,0,16,1117]
+    - main [ref=e31] [box=256,0,1470,1117]:
+      - generic [ref=e32] [box=256,0,1470,64]:
+        - button "Toggle Sidebar" [ref=e33] [box=272,18,28,28]
+        - separator [box=308,24,0,16]
+        - navigation "breadcrumb" [ref=e35] [box=324,22,193,20]:
+          - list [ref=e36] [box=324,22,193,20]
+        - button "Toggle dark mode" [ref=e45] [box=1678,16,32,32]
+      - generic [ref=e55] [box=632,64,704,1053]:
+        - heading "How can I help you today?" [level=1] [ref=e57] [box=840,508,288,32]
+        - generic [ref=e60] [box=648,560,672,94]:
+          - textbox "Message input" [ref=e61] [box=657,569,654,40]:
+            - /placeholder: Send a message...
+          - generic [ref=e62] [box=657,617,654,28]
+  - alert [ref=e66] [box=-1,1116,1,1]

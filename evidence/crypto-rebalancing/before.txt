@@ -1,0 +1,7 @@
+2026-08-04 pre-change proof
+
+- `app/crypto_rebalancing.py` absent.
+- `nodequant-crypto-rebalancing` absent from the console surface.
+- No SOL-USD, LINK-USD, LTC-USD, BCH-USD, or ADA-USD candle artifact exists in this repository.
+- No crypto-rebalancing policy, result, graph node, screenshot, or Notion outcome exists.
+

@@ -1,0 +1,240 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_count": 4,
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "split_band_ids": [
+      "DEVELOPMENT",
+      "VALIDATION",
+      "TEST",
+      "OPENED_HOLDOUT"
+    ],
+    "stress_caption": "execution stress · modelled counterfactual · not observed execution",
+    "stress_headers": [
+      "scenario",
+      "delay",
+      "cost",
+      "final equity",
+      "max DD",
+      "episodes",
+      "packet outcome"
+    ],
+    "stress_rows": [
+      {
+        "scenario_id": "baseline",
+        "cells": [
+          "baseline",
+          "0 bars",
+          "1×",
+          "$99,447.58",
+          "-$554.90",
+          "17",
+          "17 exec · 8 collision · 0 tail"
+        ]
+      },
+      {
+        "scenario_id": "cost-2x",
+        "cells": [
+          "cost-2x",
+          "0 bars",
+          "2×",
+          "$99,412.03",
+          "-$589.40",
+          "17",
+          "17 exec · 8 collision · 0 tail"
+        ]
+      },
+      {
+        "scenario_id": "cost-4x",
+        "cells": [
+          "cost-4x",
+          "0 bars",
+          "4×",
+          "$99,340.93",
+          "-$659.07",
+          "17",
+          "17 exec · 8 collision · 0 tail"
+        ]
+      },
+      {
+        "scenario_id": "delay-1",
+        "cells": [
+          "delay-1",
+          "1 bars",
+          "1×",
+          "$99,466.19",
+          "-$537.83",
+          "17",
+          "17 exec · 8 collision · 0 tail"
+        ]
+      },
+      {
+        "scenario_id": "delay-5",
+        "cells": [
+          "delay-5",
+          "5 bars",
+          "1×",
+          "$99,370.02",
+          "-$634.17",
+          "17",
+          "17 exec · 8 collision · 0 tail"
+        ]
+      }
+    ],
+    "stress_payload": [
+      {
+        "scenario_id": "baseline",
+        "entry_delay_bars": 0,
+        "cost_multiplier": 1,
+        "final_equity_micros": 99447575515,
+        "max_drawdown_micros": -554898810,
+        "fill_count": 34,
+        "completed_episode_count": 17,
+        "attempted_packet_count": 25,
+        "executed_packet_count": 17,
+        "tail_dropped_packet_count": 0,
+        "collision_skipped_packet_count": 8,
+        "ledger_root_hash": "sha256:eb88cb9122348a8ab89ad5c028da5faba1dbf9a497c74494c5f3c0184dd20282",
+        "curve_hash": "sha256:9ca8a12b16cceee37d37d88a9482fd8a95cb00bfc92607d01d8045c7f27c9211",
+        "assumption": "modelled_counterfactual_not_observed_execution"
+      },
+      {
+        "scenario_id": "cost-2x",
+        "entry_delay_bars": 0,
+        "cost_multiplier": 2,
+        "final_equity_micros": 99412026332,
+        "max_drawdown_micros": -589401318,
+        "fill_count": 34,
+        "completed_episode_count": 17,
+        "attempted_packet_count": 25,
+        "executed_packet_count": 17,
+        "tail_dropped_packet_count": 0,
+        "collision_skipped_packet_count": 8,
+        "ledger_root_hash": "sha256:81b234a1fe074f58af5665794f51674f0ae181069446ce9bf1b24f3dc1276d3b",
+        "curve_hash": "sha256:76f1aa1ff776b34d380f7cce346fa120695a84e3e505458532e2e4b4549c0ae6",
+        "assumption": "modelled_counterfactual_not_observed_execution"
+      },
+      {
+        "scenario_id": "cost-4x",
+        "entry_delay_bars": 0,
+        "cost_multiplier": 4,
+        "final_equity_micros": 99340927972,
+        "max_drawdown_micros": -659072028,
+        "fill_count": 34,
+        "completed_episode_count": 17,
+        "attempted_packet_count": 25,
+        "executed_packet_count": 17,
+        "tail_dropped_packet_count": 0,
+        "collision_skipped_packet_count": 8,
+        "ledger_root_hash": "sha256:2fe671b3624d469a28e8a1e12f995f4fc2c46b60fa113c1bb40bf83c25268a23",
+        "curve_hash": "sha256:32948a225e0b60c93c1540175c58f80fe7b3f088058d6351c0513a213bac3173",
+        "assumption": "modelled_counterfactual_not_observed_execution"
+      },
+      {
+        "scenario_id": "delay-1",
+        "entry_delay_bars": 1,
+        "cost_multiplier": 1,
+        "final_equity_micros": 99466191718,
+        "max_drawdown_micros": -537825023,
+        "fill_count": 34,
+        "completed_episode_count": 17,
+        "attempted_packet_count": 25,
+        "executed_packet_count": 17,
+        "tail_dropped_packet_count": 0,
+        "collision_skipped_packet_count": 8,
+        "ledger_root_hash": "sha256:9df2dfd2c79756675461b94c3b1edfcd68a8f16b18f8626b02b811a8b830ad3a",
+        "curve_hash": "sha256:5a5b0b15ccf2fa1379af7ed1c272366d187ec2a38b4bddd9d0e75f6d2105a36e",
+        "assumption": "modelled_counterfactual_not_observed_execution"
+      },
+      {
+        "scenario_id": "delay-5",
+        "entry_delay_bars": 5,
+        "cost_multiplier": 1,
+        "final_equity_micros": 99370015149,
+        "max_drawdown_micros": -634171805,
+        "fill_count": 34,
+        "completed_episode_count": 17,
+        "attempted_packet_count": 25,
+        "executed_packet_count": 17,
+        "tail_dropped_packet_count": 0,
+        "collision_skipped_packet_count": 8,
+        "ledger_root_hash": "sha256:9154b1913cfaf8f87f1f688e9e7238e249476bc486686d742c8bbbe6c1cbfcb5",
+        "curve_hash": "sha256:4ae3d0433c319d195c6cf270ea203c81b64f0c826646555e140c5e401a26b1c2",
+        "assumption": "modelled_counterfactual_not_observed_execution"
+      }
+    ],
+    "diagnostic_only": true,
+    "absolute_equity_payload_count": 579,
+    "absolute_equity_payload_hash": "sha256:a090044c7e6af01c4cd396d15cd46a425b450c18fcb833785a391c1cb600a55f",
+    "visible_metrics": {
+      "final equity": "$99,447.58",
+      "realised P&L": "-$518.42",
+      "max drawdown": "-$554.90",
+      "fees": "$34.00",
+      "modelled spread": "$1.03",
+      "modelled slippage": "$0.52"
+    },
+    "split_performance_rows": [
+      {
+        "split_id": "DEVELOPMENT",
+        "text": "DEVELOPMENT\t-$310.04\t-$312.74\t58980s\t10\tunrecovered (censored)"
+      },
+      {
+        "split_id": "VALIDATION",
+        "text": "VALIDATION\t-$199.68\t-$200.93\t26880s\t5\tunrecovered (censored)"
+      },
+      {
+        "split_id": "TEST",
+        "text": "TEST\t-$42.70\t-$51.97\t7620s\t2\tunrecovered (censored)"
+      },
+      {
+        "split_id": "OPENED_HOLDOUT",
+        "text": "OPENED_HOLDOUT\tNOT_RUN — no observations"
+      }
+    ],
+    "journal_footer_visible": true,
+    "oracle_footer_text": "oracle same_author_diverse_implementation · matched true · provenance self-attested",
+    "split_footer_text": "splits tagged true · access provenance self-attested",
+    "policy_hash": "sha256:121fa55d0a04c382c7c28331e51767de0ef8966f1d28fc676510dab0af659a27",
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 1500
+    },
+    "console_errors": [],
+    "artifact": "after.png",
+    "capture_note": "request, DOM, console, and responsive layout verified at 1100x1000; pixel-only height expanded after verification so the 1046px panel fits without fixed-composer occlusion; width and DPR unchanged"
+  }
+}

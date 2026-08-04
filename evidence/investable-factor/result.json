@@ -1,0 +1,1544 @@
+{
+  "cost_sensitivities": {
+    "0": {
+      "active": {
+        "annualized_mean": -0.009458360093954954,
+        "annualized_volatility": 0.02993231846514238,
+        "cagr": -0.00985942353625413,
+        "months": 144,
+        "sharpe": -0.31599156293120656
+      },
+      "annual_turnover": 0.23794515008708683,
+      "benchmark": {
+        "annualized_mean": 0.13707644600019897,
+        "annualized_volatility": 0.1449579365005241,
+        "cagr": 0.13422829233209876,
+        "months": 144,
+        "sharpe": 0.9456291204842265
+      },
+      "factor": {
+        "annualized_mean": 0.12761808590624402,
+        "annualized_volatility": 0.14742110987171306,
+        "cagr": 0.12323803374212305,
+        "months": 144,
+        "sharpe": 0.8656703644226948
+      }
+    },
+    "10": {
+      "active": {
+        "annualized_mean": -0.009531291547195083,
+        "annualized_volatility": 0.029933772364242387,
+        "cagr": -0.009931740473279493,
+        "months": 144,
+        "sharpe": -0.31841264212260656
+      },
+      "annual_turnover": 0.23794515008708683,
+      "benchmark": {
+        "annualized_mean": 0.13691265022565663,
+        "annualized_volatility": 0.14499070599743022,
+        "cagr": 0.13403917546935395,
+        "months": 144,
+        "sharpe": 0.9442856994439576
+      },
+      "factor": {
+        "annualized_mean": 0.1273813586784615,
+        "annualized_volatility": 0.14744524410917803,
+        "cagr": 0.12297070251851361,
+        "months": 144,
+        "sharpe": 0.8639231427779392
+      }
+    },
+    "20": {
+      "active": {
+        "annualized_mean": -0.009604222422147044,
+        "annualized_volatility": 0.029935231912711715,
+        "cagr": -0.01000405216544975,
+        "months": 144,
+        "sharpe": -0.3208334062736524
+      },
+      "annual_turnover": 0.23794515008708683,
+      "benchmark": {
+        "annualized_mean": 0.13674885445111426,
+        "annualized_volatility": 0.14502457068748015,
+        "cagr": 0.1338499007856162,
+        "months": 144,
+        "sharpe": 0.9429357646284667
+      },
+      "factor": {
+        "annualized_mean": 0.1271446320289672,
+        "annualized_volatility": 0.1474704651607772,
+        "cagr": 0.12270324676206368,
+        "months": 144,
+        "sharpe": 0.8621701429526915
+      }
+    },
+    "25": {
+      "active": {
+        "annualized_mean": -0.009640687642765109,
+        "annualized_volatility": 0.029935963805218714,
+        "cagr": -0.010040206044833355,
+        "months": 144,
+        "sharpe": -0.32204366979774524
+      },
+      "annual_turnover": 0.23794515008708683,
+      "benchmark": {
+        "annualized_mean": 0.1366669565638431,
+        "annualized_volatility": 0.14504191349117693,
+        "cagr": 0.13375520417026943,
+        "months": 144,
+        "sharpe": 0.9422583670764704
+      },
+      "factor": {
+        "annualized_mean": 0.12702626892107796,
+        "annualized_volatility": 0.14748348306505898,
+        "cagr": 0.12256947210387992,
+        "months": 144,
+        "sharpe": 0.8612914902819537
+      }
+    },
+    "5": {
+      "active": {
+        "annualized_mean": -0.009494825892861,
+        "annualized_volatility": 0.02993304470847309,
+        "cagr": -0.009895582660397584,
+        "months": 144,
+        "sharpe": -0.31720214182466094
+      },
+      "annual_turnover": 0.23794515008708683,
+      "benchmark": {
+        "annualized_mean": 0.13699454811292783,
+        "annualized_volatility": 0.1449741843028361,
+        "cagr": 0.13413375361025537,
+        "months": 144,
+        "sharpe": 0.9449582266782088
+      },
+      "factor": {
+        "annualized_mean": 0.1274997222200668,
+        "annualized_volatility": 0.14743304110405414,
+        "cagr": 0.1231043836809178,
+        "months": 144,
+        "sharpe": 0.8647974786742751
+      }
+    }
+  },
+  "created_at_utc": "2026-08-04T08:57:31.485264+00:00",
+  "data": {
+    "panel_hash": "sha256:c43c3c9126dca62a71c172fb8f631e7478ed63707abdc334f275ad8d7905150a",
+    "quality": {
+      "common_daily_rows": 3039,
+      "first_month_end": "2013-12-31",
+      "last_month_end": "2025-12-31",
+      "missing_months": 0,
+      "monthly_rows": 145,
+      "symbols": {
+        "MTUM": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 3039,
+          "usable_rows": 3039
+        },
+        "QUAL": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 3039,
+          "usable_rows": 3039
+        },
+        "SPY": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 3039,
+          "usable_rows": 3039
+        },
+        "VLUE": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 3039,
+          "usable_rows": 3039
+        }
+      }
+    },
+    "raw_hashes": {
+      "MTUM": "sha256:41f2345bd3c85991237e70e05576cb782529b0b6ddffba8675d3e1fd0050cb7a",
+      "QUAL": "sha256:dfd5045e4d26a94136a9713066a88d964e74a8ab91474d32e6c77cc90e86b7b5",
+      "SPY": "sha256:6ec31525151268c74753a814c7c95f26eabe84f7c144689ce0bfb238548f730c",
+      "VLUE": "sha256:ff5d62ac6ec580da3f75c7fe2d913ea6d957a75be7be12b8a1cd3f53c5af3437"
+    }
+  },
+  "evaluator_hash": "sha256:ccf8f175ea31c81a5489c1093fad55b9f2a72245b86319585add6b9be12eeb1e",
+  "limitations": [
+    "Yahoo adjusted closes are secondary, revisable observations rather than exchange-grade point-in-time records.",
+    "Adjusted-close returns already reflect fund operating expenses; issuer expense ratios are disclosures and are not subtracted twice.",
+    "The ETF evaluation period overlaps the published-factor research period, so this tests translation and costs rather than independent alpha persistence.",
+    "Close-to-close turnover charges do not measure spreads, slippage, taxes, market impact, or capacity.",
+    "One equal-weight proxy cannot represent every implementable value, quality, and momentum construction."
+  ],
+  "monthly_records": [
+    {
+      "active_return": 0.00167852514634248,
+      "benchmark_return": -0.036212960241738146,
+      "benchmark_wealth": 0.9637870397582619,
+      "factor_return": -0.034534435095395666,
+      "factor_wealth": 0.9654655649046043,
+      "month": "201401",
+      "turnover": 1.0035902324853858
+    },
+    {
+      "active_return": 0.006424742778345038,
+      "benchmark_return": 0.04551532826624438,
+      "benchmark_wealth": 1.007654123251611,
+      "factor_return": 0.05194007104458942,
+      "factor_wealth": 1.015611914936854,
+      "month": "201402",
+      "turnover": 0.0048306689232731626
+    },
+    {
+      "active_return": -0.014919813409477345,
+      "benchmark_return": 0.008296007466790822,
+      "benchmark_wealth": 1.016013629382049,
+      "factor_return": -0.0066238059426865226,
+      "factor_wealth": 1.0088846986992321,
+      "month": "201403",
+      "turnover": 0.009252356624166624
+    },
+    {
+      "active_return": -0.005086650127185788,
+      "benchmark_return": 0.006951244530157608,
+      "benchmark_wealth": 1.0230761885658566,
+      "factor_return": 0.0018645944029718198,
+      "factor_wealth": 1.0107658594616706,
+      "month": "201404",
+      "turnover": 0.0039300613016609864
+    },
+    {
+      "active_return": 0.0032335146945952076,
+      "benchmark_return": 0.023206825211157023,
+      "benchmark_wealth": 1.0468185388516011,
+      "factor_return": 0.02644033990575223,
+      "factor_wealth": 1.037490852350967,
+      "month": "201405",
+      "turnover": 0.004621587514009817
+    },
+    {
+      "active_return": -0.003051006122721356,
+      "benchmark_return": 0.020644613553111313,
+      "benchmark_wealth": 1.0684297030464251,
+      "factor_return": 0.017593607430389957,
+      "factor_wealth": 1.0557440591198506,
+      "month": "201406",
+      "turnover": 0.0038364197081936224
+    },
+    {
+      "active_return": 0.004752757215642722,
+      "benchmark_return": -0.013437269524864237,
+      "benchmark_wealth": 1.0540729251582197,
+      "factor_return": -0.008684512309221515,
+      "factor_wealth": 1.0465754368430367,
+      "month": "201407",
+      "turnover": 0.0005881900489934366
+    },
+    {
+      "active_return": 1.8420050450496106e-05,
+      "benchmark_return": 0.03946315602995565,
+      "benchmark_wealth": 1.0956699694706904,
+      "factor_return": 0.039481576080406144,
+      "factor_wealth": 1.0878958845766393,
+      "month": "201408",
+      "turnover": 0.003366893704084828
+    },
+    {
+      "active_return": 0.0037752476896411036,
+      "benchmark_return": -0.013796160178309425,
+      "benchmark_wealth": 1.0805539310693093,
+      "factor_return": -0.010020912488668321,
+      "factor_wealth": 1.0769941751205143,
+      "month": "201409",
+      "turnover": 0.001906133683266975
+    },
+    {
+      "active_return": -0.0021193013378422165,
+      "benchmark_return": 0.023550989369330644,
+      "benchmark_wealth": 1.1060020452129111,
+      "factor_return": 0.021431688031488427,
+      "factor_wealth": 1.1000759782934273,
+      "month": "201410",
+      "turnover": 0.002210730687127044
+    },
+    {
+      "active_return": 0.001098458829982052,
+      "benchmark_return": 0.0274720770476371,
+      "benchmark_wealth": 1.1363862186138445,
+      "factor_return": 0.028570535877619152,
+      "factor_wealth": 1.1315057384993668,
+      "month": "201411",
+      "turnover": 0.0029001993886806077
+    },
+    {
+      "active_return": -0.00026028372804798305,
+      "benchmark_return": -0.0025370879114722245,
+      "benchmark_wealth": 1.1335031068758357,
+      "factor_return": -0.0027973716395202075,
+      "factor_wealth": 1.1283404964365342,
+      "month": "201412",
+      "turnover": 0.002695239156629864
+    },
+    {
+      "active_return": 0.007802186332401262,
+      "benchmark_return": -0.029628959897413543,
+      "benchmark_wealth": 1.0999185887786178,
+      "factor_return": -0.02182677356501228,
+      "factor_wealth": 1.1037124639165805,
+      "month": "201501",
+      "turnover": 0.006606000244400723
+    },
+    {
+      "active_return": 0.0016971538093097926,
+      "benchmark_return": 0.056204514907181036,
+      "benchmark_wealth": 1.161738979498311,
+      "factor_return": 0.05790166871649083,
+      "factor_wealth": 1.1676192573605402,
+      "month": "201502",
+      "turnover": 0.0011359624788996603
+    },
+    {
+      "active_return": 0.0038295347640648902,
+      "benchmark_return": -0.01570540507573759,
+      "benchmark_wealth": 1.143493398233016,
+      "factor_return": -0.011875870311672698,
+      "factor_wealth": 1.1537527624867148,
+      "month": "201503",
+      "turnover": 0.0012899892255707757
+    },
+    {
+      "active_return": -0.010503117271364437,
+      "benchmark_return": 0.00983359881974355,
+      "benchmark_wealth": 1.1547380535642646,
+      "factor_return": -0.0006695184516208874,
+      "factor_wealth": 1.1529803037236213,
+      "month": "201504",
+      "turnover": 0.0032416385604112086
+    },
+    {
+      "active_return": 0.006481101817435109,
+      "benchmark_return": 0.01285621892219524,
+      "benchmark_wealth": 1.1695836187786763,
+      "factor_return": 0.019337320739630348,
+      "factor_wealth": 1.1752758536632013,
+      "month": "201505",
+      "turnover": 0.004674228567961514
+    },
+    {
+      "active_return": 0.007491066422027903,
+      "benchmark_return": -0.020311938600017343,
+      "benchmark_wealth": 1.1458271081264577,
+      "factor_return": -0.01282087217798944,
+      "factor_wealth": 1.160207792169508,
+      "month": "201506",
+      "turnover": 0.0031635619168639273
+    },
+    {
+      "active_return": 0.0007136800911511365,
+      "benchmark_return": 0.022588931955900282,
+      "benchmark_wealth": 1.1717101187051522,
+      "factor_return": 0.02330261204705142,
+      "factor_wealth": 1.1872436642444,
+      "month": "201507",
+      "turnover": 0.006551505024771365
+    },
+    {
+      "active_return": 0.0036297540924599137,
+      "benchmark_return": -0.06094981602219296,
+      "benchmark_wealth": 1.1002946025387312,
+      "factor_return": -0.057320061929733046,
+      "factor_wealth": 1.1191907838842279,
+      "month": "201508",
+      "turnover": 0.0011249862847984848
+    },
+    {
+      "active_return": 0.005339630096326098,
+      "benchmark_return": -0.025516092340867047,
+      "benchmark_wealth": 1.0722193838581953,
+      "factor_return": -0.02017646224454095,
+      "factor_wealth": 1.0966094732887495,
+      "month": "201509",
+      "turnover": 0.002887947952014247
+    },
+    {
+      "active_return": -0.007488360234695124,
+      "benchmark_return": 0.08505968383033036,
+      "benchmark_wealth": 1.163422025645925,
+      "factor_return": 0.07757132359563523,
+      "factor_wealth": 1.1816749215992701,
+      "month": "201510",
+      "turnover": 0.0027665015003255355
+    },
+    {
+      "active_return": -0.002689374754668572,
+      "benchmark_return": 0.003654982153711961,
+      "benchmark_wealth": 1.1676743123868962,
+      "factor_return": 0.0009656073990433889,
+      "factor_wealth": 1.1828159556468303,
+      "month": "201511",
+      "turnover": 0.002599736131528557
+    },
+    {
+      "active_return": 0.00487304184962889,
+      "benchmark_return": -0.017282346611332766,
+      "benchmark_wealth": 1.1474941601910762,
+      "factor_return": -0.012409304761703877,
+      "factor_wealth": 1.1681380319762027,
+      "month": "201512",
+      "turnover": 0.0037334793659929977
+    },
+    {
+      "active_return": -0.007216592672529387,
+      "benchmark_return": -0.04978661130658224,
+      "benchmark_wealth": 1.09036431446107,
+      "factor_return": -0.05700320397911163,
+      "factor_wealth": 1.1015504214637053,
+      "month": "201601",
+      "turnover": 0.010522220935623966
+    },
+    {
+      "active_return": 0.004607820963529852,
+      "benchmark_return": -0.000825924460799321,
+      "benchmark_wealth": 1.089463755902574,
+      "factor_return": 0.0037818965027305307,
+      "factor_wealth": 1.1057163711502203,
+      "month": "201602",
+      "turnover": 0.005497141838677916
+    },
+    {
+      "active_return": -0.009841472418265385,
+      "benchmark_return": 0.06726609401366224,
+      "benchmark_wealth": 1.162747727331594,
+      "factor_return": 0.05742462159539685,
+      "factor_wealth": 1.169211715355357,
+      "month": "201603",
+      "turnover": 0.001372159255130706
+    },
+    {
+      "active_return": -0.004862994170052537,
+      "benchmark_return": 0.003941059165564642,
+      "benchmark_wealth": 1.1673301849196336,
+      "factor_return": -0.0009219350044878949,
+      "factor_wealth": 1.1681337781473136,
+      "month": "201604",
+      "turnover": 0.002808265929845899
+    },
+    {
+      "active_return": -0.00036885380341811214,
+      "benchmark_return": 0.017011842129951438,
+      "benchmark_wealth": 1.1871886217390135,
+      "factor_return": 0.016642988326533326,
+      "factor_wealth": 1.1875750149808486,
+      "month": "201605",
+      "turnover": 0.0025766395127320985
+    },
+    {
+      "active_return": 0.0039486006371516336,
+      "benchmark_return": 0.0034758363897571254,
+      "benchmark_wealth": 1.1913150951519595,
+      "factor_return": 0.007424437026908759,
+      "factor_wealth": 1.1963920908943042,
+      "month": "201606",
+      "turnover": 0.007305716051361905
+    },
+    {
+      "active_return": -0.002288624998461275,
+      "benchmark_return": 0.036470771937721747,
+      "benchmark_wealth": 1.234763276293212,
+      "factor_return": 0.03418214693926047,
+      "factor_wealth": 1.2372873411422223,
+      "month": "201607",
+      "turnover": 0.0035727435251112216
+    },
+    {
+      "active_return": -0.002769366161455067,
+      "benchmark_return": 0.0011977957851416754,
+      "benchmark_wealth": 1.2362422705412037,
+      "factor_return": -0.0015715703763133915,
+      "factor_wealth": 1.2353428570098957,
+      "month": "201608",
+      "turnover": 0.004669100921184555
+    },
+    {
+      "active_return": 0.0034140742665134116,
+      "benchmark_return": 5.784864832358849e-05,
+      "benchmark_wealth": 1.236313785485555,
+      "factor_return": 0.003471922914837,
+      "factor_wealth": 1.2396318721828286,
+      "month": "201609",
+      "turnover": 0.0014931546022111108
+    },
+    {
+      "active_return": 7.409359677368332e-05,
+      "benchmark_return": -0.017336945670818893,
+      "benchmark_wealth": 1.2148798805545076,
+      "factor_return": -0.01726285207404521,
+      "factor_wealth": 1.2182322905470646,
+      "month": "201610",
+      "turnover": 0.001802079166318138
+    },
+    {
+      "active_return": -0.005177469701402426,
+      "benchmark_return": 0.0368385379163616,
+      "benchmark_wealth": 1.2596342790981396,
+      "factor_return": 0.031661068214959176,
+      "factor_wealth": 1.2568028261997413,
+      "month": "201611",
+      "turnover": 0.012658474864566144
+    },
+    {
+      "active_return": -0.0030425529503685933,
+      "benchmark_return": 0.020271766460968843,
+      "benchmark_wealth": 1.285169291030248,
+      "factor_return": 0.01722921351060025,
+      "factor_wealth": 1.2784565504330625,
+      "month": "201612",
+      "turnover": 0.002057467224318238
+    },
+    {
+      "active_return": 0.0006886999198663091,
+      "benchmark_return": 0.017894652317102633,
+      "benchmark_wealth": 1.3081669486618515,
+      "factor_return": 0.018583352236968942,
+      "factor_wealth": 1.3022145588294203,
+      "month": "201701",
+      "turnover": 0.004227337854499413
+    },
+    {
+      "active_return": 0.004240712148736003,
+      "benchmark_return": 0.039291536255706916,
+      "benchmark_wealth": 1.359566837753716,
+      "factor_return": 0.04353224840444292,
+      "factor_wealth": 1.3589028864802646,
+      "month": "201702",
+      "turnover": 0.0017820806095507902
+    },
+    {
+      "active_return": 0.0017639247686456194,
+      "benchmark_return": 0.0012502917609700237,
+      "benchmark_wealth": 1.3612666929694475,
+      "factor_return": 0.003014216529615643,
+      "factor_wealth": 1.3629989140228358,
+      "month": "201703",
+      "turnover": 0.005817101487459925
+    },
+    {
+      "active_return": 0.0014492826190375396,
+      "benchmark_return": 0.00992600789186282,
+      "benchmark_wealth": 1.3747786369067923,
+      "factor_return": 0.01137529051090036,
+      "factor_wealth": 1.3785034226358872,
+      "month": "201704",
+      "turnover": 0.004742901446474768
+    },
+    {
+      "active_return": 0.006313390806044428,
+      "benchmark_return": 0.014112776237372504,
+      "benchmark_wealth": 1.3941805801853777,
+      "factor_return": 0.020426167043416932,
+      "factor_wealth": 1.40666096381657,
+      "month": "201705",
+      "turnover": 0.008890902459044614
+    },
+    {
+      "active_return": 0.0006026447578084682,
+      "benchmark_return": 0.006374868857147442,
+      "benchmark_wealth": 1.4030682985472411,
+      "factor_return": 0.00697751361495591,
+      "factor_wealth": 1.416475959843227,
+      "month": "201706",
+      "turnover": 0.0016076225708099856
+    },
+    {
+      "active_return": 0.001050156892086207,
+      "benchmark_return": 0.020554138218785045,
+      "benchmark_wealth": 1.4319071582859766,
+      "factor_return": 0.021604295110871252,
+      "factor_wealth": 1.4470779244971348,
+      "month": "201707",
+      "turnover": 0.004291794101697971
+    },
+    {
+      "active_return": 0.004235617343208986,
+      "benchmark_return": 0.0029179440468185547,
+      "benchmark_wealth": 1.436085383254094,
+      "factor_return": 0.007153561390027541,
+      "factor_wealth": 1.4574296852661788,
+      "month": "201708",
+      "turnover": 0.00248914726677546
+    },
+    {
+      "active_return": 0.009638986041837105,
+      "benchmark_return": 0.020149181363913637,
+      "benchmark_wealth": 1.4650213280953461,
+      "factor_return": 0.029788167405750743,
+      "factor_wealth": 1.5008438447129984,
+      "month": "201709",
+      "turnover": 0.0016100437009242685
+    },
+    {
+      "active_return": 0.011653825781014593,
+      "benchmark_return": 0.023564061626441868,
+      "benchmark_wealth": 1.4995431809546367,
+      "factor_return": 0.03521788740745646,
+      "factor_wealth": 1.553700394252275,
+      "month": "201710",
+      "turnover": 0.0048791578044891926
+    },
+    {
+      "active_return": 0.004624332438395662,
+      "benchmark_return": 0.03056595336688339,
+      "benchmark_wealth": 1.5453781478953241,
+      "factor_return": 0.035190285805279053,
+      "factor_wealth": 1.608375555181787,
+      "month": "201711",
+      "turnover": 0.0023287147531345365
+    },
+    {
+      "active_return": -0.001842992078875838,
+      "benchmark_return": 0.012128309234640033,
+      "benchmark_wealth": 1.5641209719574538,
+      "factor_return": 0.010285317155764195,
+      "factor_wealth": 1.62491820787241,
+      "month": "201712",
+      "turnover": 0.0029902636124458093
+    },
+    {
+      "active_return": 0.0008306202395762519,
+      "benchmark_return": 0.05635884448059958,
+      "benchmark_wealth": 1.6522730225648483,
+      "factor_return": 0.05718946472017583,
+      "factor_wealth": 1.7178464103947007,
+      "month": "201801",
+      "turnover": 0.00789154130251385
+    },
+    {
+      "active_return": 0.010798696000101748,
+      "benchmark_return": -0.03636060511277961,
+      "benchmark_wealth": 1.592195375652869,
+      "factor_return": -0.02556190911267786,
+      "factor_wealth": 1.6739349765826514,
+      "month": "201802",
+      "turnover": 0.0037469798445843583
+    },
+    {
+      "active_return": 0.004003384534244092,
+      "benchmark_return": -0.027410173408141225,
+      "benchmark_wealth": 1.5485530243065833,
+      "factor_return": -0.023406788873897133,
+      "factor_wealth": 1.6347535339971493,
+      "month": "201803",
+      "turnover": 0.0037970558704103208
+    },
+    {
+      "active_return": -0.006556209379767974,
+      "benchmark_return": 0.0051680181527311575,
+      "benchmark_wealth": 1.5565559744466664,
+      "factor_return": -0.0013881912270368169,
+      "factor_wealth": 1.632484183482887,
+      "month": "201804",
+      "turnover": 0.0038964845941406867
+    },
+    {
+      "active_return": 0.0027628503498851043,
+      "benchmark_return": 0.02430920517854296,
+      "benchmark_wealth": 1.5943946130013773,
+      "factor_return": 0.027072055528428063,
+      "factor_wealth": 1.6766788859474162,
+      "month": "201805",
+      "turnover": 0.002402296933595477
+    },
+    {
+      "active_return": -0.009553758929021106,
+      "benchmark_return": 0.005750765856153528,
+      "benchmark_wealth": 1.6035636031030607,
+      "factor_return": -0.0038029930728675776,
+      "factor_wealth": 1.670302487758735,
+      "month": "201806",
+      "turnover": 0.00229347065915414
+    },
+    {
+      "active_return": -0.007424750604648089,
+      "benchmark_return": 0.03704661818413291,
+      "benchmark_wealth": 1.6629702116411922,
+      "factor_return": 0.029621867579484817,
+      "factor_wealth": 1.7197799668688083,
+      "month": "201807",
+      "turnover": 0.003895342670687807
+    },
+    {
+      "active_return": 0.012091739535250223,
+      "benchmark_return": 0.03191963798918063,
+      "benchmark_wealth": 1.7160516187835702,
+      "factor_return": 0.04401137752443085,
+      "factor_wealth": 1.7954698522496246,
+      "month": "201808",
+      "turnover": 0.004680605456890918
+    },
+    {
+      "active_return": 2.0069819917090115e-05,
+      "benchmark_return": 0.005945864247082211,
+      "benchmark_wealth": 1.726255028749843,
+      "factor_return": 0.005965934066999301,
+      "factor_wealth": 1.806181507007431,
+      "month": "201809",
+      "turnover": 0.0026262027878770355
+    },
+    {
+      "active_return": -0.008681934665635604,
+      "benchmark_return": -0.06910439946689151,
+      "benchmark_wealth": 1.6069632116613837,
+      "factor_return": -0.07778633413252711,
+      "factor_wealth": 1.6656852687993595,
+      "month": "201810",
+      "turnover": 0.007515119869891618
+    },
+    {
+      "active_return": -0.012733325412767948,
+      "benchmark_return": 0.018549387098901082,
+      "benchmark_wealth": 1.636771394328184,
+      "factor_return": 0.005816061686133134,
+      "factor_wealth": 1.6753729970723799,
+      "month": "201811",
+      "turnover": 0.0038933765922627706
+    },
+    {
+      "active_return": -0.0020843749740603323,
+      "benchmark_return": -0.08804873614538733,
+      "benchmark_wealth": 1.492655741698664,
+      "factor_return": -0.09013311111944766,
+      "factor_wealth": 1.524366416560733,
+      "month": "201812",
+      "turnover": 0.007472385798310832
+    },
+    {
+      "active_return": 0.0017299563009980368,
+      "benchmark_return": 0.08006570797379742,
+      "benchmark_wealth": 1.6121662804189214,
+      "factor_return": 0.08179566427479545,
+      "factor_wealth": 1.6490529802015077,
+      "month": "201901",
+      "turnover": 0.005315127280261567
+    },
+    {
+      "active_return": -0.0002739872370296492,
+      "benchmark_return": 0.03241563442284634,
+      "benchmark_wealth": 1.6644256731938212,
+      "factor_return": 0.03214164718581669,
+      "factor_wealth": 1.7020562592818642,
+      "month": "201902",
+      "turnover": 0.004263666743525046
+    },
+    {
+      "active_return": -0.005782686735694265,
+      "benchmark_return": 0.018100810131141065,
+      "benchmark_wealth": 1.694553126281699,
+      "factor_return": 0.0123181233954468,
+      "factor_wealth": 1.7230223983096908,
+      "month": "201903",
+      "turnover": 0.007193449074746505
+    },
+    {
+      "active_return": -0.00929467729075184,
+      "benchmark_return": 0.040852343345424647,
+      "benchmark_wealth": 1.7637795924136217,
+      "factor_return": 0.031557666054672806,
+      "factor_wealth": 1.7773969637602696,
+      "month": "201904",
+      "turnover": 0.0029107404819371796
+    },
+    {
+      "active_return": 0.002488225058508875,
+      "benchmark_return": -0.06377125582421572,
+      "benchmark_wealth": 1.6513011528082817,
+      "factor_return": -0.06128303076570685,
+      "factor_wealth": 1.6684726909472751,
+      "month": "201905",
+      "turnover": 0.013955604833702034
+    },
+    {
+      "active_return": 0.006285495116244322,
+      "benchmark_return": 0.06958653032344775,
+      "benchmark_wealth": 1.7662094705513194,
+      "factor_return": 0.07587202543969207,
+      "factor_wealth": 1.7950630934002583,
+      "month": "201906",
+      "turnover": 0.006140488819203788
+    },
+    {
+      "active_return": 0.0007955281683345028,
+      "benchmark_return": 0.015119272608223433,
+      "benchmark_wealth": 1.7929132730198107,
+      "factor_return": 0.015914800776557936,
+      "factor_wealth": 1.8236311649130752,
+      "month": "201907",
+      "turnover": 0.0007023521197114801
+    },
+    {
+      "active_return": -0.003385335617036578,
+      "benchmark_return": -0.016743345112097074,
+      "benchmark_wealth": 1.7628939073335805,
+      "factor_return": -0.020128680729133652,
+      "factor_wealth": 1.7869238754268417,
+      "month": "201908",
+      "turnover": 0.008537584832449957
+    },
+    {
+      "active_return": -0.0009075509350389144,
+      "benchmark_return": 0.019457842785318036,
+      "benchmark_wealth": 1.7971960198296724,
+      "factor_return": 0.01855029185027912,
+      "factor_wealth": 1.8200718348302414,
+      "month": "201909",
+      "turnover": 0.009814155519495354
+    },
+    {
+      "active_return": -0.0031306135614745934,
+      "benchmark_return": 0.022105023889678277,
+      "benchmark_wealth": 1.836923080782442,
+      "factor_return": 0.018974410328203684,
+      "factor_wealth": 1.854606624651117,
+      "month": "201910",
+      "turnover": 0.004096117804004457
+    },
+    {
+      "active_return": 0.0019566518698987956,
+      "benchmark_return": 0.03619792411891298,
+      "benchmark_wealth": 1.9034158830728847,
+      "factor_return": 0.03815457598881178,
+      "factor_wealth": 1.9253683540407218,
+      "month": "201911",
+      "turnover": 0.002061986823390316
+    },
+    {
+      "active_return": -0.003062013213558812,
+      "benchmark_return": 0.02905527874975289,
+      "benchmark_wealth": 1.9587201621322743,
+      "factor_return": 0.025993265536194077,
+      "factor_wealth": 1.9754149649222872,
+      "month": "201912",
+      "turnover": 0.0029339245786562107
+    },
+    {
+      "active_return": -0.0020025663254417125,
+      "benchmark_return": -0.00040391007420170766,
+      "benchmark_wealth": 1.957929015326247,
+      "factor_return": -0.00240647639964342,
+      "factor_wealth": 1.9706611754296992,
+      "month": "202001",
+      "turnover": 0.013307051361136052
+    },
+    {
+      "active_return": -0.004692401431015125,
+      "benchmark_return": -0.07916558398683493,
+      "benchmark_wealth": 1.802928421423176,
+      "factor_return": -0.08385798541785006,
+      "factor_wealth": 1.8054054993169923,
+      "month": "202002",
+      "turnover": 0.004551426203260239
+    },
+    {
+      "active_return": -0.012623419349150677,
+      "benchmark_return": -0.12487108552598125,
+      "benchmark_wealth": 1.5777947923144202,
+      "factor_return": -0.13749450487513193,
+      "factor_wealth": 1.5571721640895622,
+      "month": "202003",
+      "turnover": 0.01767085443265176
+    },
+    {
+      "active_return": -0.010122248336041917,
+      "benchmark_return": 0.1269833060635508,
+      "benchmark_wealth": 1.7781483913323588,
+      "factor_return": 0.11686105772750888,
+      "factor_wealth": 1.7391449502489025,
+      "month": "202004",
+      "turnover": 0.001811435094644015
+    },
+    {
+      "active_return": 0.002158303040652676,
+      "benchmark_return": 0.04764549455797629,
+      "benchmark_wealth": 1.862869150834859,
+      "factor_return": 0.04980379759862896,
+      "factor_wealth": 1.8257609733457765,
+      "month": "202005",
+      "turnover": 0.004834961677069566
+    },
+    {
+      "active_return": -0.0014312735663648546,
+      "benchmark_return": 0.017734061913251775,
+      "benchmark_wealth": 1.895905387692051,
+      "factor_return": 0.01630278834688692,
+      "factor_wealth": 1.8555259680662388,
+      "month": "202006",
+      "turnover": 0.008833398718005203
+    },
+    {
+      "active_return": -0.015507678173132478,
+      "benchmark_return": 0.05889249128473706,
+      "benchmark_wealth": 2.0075599792133914,
+      "factor_return": 0.04338481311160458,
+      "factor_wealth": 1.9360276154145217,
+      "month": "202007",
+      "turnover": 0.010504629878855254
+    },
+    {
+      "active_return": -0.0025023486109008175,
+      "benchmark_return": 0.06979677232908776,
+      "benchmark_wealth": 2.1476811860195366,
+      "factor_return": 0.06729442371818695,
+      "factor_wealth": 2.0663114780963374,
+      "month": "202008",
+      "turnover": 0.009004558838014848
+    },
+    {
+      "active_return": 0.007293934331699781,
+      "benchmark_return": -0.037443841684613344,
+      "benchmark_wealth": 2.0672637517011982,
+      "factor_return": -0.030149907352913563,
+      "factor_wealth": 2.004012378469471,
+      "month": "202009",
+      "turnover": 0.003176171674301398
+    },
+    {
+      "active_return": -0.0012375498449640476,
+      "benchmark_return": -0.024933312898884452,
+      "benchmark_wealth": 2.0157200177355103,
+      "factor_return": -0.0261708627438485,
+      "factor_wealth": 1.951565645575573,
+      "month": "202010",
+      "turnover": 0.005371729215275234
+    },
+    {
+      "active_return": 0.019032469127648444,
+      "benchmark_return": 0.10877671066789252,
+      "benchmark_wealth": 2.2349834108922053,
+      "factor_return": 0.12780917979554096,
+      "factor_wealth": 2.2009936500537424,
+      "month": "202011",
+      "turnover": 0.010772252606963989
+    },
+    {
+      "active_return": -0.003572803707990291,
+      "benchmark_return": 0.03704855050082756,
+      "benchmark_wealth": 2.317786306659157,
+      "factor_return": 0.03347574679283727,
+      "factor_wealth": 2.274673556175584,
+      "month": "202012",
+      "turnover": 0.0014432462701390036
+    },
+    {
+      "active_return": 0.017061032839499002,
+      "benchmark_return": -0.010190802512621944,
+      "benchmark_wealth": 2.294166204141534,
+      "factor_return": 0.006870230326877058,
+      "factor_wealth": 2.290301087424967,
+      "month": "202101",
+      "turnover": 0.01165074116433279
+    },
+    {
+      "active_return": 0.00390445427652808,
+      "benchmark_return": 0.027805711178865655,
+      "benchmark_wealth": 2.357957127010208,
+      "factor_return": 0.031710165455393735,
+      "factor_wealth": 2.362926913849881,
+      "month": "202102",
+      "turnover": 0.012141973336744882
+    },
+    {
+      "active_return": -0.008631933007330339,
+      "benchmark_return": 0.04539935040219012,
+      "benchmark_wealth": 2.4650068488526857,
+      "factor_return": 0.03676741739485978,
+      "factor_wealth": 2.449805633964947,
+      "month": "202103",
+      "turnover": 0.015665113032301364
+    },
+    {
+      "active_return": -0.007466839860202246,
+      "benchmark_return": 0.05291048892854877,
+      "benchmark_wealth": 2.5954315664377026,
+      "factor_return": 0.045443649068346526,
+      "factor_wealth": 2.5611337414805084,
+      "month": "202104",
+      "turnover": 0.008828696742849723
+    },
+    {
+      "active_return": 0.0027675572983001384,
+      "benchmark_return": 0.006565897978788371,
+      "benchmark_wealth": 2.6124729053138593,
+      "factor_return": 0.00933345527708851,
+      "factor_wealth": 2.585037968715259,
+      "month": "202105",
+      "turnover": 0.006574791466605279
+    },
+    {
+      "active_return": -0.010339984437201188,
+      "benchmark_return": 0.022427453288584864,
+      "benchmark_wealth": 2.6710640193654793,
+      "factor_return": 0.012087468851383676,
+      "factor_wealth": 2.616284534641749,
+      "month": "202106",
+      "turnover": 0.009237773146959838
+    },
+    {
+      "active_return": -0.012396916297026994,
+      "benchmark_return": 0.024412735065397095,
+      "benchmark_wealth": 2.7362719976129632,
+      "factor_return": 0.012015818768370101,
+      "factor_wealth": 2.647721335456494,
+      "month": "202107",
+      "turnover": 0.0071702532997889035
+    },
+    {
+      "active_return": -0.004038539759428028,
+      "benchmark_return": 0.029759562334542355,
+      "benchmark_wealth": 2.817702254690189,
+      "factor_return": 0.025721022575114327,
+      "factor_wealth": 2.715823435698382,
+      "month": "202108",
+      "turnover": 0.005868676895360803
+    },
+    {
+      "active_return": 0.0017865576275518658,
+      "benchmark_return": -0.04660534253455628,
+      "benchmark_wealth": 2.686382275949961,
+      "factor_return": -0.044818784907004416,
+      "factor_wealth": 2.5941035292884145,
+      "month": "202109",
+      "turnover": 0.0068874481956018585
+    },
+    {
+      "active_return": -0.007566031401593065,
+      "benchmark_return": 0.07016361622909284,
+      "benchmark_wealth": 2.874868571004351,
+      "factor_return": 0.06259758482749977,
+      "factor_wealth": 2.7564881450143623,
+      "month": "202110",
+      "turnover": 0.011852477963935099
+    },
+    {
+      "active_return": -0.010321205698984981,
+      "benchmark_return": -0.008034915842206614,
+      "benchmark_wealth": 2.8517692439789264,
+      "factor_return": -0.018356121541191595,
+      "factor_wealth": 2.705889713597625,
+      "month": "202111",
+      "turnover": 0.007178713072769516
+    },
+    {
+      "active_return": -0.010066098696182912,
+      "benchmark_return": 0.04624778938474572,
+      "benchmark_wealth": 2.9836572673483595,
+      "factor_return": 0.036181690688562806,
+      "factor_wealth": 2.803793378252378,
+      "month": "202112",
+      "turnover": 0.0135720368385914
+    },
+    {
+      "active_return": -0.007127472419802716,
+      "benchmark_return": -0.05274118026897601,
+      "benchmark_wealth": 2.8262956615502994,
+      "factor_return": -0.05986865268877872,
+      "factor_wealth": 2.6359340462786887,
+      "month": "202201",
+      "turnover": 0.014226041253288635
+    },
+    {
+      "active_return": -0.0002736379843779613,
+      "benchmark_return": -0.029517123530356182,
+      "benchmark_wealth": 2.7428715433750095,
+      "factor_return": -0.029790761514734143,
+      "factor_wealth": 2.557407563737432,
+      "month": "202202",
+      "turnover": 0.003870087972366265
+    },
+    {
+      "active_return": -0.00753703580816234,
+      "benchmark_return": 0.03759046075111683,
+      "benchmark_wealth": 2.845977348471603,
+      "factor_return": 0.030053424942954488,
+      "factor_wealth": 2.634266420002759,
+      "month": "202203",
+      "turnover": 0.008799411399693369
+    },
+    {
+      "active_return": -0.0012816366136755297,
+      "benchmark_return": -0.08776881156554994,
+      "benchmark_wealth": 2.5961892988537754,
+      "factor_return": -0.08905044817922547,
+      "factor_wealth": 2.3996838146780295,
+      "month": "202204",
+      "turnover": 0.01382509151571737
+    },
+    {
+      "active_return": 0.008191113295742847,
+      "benchmark_return": 0.002256976898771468,
+      "benchmark_wealth": 2.602048838126126,
+      "factor_return": 0.010448090194514315,
+      "factor_wealth": 2.4247559276121016,
+      "month": "202205",
+      "turnover": 0.009436308897808693
+    },
+    {
+      "active_return": -0.005697350781163957,
+      "benchmark_return": -0.08246056992293105,
+      "benchmark_wealth": 2.3874824079669454,
+      "factor_return": -0.088157920704095,
+      "factor_wealth": 2.2109944868188895,
+      "month": "202206",
+      "turnover": 0.008864625531894404
+    },
+    {
+      "active_return": -0.02464723876611119,
+      "benchmark_return": 0.0920875967823298,
+      "benchmark_wealth": 2.6073399252767113,
+      "factor_return": 0.06744035801621862,
+      "factor_wealth": 2.360104746581841,
+      "month": "202207",
+      "turnover": 0.007697029514304288
+    },
+    {
+      "active_return": 0.005123973960606265,
+      "benchmark_return": -0.040802082113971405,
+      "benchmark_wealth": 2.500955027546535,
+      "factor_return": -0.03567810815336514,
+      "factor_wealth": 2.275900674180024,
+      "month": "202208",
+      "turnover": 0.005437713994704552
+    },
+    {
+      "active_return": 0.00471788527846928,
+      "benchmark_return": -0.09244585473549571,
+      "benchmark_wealth": 2.2697521023699605,
+      "factor_return": -0.08772796945702643,
+      "factor_wealth": 2.076240529348333,
+      "month": "202209",
+      "turnover": 0.010292601731749368
+    },
+    {
+      "active_return": 0.03183561865414197,
+      "benchmark_return": 0.081275547928648,
+      "benchmark_wealth": 2.4542274481522797,
+      "factor_return": 0.11311116658278997,
+      "factor_wealth": 2.311086517729392,
+      "month": "202210",
+      "turnover": 0.009040328187011698
+    },
+    {
+      "active_return": 0.0007842222606211369,
+      "benchmark_return": 0.055591760845619786,
+      "benchmark_wealth": 2.5906622735107168,
+      "factor_return": 0.05637598310624092,
+      "factor_wealth": 2.4413762922099655,
+      "month": "202211",
+      "turnover": 0.00684854234615756
+    },
+    {
+      "active_return": 0.005183786224968734,
+      "benchmark_return": -0.057628154910457474,
+      "benchmark_wealth": 2.441367186692163,
+      "factor_return": -0.05244436868548874,
+      "factor_wealth": 2.3133398538412946,
+      "month": "202212",
+      "turnover": 0.004632760364319172
+    },
+    {
+      "active_return": -0.016973554019874104,
+      "benchmark_return": 0.06288712543049635,
+      "benchmark_wealth": 2.5948977511835714,
+      "factor_return": 0.045913571410622245,
+      "factor_wealth": 2.4195535484176753,
+      "month": "202301",
+      "turnover": 0.016384960720815717
+    },
+    {
+      "active_return": -0.010970792428147136,
+      "benchmark_return": -0.025142732052405803,
+      "benchmark_wealth": 2.5296549323221726,
+      "factor_return": -0.03611352448055294,
+      "factor_wealth": 2.332174942114885,
+      "month": "202302",
+      "turnover": 0.0029721492796308535
+    },
+    {
+      "active_return": -0.020761211605015317,
+      "benchmark_return": 0.03707802154866524,
+      "benchmark_wealth": 2.6234495324135017,
+      "factor_return": 0.016316809943649924,
+      "factor_wealth": 2.3702285974007165,
+      "month": "202303",
+      "turnover": 0.010389758502449331
+    },
+    {
+      "active_return": -0.005938922600488228,
+      "benchmark_return": 0.01597483888900486,
+      "benchmark_wealth": 2.6653587160272423,
+      "factor_return": 0.010035916288516633,
+      "factor_wealth": 2.394016013188878,
+      "month": "202304",
+      "turnover": 0.006914321220530761
+    },
+    {
+      "active_return": -0.030538084173726388,
+      "benchmark_return": 0.004616200549253602,
+      "benchmark_wealth": 2.677662546396125,
+      "factor_return": -0.025921883624472786,
+      "factor_wealth": 2.3319586086998716,
+      "month": "202305",
+      "turnover": 0.011334417197112562
+    },
+    {
+      "active_return": 0.0028103927525757744,
+      "benchmark_return": 0.06479963464098937,
+      "benchmark_wealth": 2.8511741010944553,
+      "factor_return": 0.06761002739356514,
+      "factor_wealth": 2.48962239411473,
+      "month": "202306",
+      "turnover": 0.0010366315447873087
+    },
+    {
+      "active_return": -0.001917207356405104,
+      "benchmark_return": 0.03273347497753987,
+      "benchmark_wealth": 2.9445029371892404,
+      "factor_return": 0.030816267621134763,
+      "factor_wealth": 2.56634326408734,
+      "month": "202307",
+      "turnover": 0.004362220230104796
+    },
+    {
+      "active_return": 0.00611920214005246,
+      "benchmark_return": -0.016252079670009523,
+      "benchmark_wealth": 2.8966486408654637,
+      "factor_return": -0.010132877529957063,
+      "factor_wealth": 2.5403388220925125,
+      "month": "202308",
+      "turnover": 0.006385245717810711
+    },
+    {
+      "active_return": 0.0036624820835690075,
+      "benchmark_return": -0.04743453935938391,
+      "benchmark_wealth": 2.7592474469000248,
+      "factor_return": -0.0437720572758149,
+      "factor_wealth": 2.429142965671903,
+      "month": "202309",
+      "turnover": 0.003950196990984506
+    },
+    {
+      "active_return": -0.0006594188499936537,
+      "benchmark_return": -0.02170866289298501,
+      "benchmark_wealth": 2.699347874236943,
+      "factor_return": -0.022368081742978663,
+      "factor_wealth": 2.374807697250372,
+      "month": "202310",
+      "turnover": 0.004664849018058054
+    },
+    {
+      "active_return": -0.004315786609505601,
+      "benchmark_return": 0.09134386150963403,
+      "benchmark_wealth": 2.945916732627567,
+      "factor_return": 0.08702807490012843,
+      "factor_wealth": 2.581482639400079,
+      "month": "202311",
+      "turnover": 0.0016054442180334083
+    },
+    {
+      "active_return": 0.01107368700549527,
+      "benchmark_return": 0.04565546498449269,
+      "benchmark_wealth": 3.080413930861276,
+      "factor_return": 0.05672915198998796,
+      "factor_wealth": 2.7279279604101214,
+      "month": "202312",
+      "turnover": 0.005999729188604308
+    },
+    {
+      "active_return": 0.007452464117439606,
+      "benchmark_return": 0.015926386571696538,
+      "benchmark_wealth": 3.129473793925012,
+      "factor_return": 0.023378850689136144,
+      "factor_wealth": 2.7917037808872696,
+      "month": "202401",
+      "turnover": 0.010568056449867608
+    },
+    {
+      "active_return": 0.011192958339070191,
+      "benchmark_return": 0.05218682886295478,
+      "benchmark_wealth": 3.2927911072396783,
+      "factor_return": 0.06337978720202497,
+      "factor_wealth": 2.9686413724509935,
+      "month": "202402",
+      "turnover": 0.011964284747016857
+    },
+    {
+      "active_return": 0.006287370755290178,
+      "benchmark_return": 0.03270208405509645,
+      "benchmark_wealth": 3.4004722388045043,
+      "factor_return": 0.038989454810386626,
+      "factor_wealth": 3.0843870810904157,
+      "month": "202403",
+      "turnover": 0.006789081449377843
+    },
+    {
+      "active_return": -0.015542698167825053,
+      "benchmark_return": -0.0403198036829695,
+      "benchmark_wealth": 3.2633658657065188,
+      "factor_return": -0.055862501850794555,
+      "factor_wealth": 2.9120855020644356,
+      "month": "202404",
+      "turnover": 0.004270108160874253
+    },
+    {
+      "active_return": -0.00364410643311186,
+      "benchmark_return": 0.05057997808802406,
+      "benchmark_wealth": 3.42842683968716,
+      "factor_return": 0.0469358716549122,
+      "factor_wealth": 3.0487667734374626,
+      "month": "202405",
+      "turnover": 0.004979059841697858
+    },
+    {
+      "active_return": -0.009537851302988898,
+      "benchmark_return": 0.03527985061100236,
+      "benchmark_wealth": 3.5493812264220743,
+      "factor_return": 0.025741999308013463,
+      "factor_wealth": 3.1272481256095843,
+      "month": "202406",
+      "turnover": 0.008545651360905376
+    },
+    {
+      "active_return": -0.0034934011752199012,
+      "benchmark_return": 0.012109231177765745,
+      "benchmark_wealth": 3.592361504230841,
+      "factor_return": 0.008615830002545843,
+      "factor_wealth": 3.1541919638356166,
+      "month": "202407",
+      "turnover": 0.010341628918415446
+    },
+    {
+      "active_return": 0.0008049048828520089,
+      "benchmark_return": 0.023365508999098505,
+      "benchmark_wealth": 3.6762988592859616,
+      "factor_return": 0.024170413881950514,
+      "factor_wealth": 3.2304300890646456,
+      "month": "202408",
+      "turnover": 0.006537770690438177
+    },
+    {
+      "active_return": -0.0015332021401859297,
+      "benchmark_return": 0.02100466682931046,
+      "benchmark_wealth": 3.7535182919902375,
+      "factor_return": 0.01947146468912453,
+      "factor_wealth": 3.2933312944745534,
+      "month": "202409",
+      "turnover": 0.0032911067113365056
+    },
+    {
+      "active_return": -0.0013496570579397682,
+      "benchmark_return": -0.008923647328876738,
+      "benchmark_wealth": 3.7200232185100286,
+      "factor_return": -0.010273304386816506,
+      "factor_wealth": 3.259497899639788,
+      "month": "202410",
+      "turnover": 0.0028776747118133272
+    },
+    {
+      "active_return": 0.00188512174261235,
+      "benchmark_return": 0.05963342548595918,
+      "benchmark_wealth": 3.9418609459170844,
+      "factor_return": 0.06151854722857153,
+      "factor_wealth": 3.460017475120208,
+      "month": "202411",
+      "turnover": 0.003530958709167392
+    },
+    {
+      "active_return": -0.025579995814182244,
+      "benchmark_return": -0.02406006954082074,
+      "benchmark_wealth": 3.847019497438074,
+      "factor_return": -0.04964006535500298,
+      "factor_wealth": 3.2882619815257885,
+      "month": "202412",
+      "turnover": 0.007789324945096987
+    },
+    {
+      "active_return": 0.016546991964710323,
+      "benchmark_return": 0.026856451807496295,
+      "benchmark_wealth": 3.950336791173518,
+      "factor_return": 0.04340344377220662,
+      "factor_wealth": 3.4309838755492277,
+      "month": "202501",
+      "turnover": 0.004983545328148403
+    },
+    {
+      "active_return": 0.01188735961996179,
+      "benchmark_return": -0.012694838334663117,
+      "benchmark_wealth": 3.9001879042420984,
+      "factor_return": -0.0008074787147013263,
+      "factor_wealth": 3.4282134290992383,
+      "month": "202502",
+      "turnover": 0.003786120586577957
+    },
+    {
+      "active_return": 0.0012316750662569875,
+      "benchmark_return": -0.05571920643497963,
+      "benchmark_wealth": 3.6828725292704223,
+      "factor_return": -0.05448753136872264,
+      "factor_wealth": 3.2414185423425175,
+      "month": "202503",
+      "turnover": 0.007036218313827308
+    },
+    {
+      "active_return": 0.005276742228024434,
+      "benchmark_return": -0.008670166230189347,
+      "benchmark_wealth": 3.65094141223705,
+      "factor_return": -0.003393424002164913,
+      "factor_wealth": 3.23041903485987,
+      "month": "202504",
+      "turnover": 0.013540669523367216
+    },
+    {
+      "active_return": 0.0015134148509357015,
+      "benchmark_return": 0.06284493303163585,
+      "benchmark_wealth": 3.8803845807915134,
+      "factor_return": 0.06435834788257155,
+      "factor_wealth": 3.4383234669118625,
+      "month": "202505",
+      "turnover": 0.012572594597989761
+    },
+    {
+      "active_return": -0.004682665764188965,
+      "benchmark_return": 0.051386124993305415,
+      "benchmark_wealth": 4.079782507882161,
+      "factor_return": 0.04670345922911645,
+      "factor_wealth": 3.598905066765295,
+      "month": "202506",
+      "turnover": 0.005919611270603697
+    },
+    {
+      "active_return": -0.02008327516816588,
+      "benchmark_return": 0.023031648578059727,
+      "benchmark_wealth": 4.173746624878618,
+      "factor_return": 0.0029483734098938452,
+      "factor_wealth": 3.609515982768878,
+      "month": "202507",
+      "turnover": 0.0017437811491467503
+    },
+    {
+      "active_return": 0.011447669692997042,
+      "benchmark_return": 0.02051948204102305,
+      "benchmark_wealth": 4.259389743791595,
+      "factor_return": 0.031967151734020094,
+      "factor_wealth": 3.724901927876421,
+      "month": "202508",
+      "turnover": 0.008917397018157858
+    },
+    {
+      "active_return": 0.010094366496461449,
+      "benchmark_return": 0.03562033510828466,
+      "benchmark_wealth": 4.4111106338222426,
+      "factor_return": 0.04571470160474611,
+      "factor_wealth": 3.895184708016235,
+      "month": "202509",
+      "turnover": 0.0044047520488841585
+    },
+    {
+      "active_return": -0.009372961847620376,
+      "benchmark_return": 0.02383739357630099,
+      "benchmark_wealth": 4.51626001410927,
+      "factor_return": 0.014464431728680616,
+      "factor_wealth": 3.9515263412959367,
+      "month": "202510",
+      "turnover": 0.009327946497360406
+    },
+    {
+      "active_return": 0.004192522958960332,
+      "benchmark_return": 0.0019500049129079766,
+      "benchmark_wealth": 4.525066743324753,
+      "factor_return": 0.0061425278718683085,
+      "factor_wealth": 3.9757987019837686,
+      "month": "202511",
+      "turnover": 0.0072110370860712925
+    },
+    {
+      "active_return": 0.011775118754698166,
+      "benchmark_return": -0.00020329454451606388,
+      "benchmark_wealth": 4.524146821942264,
+      "factor_return": 0.011571824210182102,
+      "factor_wealth": 4.021805945658195,
+      "month": "202512",
+      "turnover": 1.0
+    }
+  ],
+  "policy_hash": "sha256:90d50e7f96ceceb791ba3f3574d7fea57a7c10393143af0a1569b80380034aa2",
+  "portfolio": {
+    "benchmark_symbol": "SPY",
+    "candidate_id": "equal_mtum_qual_vlue",
+    "dividends_splits_and_fund_expenses": "provider_adjusted_close; disclosed fund expense ratios are not subtracted again",
+    "factor_symbols": [
+      "MTUM",
+      "QUAL",
+      "VLUE"
+    ],
+    "initial_and_terminal_turnover_charged": true,
+    "leverage": false,
+    "rebalance": "monthly_at_last_common_close",
+    "shorting": false,
+    "target_weights": {
+      "MTUM": 0.3333333333333333,
+      "QUAL": 0.3333333333333333,
+      "VLUE": 0.3333333333333333
+    }
+  },
+  "primary": {
+    "active_annualized_mean": -0.009531291547195083,
+    "active_annualized_mean_circular_block_bootstrap_onesided_95pct_lower": -0.02361316399538218,
+    "checks": {
+      "block_bootstrap_lower_positive": false,
+      "minimum_positive_folds": false,
+      "remove_best_months_sharpe_positive": false
+    },
+    "folds": {
+      "F1": {
+        "annualized_mean": -0.0022674762393943095,
+        "annualized_volatility": 0.018882524184901793,
+        "cagr": -0.002438545500258238,
+        "months": 36,
+        "sharpe": -0.12008332239856745
+      },
+      "F2": {
+        "annualized_mean": 0.005103526624759473,
+        "annualized_volatility": 0.020725650307486847,
+        "cagr": 0.004905724727746419,
+        "months": 36,
+        "sharpe": 0.2462420502634794
+      },
+      "F3": {
+        "annualized_mean": -0.020414434219938382,
+        "annualized_volatility": 0.03591494758981269,
+        "cagr": -0.020837046598255915,
+        "months": 36,
+        "sharpe": -0.5684105251410406
+      },
+      "F4": {
+        "annualized_mean": -0.02054678235420711,
+        "annualized_volatility": 0.039262020263615895,
+        "cagr": -0.021094886153054992,
+        "months": 36,
+        "sharpe": -0.5233246332269816
+      }
+    },
+    "one_way_bps": 10,
+    "positive_folds": 1,
+    "remove_best_12_months_active_sharpe": -1.0343459680173444
+  },
+  "promotion_ceiling": "LIQUID_ETF_TRANSLATION_DIAGNOSTIC_NOT_INDEPENDENT_ALPHA_CONFIRMATION_OR_EXECUTION_EVIDENCE",
+  "promotion_eligible": false,
+  "result_hash": "sha256:4ecaaee5627c556c091d58a8ff19bcde2c78efca152e406f76153ffa8537dc58",
+  "verdict": "INVESTABLE_FACTOR_PROXY_FAILS",
+  "version": "nodequant-investable-factor-result-v1"
+}

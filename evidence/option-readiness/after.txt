@@ -1,0 +1,48 @@
+Option-readiness AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: one POST /api/kernel/review through the chat composer, HTTP 200
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 4200 CSS px for the complete unobscured panel
+- Option-readiness section client width and scroll width: 622 px / 622 px; no horizontal overflow
+- Zero browser console errors
+- Gate verdict remains BLOCKED with four promotion blockers.
+- Caption: options scoreboard · point-in-time authority required · selector not run
+
+Visible absence scoreboard
+- definitions: NOT_RUN
+- quotes: NOT_RUN
+- eligible: NOT_RUN
+- duplicate definitions: NOT_RUN
+- duplicate quotes: NOT_RUN
+- missing definitions: NOT_RUN
+- future knowledge: NOT_RUN
+- expired definitions: NOT_RUN
+- future quotes: NOT_RUN
+- receive order: NOT_RUN
+- stale quotes: NOT_RUN
+- crossed quotes: NOT_RUN
+- zero size: NOT_RUN
+- missing IV/Delta: NOT_RUN
+- provenance: NOT_RUN
+
+Authority and readiness
+- provider replay: false
+- point-in-time definitions: false
+- selector ready: false
+- absence is NOT_RUN, never a clean zero
+- OPRA/OCC corpus remains external
+- Snapshot hash is null; absent diagnostic counters are null in the payload.
+- Evidence scope: caller_option_snapshot_diagnostic_not_option_authority
+
+Unchanged blockers
+- SYNTHETIC_CORPUS
+- MARKET_DATA_CONFORMANCE_NOT_RUN
+- ORACLE_NOT_INDEPENDENT_ENOUGH
+- SPLIT_DISCIPLINE_NOT_PROVEN
+
+Judgment
+- APPROVED: the after UI materially satisfies the intended proof boundary.
+- All fifteen missing inputs/checks render NOT_RUN rather than zero and are visible without clipping or horizontal overflow.
+- External OPRA/OCC authority and all three false readiness flags remain explicit.

@@ -1,0 +1,38 @@
+NodeQuant graph research loop v3 — observed 2026-08-03 (SUPERSEDED)
+
+V3 closed the behavioral trust gaps but still read heads.json without a byte
+cap. V4 is the final evidence set.
+
+CAMPAIGN
+- generation 1: 4 experiments, 4 trials
+- generation 2: 5 experiments, 9 cumulative trials
+- graph: 60 nodes, 58 edges, 9 trials
+- stop reason: FRONTIER_EXHAUSTED
+- authoritative champion: null
+- promotion: BLOCKED
+- policy: sha256:39319ee4d9df4917c655f4dad805944e8495c9146ceae2ecb502c4ccf2ca1c87
+
+EXHAUSTED NO-OP MEASUREMENT
+- Third invocation returned exit 0.
+- Compare-Object over each artifact's SHA-256 and LastWriteTimeUtc ticks emitted
+  no differences: neither authoritative logs nor projections were rewritten.
+
+KNOCKOUTS OBSERVED
+- forged PROMOTABLE/Sharpe-999 node rejected by exact promotion schema
+- hostile policy substitution rejected before campaign creation
+- TEST and OPENED_HOLDOUT bars, rows, aggregates and roots absent from the
+  optimizer child argument graph
+- candidate→experiment→dataset/policy→result provenance required for every trial
+- edited latest-summary.json is ignored and rebuilt from verified graph nodes
+- oversized crash tails are rejected before an unbounded read
+- incomplete anchored experiments become permanent CRASHED_RECOVERED trials
+
+TESTS
+- graph research knockout suite: 8 passed in 77.81s
+- broader suite and full repository suite: pending final rerun after v3 changes
+
+VISUAL EVIDENCE LIMITATION
+- Both before and after screenshot attempts were rejected by the browser URL
+  security policy, which explicitly prohibited localhost/file/data or alternate
+  browser workarounds. No screenshot was fabricated. Raw terminal/artifact
+  evidence is retained instead.

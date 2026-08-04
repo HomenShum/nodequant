@@ -1,0 +1,35 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box }
+  body { margin: 0; padding: 44px; background: #0b1020; color: #e5e7eb; font: 20px/1.45 ui-monospace, Consolas, monospace }
+  h1 { margin: 0 0 30px; font: 700 32px/1.2 system-ui; color: #f8fafc }
+  main { display: grid; grid-template-columns: 1fr 1fr; gap: 28px }
+  section { min-width: 0; border: 2px solid #334155; border-radius: 16px; padding: 26px; background: #111827 }
+  .before { border-color: #ef4444 } .after { border-color: #22c55e }
+  h2 { margin: 0 0 20px; font: 700 25px/1.2 system-ui }
+  .before h2 { color: #fca5a5 } .after h2 { color: #86efac }
+  pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere }
+  .verdict { margin-top: 24px; padding-top: 18px; border-top: 1px solid #334155; font-weight: 700 }
+</style>
+<h1>Malformed evidence + 50-caller pacing burst</h1>
+<main>
+  <section class="before">
+    <h2>BEFORE · observed failure</h2>
+    <pre>malformed_side_exception=KeyError:None
+fifo=False
+release_order=0,20,29,39,27,46,6,4,35,8,32,19,28,11,16,5,7,3,10,26,36,18,21,48,40,30,31,2,9,22,23,14,15,25,45,41,13,43,37,12,49,24,47,44,33,17,1,38,34,42</pre>
+    <div class="verdict">Verifier crashes; pacing can starve older callers.</div>
+  </section>
+  <section class="after">
+    <h2>AFTER · observed repair</h2>
+    <pre>malformed_side_exception=none
+malformed_acceptable=False
+malformed_inconsistent=1
+malformed_unauthorized=1
+fifo=True
+release_order=0..49
+waiters_after=0</pre>
+    <div class="verdict">Verifier rejects honestly; FIFO is bounded and drains cleanly.</div>
+  </section>
+</main>

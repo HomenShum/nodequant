@@ -1,0 +1,18 @@
+{
+  "manifest_version": 1,
+  "symbol": "SPY",
+  "direction": "long",
+  "input_file": "bars.csv",
+  "input_columns": ["index", "timestamp_utc", "close"],
+  "fast_window": 20,
+  "slow_window": 50,
+  "mean_round_decimal_places": 9,
+  "signal_rule": "sma_fast > sma_slow AND close < sma_fast",
+  "edge_rule": "emit only when signal_rule is true on this bar and false on the immediately previous bar",
+  "minimum_signal_index": 50,
+  "decision_offset_seconds": 1,
+  "execution_rule": "the next input bar timestamp; if absent, decision timestamp plus 60 seconds",
+  "maximum_outputs": 25,
+  "output_file": "oracle-output.json",
+  "output_schema": "output-schema.json"
+}

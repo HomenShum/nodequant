@@ -24,18 +24,16 @@ from enum import Enum
 
 from pydantic import BaseModel
 
-from app.decision_packet import CheckStatus, EvidenceClass, OracleIndependence
-from app.ledger import CurveReductionReceipt
+from app.decision_packet import DecisionPacket, EvidenceClass
+from app.ledger import CurveReductionReceipt, LedgerEvent, curve_receipt
+from app.independent_oracle import FROZEN_HASHES, FrozenOracleReceipt, verify_frozen_oracle
+from app.order_journal import JournalEvent
+from app.proof_kernel import Bar
+from app.market_conformance import MarketDataConformanceReceipt, assess_market_data
+from app.market_data import BarSnapshot
+from app.experiment import SplitDisciplineReceipt, assess_split_discipline, load_manifest
 
 TARGET = "PAPER_SHADOW"
-
-# Anything at or above this rung is acceptable. Same-author diversity is not.
-ACCEPTABLE_INDEPENDENCE = {
-    OracleIndependence.SEPARATE_AGENT_FROM_FROZEN_SPEC,
-    OracleIndependence.INDEPENDENT_AUTHOR,
-    OracleIndependence.EXTERNAL_REFERENCE,
-}
-
 
 class Verdict(str, Enum):
     PROMOTABLE = "PROMOTABLE"
@@ -52,6 +50,9 @@ class PromotionGate(BaseModel):
     policy_hash: str
     verdict: Verdict
     blockers: list[Blocker]
+    independent_oracle: FrozenOracleReceipt | None = None
+    market_data: MarketDataConformanceReceipt
+    split_discipline: SplitDisciplineReceipt
 
     @property
     def promotable(self) -> bool:
@@ -75,11 +76,12 @@ LEDGER_COUNTERS = (
     "curve_point_mismatches",
     "unauthorized_fills",
     "early_entries",
+    "mistimed_exits",
+    "missing_authorized_fills",
     "capital_event_violations",
     "uncosted_fills",
     "negative_cash_points",
     "negative_equity_points",
-    "flat_pnl_residual_micros",
     "sequence_gaps",
     "duplicate_event_ids",
     "inconsistent_events",
@@ -87,6 +89,10 @@ LEDGER_COUNTERS = (
     "non_monotonic_timestamps",
     "price_mismatches",
     "unpriced_events",
+    "spread_model_mismatches",
+    "slippage_model_mismatches",
+    "execution_price_mismatches",
+    "execution_policy_mismatches",
 )
 
 # Evidence classes that may promote. An ALLOWLIST: the previous version blocked
@@ -101,12 +107,15 @@ POLICY = {
     "promotable_evidence_classes": sorted(x.value for x in PROMOTABLE_EVIDENCE),
     "kernel_zero_tolerance_counters": list(KERNEL_COUNTERS),
     "ledger_zero_tolerance_counters": list(LEDGER_COUNTERS),
-    "minimum_oracle_independence": sorted(x.value for x in ACCEPTABLE_INDEPENDENCE),
-    "cost_model_required": ["spread", "slippage"],
-    "split_discipline": {
-        "candidate_frozen_before_test": True,
-        "optimizer_had_test_access": False,
+    "frozen_oracle_hashes": FROZEN_HASHES,
+    "cost_model_required": {
+        "spread": "frozen_adverse_per_fill",
+        "slippage": "frozen_adverse_per_fill",
     },
+    "experiment_manifest_hash": load_manifest()[1],
+    "split_access_provenance_required": True,
+    "packet_set_binding_required": True,
+    "cross_stream_reconciliation": "PASS",
 }
 
 
@@ -131,14 +140,11 @@ def policy_hash() -> str:
 
 def evaluate(
     kernel_gate: dict,
-    receipt: CurveReductionReceipt,
-    evidence_class: EvidenceClass,
-    oracle_independence: OracleIndependence,
-    market_data_conformance: CheckStatus,
-    candidate_frozen_before_test: bool = True,
-    optimizer_had_test_access: bool = False,
-    models_spread: bool = False,
-    models_slippage: bool = False,
+    events: list[LedgerEvent],
+    bars: list[Bar] | None,
+    packets: list[DecisionPacket] | None,
+    journal: list[JournalEvent] | None,
+    snapshot: BarSnapshot | None = None,
 ) -> PromotionGate:
     """Collect every reason this cannot be promoted. All of them, not the first.
 
@@ -146,9 +152,65 @@ def evaluate(
     and discover the next -- which reads as progress when nothing moved.
     """
 
+    # Promotion never accepts counters as caller testimony. Recompute the
+    # receipt from the bound artifacts at the gate boundary, so editing a copied
+    # receipt cannot clear a blocker.
+    receipt = curve_receipt(events, bars, packets, journal)
+    market_data = assess_market_data(bars, snapshot)
+    split_receipt, _ = assess_split_discipline(
+        [event.at_utc for event in events],
+        [(packet.strategy.id, packet.strategy.config_hash) for packet in packets or []],
+        str(POLICY["experiment_manifest_hash"]),
+    )
     blockers: list[Blocker] = []
 
-    if evidence_class is EvidenceClass.SYNTHETIC_KERNEL:
+    verified_packet_hashes = kernel_gate.get("packetHashes")
+    verified_bars_hash = kernel_gate.get("barsHash")
+    if not isinstance(verified_bars_hash, str):
+        blockers.append(
+            Blocker(
+                code="BAR_SET_NOT_BOUND",
+                detail="the verifier gate did not bind the complete bar corpus.",
+            )
+        )
+    elif receipt.bars_hash != verified_bars_hash:
+        blockers.append(
+            Blocker(
+                code="BAR_SET_MISMATCH",
+                detail="promotion artifacts were derived from different bars than the kernel gate.",
+            )
+        )
+    if not isinstance(verified_packet_hashes, list) or not verified_packet_hashes:
+        blockers.append(
+            Blocker(
+                code="PACKET_SET_NOT_BOUND",
+                detail="the verifier gate did not identify the exact packets it passed.",
+            )
+        )
+    elif receipt.packet_hashes != verified_packet_hashes:
+        blockers.append(
+            Blocker(
+                code="PACKET_SET_MISMATCH",
+                detail="the ledger receipt was not reduced from the exact verified packet set.",
+            )
+        )
+    if receipt.cross_stream_reconciliation != "PASS":
+        blockers.append(
+            Blocker(
+                code=(
+                    "CROSS_STREAM_RECONCILIATION_NOT_RUN"
+                    if receipt.cross_stream_reconciliation == "NOT_RUN"
+                    else "CROSS_STREAM_RECONCILIATION_FAILED"
+                ),
+                detail=(
+                    "the independent order lifecycle did not reconcile quantity, "
+                    "timestamps, prices, costs, cash, fees, marks and IDs; status="
+                    f"{receipt.cross_stream_reconciliation}."
+                ),
+            )
+        )
+
+    if market_data.evidence_class is EvidenceClass.SYNTHETIC_KERNEL:
         blockers.append(
             Blocker(
                 code="SYNTHETIC_CORPUS",
@@ -160,31 +222,48 @@ def evaluate(
                 ),
             )
         )
-    elif evidence_class not in PROMOTABLE_EVIDENCE:
+    elif market_data.evidence_class not in PROMOTABLE_EVIDENCE:
         blockers.append(
             Blocker(
                 code="CORPUS_NOT_CONFORMED",
                 detail=(
-                    f"evidence class is {evidence_class.value}; byte provenance "
+                    f"evidence class is {market_data.evidence_class.value}; byte provenance "
                     "does not establish market-data conformance."
                 ),
             )
         )
-    if market_data_conformance is not CheckStatus.PASS:
+    if not market_data.acceptable:
         blockers.append(
             Blocker(
                 code="MARKET_DATA_CONFORMANCE_NOT_RUN",
-                detail=f"market-data conformance is {market_data_conformance.value}.",
+                detail=f"market-data conformance is {market_data.status.value}: {market_data.limitation}",
             )
         )
-    if oracle_independence not in ACCEPTABLE_INDEPENDENCE:
+    oracle_receipt: FrozenOracleReceipt | None = None
+    oracle_error: str | None = None
+    try:
+        if bars is not None and packets is not None:
+            oracle_receipt = verify_frozen_oracle(bars, packets)
+    except (OSError, ValueError) as exc:
+        oracle_error = str(exc)
+    if oracle_receipt is None or not oracle_receipt.acceptable:
+        oracle_detail = (
+            f": {oracle_error}"
+            if oracle_error
+            else (
+                "; signals match, but separate-agent authorship and access are "
+                "self-attested rather than backed by immutable orchestrator provenance."
+                if oracle_receipt is not None and oracle_receipt.matched
+                else "."
+            )
+        )
         blockers.append(
             Blocker(
                 code="ORACLE_NOT_INDEPENDENT_ENOUGH",
                 detail=(
-                    f"replay independence is {oracle_independence.value}; a matching "
-                    "result cannot rule out a misconception shared by both "
-                    "implementations. Minimum is separate_agent_from_frozen_spec."
+                    "the frozen oracle has not proven the required separate-agent "
+                    "independence rung"
+                    + oracle_detail
                 ),
             )
         )
@@ -281,39 +360,57 @@ def evaluate(
     # strategy can look promotable purely because it was never charged the
     # spread it would actually cross, so their absence is a blocker rather than
     # a caveat.
-    if not models_spread:
+    if (
+        not receipt.execution_costs_checked
+        or not receipt.spread_cost_micros
+        or receipt.spread_model_mismatches != 0
+        or receipt.execution_price_mismatches != 0
+        or receipt.execution_policy_mismatches != 0
+    ):
         blockers.append(
             Blocker(
                 code="NO_SPREAD_MODEL",
                 detail=(
-                    "fills execute at the bar close, so the strategy never crosses "
-                    "a spread. Every trade is priced better than it could have been."
+                    "no verified, positive spread cost was derived from the frozen "
+                    "per-fill policy. Modelled costs are required until quote replay exists."
                 ),
             )
         )
-    if not models_slippage:
+    if (
+        not receipt.execution_costs_checked
+        or not receipt.slippage_cost_micros
+        or receipt.slippage_model_mismatches != 0
+        or receipt.execution_price_mismatches != 0
+        or receipt.execution_policy_mismatches != 0
+    ):
         blockers.append(
             Blocker(
                 code="NO_SLIPPAGE_MODEL",
                 detail=(
-                    "no market impact or queue position is modelled; a signal that "
-                    "fires because price moved assumes it can trade at the price "
-                    "that moved."
+                    "no verified, positive slippage cost was derived from the frozen "
+                    "per-fill policy. This is an adverse model, not observed impact."
                 ),
             )
         )
-    if not candidate_frozen_before_test:
+    if not split_receipt.manifest_matches_policy:
         blockers.append(
             Blocker(
-                code="CANDIDATE_NOT_FROZEN",
-                detail="the candidate was changed after the test split was visible.",
+                code="EXPERIMENT_MANIFEST_MISMATCH",
+                detail=(
+                    "the runtime experiment manifest hash differs from the manifest "
+                    "sealed into the displayed promotion policy."
+                ),
             )
         )
-    if optimizer_had_test_access:
+    if not split_receipt.acceptable:
         blockers.append(
             Blocker(
-                code="OPTIMIZER_SAW_TEST",
-                detail="the optimizer had access to the test split; the result is in-sample.",
+                code="SPLIT_DISCIPLINE_NOT_PROVEN",
+                detail=(
+                    "the frozen manifest tags the curve and declares the candidate/test "
+                    "boundary, but repository-authored metadata cannot prove when the "
+                    "candidate froze or which splits the optimizer could access."
+                ),
             )
         )
 
@@ -322,22 +419,27 @@ def evaluate(
         policy_hash=policy_hash(),
         verdict=Verdict.BLOCKED if blockers else Verdict.PROMOTABLE,
         blockers=blockers,
+        independent_oracle=oracle_receipt,
+        market_data=market_data,
+        split_discipline=split_receipt,
     )
 
 
 def demo() -> None:
     from app.ledger import build_ledger, curve_receipt
+    from app.order_journal import build_order_journal
     from app.proof_kernel import fixture_bars, packets, run_gate
 
     bars = fixture_bars()
     pkts = list(packets(25, bars))
-    receipt = curve_receipt(build_ledger(bars, pkts), bars, pkts)
+    events = build_ledger(bars, pkts)
+    journal = build_order_journal(bars, pkts)
     gate = evaluate(
         kernel_gate=run_gate(25, bars),
-        receipt=receipt,
-        evidence_class=EvidenceClass.SYNTHETIC_KERNEL,
-        oracle_independence=OracleIndependence.SAME_AUTHOR_DIVERSE_IMPLEMENTATION,
-        market_data_conformance=CheckStatus.NOT_RUN,
+        events=events,
+        bars=bars,
+        packets=pkts,
+        journal=journal,
     )
 
     # Today's honest answer: everything the kernel checks is green, and the
@@ -349,35 +451,18 @@ def demo() -> None:
         "SYNTHETIC_CORPUS",
         "MARKET_DATA_CONFORMANCE_NOT_RUN",
         "ORACLE_NOT_INDEPENDENT_ENOUGH",
-        "NO_SPREAD_MODEL",
-        "NO_SLIPPAGE_MODEL",
+        "SPLIT_DISCIPLINE_NOT_PROVEN",
     }, codes
 
-    # With real bars, a conformance run and a stronger oracle, it clears -- so
-    # the gate is not permanently red by construction.
-    cleared = evaluate(
+    # Repeating caller-visible inputs cannot clear a derived corpus blocker.
+    repeated = evaluate(
         kernel_gate=run_gate(25, bars),
-        receipt=receipt,
-        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
-        oracle_independence=OracleIndependence.SEPARATE_AGENT_FROM_FROZEN_SPEC,
-        market_data_conformance=CheckStatus.PASS,
-        models_spread=True,
-        models_slippage=True,
+        events=events,
+        bars=bars,
+        packets=pkts,
+        journal=journal,
     )
-    assert cleared.promotable, [b.code for b in cleared.blockers]
-
-    # And a peeked test split blocks it again.
-    peeked = evaluate(
-        kernel_gate=run_gate(25, bars),
-        receipt=receipt,
-        evidence_class=EvidenceClass.REAL_BAR_REPLAY,
-        oracle_independence=OracleIndependence.SEPARATE_AGENT_FROM_FROZEN_SPEC,
-        market_data_conformance=CheckStatus.PASS,
-        models_spread=True,
-        models_slippage=True,
-        optimizer_had_test_access=True,
-    )
-    assert not peeked.promotable
+    assert not repeated.promotable
 
     print(f"promotion: {gate.verdict.value}, {len(gate.blockers)} blocker(s)")
     for b in gate.blockers:

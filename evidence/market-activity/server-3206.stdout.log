@@ -1,0 +1,8 @@
+
+> web@0.1.0 start
+> next start --port 3206
+
+▲ Next.js 16.2.12
+- Local:         http://localhost:3206
+- Network:       http://10.0.0.19:3206
+✓ Ready in 242ms

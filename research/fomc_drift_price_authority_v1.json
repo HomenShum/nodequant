@@ -1,0 +1,10 @@
+{
+  "version": "nodequant-fomc-drift-price-authority-v1",
+  "authorized_at_utc": "2026-08-04T10:21:30.2109663Z",
+  "authority_surface": "Notion page 3b09539b8f9a81a0a3d8c401d02e8480 section 22, refetched after update",
+  "policy_hash": "sha256:fbf46bac88cfee7dbca1d7f9c9b1125735b134580aef2977bee76be12dea061f",
+  "manifest_hash": "sha256:207a8a9739fbff734b74a1dd44a257fbe4443a3982171e97f2c016efbb3d6f76",
+  "authorized_symbol": "IVV",
+  "authorized_window": {"start": "2015-12-01", "end_exclusive": "2026-01-10"},
+  "authorization": "create the frozen adjusted-close response exactly once and evaluate only policy v3"
+}

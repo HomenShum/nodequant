@@ -1,0 +1,9 @@
+Observable: first exposure for a 378-day relative-momentum candidate
+Captured after evaluator repair on 2026-08-03
+
+Declared lookback days: 378
+Exposure through index 378: zero
+First possible decision: the first monthly rebalance after 378 observations
+
+No price-ranking candidate may turn missing history into a ranked tie. All
+other signal families are unchanged.

@@ -1,0 +1,4142 @@
+{
+  "claim_boundary": "STRUCTURAL_COVERAGE_ONLY_NO_LIVE_ACTIVITY_OR_FLOW",
+  "manifest_hash": "sha256:f128a79c538f59a71ac01c8f67049276795ada35acabcb19103ec07ebc9b13ea",
+  "sectors": [
+    {
+      "constituent_count": 73,
+      "holdings": [
+        {
+          "market_value_micros": 67654671225120000,
+          "name": "NVIDIA CORP",
+          "sector": "Information Technology",
+          "ticker": "NVDA",
+          "visual_weight_micropct": 7643350,
+          "weight_micropct": 7643350
+        },
+        {
+          "market_value_micros": 60240228224280000,
+          "name": "APPLE INC",
+          "sector": "Information Technology",
+          "ticker": "AAPL",
+          "visual_weight_micropct": 6805700,
+          "weight_micropct": 6805700
+        },
+        {
+          "market_value_micros": 48967201146600000,
+          "name": "MICROSOFT CORP",
+          "sector": "Information Technology",
+          "ticker": "MSFT",
+          "visual_weight_micropct": 5532120,
+          "weight_micropct": 5532120
+        },
+        {
+          "market_value_micros": 25103195774990000,
+          "name": "BROADCOM INC",
+          "sector": "Information Technology",
+          "ticker": "AVGO",
+          "visual_weight_micropct": 2836060,
+          "weight_micropct": 2836060
+        },
+        {
+          "market_value_micros": 12645936534000000,
+          "name": "MICRON TECHNOLOGY INC",
+          "sector": "Information Technology",
+          "ticker": "MU",
+          "visual_weight_micropct": 1428690,
+          "weight_micropct": 1428690
+        },
+        {
+          "market_value_micros": 10682420825440000,
+          "name": "ADVANCED MICRO DEVICES INC",
+          "sector": "Information Technology",
+          "ticker": "AMD",
+          "visual_weight_micropct": 1206860,
+          "weight_micropct": 1206860
+        },
+        {
+          "market_value_micros": 6186124102560000,
+          "name": "CISCO SYSTEMS INC",
+          "sector": "Information Technology",
+          "ticker": "CSCO",
+          "visual_weight_micropct": 698880,
+          "weight_micropct": 698880
+        },
+        {
+          "market_value_micros": 5811524264000000,
+          "name": "INTEL CORPORATION",
+          "sector": "Information Technology",
+          "ticker": "INTC",
+          "visual_weight_micropct": 656560,
+          "weight_micropct": 656560
+        },
+        {
+          "market_value_micros": 5559055799990000,
+          "name": "APPLIED MATERIAL INC",
+          "sector": "Information Technology",
+          "ticker": "AMAT",
+          "visual_weight_micropct": 628040,
+          "weight_micropct": 628040
+        },
+        {
+          "market_value_micros": 4980319298070000,
+          "name": "LAM RESEARCH CORP",
+          "sector": "Information Technology",
+          "ticker": "LRCX",
+          "visual_weight_micropct": 562660,
+          "weight_micropct": 562660
+        },
+        {
+          "market_value_micros": 3899886251100000,
+          "name": "PALANTIR TECHNOLOGIES INC CLASS A",
+          "sector": "Information Technology",
+          "ticker": "PLTR",
+          "visual_weight_micropct": 440590,
+          "weight_micropct": 440590
+        },
+        {
+          "market_value_micros": 3805374093570000,
+          "name": "PALO ALTO NETWORKS INC",
+          "sector": "Information Technology",
+          "ticker": "PANW",
+          "visual_weight_micropct": 429920,
+          "weight_micropct": 429920
+        },
+        {
+          "market_value_micros": 3309800030400000,
+          "name": "TEXAS INSTRUMENT INC",
+          "sector": "Information Technology",
+          "ticker": "TXN",
+          "visual_weight_micropct": 373930,
+          "weight_micropct": 373930
+        },
+        {
+          "market_value_micros": 3253648770650000,
+          "name": "ORACLE CORP",
+          "sector": "Information Technology",
+          "ticker": "ORCL",
+          "visual_weight_micropct": 367580,
+          "weight_micropct": 367580
+        },
+        {
+          "market_value_micros": 3226905383750000,
+          "name": "KLA CORP",
+          "sector": "Information Technology",
+          "ticker": "KLAC",
+          "visual_weight_micropct": 364560,
+          "weight_micropct": 364560
+        },
+        {
+          "market_value_micros": 2875196583420000,
+          "name": "INTERNATIONAL BUSINESS MACHINES CO",
+          "sector": "Information Technology",
+          "ticker": "IBM",
+          "visual_weight_micropct": 324830,
+          "weight_micropct": 324830
+        },
+        {
+          "market_value_micros": 2787574223200000,
+          "name": "CROWDSTRIKE HOLDINGS INC CLASS A",
+          "sector": "Information Technology",
+          "ticker": "CRWD",
+          "visual_weight_micropct": 314930,
+          "weight_micropct": 314930
+        },
+        {
+          "market_value_micros": 2716297484760000,
+          "name": "AMPHENOL CORP CLASS A",
+          "sector": "Information Technology",
+          "ticker": "APH",
+          "visual_weight_micropct": 306880,
+          "weight_micropct": 306880
+        },
+        {
+          "market_value_micros": 2580578139300000,
+          "name": "ARISTA NETWORKS INC",
+          "sector": "Information Technology",
+          "ticker": "ANET",
+          "visual_weight_micropct": 291540,
+          "weight_micropct": 291540
+        },
+        {
+          "market_value_micros": 2578308900380000,
+          "name": "SANDISK CORP",
+          "sector": "Information Technology",
+          "ticker": "SNDK",
+          "visual_weight_micropct": 291290,
+          "weight_micropct": 291290
+        },
+        {
+          "market_value_micros": 2518713487440000,
+          "name": "SEAGATE TECHNOLOGY HOLDINGS PLC",
+          "sector": "Information Technology",
+          "ticker": "STX",
+          "visual_weight_micropct": 284550,
+          "weight_micropct": 284550
+        },
+        {
+          "market_value_micros": 2456288455680000,
+          "name": "WESTERN DIGITAL CORP",
+          "sector": "Information Technology",
+          "ticker": "WDC",
+          "visual_weight_micropct": 277500,
+          "weight_micropct": 277500
+        },
+        {
+          "market_value_micros": 2388244792120000,
+          "name": "ANALOG DEVICES INC",
+          "sector": "Information Technology",
+          "ticker": "ADI",
+          "visual_weight_micropct": 269810,
+          "weight_micropct": 269810
+        },
+        {
+          "market_value_micros": 2293411029580000,
+          "name": "MARVELL TECHNOLOGY INC",
+          "sector": "Information Technology",
+          "ticker": "MRVL",
+          "visual_weight_micropct": 259100,
+          "weight_micropct": 259100
+        },
+        {
+          "market_value_micros": 2159548443340000,
+          "name": "QUALCOMM INC",
+          "sector": "Information Technology",
+          "ticker": "QCOM",
+          "visual_weight_micropct": 243980,
+          "weight_micropct": 243980
+        },
+        {
+          "market_value_micros": 2056342393150000,
+          "name": "SALESFORCE INC",
+          "sector": "Information Technology",
+          "ticker": "CRM",
+          "visual_weight_micropct": 232320,
+          "weight_micropct": 232320
+        },
+        {
+          "market_value_micros": 1677568590680000,
+          "name": "DELL TECHNOLOGIES INC CLASS C",
+          "sector": "Information Technology",
+          "ticker": "DELL",
+          "visual_weight_micropct": 189520,
+          "weight_micropct": 189520
+        },
+        {
+          "market_value_micros": 1591850850300000,
+          "name": "SERVICENOW INC",
+          "sector": "Information Technology",
+          "ticker": "NOW",
+          "visual_weight_micropct": 179840,
+          "weight_micropct": 179840
+        },
+        {
+          "market_value_micros": 1552403773440000,
+          "name": "CORNING INC",
+          "sector": "Information Technology",
+          "ticker": "GLW",
+          "visual_weight_micropct": 175380,
+          "weight_micropct": 175380
+        },
+        {
+          "market_value_micros": 1375659644800000,
+          "name": "ACCENTURE PLC CLASS A",
+          "sector": "Information Technology",
+          "ticker": "ACN",
+          "visual_weight_micropct": 155420,
+          "weight_micropct": 155420
+        },
+        {
+          "market_value_micros": 1373919080260000,
+          "name": "FORTINET INC",
+          "sector": "Information Technology",
+          "ticker": "FTNT",
+          "visual_weight_micropct": 155220,
+          "weight_micropct": 155220
+        },
+        {
+          "market_value_micros": 1373286321060000,
+          "name": "ADOBE INC",
+          "sector": "Information Technology",
+          "ticker": "ADBE",
+          "visual_weight_micropct": 155150,
+          "weight_micropct": 155150
+        },
+        {
+          "market_value_micros": 1253190394350000,
+          "name": "CADENCE DESIGN SYSTEMS INC",
+          "sector": "Information Technology",
+          "ticker": "CDNS",
+          "visual_weight_micropct": 141580,
+          "weight_micropct": 141580
+        },
+        {
+          "market_value_micros": 1223455478400000,
+          "name": "DATADOG INC CLASS A",
+          "sector": "Information Technology",
+          "ticker": "DDOG",
+          "visual_weight_micropct": 138220,
+          "weight_micropct": 138220
+        },
+        {
+          "market_value_micros": 1190308019580000,
+          "name": "INTUIT INC",
+          "sector": "Information Technology",
+          "ticker": "INTU",
+          "visual_weight_micropct": 134480,
+          "weight_micropct": 134480
+        },
+        {
+          "market_value_micros": 1015121767380000,
+          "name": "SYNOPSYS INC",
+          "sector": "Information Technology",
+          "ticker": "SNPS",
+          "visual_weight_micropct": 114680,
+          "weight_micropct": 114680
+        },
+        {
+          "market_value_micros": 980798166660000,
+          "name": "MOTOROLA SOLUTIONS INC",
+          "sector": "Information Technology",
+          "ticker": "MSI",
+          "visual_weight_micropct": 110810,
+          "weight_micropct": 110810
+        },
+        {
+          "market_value_micros": 901086252160000,
+          "name": "HEWLETT PACKARD ENTERPRISE",
+          "sector": "Information Technology",
+          "ticker": "HPE",
+          "visual_weight_micropct": 101800,
+          "weight_micropct": 101800
+        },
+        {
+          "market_value_micros": 893372851730000,
+          "name": "MONOLITHIC POWER SYSTEMS INC",
+          "sector": "Information Technology",
+          "ticker": "MPWR",
+          "visual_weight_micropct": 100930,
+          "weight_micropct": 100930
+        },
+        {
+          "market_value_micros": 820024699180000,
+          "name": "LUMENTUM HOLDINGS INC",
+          "sector": "Information Technology",
+          "ticker": "LITE",
+          "visual_weight_micropct": 92640,
+          "weight_micropct": 92640
+        },
+        {
+          "market_value_micros": 808819203890000,
+          "name": "TE CONNECTIVITY PLC",
+          "sector": "Information Technology",
+          "ticker": "TEL",
+          "visual_weight_micropct": 91380,
+          "weight_micropct": 91380
+        },
+        {
+          "market_value_micros": 774061332400000,
+          "name": "TERADYNE INC",
+          "sector": "Information Technology",
+          "ticker": "TER",
+          "visual_weight_micropct": 87450,
+          "weight_micropct": 87450
+        },
+        {
+          "market_value_micros": 765098710930000,
+          "name": "NXP SEMICONDUCTORS NV",
+          "sector": "Information Technology",
+          "ticker": "NXPI",
+          "visual_weight_micropct": 86440,
+          "weight_micropct": 86440
+        },
+        {
+          "market_value_micros": 762081028060000,
+          "name": "COHERENT CORP",
+          "sector": "Information Technology",
+          "ticker": "COHR",
+          "visual_weight_micropct": 86100,
+          "weight_micropct": 86100
+        },
+        {
+          "market_value_micros": 746702502480000,
+          "name": "CIENA CORP",
+          "sector": "Information Technology",
+          "ticker": "CIEN",
+          "visual_weight_micropct": 84360,
+          "weight_micropct": 84360
+        },
+        {
+          "market_value_micros": 746328681870000,
+          "name": "KEYSIGHT TECHNOLOGIES INC",
+          "sector": "Information Technology",
+          "ticker": "KEYS",
+          "visual_weight_micropct": 84320,
+          "weight_micropct": 84320
+        },
+        {
+          "market_value_micros": 669961152910000,
+          "name": "AUTODESK INC",
+          "sector": "Information Technology",
+          "ticker": "ADSK",
+          "visual_weight_micropct": 75690,
+          "weight_micropct": 75690
+        },
+        {
+          "market_value_micros": 583765258500000,
+          "name": "FLEX LTD",
+          "sector": "Information Technology",
+          "ticker": "FLEX",
+          "visual_weight_micropct": 65950,
+          "weight_micropct": 65950
+        },
+        {
+          "market_value_micros": 550254233300000,
+          "name": "MICROCHIP TECHNOLOGY INC",
+          "sector": "Information Technology",
+          "ticker": "MCHP",
+          "visual_weight_micropct": 62170,
+          "weight_micropct": 62170
+        },
+        {
+          "market_value_micros": 535649987900000,
+          "name": "ROPER TECHNOLOGIES INC",
+          "sector": "Information Technology",
+          "ticker": "ROP",
+          "visual_weight_micropct": 60520,
+          "weight_micropct": 60520
+        },
+        {
+          "market_value_micros": 487976232760000,
+          "name": "NETAPP INC",
+          "sector": "Information Technology",
+          "ticker": "NTAP",
+          "visual_weight_micropct": 55130,
+          "weight_micropct": 55130
+        },
+        {
+          "market_value_micros": 454434640750000,
+          "name": "WORKDAY INC CLASS A",
+          "sector": "Information Technology",
+          "ticker": "WDAY",
+          "visual_weight_micropct": 51340,
+          "weight_micropct": 51340
+        },
+        {
+          "market_value_micros": 453974789550000,
+          "name": "JABIL INC",
+          "sector": "Information Technology",
+          "ticker": "JBL",
+          "visual_weight_micropct": 51290,
+          "weight_micropct": 51290
+        },
+        {
+          "market_value_micros": 425940708000000,
+          "name": "ON SEMICONDUCTOR CORP",
+          "sector": "Information Technology",
+          "ticker": "ON",
+          "visual_weight_micropct": 48120,
+          "weight_micropct": 48120
+        },
+        {
+          "market_value_micros": 419986480320000,
+          "name": "TELEDYNE TECHNOLOGIES INC",
+          "sector": "Information Technology",
+          "ticker": "TDY",
+          "visual_weight_micropct": 47450,
+          "weight_micropct": 47450
+        },
+        {
+          "market_value_micros": 377246198200000,
+          "name": "QNITY ELECTRONICS INC",
+          "sector": "Information Technology",
+          "ticker": "Q",
+          "visual_weight_micropct": 42620,
+          "weight_micropct": 42620
+        },
+        {
+          "market_value_micros": 353372456520000,
+          "name": "COGNIZANT TECHNOLOGY SOLUTIONS COR",
+          "sector": "Information Technology",
+          "ticker": "CTSH",
+          "visual_weight_micropct": 39920,
+          "weight_micropct": 39920
+        },
+        {
+          "market_value_micros": 337942578400000,
+          "name": "FIRST SOLAR INC",
+          "sector": "Information Technology",
+          "ticker": "FSLR",
+          "visual_weight_micropct": 38180,
+          "weight_micropct": 38180
+        },
+        {
+          "market_value_micros": 335281495440000,
+          "name": "HP INC",
+          "sector": "Information Technology",
+          "ticker": "HPQ",
+          "visual_weight_micropct": 37880,
+          "weight_micropct": 37880
+        },
+        {
+          "market_value_micros": 331007523840000,
+          "name": "VERISIGN INC",
+          "sector": "Information Technology",
+          "ticker": "VRSN",
+          "visual_weight_micropct": 37400,
+          "weight_micropct": 37400
+        },
+        {
+          "market_value_micros": 327271843860000,
+          "name": "FAIR ISAAC CORP",
+          "sector": "Information Technology",
+          "ticker": "FICO",
+          "visual_weight_micropct": 36970,
+          "weight_micropct": 36970
+        },
+        {
+          "market_value_micros": 309980034000000,
+          "name": "F5 INC",
+          "sector": "Information Technology",
+          "ticker": "FFIV",
+          "visual_weight_micropct": 35020,
+          "weight_micropct": 35020
+        },
+        {
+          "market_value_micros": 255029602100000,
+          "name": "CDW CORP",
+          "sector": "Information Technology",
+          "ticker": "CDW",
+          "visual_weight_micropct": 28810,
+          "weight_micropct": 28810
+        },
+        {
+          "market_value_micros": 231718130560000,
+          "name": "AKAMAI TECHNOLOGIES INC",
+          "sector": "Information Technology",
+          "ticker": "AKAM",
+          "visual_weight_micropct": 26180,
+          "weight_micropct": 26180
+        },
+        {
+          "market_value_micros": 218346241210000,
+          "name": "PTC INC",
+          "sector": "Information Technology",
+          "ticker": "PTC",
+          "visual_weight_micropct": 24670,
+          "weight_micropct": 24670
+        },
+        {
+          "market_value_micros": 217871410880000,
+          "name": "SUPER MICRO COMPUTER INC",
+          "sector": "Information Technology",
+          "ticker": "SMCI",
+          "visual_weight_micropct": 24610,
+          "weight_micropct": 24610
+        },
+        {
+          "market_value_micros": 210502691280000,
+          "name": "GEN DIGITAL INC",
+          "sector": "Information Technology",
+          "ticker": "GEN",
+          "visual_weight_micropct": 23780,
+          "weight_micropct": 23780
+        },
+        {
+          "market_value_micros": 187866613720000,
+          "name": "ZEBRA TECHNOLOGIES CORP CLASS A",
+          "sector": "Information Technology",
+          "ticker": "ZBRA",
+          "visual_weight_micropct": 21220,
+          "weight_micropct": 21220
+        },
+        {
+          "market_value_micros": 182129577040000,
+          "name": "TRIMBLE INC",
+          "sector": "Information Technology",
+          "ticker": "TRMB",
+          "visual_weight_micropct": 20580,
+          "weight_micropct": 20580
+        },
+        {
+          "market_value_micros": 174295293000000,
+          "name": "TYLER TECHNOLOGIES",
+          "sector": "Information Technology",
+          "ticker": "TYL",
+          "visual_weight_micropct": 19690,
+          "weight_micropct": 19690
+        },
+        {
+          "market_value_micros": 158316301200000,
+          "name": "GODADDY INC CLASS A",
+          "sector": "Information Technology",
+          "ticker": "GDDY",
+          "visual_weight_micropct": 17890,
+          "weight_micropct": 17890
+        },
+        {
+          "market_value_micros": 137150863710000,
+          "name": "GARTNER INC",
+          "sector": "Information Technology",
+          "ticker": "IT",
+          "visual_weight_micropct": 15490,
+          "weight_micropct": 15490
+        },
+        {
+          "market_value_micros": 125020200060000,
+          "name": "SKYWORKS SOLUTIONS INC",
+          "sector": "Information Technology",
+          "ticker": "SWKS",
+          "visual_weight_micropct": 14120,
+          "weight_micropct": 14120
+        }
+      ],
+      "key": "information-technology",
+      "label": "Information Technology",
+      "weight_micropct": 36560640
+    },
+    {
+      "constituent_count": 76,
+      "holdings": [
+        {
+          "market_value_micros": 12772969913600000,
+          "name": "JPMORGAN CHASE & CO",
+          "sector": "Financials",
+          "ticker": "JPM",
+          "visual_weight_micropct": 1443040,
+          "weight_micropct": 1443040
+        },
+        {
+          "market_value_micros": 12716879221500000,
+          "name": "BERKSHIRE HATHAWAY INC CLASS B",
+          "sector": "Financials",
+          "ticker": "BRKB",
+          "visual_weight_micropct": 1436700,
+          "weight_micropct": 1436700
+        },
+        {
+          "market_value_micros": 8203999889430000,
+          "name": "VISA INC CLASS A",
+          "sector": "Financials",
+          "ticker": "V",
+          "visual_weight_micropct": 926850,
+          "weight_micropct": 926850
+        },
+        {
+          "market_value_micros": 6227554944780000,
+          "name": "MASTERCARD INC CLASS A",
+          "sector": "Financials",
+          "ticker": "MA",
+          "visual_weight_micropct": 703560,
+          "weight_micropct": 703560
+        },
+        {
+          "market_value_micros": 5514141472400000,
+          "name": "BANK OF AMERICA CORP",
+          "sector": "Financials",
+          "ticker": "BAC",
+          "visual_weight_micropct": 622970,
+          "weight_micropct": 622970
+        },
+        {
+          "market_value_micros": 4095238447460000,
+          "name": "GOLDMAN SACHS GROUP INC",
+          "sector": "Financials",
+          "ticker": "GS",
+          "visual_weight_micropct": 462660,
+          "weight_micropct": 462660
+        },
+        {
+          "market_value_micros": 3635709155650000,
+          "name": "WELLS FARGO",
+          "sector": "Financials",
+          "ticker": "WFC",
+          "visual_weight_micropct": 410750,
+          "weight_micropct": 410750
+        },
+        {
+          "market_value_micros": 3422819714130000,
+          "name": "MORGAN STANLEY",
+          "sector": "Financials",
+          "ticker": "MS",
+          "visual_weight_micropct": 386700,
+          "weight_micropct": 386700
+        },
+        {
+          "market_value_micros": 3079446732960000,
+          "name": "CITIGROUP INC",
+          "sector": "Financials",
+          "ticker": "C",
+          "visual_weight_micropct": 347900,
+          "weight_micropct": 347900
+        },
+        {
+          "market_value_micros": 2479889136560000,
+          "name": "AMERICAN EXPRESS",
+          "sector": "Financials",
+          "ticker": "AXP",
+          "visual_weight_micropct": 280170,
+          "weight_micropct": 280170
+        },
+        {
+          "market_value_micros": 2339532728550000,
+          "name": "CHARLES SCHWAB CORP",
+          "sector": "Financials",
+          "ticker": "SCHW",
+          "visual_weight_micropct": 264310,
+          "weight_micropct": 264310
+        },
+        {
+          "market_value_micros": 2198709702030000,
+          "name": "BLACKROCK INC",
+          "sector": "Financials",
+          "ticker": "BLK",
+          "visual_weight_micropct": 248400,
+          "weight_micropct": 248400
+        },
+        {
+          "market_value_micros": 1831159859520000,
+          "name": "CAPITAL ONE FINANCIAL CORP",
+          "sector": "Financials",
+          "ticker": "COF",
+          "visual_weight_micropct": 206880,
+          "weight_micropct": 206880
+        },
+        {
+          "market_value_micros": 1705921953750000,
+          "name": "S&P GLOBAL INC",
+          "sector": "Financials",
+          "ticker": "SPGI",
+          "visual_weight_micropct": 192730,
+          "weight_micropct": 192730
+        },
+        {
+          "market_value_micros": 1698051314050000,
+          "name": "CHUBB",
+          "sector": "Financials",
+          "ticker": "CB",
+          "visual_weight_micropct": 191840,
+          "weight_micropct": 191840
+        },
+        {
+          "market_value_micros": 1662451952100000,
+          "name": "PROGRESSIVE CORP",
+          "sector": "Financials",
+          "ticker": "PGR",
+          "visual_weight_micropct": 187820,
+          "weight_micropct": 187820
+        },
+        {
+          "market_value_micros": 1449257964000000,
+          "name": "BANK OF NEW YORK MELLON CORP",
+          "sector": "Financials",
+          "ticker": "BNY",
+          "visual_weight_micropct": 163730,
+          "weight_micropct": 163730
+        },
+        {
+          "market_value_micros": 1366287326320000,
+          "name": "PNC FINANCIAL SERVICES GROUP INC",
+          "sector": "Financials",
+          "ticker": "PNC",
+          "visual_weight_micropct": 154360,
+          "weight_micropct": 154360
+        },
+        {
+          "market_value_micros": 1352473260320000,
+          "name": "BLACKSTONE INC",
+          "sector": "Financials",
+          "ticker": "BX",
+          "visual_weight_micropct": 152800,
+          "weight_micropct": 152800
+        },
+        {
+          "market_value_micros": 1341658135200000,
+          "name": "US BANCORP",
+          "sector": "Financials",
+          "ticker": "USB",
+          "visual_weight_micropct": 151580,
+          "weight_micropct": 151580
+        },
+        {
+          "market_value_micros": 1303841197760000,
+          "name": "CME GROUP INC CLASS A",
+          "sector": "Financials",
+          "ticker": "CME",
+          "visual_weight_micropct": 147300,
+          "weight_micropct": 147300
+        },
+        {
+          "market_value_micros": 1255901547240000,
+          "name": "MARSH INC",
+          "sector": "Financials",
+          "ticker": "MRSH",
+          "visual_weight_micropct": 141890,
+          "weight_micropct": 141890
+        },
+        {
+          "market_value_micros": 1160454226800000,
+          "name": "INTERCONTINENTAL EXCHANGE INC",
+          "sector": "Financials",
+          "ticker": "ICE",
+          "visual_weight_micropct": 131100,
+          "weight_micropct": 131100
+        },
+        {
+          "market_value_micros": 1074663717120000,
+          "name": "TRAVELERS COMPANIES INC",
+          "sector": "Financials",
+          "ticker": "TRV",
+          "visual_weight_micropct": 121410,
+          "weight_micropct": 121410
+        },
+        {
+          "market_value_micros": 1032446338560000,
+          "name": "AON PLC CLASS A",
+          "sector": "Financials",
+          "ticker": "AON",
+          "visual_weight_micropct": 116640,
+          "weight_micropct": 116640
+        },
+        {
+          "market_value_micros": 995875341120000,
+          "name": "KKR AND CO INC",
+          "sector": "Financials",
+          "ticker": "KKR",
+          "visual_weight_micropct": 112510,
+          "weight_micropct": 112510
+        },
+        {
+          "market_value_micros": 981512749440000,
+          "name": "MOODYS CORP",
+          "sector": "Financials",
+          "ticker": "MCO",
+          "visual_weight_micropct": 110890,
+          "weight_micropct": 110890
+        },
+        {
+          "market_value_micros": 966187926120000,
+          "name": "ROBINHOOD MARKETS INC CLASS A",
+          "sector": "Financials",
+          "ticker": "HOOD",
+          "visual_weight_micropct": 109160,
+          "weight_micropct": 109160
+        },
+        {
+          "market_value_micros": 914140847400000,
+          "name": "ALLSTATE CORP",
+          "sector": "Financials",
+          "ticker": "ALL",
+          "visual_weight_micropct": 103280,
+          "weight_micropct": 103280
+        },
+        {
+          "market_value_micros": 874390431200000,
+          "name": "TRUIST FINANCIAL CORP",
+          "sector": "Financials",
+          "ticker": "TFC",
+          "visual_weight_micropct": 98790,
+          "weight_micropct": 98790
+        },
+        {
+          "market_value_micros": 860417571140000,
+          "name": "ARTHUR J GALLAGHER",
+          "sector": "Financials",
+          "ticker": "AJG",
+          "visual_weight_micropct": 97210,
+          "weight_micropct": 97210
+        },
+        {
+          "market_value_micros": 806859412920000,
+          "name": "APOLLO GLOBAL MANAGEMENT INC",
+          "sector": "Financials",
+          "ticker": "APO",
+          "visual_weight_micropct": 91160,
+          "weight_micropct": 91160
+        },
+        {
+          "market_value_micros": 784585278960000,
+          "name": "AFLAC INC",
+          "sector": "Financials",
+          "ticker": "AFL",
+          "visual_weight_micropct": 88640,
+          "weight_micropct": 88640
+        },
+        {
+          "market_value_micros": 703634021990000,
+          "name": "METLIFE INC",
+          "sector": "Financials",
+          "ticker": "MET",
+          "visual_weight_micropct": 79490,
+          "weight_micropct": 79490
+        },
+        {
+          "market_value_micros": 697100847700000,
+          "name": "FIFTH THIRD BANCORP",
+          "sector": "Financials",
+          "ticker": "FITB",
+          "visual_weight_micropct": 78760,
+          "weight_micropct": 78760
+        },
+        {
+          "market_value_micros": 690052180860000,
+          "name": "PAYPAL HOLDINGS INC",
+          "sector": "Financials",
+          "ticker": "PYPL",
+          "visual_weight_micropct": 77960,
+          "weight_micropct": 77960
+        },
+        {
+          "market_value_micros": 687171734130000,
+          "name": "STATE STREET CORP",
+          "sector": "Financials",
+          "ticker": "STT",
+          "visual_weight_micropct": 77630,
+          "weight_micropct": 77630
+        },
+        {
+          "market_value_micros": 672118725640000,
+          "name": "AMERIPRISE FINANCE INC",
+          "sector": "Financials",
+          "ticker": "AMP",
+          "visual_weight_micropct": 75930,
+          "weight_micropct": 75930
+        },
+        {
+          "market_value_micros": 593877067670000,
+          "name": "BLOCK INC CLASS A",
+          "sector": "Financials",
+          "ticker": "XYZ",
+          "visual_weight_micropct": 67090,
+          "weight_micropct": 67090
+        },
+        {
+          "market_value_micros": 576884791340000,
+          "name": "PRUDENTIAL FINANCIAL INC",
+          "sector": "Financials",
+          "ticker": "PRU",
+          "visual_weight_micropct": 65170,
+          "weight_micropct": 65170
+        },
+        {
+          "market_value_micros": 568571238900000,
+          "name": "NASDAQ INC",
+          "sector": "Financials",
+          "ticker": "NDAQ",
+          "visual_weight_micropct": 64230,
+          "weight_micropct": 64230
+        },
+        {
+          "market_value_micros": 565117340840000,
+          "name": "MSCI INC",
+          "sector": "Financials",
+          "ticker": "MSCI",
+          "visual_weight_micropct": 63840,
+          "weight_micropct": 63840
+        },
+        {
+          "market_value_micros": 564682493490000,
+          "name": "AMERICAN INTERNATIONAL GROUP INC",
+          "sector": "Financials",
+          "ticker": "AIG",
+          "visual_weight_micropct": 63800,
+          "weight_micropct": 63800
+        },
+        {
+          "market_value_micros": 529483511700000,
+          "name": "HARTFORD INSURANCE GROUP INC",
+          "sector": "Financials",
+          "ticker": "HIG",
+          "visual_weight_micropct": 59820,
+          "weight_micropct": 59820
+        },
+        {
+          "market_value_micros": 528423655500000,
+          "name": "INTERACTIVE BROKERS GROUP INC CLAS",
+          "sector": "Financials",
+          "ticker": "IBKR",
+          "visual_weight_micropct": 59700,
+          "weight_micropct": 59700
+        },
+        {
+          "market_value_micros": 493837926120000,
+          "name": "M&T BANK",
+          "sector": "Financials",
+          "ticker": "MTB",
+          "visual_weight_micropct": 55790,
+          "weight_micropct": 55790
+        },
+        {
+          "market_value_micros": 475692609280000,
+          "name": "HUNTINGTON BANCSHARES INC",
+          "sector": "Financials",
+          "ticker": "HBAN",
+          "visual_weight_micropct": 53740,
+          "weight_micropct": 53740
+        },
+        {
+          "market_value_micros": 475626919680000,
+          "name": "ARCH CAPITAL GROUP LTD",
+          "sector": "Financials",
+          "ticker": "ACGL",
+          "visual_weight_micropct": 53730,
+          "weight_micropct": 53730
+        },
+        {
+          "market_value_micros": 455827231200000,
+          "name": "NORTHERN TRUST CORP",
+          "sector": "Financials",
+          "ticker": "NTRS",
+          "visual_weight_micropct": 51500,
+          "weight_micropct": 51500
+        },
+        {
+          "market_value_micros": 440438918500000,
+          "name": "COINBASE GLOBAL INC CLASS A",
+          "sector": "Financials",
+          "ticker": "COIN",
+          "visual_weight_micropct": 49760,
+          "weight_micropct": 49760
+        },
+        {
+          "market_value_micros": 436194208890000,
+          "name": "WILLIS TOWERS WATSON PLC",
+          "sector": "Financials",
+          "ticker": "WTW",
+          "visual_weight_micropct": 49280,
+          "weight_micropct": 49280
+        },
+        {
+          "market_value_micros": 420959474260000,
+          "name": "CBOE GLOBAL MARKETS",
+          "sector": "Financials",
+          "ticker": "CBOE",
+          "visual_weight_micropct": 47560,
+          "weight_micropct": 47560
+        },
+        {
+          "market_value_micros": 416613225520000,
+          "name": "RAYMOND JAMES INC",
+          "sector": "Financials",
+          "ticker": "RJF",
+          "visual_weight_micropct": 47070,
+          "weight_micropct": 47070
+        },
+        {
+          "market_value_micros": 415591367500000,
+          "name": "CITIZENS FINANCIAL GROUP INC",
+          "sector": "Financials",
+          "ticker": "CFG",
+          "visual_weight_micropct": 46950,
+          "weight_micropct": 46950
+        },
+        {
+          "market_value_micros": 395144272020000,
+          "name": "ARES MANAGEMENT CORP CLASS A",
+          "sector": "Financials",
+          "ticker": "ARES",
+          "visual_weight_micropct": 44640,
+          "weight_micropct": 44640
+        },
+        {
+          "market_value_micros": 391773496400000,
+          "name": "FISERV INC",
+          "sector": "Financials",
+          "ticker": "FISV",
+          "visual_weight_micropct": 44260,
+          "weight_micropct": 44260
+        },
+        {
+          "market_value_micros": 372274082250000,
+          "name": "CINCINNATI FINANCIAL CORP",
+          "sector": "Financials",
+          "ticker": "CINF",
+          "visual_weight_micropct": 42060,
+          "weight_micropct": 42060
+        },
+        {
+          "market_value_micros": 363140813920000,
+          "name": "REGIONS FINANCIAL CORP",
+          "sector": "Financials",
+          "ticker": "RF",
+          "visual_weight_micropct": 41030,
+          "weight_micropct": 41030
+        },
+        {
+          "market_value_micros": 353966268880000,
+          "name": "SYNCHRONY FINANCIAL",
+          "sector": "Financials",
+          "ticker": "SYF",
+          "visual_weight_micropct": 39990,
+          "weight_micropct": 39990
+        },
+        {
+          "market_value_micros": 340853604320000,
+          "name": "CORPAY INC",
+          "sector": "Financials",
+          "ticker": "CPAY",
+          "visual_weight_micropct": 38510,
+          "weight_micropct": 38510
+        },
+        {
+          "market_value_micros": 328815086940000,
+          "name": "T ROWE PRICE GROUP INC",
+          "sector": "Financials",
+          "ticker": "TROW",
+          "visual_weight_micropct": 37150,
+          "weight_micropct": 37150
+        },
+        {
+          "market_value_micros": 312857574660000,
+          "name": "FIDELITY NATIONAL INFORMATION SERV",
+          "sector": "Financials",
+          "ticker": "FIS",
+          "visual_weight_micropct": 35350,
+          "weight_micropct": 35350
+        },
+        {
+          "market_value_micros": 305891660120000,
+          "name": "PRINCIPAL FINANCIAL GROUP INC",
+          "sector": "Financials",
+          "ticker": "PFG",
+          "visual_weight_micropct": 34560,
+          "weight_micropct": 34560
+        },
+        {
+          "market_value_micros": 286597687860000,
+          "name": "WR BERKLEY CORP",
+          "sector": "Financials",
+          "ticker": "WRB",
+          "visual_weight_micropct": 32380,
+          "weight_micropct": 32380
+        },
+        {
+          "market_value_micros": 284166820330000,
+          "name": "KEYCORP",
+          "sector": "Financials",
+          "ticker": "KEY",
+          "visual_weight_micropct": 32100,
+          "weight_micropct": 32100
+        },
+        {
+          "market_value_micros": 282806739800000,
+          "name": "BROWN & BROWN INC",
+          "sector": "Financials",
+          "ticker": "BRO",
+          "visual_weight_micropct": 31950,
+          "weight_micropct": 31950
+        },
+        {
+          "market_value_micros": 270883706730000,
+          "name": "GLOBAL PAYMENTS INC",
+          "sector": "Financials",
+          "ticker": "GPN",
+          "visual_weight_micropct": 30600,
+          "weight_micropct": 30600
+        },
+        {
+          "market_value_micros": 265138233750000,
+          "name": "LOEWS CORP",
+          "sector": "Financials",
+          "ticker": "L",
+          "visual_weight_micropct": 29950,
+          "weight_micropct": 29950
+        },
+        {
+          "market_value_micros": 199015497800000,
+          "name": "EVEREST GROUP LTD",
+          "sector": "Financials",
+          "ticker": "EG",
+          "visual_weight_micropct": 22480,
+          "weight_micropct": 22480
+        },
+        {
+          "market_value_micros": 193193434590000,
+          "name": "GLOBE LIFE INC",
+          "sector": "Financials",
+          "ticker": "GL",
+          "visual_weight_micropct": 21830,
+          "weight_micropct": 21830
+        },
+        {
+          "market_value_micros": 191810018820000,
+          "name": "ASSURANT INC",
+          "sector": "Financials",
+          "ticker": "AIZ",
+          "visual_weight_micropct": 21670,
+          "weight_micropct": 21670
+        },
+        {
+          "market_value_micros": 185231575100000,
+          "name": "INVESCO LTD",
+          "sector": "Financials",
+          "ticker": "IVZ",
+          "visual_weight_micropct": 20930,
+          "weight_micropct": 20930
+        },
+        {
+          "market_value_micros": 150294001330000,
+          "name": "JACK HENRY AND ASSOCIATES INC",
+          "sector": "Financials",
+          "ticker": "JKHY",
+          "visual_weight_micropct": 16980,
+          "weight_micropct": 16980
+        },
+        {
+          "market_value_micros": 146038401160000,
+          "name": "FRANKLIN RESOURCES INC",
+          "sector": "Financials",
+          "ticker": "BEN",
+          "visual_weight_micropct": 16500,
+          "weight_micropct": 16500
+        },
+        {
+          "market_value_micros": 132762385280000,
+          "name": "FACTSET RESEARCH SYSTEMS INC",
+          "sector": "Financials",
+          "ticker": "FDS",
+          "visual_weight_micropct": 15000,
+          "weight_micropct": 15000
+        },
+        {
+          "market_value_micros": 81585716420000,
+          "name": "ERIE INDEMNITY CLASS A",
+          "sector": "Financials",
+          "ticker": "ERIE",
+          "visual_weight_micropct": 9220,
+          "weight_micropct": 9220
+        }
+      ],
+      "key": "financials",
+      "label": "Financials",
+      "weight_micropct": 12353670
+    },
+    {
+      "constituent_count": 24,
+      "holdings": [
+        {
+          "market_value_micros": 29605296782940000,
+          "name": "ALPHABET INC CLASS A",
+          "sector": "Communication Services",
+          "ticker": "GOOGL",
+          "visual_weight_micropct": 3344690,
+          "weight_micropct": 3344690
+        },
+        {
+          "market_value_micros": 23796857255220000,
+          "name": "ALPHABET INC CLASS C",
+          "sector": "Communication Services",
+          "ticker": "GOOG",
+          "visual_weight_micropct": 2688470,
+          "weight_micropct": 2688470
+        },
+        {
+          "market_value_micros": 17521704094720002,
+          "name": "META PLATFORMS INC CLASS A",
+          "sector": "Communication Services",
+          "ticker": "META",
+          "visual_weight_micropct": 1979530,
+          "weight_micropct": 1979530
+        },
+        {
+          "market_value_micros": 4173960905880000,
+          "name": "NETFLIX INC",
+          "sector": "Communication Services",
+          "ticker": "NFLX",
+          "visual_weight_micropct": 471560,
+          "weight_micropct": 471560
+        },
+        {
+          "market_value_micros": 2673159329280000,
+          "name": "VERIZON COMMUNICATIONS INC",
+          "sector": "Communication Services",
+          "ticker": "VZ",
+          "visual_weight_micropct": 302000,
+          "weight_micropct": 302000
+        },
+        {
+          "market_value_micros": 2303649935860000,
+          "name": "WALT DISNEY",
+          "sector": "Communication Services",
+          "ticker": "DIS",
+          "visual_weight_micropct": 260260,
+          "weight_micropct": 260260
+        },
+        {
+          "market_value_micros": 2215689829990000,
+          "name": "AT&T INC",
+          "sector": "Communication Services",
+          "ticker": "T",
+          "visual_weight_micropct": 250320,
+          "weight_micropct": 250320
+        },
+        {
+          "market_value_micros": 1476989061360000,
+          "name": "APPLOVIN CORP CLASS A",
+          "sector": "Communication Services",
+          "ticker": "APP",
+          "visual_weight_micropct": 166860,
+          "weight_micropct": 166860
+        },
+        {
+          "market_value_micros": 1182817631120000,
+          "name": "COMCAST CORP CLASS A",
+          "sector": "Communication Services",
+          "ticker": "CMCSA",
+          "visual_weight_micropct": 133630,
+          "weight_micropct": 133630
+        },
+        {
+          "market_value_micros": 1113883880790000,
+          "name": "T MOBILE US INC",
+          "sector": "Communication Services",
+          "ticker": "TMUS",
+          "visual_weight_micropct": 125840,
+          "weight_micropct": 125840
+        },
+        {
+          "market_value_micros": 874076233230000,
+          "name": "WARNER BROS. DISCOVERY INC SERIES",
+          "sector": "Communication Services",
+          "ticker": "WBD",
+          "visual_weight_micropct": 98750,
+          "weight_micropct": 98750
+        },
+        {
+          "market_value_micros": 639097023840000,
+          "name": "ELECTRONIC ARTS INC",
+          "sector": "Communication Services",
+          "ticker": "EA",
+          "visual_weight_micropct": 72200,
+          "weight_micropct": 72200
+        },
+        {
+          "market_value_micros": 576781075200000,
+          "name": "TAKE TWO INTERACTIVE SOFTWARE INC",
+          "sector": "Communication Services",
+          "ticker": "TTWO",
+          "visual_weight_micropct": 65160,
+          "weight_micropct": 65160
+        },
+        {
+          "market_value_micros": 388653987450000,
+          "name": "LIVE NATION ENTERTAINMENT INC",
+          "sector": "Communication Services",
+          "ticker": "LYV",
+          "visual_weight_micropct": 43910,
+          "weight_micropct": 43910
+        },
+        {
+          "market_value_micros": 305419858620000,
+          "name": "OMNICOM GROUP INC",
+          "sector": "Communication Services",
+          "ticker": "OMC",
+          "visual_weight_micropct": 34510,
+          "weight_micropct": 34510
+        },
+        {
+          "market_value_micros": 162953179400000,
+          "name": "CHARTER COMMUNICATIONS INC CLASS A",
+          "sector": "Communication Services",
+          "ticker": "CHTR",
+          "visual_weight_micropct": 18410,
+          "weight_micropct": 18410
+        },
+        {
+          "market_value_micros": 158287367600000,
+          "name": "FOX CORP CLASS A",
+          "sector": "Communication Services",
+          "ticker": "FOXA",
+          "visual_weight_micropct": 17880,
+          "weight_micropct": 17880
+        },
+        {
+          "market_value_micros": 157728490510000,
+          "name": "ECHOSTAR CORP CLASS A",
+          "sector": "Communication Services",
+          "ticker": "ECHO",
+          "visual_weight_micropct": 17820,
+          "weight_micropct": 17820
+        },
+        {
+          "market_value_micros": 156619962920000,
+          "name": "TKO GROUP HOLDINGS INC CLASS A",
+          "sector": "Communication Services",
+          "ticker": "TKO",
+          "visual_weight_micropct": 17690,
+          "weight_micropct": 17690
+        },
+        {
+          "market_value_micros": 137811479520000,
+          "name": "NEWS CORP CLASS A",
+          "sector": "Communication Services",
+          "ticker": "NWSA",
+          "visual_weight_micropct": 15570,
+          "weight_micropct": 15570
+        },
+        {
+          "market_value_micros": 105624415800000,
+          "name": "TRADE DESK INC CLASS A",
+          "sector": "Communication Services",
+          "ticker": "TTD",
+          "visual_weight_micropct": 11930,
+          "weight_micropct": 11930
+        },
+        {
+          "market_value_micros": 98910182340000,
+          "name": "FOX CORP CLASS B",
+          "sector": "Communication Services",
+          "ticker": "FOX",
+          "visual_weight_micropct": 11170,
+          "weight_micropct": 11170
+        },
+        {
+          "market_value_micros": 51774052330000,
+          "name": "NEWS CORP CLASS B",
+          "sector": "Communication Services",
+          "ticker": "NWS",
+          "visual_weight_micropct": 5850,
+          "weight_micropct": 5850
+        },
+        {
+          "market_value_micros": 34778104860000,
+          "name": "PARAMOUNT SKYDANCE CORP CLASS B",
+          "sector": "Communication Services",
+          "ticker": "PSKY",
+          "visual_weight_micropct": 3930,
+          "weight_micropct": 3930
+        }
+      ],
+      "key": "communication-services",
+      "label": "Communication Services",
+      "weight_micropct": 10157940
+    },
+    {
+      "constituent_count": 47,
+      "holdings": [
+        {
+          "market_value_micros": 37582460541780000,
+          "name": "AMAZON.COM INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "AMZN",
+          "visual_weight_micropct": 4245910,
+          "weight_micropct": 4245910
+        },
+        {
+          "market_value_micros": 12256980500160000,
+          "name": "TESLA INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "TSLA",
+          "visual_weight_micropct": 1384740,
+          "weight_micropct": 1384740
+        },
+        {
+          "market_value_micros": 4578008538780000,
+          "name": "HOME DEPOT INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "HD",
+          "visual_weight_micropct": 517200,
+          "weight_micropct": 517200
+        },
+        {
+          "market_value_micros": 2547358037280000,
+          "name": "MCDONALDS CORP",
+          "sector": "Consumer Discretionary",
+          "ticker": "MCD",
+          "visual_weight_micropct": 287790,
+          "weight_micropct": 287790
+        },
+        {
+          "market_value_micros": 2354334097500000,
+          "name": "TJX INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "TJX",
+          "visual_weight_micropct": 265980,
+          "weight_micropct": 265980
+        },
+        {
+          "market_value_micros": 2018464581840000,
+          "name": "BOOKING HOLDINGS INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "BKNG",
+          "visual_weight_micropct": 228040,
+          "weight_micropct": 228040
+        },
+        {
+          "market_value_micros": 1605532555440000,
+          "name": "LOWES COMPANIES INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "LOW",
+          "visual_weight_micropct": 181390,
+          "weight_micropct": 181390
+        },
+        {
+          "market_value_micros": 1592473150680000,
+          "name": "STARBUCKS CORP",
+          "sector": "Consumer Discretionary",
+          "ticker": "SBUX",
+          "visual_weight_micropct": 179910,
+          "weight_micropct": 179910
+        },
+        {
+          "market_value_micros": 1101278891300000,
+          "name": "ROSS STORES INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "ROST",
+          "visual_weight_micropct": 124420,
+          "weight_micropct": 124420
+        },
+        {
+          "market_value_micros": 1092396456000000,
+          "name": "ROYAL CARIBBEAN GROUP LTD",
+          "sector": "Consumer Discretionary",
+          "ticker": "RCL",
+          "visual_weight_micropct": 123410,
+          "weight_micropct": 123410
+        },
+        {
+          "market_value_micros": 1068664883200000,
+          "name": "GENERAL MOTORS",
+          "sector": "Consumer Discretionary",
+          "ticker": "GM",
+          "visual_weight_micropct": 120730,
+          "weight_micropct": 120730
+        },
+        {
+          "market_value_micros": 1026021639720000,
+          "name": "MARRIOTT INTERNATIONAL INC CLASS A",
+          "sector": "Consumer Discretionary",
+          "ticker": "MAR",
+          "visual_weight_micropct": 115920,
+          "weight_micropct": 115920
+        },
+        {
+          "market_value_micros": 1025656146000000,
+          "name": "DOORDASH INC CLASS A",
+          "sector": "Consumer Discretionary",
+          "ticker": "DASH",
+          "visual_weight_micropct": 115870,
+          "weight_micropct": 115870
+        },
+        {
+          "market_value_micros": 1005536848800000,
+          "name": "OREILLY AUTOMOTIVE INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "ORLY",
+          "visual_weight_micropct": 113600,
+          "weight_micropct": 113600
+        },
+        {
+          "market_value_micros": 967209091680000,
+          "name": "HILTON WORLDWIDE HOLDINGS INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "HLT",
+          "visual_weight_micropct": 109270,
+          "weight_micropct": 109270
+        },
+        {
+          "market_value_micros": 851036612720000,
+          "name": "AIRBNB INC CLASS A",
+          "sector": "Consumer Discretionary",
+          "ticker": "ABNB",
+          "visual_weight_micropct": 96150,
+          "weight_micropct": 96150
+        },
+        {
+          "market_value_micros": 763429525170000,
+          "name": "FORD MOTOR CO",
+          "sector": "Consumer Discretionary",
+          "ticker": "F",
+          "visual_weight_micropct": 86250,
+          "weight_micropct": 86250
+        },
+        {
+          "market_value_micros": 691370332640000,
+          "name": "NIKE INC CLASS B",
+          "sector": "Consumer Discretionary",
+          "ticker": "NKE",
+          "visual_weight_micropct": 78110,
+          "weight_micropct": 78110
+        },
+        {
+          "market_value_micros": 675849490200000,
+          "name": "GARMIN LTD",
+          "sector": "Consumer Discretionary",
+          "ticker": "GRMN",
+          "visual_weight_micropct": 76350,
+          "weight_micropct": 76350
+        },
+        {
+          "market_value_micros": 667192032670000,
+          "name": "AUTOZONE INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "AZO",
+          "visual_weight_micropct": 75380,
+          "weight_micropct": 75380
+        },
+        {
+          "market_value_micros": 649550256560000,
+          "name": "CHIPOTLE MEXICAN GRILL INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "CMG",
+          "visual_weight_micropct": 73380,
+          "weight_micropct": 73380
+        },
+        {
+          "market_value_micros": 642965763420000,
+          "name": "EBAY INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "EBAY",
+          "visual_weight_micropct": 72640,
+          "weight_micropct": 72640
+        },
+        {
+          "market_value_micros": 640281240800000,
+          "name": "CARVANA CLASS A",
+          "sector": "Consumer Discretionary",
+          "ticker": "CVNA",
+          "visual_weight_micropct": 72340,
+          "weight_micropct": 72340
+        },
+        {
+          "market_value_micros": 554360054400000,
+          "name": "YUM BRANDS INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "YUM",
+          "visual_weight_micropct": 62630,
+          "weight_micropct": 62630
+        },
+        {
+          "market_value_micros": 522800515260000,
+          "name": "D R HORTON INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "DHI",
+          "visual_weight_micropct": 59060,
+          "weight_micropct": 59060
+        },
+        {
+          "market_value_micros": 499785726000000,
+          "name": "CARNIVAL CORP LTD",
+          "sector": "Consumer Discretionary",
+          "ticker": "CCL",
+          "visual_weight_micropct": 56460,
+          "weight_micropct": 56460
+        },
+        {
+          "market_value_micros": 461399316920000,
+          "name": "EXPEDIA GROUP INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "EXPE",
+          "visual_weight_micropct": 52130,
+          "weight_micropct": 52130
+        },
+        {
+          "market_value_micros": 424986933760000,
+          "name": "TAPESTRY INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "TPR",
+          "visual_weight_micropct": 48010,
+          "weight_micropct": 48010
+        },
+        {
+          "market_value_micros": 381568321200000,
+          "name": "WILLIAMS SONOMA INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "WSM",
+          "visual_weight_micropct": 43110,
+          "weight_micropct": 43110
+        },
+        {
+          "market_value_micros": 332943600010000,
+          "name": "PULTEGROUP INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "PHM",
+          "visual_weight_micropct": 37610,
+          "weight_micropct": 37610
+        },
+        {
+          "market_value_micros": 319389657440000,
+          "name": "DARDEN RESTAURANTS INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "DRI",
+          "visual_weight_micropct": 36080,
+          "weight_micropct": 36080
+        },
+        {
+          "market_value_micros": 314516317300000,
+          "name": "ULTA BEAUTY INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "ULTA",
+          "visual_weight_micropct": 35530,
+          "weight_micropct": 35530
+        },
+        {
+          "market_value_micros": 247887270000000,
+          "name": "LENNAR A CORP CLASS A",
+          "sector": "Consumer Discretionary",
+          "ticker": "LEN",
+          "visual_weight_micropct": 28010,
+          "weight_micropct": 28010
+        },
+        {
+          "market_value_micros": 239093724240000,
+          "name": "GENUINE PARTS",
+          "sector": "Consumer Discretionary",
+          "ticker": "GPC",
+          "visual_weight_micropct": 27010,
+          "weight_micropct": 27010
+        },
+        {
+          "market_value_micros": 228832024400000,
+          "name": "NVR INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "NVR",
+          "visual_weight_micropct": 25850,
+          "weight_micropct": 25850
+        },
+        {
+          "market_value_micros": 227642046840000,
+          "name": "TRACTOR SUPPLY",
+          "sector": "Consumer Discretionary",
+          "ticker": "TSCO",
+          "visual_weight_micropct": 25720,
+          "weight_micropct": 25720
+        },
+        {
+          "market_value_micros": 225339023250000,
+          "name": "BEST BUY INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "BBY",
+          "visual_weight_micropct": 25460,
+          "weight_micropct": 25460
+        },
+        {
+          "market_value_micros": 198482194960000,
+          "name": "RALPH LAUREN CORP CLASS A",
+          "sector": "Consumer Discretionary",
+          "ticker": "RL",
+          "visual_weight_micropct": 22420,
+          "weight_micropct": 22420
+        },
+        {
+          "market_value_micros": 191576902000000,
+          "name": "DECKERS OUTDOOR CORP",
+          "sector": "Consumer Discretionary",
+          "ticker": "DECK",
+          "visual_weight_micropct": 21640,
+          "weight_micropct": 21640
+        },
+        {
+          "market_value_micros": 190551212880000,
+          "name": "LAS VEGAS SANDS CORP",
+          "sector": "Consumer Discretionary",
+          "ticker": "LVS",
+          "visual_weight_micropct": 21530,
+          "weight_micropct": 21530
+        },
+        {
+          "market_value_micros": 175071704120000,
+          "name": "LULULEMON ATHLETICA INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "LULU",
+          "visual_weight_micropct": 19780,
+          "weight_micropct": 19780
+        },
+        {
+          "market_value_micros": 165417092100000,
+          "name": "HASBRO INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "HAS",
+          "visual_weight_micropct": 18690,
+          "weight_micropct": 18690
+        },
+        {
+          "market_value_micros": 163712080770000,
+          "name": "APTIV PLC",
+          "sector": "Consumer Discretionary",
+          "ticker": "APTV",
+          "visual_weight_micropct": 18500,
+          "weight_micropct": 18500
+        },
+        {
+          "market_value_micros": 150810714090000,
+          "name": "DOMINOS PIZZA INC",
+          "sector": "Consumer Discretionary",
+          "ticker": "DPZ",
+          "visual_weight_micropct": 17040,
+          "weight_micropct": 17040
+        },
+        {
+          "market_value_micros": 121959490640000,
+          "name": "NORWEGIAN CRUISE LINE HOLDINGS LTD",
+          "sector": "Consumer Discretionary",
+          "ticker": "NCLH",
+          "visual_weight_micropct": 13780,
+          "weight_micropct": 13780
+        },
+        {
+          "market_value_micros": 115790246000000,
+          "name": "MGM RESORTS INTERNATIONAL",
+          "sector": "Consumer Discretionary",
+          "ticker": "MGM",
+          "visual_weight_micropct": 13080,
+          "weight_micropct": 13080
+        },
+        {
+          "market_value_micros": 111528633520000,
+          "name": "WYNN RESORTS LTD",
+          "sector": "Consumer Discretionary",
+          "ticker": "WYNN",
+          "visual_weight_micropct": 12600,
+          "weight_micropct": 12600
+        }
+      ],
+      "key": "consumer-discretionary",
+      "label": "Consumer Discretionary",
+      "weight_micropct": 9486510
+    },
+    {
+      "constituent_count": 60,
+      "holdings": [
+        {
+          "market_value_micros": 11991182422080000,
+          "name": "ELI LILLY",
+          "sector": "Health Care",
+          "ticker": "LLY",
+          "visual_weight_micropct": 1354720,
+          "weight_micropct": 1354720
+        },
+        {
+          "market_value_micros": 8278389205190000,
+          "name": "JOHNSON & JOHNSON",
+          "sector": "Health Care",
+          "ticker": "JNJ",
+          "visual_weight_micropct": 935260,
+          "weight_micropct": 935260
+        },
+        {
+          "market_value_micros": 5853675995700000,
+          "name": "ABBVIE INC",
+          "sector": "Health Care",
+          "ticker": "ABBV",
+          "visual_weight_micropct": 661320,
+          "weight_micropct": 661320
+        },
+        {
+          "market_value_micros": 5098974728320000,
+          "name": "UNITEDHEALTH GROUP INC",
+          "sector": "Health Care",
+          "ticker": "UNH",
+          "visual_weight_micropct": 576060,
+          "weight_micropct": 576060
+        },
+        {
+          "market_value_micros": 4265782755630000,
+          "name": "MERCK & CO INC",
+          "sector": "Health Care",
+          "ticker": "MRK",
+          "visual_weight_micropct": 481930,
+          "weight_micropct": 481930
+        },
+        {
+          "market_value_micros": 2883588616330000,
+          "name": "THERMO FISHER SCIENTIFIC INC",
+          "sector": "Health Care",
+          "ticker": "TMO",
+          "visual_weight_micropct": 325780,
+          "weight_micropct": 325780
+        },
+        {
+          "market_value_micros": 2763526275360000,
+          "name": "AMGEN INC",
+          "sector": "Health Care",
+          "ticker": "AMGN",
+          "visual_weight_micropct": 312210,
+          "weight_micropct": 312210
+        },
+        {
+          "market_value_micros": 2522933088000000,
+          "name": "ABBOTT LABORATORIES",
+          "sector": "Health Care",
+          "ticker": "ABT",
+          "visual_weight_micropct": 285030,
+          "weight_micropct": 285030
+        },
+        {
+          "market_value_micros": 2201133729500000,
+          "name": "GILEAD SCIENCES INC",
+          "sector": "Health Care",
+          "ticker": "GILD",
+          "visual_weight_micropct": 248680,
+          "weight_micropct": 248680
+        },
+        {
+          "market_value_micros": 1927568835230000,
+          "name": "PFIZER INC",
+          "sector": "Health Care",
+          "ticker": "PFE",
+          "visual_weight_micropct": 217770,
+          "weight_micropct": 217770
+        },
+        {
+          "market_value_micros": 1817398683970000,
+          "name": "CVS HEALTH CORP",
+          "sector": "Health Care",
+          "ticker": "CVS",
+          "visual_weight_micropct": 205320,
+          "weight_micropct": 205320
+        },
+        {
+          "market_value_micros": 1807226940180000,
+          "name": "BRISTOL MYERS SQUIBB",
+          "sector": "Health Care",
+          "ticker": "BMY",
+          "visual_weight_micropct": 204170,
+          "weight_micropct": 204170
+        },
+        {
+          "market_value_micros": 1797297148780000,
+          "name": "INTUITIVE SURGICAL INC",
+          "sector": "Health Care",
+          "ticker": "ISRG",
+          "visual_weight_micropct": 203050,
+          "weight_micropct": 203050
+        },
+        {
+          "market_value_micros": 1681675370000000,
+          "name": "DANAHER CORP",
+          "sector": "Health Care",
+          "ticker": "DHR",
+          "visual_weight_micropct": 189990,
+          "weight_micropct": 189990
+        },
+        {
+          "market_value_micros": 1615167414400000,
+          "name": "VERTEX PHARMACEUTICALS INC",
+          "sector": "Health Care",
+          "ticker": "VRTX",
+          "visual_weight_micropct": 182480,
+          "weight_micropct": 182480
+        },
+        {
+          "market_value_micros": 1591952194000000,
+          "name": "STRYKER CORP",
+          "sector": "Health Care",
+          "ticker": "SYK",
+          "visual_weight_micropct": 179850,
+          "weight_micropct": 179850
+        },
+        {
+          "market_value_micros": 1504311810320000,
+          "name": "MEDTRONIC PLC",
+          "sector": "Health Care",
+          "ticker": "MDT",
+          "visual_weight_micropct": 169950,
+          "weight_micropct": 169950
+        },
+        {
+          "market_value_micros": 1344093401460000,
+          "name": "MCKESSON CORP",
+          "sector": "Health Care",
+          "ticker": "MCK",
+          "visual_weight_micropct": 151850,
+          "weight_micropct": 151850
+        },
+        {
+          "market_value_micros": 1123542867150000,
+          "name": "ELEVANCE HEALTH INC",
+          "sector": "Health Care",
+          "ticker": "ELV",
+          "visual_weight_micropct": 126930,
+          "weight_micropct": 126930
+        },
+        {
+          "market_value_micros": 1025451561960000,
+          "name": "REGENERON PHARMACEUTICALS INC",
+          "sector": "Health Care",
+          "ticker": "REGN",
+          "visual_weight_micropct": 115850,
+          "weight_micropct": 115850
+        },
+        {
+          "market_value_micros": 1008291728520000,
+          "name": "CIGNA",
+          "sector": "Health Care",
+          "ticker": "CI",
+          "visual_weight_micropct": 113910,
+          "weight_micropct": 113910
+        },
+        {
+          "market_value_micros": 973054058670000,
+          "name": "BOSTON SCIENTIFIC CORP",
+          "sector": "Health Care",
+          "ticker": "BSX",
+          "visual_weight_micropct": 109930,
+          "weight_micropct": 109930
+        },
+        {
+          "market_value_micros": 853423563750000,
+          "name": "HCA HEALTHCARE INC",
+          "sector": "Health Care",
+          "ticker": "HCA",
+          "visual_weight_micropct": 96420,
+          "weight_micropct": 96420
+        },
+        {
+          "market_value_micros": 810985655070000,
+          "name": "CENCORA INC",
+          "sector": "Health Care",
+          "ticker": "COR",
+          "visual_weight_micropct": 91620,
+          "weight_micropct": 91620
+        },
+        {
+          "market_value_micros": 745856590000000,
+          "name": "CARDINAL HEALTH INC",
+          "sector": "Health Care",
+          "ticker": "CAH",
+          "visual_weight_micropct": 84260,
+          "weight_micropct": 84260
+        },
+        {
+          "market_value_micros": 691349477480000,
+          "name": "EDWARDS LIFESCIENCES CORP",
+          "sector": "Health Care",
+          "ticker": "EW",
+          "visual_weight_micropct": 78110,
+          "weight_micropct": 78110
+        },
+        {
+          "market_value_micros": 633944932270000,
+          "name": "BECTON DICKINSON",
+          "sector": "Health Care",
+          "ticker": "BDX",
+          "visual_weight_micropct": 71620,
+          "weight_micropct": 71620
+        },
+        {
+          "market_value_micros": 607868177000000,
+          "name": "HUMANA INC",
+          "sector": "Health Care",
+          "ticker": "HUM",
+          "visual_weight_micropct": 68670,
+          "weight_micropct": 68670
+        },
+        {
+          "market_value_micros": 605570128800000,
+          "name": "IDEXX LABORATORIES INC",
+          "sector": "Health Care",
+          "ticker": "IDXX",
+          "visual_weight_micropct": 68410,
+          "weight_micropct": 68410
+        },
+        {
+          "market_value_micros": 534015169800000,
+          "name": "AGILENT TECHNOLOGIES INC",
+          "sector": "Health Care",
+          "ticker": "A",
+          "visual_weight_micropct": 60330,
+          "weight_micropct": 60330
+        },
+        {
+          "market_value_micros": 526477428640000,
+          "name": "IQVIA HOLDINGS INC",
+          "sector": "Health Care",
+          "ticker": "IQV",
+          "visual_weight_micropct": 59480,
+          "weight_micropct": 59480
+        },
+        {
+          "market_value_micros": 497344060540000,
+          "name": "WATERS CORP",
+          "sector": "Health Care",
+          "ticker": "WAT",
+          "visual_weight_micropct": 56190,
+          "weight_micropct": 56190
+        },
+        {
+          "market_value_micros": 455913437180000,
+          "name": "DEXCOM INC",
+          "sector": "Health Care",
+          "ticker": "DXCM",
+          "visual_weight_micropct": 51510,
+          "weight_micropct": 51510
+        },
+        {
+          "market_value_micros": 436944743700000,
+          "name": "ZOETIS INC CLASS A",
+          "sector": "Health Care",
+          "ticker": "ZTS",
+          "visual_weight_micropct": 49360,
+          "weight_micropct": 49360
+        },
+        {
+          "market_value_micros": 428746131530000,
+          "name": "GE HEALTHCARE TECHNOLOGIES INC",
+          "sector": "Health Care",
+          "ticker": "GEHC",
+          "visual_weight_micropct": 48440,
+          "weight_micropct": 48440
+        },
+        {
+          "market_value_micros": 421883222850000,
+          "name": "RESMED INC",
+          "sector": "Health Care",
+          "ticker": "RMD",
+          "visual_weight_micropct": 47660,
+          "weight_micropct": 47660
+        },
+        {
+          "market_value_micros": 418547250000000,
+          "name": "VEEVA SYSTEMS INC CLASS A",
+          "sector": "Health Care",
+          "ticker": "VEEV",
+          "visual_weight_micropct": 47290,
+          "weight_micropct": 47290
+        },
+        {
+          "market_value_micros": 404149646080000,
+          "name": "CENTENE CORP",
+          "sector": "Health Care",
+          "ticker": "CNC",
+          "visual_weight_micropct": 45660,
+          "weight_micropct": 45660
+        },
+        {
+          "market_value_micros": 402805877940000,
+          "name": "BIOGEN INC",
+          "sector": "Health Care",
+          "ticker": "BIIB",
+          "visual_weight_micropct": 45510,
+          "weight_micropct": 45510
+        },
+        {
+          "market_value_micros": 395061555000000,
+          "name": "METTLER TOLEDO",
+          "sector": "Health Care",
+          "ticker": "MTD",
+          "visual_weight_micropct": 44630,
+          "weight_micropct": 44630
+        },
+        {
+          "market_value_micros": 346285809350000,
+          "name": "QUEST DIAGNOSTICS INC",
+          "sector": "Health Care",
+          "ticker": "DGX",
+          "visual_weight_micropct": 39120,
+          "weight_micropct": 39120
+        },
+        {
+          "market_value_micros": 340853154680000,
+          "name": "LABCORP HOLDINGS INC",
+          "sector": "Health Care",
+          "ticker": "LH",
+          "visual_weight_micropct": 38510,
+          "weight_micropct": 38510
+        },
+        {
+          "market_value_micros": 332258344200000,
+          "name": "WEST PHARMACEUTICAL SERVICES INC",
+          "sector": "Health Care",
+          "ticker": "WST",
+          "visual_weight_micropct": 37540,
+          "weight_micropct": 37540
+        },
+        {
+          "market_value_micros": 308418059840000,
+          "name": "STERIS",
+          "sector": "Health Care",
+          "ticker": "STE",
+          "visual_weight_micropct": 34840,
+          "weight_micropct": 34840
+        },
+        {
+          "market_value_micros": 277531988900000,
+          "name": "VIATRIS INC",
+          "sector": "Health Care",
+          "ticker": "VTRS",
+          "visual_weight_micropct": 31350,
+          "weight_micropct": 31350
+        },
+        {
+          "market_value_micros": 268803887040000,
+          "name": "INCYTE CORP",
+          "sector": "Health Care",
+          "ticker": "INCY",
+          "visual_weight_micropct": 30370,
+          "weight_micropct": 30370
+        },
+        {
+          "market_value_micros": 263202408720000,
+          "name": "MODERNA INC",
+          "sector": "Health Care",
+          "ticker": "MRNA",
+          "visual_weight_micropct": 29740,
+          "weight_micropct": 29740
+        },
+        {
+          "market_value_micros": 253575545600000,
+          "name": "ZIMMER BIOMET HOLDINGS INC",
+          "sector": "Health Care",
+          "ticker": "ZBH",
+          "visual_weight_micropct": 28650,
+          "weight_micropct": 28650
+        },
+        {
+          "market_value_micros": 196156517900000,
+          "name": "BAXTER INTERNATIONAL INC",
+          "sector": "Health Care",
+          "ticker": "BAX",
+          "visual_weight_micropct": 22160,
+          "weight_micropct": 22160
+        },
+        {
+          "market_value_micros": 195751042240000,
+          "name": "COOPER INC",
+          "sector": "Health Care",
+          "ticker": "COO",
+          "visual_weight_micropct": 22120,
+          "weight_micropct": 22120
+        },
+        {
+          "market_value_micros": 175275064530000,
+          "name": "SOLVENTUM CORP",
+          "sector": "Health Care",
+          "ticker": "SOLV",
+          "visual_weight_micropct": 19800,
+          "weight_micropct": 19800
+        },
+        {
+          "market_value_micros": 173770771300000,
+          "name": "REVVITY INC",
+          "sector": "Health Care",
+          "ticker": "RVTY",
+          "visual_weight_micropct": 19630,
+          "weight_micropct": 19630
+        },
+        {
+          "market_value_micros": 158848363800000,
+          "name": "INSULET CORP",
+          "sector": "Health Care",
+          "ticker": "PODD",
+          "visual_weight_micropct": 17950,
+          "weight_micropct": 17950
+        },
+        {
+          "market_value_micros": 155704734000000,
+          "name": "ALIGN TECHNOLOGY INC",
+          "sector": "Health Care",
+          "ticker": "ALGN",
+          "visual_weight_micropct": 17590,
+          "weight_micropct": 17590
+        },
+        {
+          "market_value_micros": 153179695380000,
+          "name": "BIO TECHNE CORP",
+          "sector": "Health Care",
+          "ticker": "TECH",
+          "visual_weight_micropct": 17310,
+          "weight_micropct": 17310
+        },
+        {
+          "market_value_micros": 150323381790000,
+          "name": "CHARLES RIVER LABORATORIES INTERNA",
+          "sector": "Health Care",
+          "ticker": "CRL",
+          "visual_weight_micropct": 16980,
+          "weight_micropct": 16980
+        },
+        {
+          "market_value_micros": 121767794960000,
+          "name": "UNIVERSAL HEALTH SERVICES INC CLAS",
+          "sector": "Health Care",
+          "ticker": "UHS",
+          "visual_weight_micropct": 13760,
+          "weight_micropct": 13760
+        },
+        {
+          "market_value_micros": 113210273380000,
+          "name": "HENRY SCHEIN INC",
+          "sector": "Health Care",
+          "ticker": "HSIC",
+          "visual_weight_micropct": 12790,
+          "weight_micropct": 12790
+        },
+        {
+          "market_value_micros": 101471100080000,
+          "name": "DAVITA INC",
+          "sector": "Health Care",
+          "ticker": "DVA",
+          "visual_weight_micropct": 11460,
+          "weight_micropct": 11460
+        },
+        {
+          "market_value_micros": 28433880000,
+          "name": "HOLOGIC INC",
+          "sector": "Health Care",
+          "ticker": "HOLX",
+          "visual_weight_micropct": 1,
+          "weight_micropct": 0
+        }
+      ],
+      "key": "health-care",
+      "label": "Health Care",
+      "weight_micropct": 8928880
+    },
+    {
+      "constituent_count": 82,
+      "holdings": [
+        {
+          "market_value_micros": 5203012411400000,
+          "name": "GE AEROSPACE",
+          "sector": "Industrials",
+          "ticker": "GE",
+          "visual_weight_micropct": 587820,
+          "weight_micropct": 587820
+        },
+        {
+          "market_value_micros": 5168055630440000,
+          "name": "CATERPILLAR INC",
+          "sector": "Industrials",
+          "ticker": "CAT",
+          "visual_weight_micropct": 583870,
+          "weight_micropct": 583870
+        },
+        {
+          "market_value_micros": 3943921081450000,
+          "name": "RTX CORP",
+          "sector": "Industrials",
+          "ticker": "RTX",
+          "visual_weight_micropct": 445570,
+          "weight_micropct": 445570
+        },
+        {
+          "market_value_micros": 3656818104640000,
+          "name": "GE VERNOVA INC",
+          "sector": "Industrials",
+          "ticker": "GEV",
+          "visual_weight_micropct": 413130,
+          "weight_micropct": 413130
+        },
+        {
+          "market_value_micros": 2488010367030000,
+          "name": "BOEING",
+          "sector": "Industrials",
+          "ticker": "BA",
+          "visual_weight_micropct": 281090,
+          "weight_micropct": 281090
+        },
+        {
+          "market_value_micros": 2337258210560000,
+          "name": "UNION PACIFIC CORP",
+          "sector": "Industrials",
+          "ticker": "UNP",
+          "visual_weight_micropct": 264050,
+          "weight_micropct": 264050
+        },
+        {
+          "market_value_micros": 2300336757420000,
+          "name": "EATON PLC",
+          "sector": "Industrials",
+          "ticker": "ETN",
+          "visual_weight_micropct": 259880,
+          "weight_micropct": 259880
+        },
+        {
+          "market_value_micros": 2054541736000000,
+          "name": "DEERE",
+          "sector": "Industrials",
+          "ticker": "DE",
+          "visual_weight_micropct": 232110,
+          "weight_micropct": 232110
+        },
+        {
+          "market_value_micros": 1970434151070000,
+          "name": "UBER TECHNOLOGIES INC",
+          "sector": "Industrials",
+          "ticker": "UBER",
+          "visual_weight_micropct": 222610,
+          "weight_micropct": 222610
+        },
+        {
+          "market_value_micros": 1699884804720000,
+          "name": "PARKER-HANNIFIN CORP",
+          "sector": "Industrials",
+          "ticker": "PH",
+          "visual_weight_micropct": 192050,
+          "weight_micropct": 192050
+        },
+        {
+          "market_value_micros": 1607891530650000,
+          "name": "LOCKHEED MARTIN CORP",
+          "sector": "Industrials",
+          "ticker": "LMT",
+          "visual_weight_micropct": 181650,
+          "weight_micropct": 181650
+        },
+        {
+          "market_value_micros": 1548779558220000,
+          "name": "HOWMET AEROSPACE INC",
+          "sector": "Industrials",
+          "ticker": "HWM",
+          "visual_weight_micropct": 174970,
+          "weight_micropct": 174970
+        },
+        {
+          "market_value_micros": 1457652364700000,
+          "name": "AUTOMATIC DATA PROCESSING INC",
+          "sector": "Industrials",
+          "ticker": "ADP",
+          "visual_weight_micropct": 164680,
+          "weight_micropct": 164680
+        },
+        {
+          "market_value_micros": 1379609528200000,
+          "name": "QUANTA SERVICES INC",
+          "sector": "Industrials",
+          "ticker": "PWR",
+          "visual_weight_micropct": 155860,
+          "weight_micropct": 155860
+        },
+        {
+          "market_value_micros": 1377945586750000,
+          "name": "TRANE TECHNOLOGIES PLC",
+          "sector": "Industrials",
+          "ticker": "TT",
+          "visual_weight_micropct": 155670,
+          "weight_micropct": 155670
+        },
+        {
+          "market_value_micros": 1365750075950000,
+          "name": "VERTIV HOLDINGS CLASS A",
+          "sector": "Industrials",
+          "ticker": "VRT",
+          "visual_weight_micropct": 154300,
+          "weight_micropct": 154300
+        },
+        {
+          "market_value_micros": 1312302808550000,
+          "name": "GENERAL DYNAMICS CORP",
+          "sector": "Industrials",
+          "ticker": "GD",
+          "visual_weight_micropct": 148260,
+          "weight_micropct": 148260
+        },
+        {
+          "market_value_micros": 1251604825680000,
+          "name": "CSX CORP",
+          "sector": "Industrials",
+          "ticker": "CSX",
+          "visual_weight_micropct": 141400,
+          "weight_micropct": 141400
+        },
+        {
+          "market_value_micros": 1249502160790000,
+          "name": "3M",
+          "sector": "Industrials",
+          "ticker": "MMM",
+          "visual_weight_micropct": 141160,
+          "weight_micropct": 141160
+        },
+        {
+          "market_value_micros": 1210161051100000,
+          "name": "CUMMINS INC",
+          "sector": "Industrials",
+          "ticker": "CMI",
+          "visual_weight_micropct": 136720,
+          "weight_micropct": 136720
+        },
+        {
+          "market_value_micros": 1207370994870000,
+          "name": "JOHNSON CONTROLS INTERNATIONAL PLC",
+          "sector": "Industrials",
+          "ticker": "JCI",
+          "visual_weight_micropct": 136400,
+          "weight_micropct": 136400
+        },
+        {
+          "market_value_micros": 1172462879400000,
+          "name": "EMERSON ELECTRIC",
+          "sector": "Industrials",
+          "ticker": "EMR",
+          "visual_weight_micropct": 132460,
+          "weight_micropct": 132460
+        },
+        {
+          "market_value_micros": 1130860707580000,
+          "name": "WASTE MANAGEMENT INC",
+          "sector": "Industrials",
+          "ticker": "WM",
+          "visual_weight_micropct": 127760,
+          "weight_micropct": 127760
+        },
+        {
+          "market_value_micros": 1078534711750000,
+          "name": "UNITED PARCEL SERVICE INC CLASS B",
+          "sector": "Industrials",
+          "ticker": "UPS",
+          "visual_weight_micropct": 121850,
+          "weight_micropct": 121850
+        },
+        {
+          "market_value_micros": 1058891303850000,
+          "name": "HONEYWELL INTERNATIONAL INC",
+          "sector": "Industrials",
+          "ticker": "HON",
+          "visual_weight_micropct": 119630,
+          "weight_micropct": 119630
+        },
+        {
+          "market_value_micros": 1022200020200000,
+          "name": "NORFOLK SOUTHERN CORP",
+          "sector": "Industrials",
+          "ticker": "NSC",
+          "visual_weight_micropct": 115480,
+          "weight_micropct": 115480
+        },
+        {
+          "market_value_micros": 1020918220660000,
+          "name": "ILLINOIS TOOL INC",
+          "sector": "Industrials",
+          "ticker": "ITW",
+          "visual_weight_micropct": 115340,
+          "weight_micropct": 115340
+        },
+        {
+          "market_value_micros": 990050327110000,
+          "name": "NORTHROP GRUMMAN CORP",
+          "sector": "Industrials",
+          "ticker": "NOC",
+          "visual_weight_micropct": 111850,
+          "weight_micropct": 111850
+        },
+        {
+          "market_value_micros": 972583990200000,
+          "name": "TRANSDIGM GROUP INC",
+          "sector": "Industrials",
+          "ticker": "TDG",
+          "visual_weight_micropct": 109880,
+          "weight_micropct": 109880
+        },
+        {
+          "market_value_micros": 944572715840000,
+          "name": "UNITED RENTALS INC",
+          "sector": "Industrials",
+          "ticker": "URI",
+          "visual_weight_micropct": 106710,
+          "weight_micropct": 106710
+        },
+        {
+          "market_value_micros": 939501252000000,
+          "name": "PACCAR INC",
+          "sector": "Industrials",
+          "ticker": "PCAR",
+          "visual_weight_micropct": 106140,
+          "weight_micropct": 106140
+        },
+        {
+          "market_value_micros": 937891704830000,
+          "name": "CINTAS CORP",
+          "sector": "Industrials",
+          "ticker": "CTAS",
+          "visual_weight_micropct": 105960,
+          "weight_micropct": 105960
+        },
+        {
+          "market_value_micros": 917741752920000,
+          "name": "FEDEX CORP",
+          "sector": "Industrials",
+          "ticker": "FDX",
+          "visual_weight_micropct": 103680,
+          "weight_micropct": 103680
+        },
+        {
+          "market_value_micros": 893687611350000,
+          "name": "HONEYWELL AEROSPACE INC",
+          "sector": "Industrials",
+          "ticker": "HONA",
+          "visual_weight_micropct": 100970,
+          "weight_micropct": 100970
+        },
+        {
+          "market_value_micros": 840612728400000,
+          "name": "COMFORT SYSTEMS USA INC",
+          "sector": "Industrials",
+          "ticker": "FIX",
+          "visual_weight_micropct": 94970,
+          "weight_micropct": 94970
+        },
+        {
+          "market_value_micros": 809024728080000,
+          "name": "DELTA AIR LINES INC",
+          "sector": "Industrials",
+          "ticker": "DAL",
+          "visual_weight_micropct": 91400,
+          "weight_micropct": 91400
+        },
+        {
+          "market_value_micros": 804814050000000,
+          "name": "WW GRAINGER INC",
+          "sector": "Industrials",
+          "ticker": "GWW",
+          "visual_weight_micropct": 90920,
+          "weight_micropct": 90920
+        },
+        {
+          "market_value_micros": 755214329970000,
+          "name": "AMETEK INC",
+          "sector": "Industrials",
+          "ticker": "AME",
+          "visual_weight_micropct": 85320,
+          "weight_micropct": 85320
+        },
+        {
+          "market_value_micros": 746589117470000,
+          "name": "FASTENAL",
+          "sector": "Industrials",
+          "ticker": "FAST",
+          "visual_weight_micropct": 84350,
+          "weight_micropct": 84350
+        },
+        {
+          "market_value_micros": 723611803940000,
+          "name": "ROCKWELL AUTOMATION INC",
+          "sector": "Industrials",
+          "ticker": "ROK",
+          "visual_weight_micropct": 81750,
+          "weight_micropct": 81750
+        },
+        {
+          "market_value_micros": 699649812840000,
+          "name": "L3HARRIS TECHNOLOGIES INC",
+          "sector": "Industrials",
+          "ticker": "LHX",
+          "visual_weight_micropct": 79040,
+          "weight_micropct": 79040
+        },
+        {
+          "market_value_micros": 680093285900000,
+          "name": "WESTINGHOUSE AIR BRAKE TECHNOLOGIE",
+          "sector": "Industrials",
+          "ticker": "WAB",
+          "visual_weight_micropct": 76830,
+          "weight_micropct": 76830
+        },
+        {
+          "market_value_micros": 666693716370000,
+          "name": "CARRIER GLOBAL CORP",
+          "sector": "Industrials",
+          "ticker": "CARR",
+          "visual_weight_micropct": 75320,
+          "weight_micropct": 75320
+        },
+        {
+          "market_value_micros": 627526646040000,
+          "name": "AXON ENTERPRISE INC",
+          "sector": "Industrials",
+          "ticker": "AXON",
+          "visual_weight_micropct": 70900,
+          "weight_micropct": 70900
+        },
+        {
+          "market_value_micros": 566612292900000,
+          "name": "REPUBLIC SERVICES INC",
+          "sector": "Industrials",
+          "ticker": "RSG",
+          "visual_weight_micropct": 64010,
+          "weight_micropct": 64010
+        },
+        {
+          "market_value_micros": 563403052240000,
+          "name": "UNITED AIRLINES HOLDINGS INC",
+          "sector": "Industrials",
+          "ticker": "UAL",
+          "visual_weight_micropct": 63650,
+          "weight_micropct": 63650
+        },
+        {
+          "market_value_micros": 523200642560000,
+          "name": "OLD DOMINION FREIGHT LINE INC",
+          "sector": "Industrials",
+          "ticker": "ODFL",
+          "visual_weight_micropct": 59110,
+          "weight_micropct": 59110
+        },
+        {
+          "market_value_micros": 512865165680000,
+          "name": "PAYCHEX INC",
+          "sector": "Industrials",
+          "ticker": "PAYX",
+          "visual_weight_micropct": 57940,
+          "weight_micropct": 57940
+        },
+        {
+          "market_value_micros": 491169694760000,
+          "name": "EMCOR GROUP INC",
+          "sector": "Industrials",
+          "ticker": "EME",
+          "visual_weight_micropct": 55490,
+          "weight_micropct": 55490
+        },
+        {
+          "market_value_micros": 422558962980000,
+          "name": "INGERSOLL RAND INC",
+          "sector": "Industrials",
+          "ticker": "IR",
+          "visual_weight_micropct": 47740,
+          "weight_micropct": 47740
+        },
+        {
+          "market_value_micros": 382590464880000,
+          "name": "XYLEM INC",
+          "sector": "Industrials",
+          "ticker": "XYL",
+          "visual_weight_micropct": 43220,
+          "weight_micropct": 43220
+        },
+        {
+          "market_value_micros": 374418217360000,
+          "name": "DOVER CORP",
+          "sector": "Industrials",
+          "ticker": "DOV",
+          "visual_weight_micropct": 42300,
+          "weight_micropct": 42300
+        },
+        {
+          "market_value_micros": 374440722820000,
+          "name": "OTIS WORLDWIDE CORP",
+          "sector": "Industrials",
+          "ticker": "OTIS",
+          "visual_weight_micropct": 42300,
+          "weight_micropct": 42300
+        },
+        {
+          "market_value_micros": 351605457050000,
+          "name": "COPART INC",
+          "sector": "Industrials",
+          "ticker": "CPRT",
+          "visual_weight_micropct": 39720,
+          "weight_micropct": 39720
+        },
+        {
+          "market_value_micros": 341989120050000,
+          "name": "VERISK ANALYTICS INC",
+          "sector": "Industrials",
+          "ticker": "VRSK",
+          "visual_weight_micropct": 38640,
+          "weight_micropct": 38640
+        },
+        {
+          "market_value_micros": 340159618440000,
+          "name": "HUBBELL INC",
+          "sector": "Industrials",
+          "ticker": "HUBB",
+          "visual_weight_micropct": 38430,
+          "weight_micropct": 38430
+        },
+        {
+          "market_value_micros": 314814821420000,
+          "name": "VERALTO CORP",
+          "sector": "Industrials",
+          "ticker": "VLTO",
+          "visual_weight_micropct": 35570,
+          "weight_micropct": 35570
+        },
+        {
+          "market_value_micros": 310988995290000,
+          "name": "SOUTHWEST AIRLINES",
+          "sector": "Industrials",
+          "ticker": "LUV",
+          "visual_weight_micropct": 35130,
+          "weight_micropct": 35130
+        },
+        {
+          "market_value_micros": 301595784630000,
+          "name": "EXPEDITORS INTERNATIONAL OF WASHIN",
+          "sector": "Industrials",
+          "ticker": "EXPD",
+          "visual_weight_micropct": 34070,
+          "weight_micropct": 34070
+        },
+        {
+          "market_value_micros": 286642679760000,
+          "name": "SNAP ON INC",
+          "sector": "Industrials",
+          "ticker": "SNA",
+          "visual_weight_micropct": 32380,
+          "weight_micropct": 32380
+        },
+        {
+          "market_value_micros": 280207410700000,
+          "name": "EQUIFAX INC",
+          "sector": "Industrials",
+          "ticker": "EFX",
+          "visual_weight_micropct": 31660,
+          "weight_micropct": 31660
+        },
+        {
+          "market_value_micros": 268706037390000,
+          "name": "JB HUNT TRANSPORT SERVICES INC",
+          "sector": "Industrials",
+          "ticker": "JBHT",
+          "visual_weight_micropct": 30360,
+          "weight_micropct": 30360
+        },
+        {
+          "market_value_micros": 260566094720000,
+          "name": "DUPONT DE NEMOURS INC",
+          "sector": "Industrials",
+          "ticker": "DD",
+          "visual_weight_micropct": 29440,
+          "weight_micropct": 29440
+        },
+        {
+          "market_value_micros": 245954832040000,
+          "name": "BROADRIDGE FINANCIAL SOLUTIONS INC",
+          "sector": "Industrials",
+          "ticker": "BR",
+          "visual_weight_micropct": 27790,
+          "weight_micropct": 27790
+        },
+        {
+          "market_value_micros": 245022530160000,
+          "name": "FORTIVE CORP",
+          "sector": "Industrials",
+          "ticker": "FTV",
+          "visual_weight_micropct": 27680,
+          "weight_micropct": 27680
+        },
+        {
+          "market_value_micros": 234289776000000,
+          "name": "CH ROBINSON WORLDWIDE INC",
+          "sector": "Industrials",
+          "ticker": "CHRW",
+          "visual_weight_micropct": 26470,
+          "weight_micropct": 26470
+        },
+        {
+          "market_value_micros": 232812626800000,
+          "name": "IDEX CORP",
+          "sector": "Industrials",
+          "ticker": "IEX",
+          "visual_weight_micropct": 26300,
+          "weight_micropct": 26300
+        },
+        {
+          "market_value_micros": 221227465440000,
+          "name": "JACOBS SOLUTIONS INC",
+          "sector": "Industrials",
+          "ticker": "J",
+          "visual_weight_micropct": 24990,
+          "weight_micropct": 24990
+        },
+        {
+          "market_value_micros": 217252713720000,
+          "name": "NORDSON CORP",
+          "sector": "Industrials",
+          "ticker": "NDSN",
+          "visual_weight_micropct": 24540,
+          "weight_micropct": 24540
+        },
+        {
+          "market_value_micros": 206288342530000,
+          "name": "STANLEY BLACK & DECKER INC",
+          "sector": "Industrials",
+          "ticker": "SWK",
+          "visual_weight_micropct": 23310,
+          "weight_micropct": 23310
+        },
+        {
+          "market_value_micros": 203940115680000,
+          "name": "FEDEX FREIGHT HOLDING COMPANY INC",
+          "sector": "Industrials",
+          "ticker": "FDXF",
+          "visual_weight_micropct": 23040,
+          "weight_micropct": 23040
+        },
+        {
+          "market_value_micros": 203767486680000,
+          "name": "MASCO CORP",
+          "sector": "Industrials",
+          "ticker": "MAS",
+          "visual_weight_micropct": 23020,
+          "weight_micropct": 23020
+        },
+        {
+          "market_value_micros": 203058831100000,
+          "name": "TEXTRON INC",
+          "sector": "Industrials",
+          "ticker": "TXT",
+          "visual_weight_micropct": 22940,
+          "weight_micropct": 22940
+        },
+        {
+          "market_value_micros": 201848218880000,
+          "name": "LEIDOS HOLDINGS INC",
+          "sector": "Industrials",
+          "ticker": "LDOS",
+          "visual_weight_micropct": 22800,
+          "weight_micropct": 22800
+        },
+        {
+          "market_value_micros": 187357847040000,
+          "name": "ALLEGION PLC",
+          "sector": "Industrials",
+          "ticker": "ALLE",
+          "visual_weight_micropct": 21170,
+          "weight_micropct": 21170
+        },
+        {
+          "market_value_micros": 186048195000000,
+          "name": "LENNOX INTERNATIONAL INC",
+          "sector": "Industrials",
+          "ticker": "LII",
+          "visual_weight_micropct": 21020,
+          "weight_micropct": 21020
+        },
+        {
+          "market_value_micros": 173540343300000,
+          "name": "HUNTINGTON INGALLS INDUSTRIES INC",
+          "sector": "Industrials",
+          "ticker": "HII",
+          "visual_weight_micropct": 19610,
+          "weight_micropct": 19610
+        },
+        {
+          "market_value_micros": 160205011680000,
+          "name": "GENERAC HOLDINGS INC",
+          "sector": "Industrials",
+          "ticker": "GNRC",
+          "visual_weight_micropct": 18100,
+          "weight_micropct": 18100
+        },
+        {
+          "market_value_micros": 152130552420000,
+          "name": "ROLLINS INC",
+          "sector": "Industrials",
+          "ticker": "ROL",
+          "visual_weight_micropct": 17190,
+          "weight_micropct": 17190
+        },
+        {
+          "market_value_micros": 146519981810000,
+          "name": "PENTAIR",
+          "sector": "Industrials",
+          "ticker": "PNR",
+          "visual_weight_micropct": 16550,
+          "weight_micropct": 16550
+        },
+        {
+          "market_value_micros": 105414622080000,
+          "name": "BUILDERS FIRSTSOURCE INC",
+          "sector": "Industrials",
+          "ticker": "BLDR",
+          "visual_weight_micropct": 11910,
+          "weight_micropct": 11910
+        },
+        {
+          "market_value_micros": 91910118060000,
+          "name": "A O SMITH CORP",
+          "sector": "Industrials",
+          "ticker": "AOS",
+          "visual_weight_micropct": 10380,
+          "weight_micropct": 10380
+        }
+      ],
+      "key": "industrials",
+      "label": "Industrials",
+      "weight_micropct": 8711730
+    },
+    {
+      "constituent_count": 34,
+      "holdings": [
+        {
+          "market_value_micros": 6560835572340000,
+          "name": "WALMART INC",
+          "sector": "Consumer Staples",
+          "ticker": "WMT",
+          "visual_weight_micropct": 741220,
+          "weight_micropct": 741220
+        },
+        {
+          "market_value_micros": 5721838152480000,
+          "name": "COSTCO WHOLESALE CORP",
+          "sector": "Consumer Staples",
+          "ticker": "COST",
+          "visual_weight_micropct": 646430,
+          "weight_micropct": 646430
+        },
+        {
+          "market_value_micros": 4563367399640000,
+          "name": "PROCTER & GAMBLE",
+          "sector": "Consumer Staples",
+          "ticker": "PG",
+          "visual_weight_micropct": 515550,
+          "weight_micropct": 515550
+        },
+        {
+          "market_value_micros": 4546553022460000,
+          "name": "COCA-COLA",
+          "sector": "Consumer Staples",
+          "ticker": "KO",
+          "visual_weight_micropct": 513650,
+          "weight_micropct": 513650
+        },
+        {
+          "market_value_micros": 3948358003020000,
+          "name": "PHILIP MORRIS INTERNATIONAL INC",
+          "sector": "Consumer Staples",
+          "ticker": "PM",
+          "visual_weight_micropct": 446070,
+          "weight_micropct": 446070
+        },
+        {
+          "market_value_micros": 2579662714070000,
+          "name": "PEPSICO INC",
+          "sector": "Consumer Staples",
+          "ticker": "PEP",
+          "visual_weight_micropct": 291440,
+          "weight_micropct": 291440
+        },
+        {
+          "market_value_micros": 1540848543280000,
+          "name": "ALTRIA GROUP INC",
+          "sector": "Consumer Staples",
+          "ticker": "MO",
+          "visual_weight_micropct": 174080,
+          "weight_micropct": 174080
+        },
+        {
+          "market_value_micros": 1071121922520000,
+          "name": "MONDELEZ INTERNATIONAL INC CLASS A",
+          "sector": "Consumer Staples",
+          "ticker": "MDLZ",
+          "visual_weight_micropct": 121010,
+          "weight_micropct": 121010
+        },
+        {
+          "market_value_micros": 972188278320000,
+          "name": "COLGATE-PALMOLIVE",
+          "sector": "Consumer Staples",
+          "ticker": "CL",
+          "visual_weight_micropct": 109830,
+          "weight_micropct": 109830
+        },
+        {
+          "market_value_micros": 917495881000000,
+          "name": "TARGET CORP",
+          "sector": "Consumer Staples",
+          "ticker": "TGT",
+          "visual_weight_micropct": 103650,
+          "weight_micropct": 103650
+        },
+        {
+          "market_value_micros": 902835614250000,
+          "name": "MONSTER BEVERAGE CORP",
+          "sector": "Consumer Staples",
+          "ticker": "MNST",
+          "visual_weight_micropct": 102000,
+          "weight_micropct": 102000
+        },
+        {
+          "market_value_micros": 568485066930000,
+          "name": "KEURIG DR PEPPER INC",
+          "sector": "Consumer Staples",
+          "ticker": "KDP",
+          "visual_weight_micropct": 64230,
+          "weight_micropct": 64230
+        },
+        {
+          "market_value_micros": 549304516460000,
+          "name": "SYSCO CORP",
+          "sector": "Consumer Staples",
+          "ticker": "SYY",
+          "visual_weight_micropct": 62060,
+          "weight_micropct": 62060
+        },
+        {
+          "market_value_micros": 508935822180000,
+          "name": "ARCHER DANIELS MIDLAND",
+          "sector": "Consumer Staples",
+          "ticker": "ADM",
+          "visual_weight_micropct": 57500,
+          "weight_micropct": 57500
+        },
+        {
+          "market_value_micros": 493382954640000,
+          "name": "KENVUE INC",
+          "sector": "Consumer Staples",
+          "ticker": "KVUE",
+          "visual_weight_micropct": 55740,
+          "weight_micropct": 55740
+        },
+        {
+          "market_value_micros": 482630324800000,
+          "name": "KIMBERLY CLARK CORP",
+          "sector": "Consumer Staples",
+          "ticker": "KMB",
+          "visual_weight_micropct": 54530,
+          "weight_micropct": 54530
+        },
+        {
+          "market_value_micros": 446426884600000,
+          "name": "KROGER",
+          "sector": "Consumer Staples",
+          "ticker": "KR",
+          "visual_weight_micropct": 50440,
+          "weight_micropct": 50440
+        },
+        {
+          "market_value_micros": 429452825130000,
+          "name": "CASEYS GENERAL STORES INC",
+          "sector": "Consumer Staples",
+          "ticker": "CASY",
+          "visual_weight_micropct": 48520,
+          "weight_micropct": 48520
+        },
+        {
+          "market_value_micros": 380211711520000,
+          "name": "DOLLAR GENERAL CORP",
+          "sector": "Consumer Staples",
+          "ticker": "DG",
+          "visual_weight_micropct": 42950,
+          "weight_micropct": 42950
+        },
+        {
+          "market_value_micros": 355973038210000,
+          "name": "HERSHEY FOODS",
+          "sector": "Consumer Staples",
+          "ticker": "HSY",
+          "visual_weight_micropct": 40220,
+          "weight_micropct": 40220
+        },
+        {
+          "market_value_micros": 320348531650000,
+          "name": "CHURCH AND DWIGHT INC",
+          "sector": "Consumer Staples",
+          "ticker": "CHD",
+          "visual_weight_micropct": 36190,
+          "weight_micropct": 36190
+        },
+        {
+          "market_value_micros": 316611676550000,
+          "name": "DOLLAR TREE INC",
+          "sector": "Consumer Staples",
+          "ticker": "DLTR",
+          "visual_weight_micropct": 35770,
+          "weight_micropct": 35770
+        },
+        {
+          "market_value_micros": 304901013960000,
+          "name": "KRAFT HEINZ",
+          "sector": "Consumer Staples",
+          "ticker": "KHC",
+          "visual_weight_micropct": 34450,
+          "weight_micropct": 34450
+        },
+        {
+          "market_value_micros": 283083461720000,
+          "name": "ESTEE LAUDER INC CLASS A",
+          "sector": "Consumer Staples",
+          "ticker": "EL",
+          "visual_weight_micropct": 31980,
+          "weight_micropct": 31980
+        },
+        {
+          "market_value_micros": 259699896000000,
+          "name": "GENERAL MILLS INC",
+          "sector": "Consumer Staples",
+          "ticker": "GIS",
+          "visual_weight_micropct": 29340,
+          "weight_micropct": 29340
+        },
+        {
+          "market_value_micros": 247627524160000,
+          "name": "CONSTELLATION BRANDS INC CLASS A",
+          "sector": "Consumer Staples",
+          "ticker": "STZ",
+          "visual_weight_micropct": 27980,
+          "weight_micropct": 27980
+        },
+        {
+          "market_value_micros": 227328397950000,
+          "name": "TYSON FOODS INC CLASS A",
+          "sector": "Consumer Staples",
+          "ticker": "TSN",
+          "visual_weight_micropct": 25680,
+          "weight_micropct": 25680
+        },
+        {
+          "market_value_micros": 193473504800000,
+          "name": "BUNGE GLOBAL SA",
+          "sector": "Consumer Staples",
+          "ticker": "BG",
+          "visual_weight_micropct": 21860,
+          "weight_micropct": 21860
+        },
+        {
+          "market_value_micros": 177225605760000,
+          "name": "MCCORMICK & CO NON-VOTING INC",
+          "sector": "Consumer Staples",
+          "ticker": "MKC",
+          "visual_weight_micropct": 20020,
+          "weight_micropct": 20020
+        },
+        {
+          "market_value_micros": 169391877500000,
+          "name": "JM SMUCKER",
+          "sector": "Consumer Staples",
+          "ticker": "SJM",
+          "visual_weight_micropct": 19140,
+          "weight_micropct": 19140
+        },
+        {
+          "market_value_micros": 161220881080000,
+          "name": "CLOROX",
+          "sector": "Consumer Staples",
+          "ticker": "CLX",
+          "visual_weight_micropct": 18210,
+          "weight_micropct": 18210
+        },
+        {
+          "market_value_micros": 99836169660000,
+          "name": "HORMEL FOODS CORP",
+          "sector": "Consumer Staples",
+          "ticker": "HRL",
+          "visual_weight_micropct": 11280,
+          "weight_micropct": 11280
+        },
+        {
+          "market_value_micros": 90900082560000,
+          "name": "MOLSON COORS BREWING  CLASS B",
+          "sector": "Consumer Staples",
+          "ticker": "TAP",
+          "visual_weight_micropct": 10270,
+          "weight_micropct": 10270
+        },
+        {
+          "market_value_micros": 63291249450000,
+          "name": "BROWN FORMAN CORP CLASS B",
+          "sector": "Consumer Staples",
+          "ticker": "BFB",
+          "visual_weight_micropct": 7150,
+          "weight_micropct": 7150
+        }
+      ],
+      "key": "consumer-staples",
+      "label": "Consumer Staples",
+      "weight_micropct": 4570440
+    },
+    {
+      "constituent_count": 21,
+      "holdings": [
+        {
+          "market_value_micros": 8687907289559999,
+          "name": "EXXONMOBIL HOLDINGS CORP",
+          "sector": "Energy",
+          "ticker": "XOM",
+          "visual_weight_micropct": 981520,
+          "weight_micropct": 981520
+        },
+        {
+          "market_value_micros": 4888639352480000,
+          "name": "CHEVRON CORP",
+          "sector": "Energy",
+          "ticker": "CVX",
+          "visual_weight_micropct": 552300,
+          "weight_micropct": 552300
+        },
+        {
+          "market_value_micros": 1962357742440000,
+          "name": "CONOCOPHILLIPS",
+          "sector": "Energy",
+          "ticker": "COP",
+          "visual_weight_micropct": 221700,
+          "weight_micropct": 221700
+        },
+        {
+          "market_value_micros": 1234524915220000,
+          "name": "VALERO ENERGY CORP",
+          "sector": "Energy",
+          "ticker": "VLO",
+          "visual_weight_micropct": 139470,
+          "weight_micropct": 139470
+        },
+        {
+          "market_value_micros": 1211715387100000,
+          "name": "MARATHON PETROLEUM CORP",
+          "sector": "Energy",
+          "ticker": "MPC",
+          "visual_weight_micropct": 136890,
+          "weight_micropct": 136890
+        },
+        {
+          "market_value_micros": 1164355239560000,
+          "name": "WILLIAMS INC",
+          "sector": "Energy",
+          "ticker": "WMB",
+          "visual_weight_micropct": 131540,
+          "weight_micropct": 131540
+        },
+        {
+          "market_value_micros": 1117473303510000,
+          "name": "PHILLIPS 66",
+          "sector": "Energy",
+          "ticker": "PSX",
+          "visual_weight_micropct": 126250,
+          "weight_micropct": 126250
+        },
+        {
+          "market_value_micros": 1048929943440000,
+          "name": "EOG RESOURCES INC",
+          "sector": "Energy",
+          "ticker": "EOG",
+          "visual_weight_micropct": 118500,
+          "weight_micropct": 118500
+        },
+        {
+          "market_value_micros": 996533354290000,
+          "name": "SLB NV",
+          "sector": "Energy",
+          "ticker": "SLB",
+          "visual_weight_micropct": 112580,
+          "weight_micropct": 112580
+        },
+        {
+          "market_value_micros": 831011864400000,
+          "name": "KINDER MORGAN INC",
+          "sector": "Energy",
+          "ticker": "KMI",
+          "visual_weight_micropct": 93880,
+          "weight_micropct": 93880
+        },
+        {
+          "market_value_micros": 815348810970000,
+          "name": "BAKER HUGHES CLASS A",
+          "sector": "Energy",
+          "ticker": "BKR",
+          "visual_weight_micropct": 92110,
+          "weight_micropct": 92110
+        },
+        {
+          "market_value_micros": 767786380200000,
+          "name": "TARGA RESOURCES CORP",
+          "sector": "Energy",
+          "ticker": "TRGP",
+          "visual_weight_micropct": 86740,
+          "weight_micropct": 86740
+        },
+        {
+          "market_value_micros": 751480782720000,
+          "name": "ONEOK INC",
+          "sector": "Energy",
+          "ticker": "OKE",
+          "visual_weight_micropct": 84900,
+          "weight_micropct": 84900
+        },
+        {
+          "market_value_micros": 694621756340000,
+          "name": "DEVON ENERGY CORP",
+          "sector": "Energy",
+          "ticker": "DVN",
+          "visual_weight_micropct": 78480,
+          "weight_micropct": 78480
+        },
+        {
+          "market_value_micros": 544430062320000,
+          "name": "OCCIDENTAL PETROLEUM CORP",
+          "sector": "Energy",
+          "ticker": "OXY",
+          "visual_weight_micropct": 61510,
+          "weight_micropct": 61510
+        },
+        {
+          "market_value_micros": 521520993750000,
+          "name": "DIAMONDBACK ENERGY INC",
+          "sector": "Energy",
+          "ticker": "FANG",
+          "visual_weight_micropct": 58920,
+          "weight_micropct": 58920
+        },
+        {
+          "market_value_micros": 453462258600000,
+          "name": "EQT CORP",
+          "sector": "Energy",
+          "ticker": "EQT",
+          "visual_weight_micropct": 51230,
+          "weight_micropct": 51230
+        },
+        {
+          "market_value_micros": 360132175500000,
+          "name": "HALLIBURTON",
+          "sector": "Energy",
+          "ticker": "HAL",
+          "visual_weight_micropct": 40690,
+          "weight_micropct": 40690
+        },
+        {
+          "market_value_micros": 318211620450000,
+          "name": "TEXAS PACIFIC LAND CORP",
+          "sector": "Energy",
+          "ticker": "TPL",
+          "visual_weight_micropct": 35950,
+          "weight_micropct": 35950
+        },
+        {
+          "market_value_micros": 306033224180000,
+          "name": "EXPAND ENERGY CORP",
+          "sector": "Energy",
+          "ticker": "EXE",
+          "visual_weight_micropct": 34570,
+          "weight_micropct": 34570
+        },
+        {
+          "market_value_micros": 176151439320000,
+          "name": "APA CORP",
+          "sector": "Energy",
+          "ticker": "APA",
+          "visual_weight_micropct": 19900,
+          "weight_micropct": 19900
+        }
+      ],
+      "key": "energy",
+      "label": "Energy",
+      "weight_micropct": 3259630
+    },
+    {
+      "constituent_count": 31,
+      "holdings": [
+        {
+          "market_value_micros": 2439728523000000,
+          "name": "NEXTERA ENERGY INC",
+          "sector": "Utilities",
+          "ticker": "NEE",
+          "visual_weight_micropct": 275630,
+          "weight_micropct": 275630
+        },
+        {
+          "market_value_micros": 1416233846880000,
+          "name": "SOUTHERN",
+          "sector": "Utilities",
+          "ticker": "SO",
+          "visual_weight_micropct": 160000,
+          "weight_micropct": 160000
+        },
+        {
+          "market_value_micros": 1309677429320000,
+          "name": "DUKE ENERGY CORP",
+          "sector": "Utilities",
+          "ticker": "DUK",
+          "visual_weight_micropct": 147960,
+          "weight_micropct": 147960
+        },
+        {
+          "market_value_micros": 1182826816600000,
+          "name": "CONSTELLATION ENERGY CORP",
+          "sector": "Utilities",
+          "ticker": "CEG",
+          "visual_weight_micropct": 133630,
+          "weight_micropct": 133630
+        },
+        {
+          "market_value_micros": 943760108480000,
+          "name": "AMERICAN ELECTRIC POWER INC",
+          "sector": "Utilities",
+          "ticker": "AEP",
+          "visual_weight_micropct": 106620,
+          "weight_micropct": 106620
+        },
+        {
+          "market_value_micros": 817295187500000,
+          "name": "DOMINION ENERGY INC",
+          "sector": "Utilities",
+          "ticker": "D",
+          "visual_weight_micropct": 92330,
+          "weight_micropct": 92330
+        },
+        {
+          "market_value_micros": 775212459120000,
+          "name": "SEMPRA",
+          "sector": "Utilities",
+          "ticker": "SRE",
+          "visual_weight_micropct": 87580,
+          "weight_micropct": 87580
+        },
+        {
+          "market_value_micros": 668825051160000,
+          "name": "ENTERGY CORP",
+          "sector": "Utilities",
+          "ticker": "ETR",
+          "visual_weight_micropct": 75560,
+          "weight_micropct": 75560
+        },
+        {
+          "market_value_micros": 668077992060000,
+          "name": "VISTRA CORP",
+          "sector": "Utilities",
+          "ticker": "VST",
+          "visual_weight_micropct": 75480,
+          "weight_micropct": 75480
+        },
+        {
+          "market_value_micros": 655606487500000,
+          "name": "XCEL ENERGY INC",
+          "sector": "Utilities",
+          "ticker": "XEL",
+          "visual_weight_micropct": 74070,
+          "weight_micropct": 74070
+        },
+        {
+          "market_value_micros": 631132896420000,
+          "name": "EXELON CORP",
+          "sector": "Utilities",
+          "ticker": "EXC",
+          "visual_weight_micropct": 71300,
+          "weight_micropct": 71300
+        },
+        {
+          "market_value_micros": 537746448000000,
+          "name": "CONSOLIDATED EDISON INC",
+          "sector": "Utilities",
+          "ticker": "ED",
+          "visual_weight_micropct": 60750,
+          "weight_micropct": 60750
+        },
+        {
+          "market_value_micros": 518868528150000,
+          "name": "PG&E CORP",
+          "sector": "Utilities",
+          "ticker": "PCG",
+          "visual_weight_micropct": 58620,
+          "weight_micropct": 58620
+        },
+        {
+          "market_value_micros": 516144347160000,
+          "name": "PUBLIC SERVICE ENTERPRISE GROUP IN",
+          "sector": "Utilities",
+          "ticker": "PEG",
+          "visual_weight_micropct": 58310,
+          "weight_micropct": 58310
+        },
+        {
+          "market_value_micros": 481129460160000,
+          "name": "WEC ENERGY GROUP INC",
+          "sector": "Utilities",
+          "ticker": "WEC",
+          "visual_weight_micropct": 54360,
+          "weight_micropct": 54360
+        },
+        {
+          "market_value_micros": 409655268000000,
+          "name": "AMEREN CORP",
+          "sector": "Utilities",
+          "ticker": "AEE",
+          "visual_weight_micropct": 46280,
+          "weight_micropct": 46280
+        },
+        {
+          "market_value_micros": 398532512640000,
+          "name": "DTE ENERGY",
+          "sector": "Utilities",
+          "ticker": "DTE",
+          "visual_weight_micropct": 45020,
+          "weight_micropct": 45020
+        },
+        {
+          "market_value_micros": 394965873790000,
+          "name": "NRG ENERGY INC",
+          "sector": "Utilities",
+          "ticker": "NRG",
+          "visual_weight_micropct": 44620,
+          "weight_micropct": 44620
+        },
+        {
+          "market_value_micros": 390097412370000,
+          "name": "ATMOS ENERGY CORP",
+          "sector": "Utilities",
+          "ticker": "ATO",
+          "visual_weight_micropct": 44070,
+          "weight_micropct": 44070
+        },
+        {
+          "market_value_micros": 371720342160000,
+          "name": "EDISON INTERNATIONAL",
+          "sector": "Utilities",
+          "ticker": "EIX",
+          "visual_weight_micropct": 42000,
+          "weight_micropct": 42000
+        },
+        {
+          "market_value_micros": 371248969600000,
+          "name": "CENTERPOINT ENERGY INC",
+          "sector": "Utilities",
+          "ticker": "CNP",
+          "visual_weight_micropct": 41940,
+          "weight_micropct": 41940
+        },
+        {
+          "market_value_micros": 366173120400000,
+          "name": "EVERSOURCE ENERGY",
+          "sector": "Utilities",
+          "ticker": "ES",
+          "visual_weight_micropct": 41370,
+          "weight_micropct": 41370
+        },
+        {
+          "market_value_micros": 357972278400000,
+          "name": "PPL CORP",
+          "sector": "Utilities",
+          "ticker": "PPL",
+          "visual_weight_micropct": 40440,
+          "weight_micropct": 40440
+        },
+        {
+          "market_value_micros": 346656027900000,
+          "name": "AMERICAN WATER WORKS INC",
+          "sector": "Utilities",
+          "ticker": "AWK",
+          "visual_weight_micropct": 39160,
+          "weight_micropct": 39160
+        },
+        {
+          "market_value_micros": 340824429950000,
+          "name": "FIRSTENERGY CORP",
+          "sector": "Utilities",
+          "ticker": "FE",
+          "visual_weight_micropct": 38500,
+          "weight_micropct": 38500
+        },
+        {
+          "market_value_micros": 299604748920000,
+          "name": "CMS ENERGY CORP",
+          "sector": "Utilities",
+          "ticker": "CMS",
+          "visual_weight_micropct": 33850,
+          "weight_micropct": 33850
+        },
+        {
+          "market_value_micros": 288605876680000,
+          "name": "NISOURCE INC",
+          "sector": "Utilities",
+          "ticker": "NI",
+          "visual_weight_micropct": 32610,
+          "weight_micropct": 32610
+        },
+        {
+          "market_value_micros": 259343847700000,
+          "name": "EVERGY INC",
+          "sector": "Utilities",
+          "ticker": "EVRG",
+          "visual_weight_micropct": 29300,
+          "weight_micropct": 29300
+        },
+        {
+          "market_value_micros": 248683480050000,
+          "name": "ALLIANT ENERGY CORP",
+          "sector": "Utilities",
+          "ticker": "LNT",
+          "visual_weight_micropct": 28100,
+          "weight_micropct": 28100
+        },
+        {
+          "market_value_micros": 165101275070000,
+          "name": "PINNACLE WEST CORP",
+          "sector": "Utilities",
+          "ticker": "PNW",
+          "visual_weight_micropct": 18650,
+          "weight_micropct": 18650
+        },
+        {
+          "market_value_micros": 142119194000000,
+          "name": "AES CORP",
+          "sector": "Utilities",
+          "ticker": "AES",
+          "visual_weight_micropct": 16060,
+          "weight_micropct": 16060
+        }
+      ],
+      "key": "utilities",
+      "label": "Utilities",
+      "weight_micropct": 2114170
+    },
+    {
+      "constituent_count": 31,
+      "holdings": [
+        {
+          "market_value_micros": 2224230176700000,
+          "name": "WELLTOWER INC",
+          "sector": "Real Estate",
+          "ticker": "WELL",
+          "visual_weight_micropct": 251280,
+          "weight_micropct": 251280
+        },
+        {
+          "market_value_micros": 1816725765450000,
+          "name": "PROLOGIS REIT INC",
+          "sector": "Real Estate",
+          "ticker": "PLD",
+          "visual_weight_micropct": 205250,
+          "weight_micropct": 205250
+        },
+        {
+          "market_value_micros": 1374760992640000,
+          "name": "EQUINIX REIT INC",
+          "sector": "Real Estate",
+          "ticker": "EQIX",
+          "visual_weight_micropct": 155310,
+          "weight_micropct": 155310
+        },
+        {
+          "market_value_micros": 1089541717000000,
+          "name": "AMERICAN TOWER REIT CORP",
+          "sector": "Real Estate",
+          "ticker": "AMT",
+          "visual_weight_micropct": 123090,
+          "weight_micropct": 123090
+        },
+        {
+          "market_value_micros": 1004420654640000,
+          "name": "SIMON PROPERTY GROUP REIT INC",
+          "sector": "Real Estate",
+          "ticker": "SPG",
+          "visual_weight_micropct": 113480,
+          "weight_micropct": 113480
+        },
+        {
+          "market_value_micros": 899183749440000,
+          "name": "DIGITAL REALTY TRUST REIT INC",
+          "sector": "Real Estate",
+          "ticker": "DLR",
+          "visual_weight_micropct": 101590,
+          "weight_micropct": 101590
+        },
+        {
+          "market_value_micros": 800167621800000,
+          "name": "REALTY INCOME REIT",
+          "sector": "Real Estate",
+          "ticker": "O",
+          "visual_weight_micropct": 90400,
+          "weight_micropct": 90400
+        },
+        {
+          "market_value_micros": 738852452600000,
+          "name": "PUBLIC STORAGE REIT",
+          "sector": "Real Estate",
+          "ticker": "PSA",
+          "visual_weight_micropct": 83470,
+          "weight_micropct": 83470
+        },
+        {
+          "market_value_micros": 597086550400000,
+          "name": "VENTAS REIT INC",
+          "sector": "Real Estate",
+          "ticker": "VTR",
+          "visual_weight_micropct": 67460,
+          "weight_micropct": 67460
+        },
+        {
+          "market_value_micros": 587484604130000,
+          "name": "CBRE GROUP INC CLASS A",
+          "sector": "Real Estate",
+          "ticker": "CBRE",
+          "visual_weight_micropct": 66370,
+          "weight_micropct": 66370
+        },
+        {
+          "market_value_micros": 499034374080000,
+          "name": "IRON MOUNTAIN INC",
+          "sector": "Real Estate",
+          "ticker": "IRM",
+          "visual_weight_micropct": 56380,
+          "weight_micropct": 56380
+        },
+        {
+          "market_value_micros": 452770834620000,
+          "name": "CROWN CASTLE INC",
+          "sector": "Real Estate",
+          "ticker": "CCI",
+          "visual_weight_micropct": 51150,
+          "weight_micropct": 51150
+        },
+        {
+          "market_value_micros": 427617799980000,
+          "name": "EXTRA SPACE STORAGE REIT INC",
+          "sector": "Real Estate",
+          "ticker": "EXR",
+          "visual_weight_micropct": 48310,
+          "weight_micropct": 48310
+        },
+        {
+          "market_value_micros": 392058885580000,
+          "name": "VICI PPTYS INC",
+          "sector": "Real Estate",
+          "ticker": "VICI",
+          "visual_weight_micropct": 44290,
+          "weight_micropct": 44290
+        },
+        {
+          "market_value_micros": 354551871160000,
+          "name": "AVALONBAY COMMUNITIES REIT INC",
+          "sector": "Real Estate",
+          "ticker": "AVB",
+          "visual_weight_micropct": 40060,
+          "weight_micropct": 40060
+        },
+        {
+          "market_value_micros": 311408034610000,
+          "name": "EQUITY RESIDENTIAL REIT",
+          "sector": "Real Estate",
+          "ticker": "EQR",
+          "visual_weight_micropct": 35180,
+          "weight_micropct": 35180
+        },
+        {
+          "market_value_micros": 257467541600000,
+          "name": "SBA COMMUNICATIONS REIT CORP CLASS",
+          "sector": "Real Estate",
+          "ticker": "SBAC",
+          "visual_weight_micropct": 29090,
+          "weight_micropct": 29090
+        },
+        {
+          "market_value_micros": 248244755640000,
+          "name": "ESSEX PROPERTY TRUST REIT INC",
+          "sector": "Real Estate",
+          "ticker": "ESS",
+          "visual_weight_micropct": 28050,
+          "weight_micropct": 28050
+        },
+        {
+          "market_value_micros": 245908105650000,
+          "name": "WEYERHAEUSER REIT",
+          "sector": "Real Estate",
+          "ticker": "WY",
+          "visual_weight_micropct": 27780,
+          "weight_micropct": 27780
+        },
+        {
+          "market_value_micros": 231640812480000,
+          "name": "KIMCO REALTY REIT CORP",
+          "sector": "Real Estate",
+          "ticker": "KIM",
+          "visual_weight_micropct": 26170,
+          "weight_micropct": 26170
+        },
+        {
+          "market_value_micros": 225257650310000,
+          "name": "INVITATION HOMES",
+          "sector": "Real Estate",
+          "ticker": "INVH",
+          "visual_weight_micropct": 25450,
+          "weight_micropct": 25450
+        },
+        {
+          "market_value_micros": 216016043230000,
+          "name": "HOST HOTELS & RESORTS REIT INC",
+          "sector": "Real Estate",
+          "ticker": "HST",
+          "visual_weight_micropct": 24400,
+          "weight_micropct": 24400
+        },
+        {
+          "market_value_micros": 210024254430000,
+          "name": "MID AMERICA APARTMENT COMMUNITIES",
+          "sector": "Real Estate",
+          "ticker": "MAA",
+          "visual_weight_micropct": 23730,
+          "weight_micropct": 23730
+        },
+        {
+          "market_value_micros": 201674888880000,
+          "name": "HEALTHPEAK PROPERTIES INC",
+          "sector": "Real Estate",
+          "ticker": "DOC",
+          "visual_weight_micropct": 22780,
+          "weight_micropct": 22780
+        },
+        {
+          "market_value_micros": 179466966800000,
+          "name": "REGENCY CENTERS REIT CORP",
+          "sector": "Real Estate",
+          "ticker": "REG",
+          "visual_weight_micropct": 20280,
+          "weight_micropct": 20280
+        },
+        {
+          "market_value_micros": 165755179590000,
+          "name": "COSTAR GROUP INC",
+          "sector": "Real Estate",
+          "ticker": "CSGP",
+          "visual_weight_micropct": 18730,
+          "weight_micropct": 18730
+        },
+        {
+          "market_value_micros": 154640796110000,
+          "name": "UDR REIT INC",
+          "sector": "Real Estate",
+          "ticker": "UDR",
+          "visual_weight_micropct": 17470,
+          "weight_micropct": 17470
+        },
+        {
+          "market_value_micros": 150401051520000,
+          "name": "CAMDEN PROPERTY TRUST REIT",
+          "sector": "Real Estate",
+          "ticker": "CPT",
+          "visual_weight_micropct": 16990,
+          "weight_micropct": 16990
+        },
+        {
+          "market_value_micros": 140926600740000,
+          "name": "BXP INC",
+          "sector": "Real Estate",
+          "ticker": "BXP",
+          "visual_weight_micropct": 15920,
+          "weight_micropct": 15920
+        },
+        {
+          "market_value_micros": 131703819100000,
+          "name": "FEDERAL REALTY INVESTMENT TRUST RE",
+          "sector": "Real Estate",
+          "ticker": "FRT",
+          "visual_weight_micropct": 14880,
+          "weight_micropct": 14880
+        },
+        {
+          "market_value_micros": 112059920260000,
+          "name": "ALEXANDRIA REAL ESTATE EQUITIES RE",
+          "sector": "Real Estate",
+          "ticker": "ARE",
+          "visual_weight_micropct": 12660,
+          "weight_micropct": 12660
+        }
+      ],
+      "key": "real-estate",
+      "label": "Real Estate",
+      "weight_micropct": 1857450
+    },
+    {
+      "constituent_count": 25,
+      "holdings": [
+        {
+          "market_value_micros": 3002900464380000,
+          "name": "LINDE PLC",
+          "sector": "Materials",
+          "ticker": "LIN",
+          "visual_weight_micropct": 339260,
+          "weight_micropct": 339260
+        },
+        {
+          "market_value_micros": 1376301541230000,
+          "name": "NEWMONT",
+          "sector": "Materials",
+          "ticker": "NEM",
+          "visual_weight_micropct": 155490,
+          "weight_micropct": 155490
+        },
+        {
+          "market_value_micros": 1236697982600000,
+          "name": "FREEPORT MCMORAN INC",
+          "sector": "Materials",
+          "ticker": "FCX",
+          "visual_weight_micropct": 139720,
+          "weight_micropct": 139720
+        },
+        {
+          "market_value_micros": 1098169846560000,
+          "name": "SHERWIN WILLIAMS",
+          "sector": "Materials",
+          "ticker": "SHW",
+          "visual_weight_micropct": 124070,
+          "weight_micropct": 124070
+        },
+        {
+          "market_value_micros": 956688123590000,
+          "name": "ECOLAB INC",
+          "sector": "Materials",
+          "ticker": "ECL",
+          "visual_weight_micropct": 108080,
+          "weight_micropct": 108080
+        },
+        {
+          "market_value_micros": 890472964380000,
+          "name": "CRH PUBLIC LIMITED PLC",
+          "sector": "Materials",
+          "ticker": "CRH",
+          "visual_weight_micropct": 100600,
+          "weight_micropct": 100600
+        },
+        {
+          "market_value_micros": 881663275640000,
+          "name": "AIR PRODUCTS AND CHEMICALS INC",
+          "sector": "Materials",
+          "ticker": "APD",
+          "visual_weight_micropct": 99610,
+          "weight_micropct": 99610
+        },
+        {
+          "market_value_micros": 804261383520000,
+          "name": "NUCOR CORP",
+          "sector": "Materials",
+          "ticker": "NUE",
+          "visual_weight_micropct": 90860,
+          "weight_micropct": 90860
+        },
+        {
+          "market_value_micros": 687481898240000,
+          "name": "CORTEVA INC",
+          "sector": "Materials",
+          "ticker": "CTVA",
+          "visual_weight_micropct": 77670,
+          "weight_micropct": 77670
+        },
+        {
+          "market_value_micros": 497298886560000,
+          "name": "VULCAN MATERIALS",
+          "sector": "Materials",
+          "ticker": "VMC",
+          "visual_weight_micropct": 56180,
+          "weight_micropct": 56180
+        },
+        {
+          "market_value_micros": 473516489680000,
+          "name": "STEEL DYNAMICS INC",
+          "sector": "Materials",
+          "ticker": "STLD",
+          "visual_weight_micropct": 53500,
+          "weight_micropct": 53500
+        },
+        {
+          "market_value_micros": 440196891090000,
+          "name": "MARTIN MARIETTA MATERIALS INC",
+          "sector": "Materials",
+          "ticker": "MLM",
+          "visual_weight_micropct": 49730,
+          "weight_micropct": 49730
+        },
+        {
+          "market_value_micros": 343566284750000,
+          "name": "PPG INDUSTRIES INC",
+          "sector": "Materials",
+          "ticker": "PPG",
+          "visual_weight_micropct": 38810,
+          "weight_micropct": 38810
+        },
+        {
+          "market_value_micros": 332125251040000,
+          "name": "SMURFIT WESTROCK PLC",
+          "sector": "Materials",
+          "ticker": "SW",
+          "visual_weight_micropct": 37520,
+          "weight_micropct": 37520
+        },
+        {
+          "market_value_micros": 300424414290000,
+          "name": "PACKAGING CORP OF AMERICA",
+          "sector": "Materials",
+          "ticker": "PKG",
+          "visual_weight_micropct": 33940,
+          "weight_micropct": 33940
+        },
+        {
+          "market_value_micros": 297099589900000,
+          "name": "INTERNATIONAL PAPER",
+          "sector": "Materials",
+          "ticker": "IP",
+          "visual_weight_micropct": 33570,
+          "weight_micropct": 33570
+        },
+        {
+          "market_value_micros": 290865568000000,
+          "name": "DOW INC",
+          "sector": "Materials",
+          "ticker": "DOW",
+          "visual_weight_micropct": 32860,
+          "weight_micropct": 32860
+        },
+        {
+          "market_value_micros": 287626840800000,
+          "name": "AMCOR PLC",
+          "sector": "Materials",
+          "ticker": "AMCR",
+          "visual_weight_micropct": 32490,
+          "weight_micropct": 32490
+        },
+        {
+          "market_value_micros": 278058372960000,
+          "name": "INTERNATIONAL FLAVORS & FRAGRANCES",
+          "sector": "Materials",
+          "ticker": "IFF",
+          "visual_weight_micropct": 31410,
+          "weight_micropct": 31410
+        },
+        {
+          "market_value_micros": 245640131100000,
+          "name": "CF INDUSTRIES HOLDINGS INC",
+          "sector": "Materials",
+          "ticker": "CF",
+          "visual_weight_micropct": 27750,
+          "weight_micropct": 27750
+        },
+        {
+          "market_value_micros": 234490486000000,
+          "name": "BALL CORP",
+          "sector": "Materials",
+          "ticker": "BALL",
+          "visual_weight_micropct": 26490,
+          "weight_micropct": 26490
+        },
+        {
+          "market_value_micros": 211867688060000,
+          "name": "LYONDELLBASELL INDUSTRIES CLASS A",
+          "sector": "Materials",
+          "ticker": "LYB",
+          "visual_weight_micropct": 23940,
+          "weight_micropct": 23940
+        },
+        {
+          "market_value_micros": 189296509230000,
+          "name": "ALBEMARLE CORP",
+          "sector": "Materials",
+          "ticker": "ALB",
+          "visual_weight_micropct": 21390,
+          "weight_micropct": 21390
+        },
+        {
+          "market_value_micros": 178046729910000,
+          "name": "AVERY DENNISON CORP",
+          "sector": "Materials",
+          "ticker": "AVY",
+          "visual_weight_micropct": 20110,
+          "weight_micropct": 20110
+        },
+        {
+          "market_value_micros": 93991939800000,
+          "name": "MOSAIC",
+          "sector": "Materials",
+          "ticker": "MOS",
+          "visual_weight_micropct": 10620,
+          "weight_micropct": 10620
+        }
+      ],
+      "key": "materials",
+      "label": "Materials",
+      "weight_micropct": 1765670
+    }
+  ],
+  "source": {
+    "as_of": "2026-08-03",
+    "name": "iShares Core S&P 500 ETF (IVV) official holdings",
+    "raw_sha256": "sha256:8db25b2fd03427083e42d962629fed515e5d3a3016554c032f4d63e60787415e",
+    "retrieved_at_utc": "2026-08-04T20:36:41Z",
+    "url": "https://www.ishares.com/varnish-api/blk-one01-product-data/product-data/api/v2/get-product-data?appSubType=ISHARES&appType=PRODUCT_PAGE&component=holdings.all&locale=en_US&portfolioId=239726&targetSite=us-ishares&userType=individual&excludeContent=true&asOfDate=20260803&includeConfig=true"
+  },
+  "universe": {
+    "duplicate_tickers": 0,
+    "equities": 504,
+    "label": "U.S. large-cap equities represented by IVV holdings",
+    "sectors": 11,
+    "unmapped_constituents": 0,
+    "weight_micropct": 99766730
+  },
+  "version": "nodequant-market-activity-structural-v0"
+}

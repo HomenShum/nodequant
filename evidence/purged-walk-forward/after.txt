@@ -1,0 +1,40 @@
+Purged walk-forward AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: one POST /api/kernel/review through the chat composer, HTTP 200
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 3600 CSS px for the complete unobscured panel
+- Walk-forward section client width and scroll width: 622 px / 622 px; no horizontal overflow
+- Zero browser console errors
+- Caption: purged walk-forward · 30 bars · all evaluation folds end before TEST · not promotion evidence
+
+Visible matrix
+- Columns: variant, WF1, WF2, WF3
+- Nine aligned variant rows are visible; every cell includes net P&L and episode count.
+- baseline is negative in WF1, WF2, and WF3.
+- without-pullback is positive in WF1, WF2, and WF3.
+- purge verified true
+- access provenance self-attested
+- PBO remains NOT_RUN
+- Matrix root: sha256:28c86746cd1641e9e0562bce05e4c6ca7cd0f5ff8f59d568c8cc1dc5eb135fed
+
+Exact falsifying rows
+- baseline: WF1 -21,923,424 micros / 1 episode; WF2 -67,245,910 / 2; WF3 -44,222,072 / 1
+- without-pullback: WF1 74,829,795 micros / 2 episodes; WF2 32,466,414 / 1; WF3 92,738,335 / 2
+- All nine variants and all 27 raw fold cells are recorded in after-observation.json.
+
+PBO handoff
+- NOT_RUN | probability_of_backtest_overfitting | observed 3
+- Detail: a 3-fold post-hoc matrix exists, but global trial completeness and pre-test registration are unverified.
+
+Unchanged blockers
+- SYNTHETIC_CORPUS
+- MARKET_DATA_CONFORMANCE_NOT_RUN
+- ORACLE_NOT_INDEPENDENT_ENOUGH
+- SPLIT_DISCIPLINE_NOT_PROVEN
+
+Judgment
+- APPROVED: the after UI materially satisfies the intended proof boundary.
+- The complete matrix is visible and aligned without clipping or horizontal overflow.
+- The UI preserves the promotion caveat and does not overstate PBO evidence.

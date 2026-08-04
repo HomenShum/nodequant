@@ -1,0 +1,25 @@
+{
+  "version": "nodequant-alpha-breadth-policy-v4",
+  "frozen_at_utc": "2026-08-03T23:30:00Z",
+  "purpose": "drift_aware_breadth_first_discovery_then_unread_cross_universe_replication",
+  "inherits": "alpha_breadth_policy.json",
+  "inherits_sha256": "sha256:4e2ac00927f9d24e3ae7a1dbceae4d964a463bf62c1db93a1479ae11022b28ec",
+  "supersedes_policy_hash": "sha256:1ccd9da806c431538b5591222bdfc2b3e7f3fee4593800422c2c772ed7e1cb04",
+  "evaluator_revision": "self_financing_weight_drift_and_turnover_from_pretrade_weights",
+  "prior_result_status": "INVALID_TARGET_WEIGHT_TURNOVER_INCONSISTENCY",
+  "replication_data": {
+    "provider": "Yahoo Finance chart endpoint",
+    "provider_authority": "secondary_unofficial_diagnostic_source",
+    "endpoint_template": "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+    "start": "2008-01-01",
+    "end_exclusive": "2026-01-01",
+    "interval": "1d",
+    "price_field": "adjclose",
+    "risky_symbols": ["SPTM", "EWC", "BWX", "DBB", "ICF"],
+    "cash_proxy_symbol": "BIL",
+    "maximum_symbols": 6,
+    "maximum_response_bytes_per_symbol": 2000000,
+    "maximum_rows_per_symbol": 6000,
+    "minimum_common_rows": 4000
+  }
+}

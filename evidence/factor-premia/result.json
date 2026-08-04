@@ -1,0 +1,110 @@
+{
+  "created_at_utc": "2026-08-04T07:54:32.893936+00:00",
+  "data": {
+    "replication_panel_hash": "sha256:18310f4344405aa6bf4b32ef046de8e414e56d441a2066c22cb616d17b3955a4",
+    "replication_quality": {
+      "duplicate_months": 0,
+      "first_month": "199101",
+      "invalid_values": 0,
+      "last_month": "202512",
+      "missing_months": 0,
+      "momentum_source_column": "WML",
+      "months": 420
+    },
+    "replication_raw_hashes": {
+      "five_factor": "sha256:54ffd319a49811548eb4bdcaae6eaedfdd2cf13da2d3ae2e23fb5c43185f563d",
+      "momentum": "sha256:ca8297c338b45cc2121b81ac23f0bba9cd8b8cf3c6afb523a413542fd1557bb6"
+    }
+  },
+  "discovery_result_hash": "sha256:033f3d2cdaa6a41d8edbe209fed78e9fb65418bcaa3dc3fa6c1626c12f4765e2",
+  "evaluator_hash": "sha256:19846cafd4c001f6f031ac672f8fb9bb20e36b1636c9742c8755a06cf5bb8e57",
+  "limitations": [
+    "French library series are reconstructed research returns and may change after CRSP revisions.",
+    "Long-short factor returns omit implementation-specific turnover, borrow, financing, taxes, and market impact; fixed per-factor deductions are implementation-stress haircuts, not measured costs.",
+    "Equal-weight factor sleeves reset notionals monthly; CAGR and wealth claims are not valid for this zero-cost spread diagnostic.",
+    "U.S. to developed-ex-U.S. changes geography, period, breakpoints, and security universe but shares a research-data producer, USD conversion, and global shocks.",
+    "Public research returns cannot establish executable alpha or authorize live capital."
+  ],
+  "policy_hash": "sha256:6257c0f77c86da6ed352a27e9a126eb4253f066e2ea3bfd69e2affebea43c44c",
+  "promotion_ceiling": "REVISED_PUBLISHED_FACTOR_DIAGNOSTIC_NOT_INVESTABLE_OR_EXECUTABLE_ALPHA",
+  "promotion_eligible": false,
+  "replication": {
+    "annualized_mean_studentized_moving_block_bootstrap_onesided_95pct_lower": 0.02249187343983656,
+    "folds_positive": 5,
+    "primary_candidate_id": "equal__HML_RMW_MOM",
+    "primary_gate": {
+      "name": "annualized_mean_studentized_moving_block_bootstrap_lower_positive",
+      "passed": true
+    },
+    "status": "PASS",
+    "trial": {
+      "all_period": {
+        "annualized_mean": 0.0372647619047619,
+        "annualized_volatility": 0.044536579821002384,
+        "mean_t_statistic": 4.950117530642044,
+        "months": 420,
+        "sharpe": 0.8367225784856682
+      },
+      "candidate": {
+        "factors": [
+          "HML",
+          "RMW",
+          "MOM"
+        ],
+        "id": "equal__HML_RMW_MOM",
+        "weight": 0.3333333333333333
+      },
+      "folds": {
+        "R1": {
+          "annualized_mean": 0.04186190476190477,
+          "annualized_volatility": 0.03996769442712265,
+          "mean_t_statistic": 2.771142819094159,
+          "months": 84,
+          "sharpe": 1.0473935352522281
+        },
+        "R2": {
+          "annualized_mean": 0.06687142857142857,
+          "annualized_volatility": 0.06643458840273038,
+          "mean_t_statistic": 2.6631484301985653,
+          "months": 84,
+          "sharpe": 1.0065754929653516
+        },
+        "R3": {
+          "annualized_mean": 0.025114285714285714,
+          "annualized_volatility": 0.043957074368889675,
+          "mean_t_statistic": 1.5116145764707436,
+          "months": 84,
+          "sharpe": 0.5713366067888308
+        },
+        "R4": {
+          "annualized_mean": 0.024233333333333332,
+          "annualized_volatility": 0.03055292268077392,
+          "mean_t_statistic": 2.0985021337574974,
+          "months": 84,
+          "sharpe": 0.7931592530943914
+        },
+        "R5": {
+          "annualized_mean": 0.028242857142857146,
+          "annualized_volatility": 0.03204843899707988,
+          "mean_t_statistic": 2.331582400026807,
+          "months": 84,
+          "sharpe": 0.8812553131037213
+        }
+      },
+      "robust_sharpe_floor": 0.5713366067888308,
+      "score_components": {
+        "minimum_fold_sharpe": 0.5713366067888308,
+        "remove_best_months_sharpe": 0.6281740432125752
+      }
+    }
+  },
+  "result_hash": "sha256:1a42991073b426f2b0462107193c971681046300b86f0734f2fd2ce36c65df4a",
+  "search_breadth": {
+    "discovery_candidates": 15,
+    "replication_candidates": 1,
+    "total_measured_trials": 16
+  },
+  "selection_seal_hash": "sha256:971be80bbec2166400a28e80ae74218570c9c6dd7508d291d7a01a768f45c318",
+  "verdict": "FACTOR_PREMIUM_PERSISTS",
+  "version": "nodequant-factor-premia-result-v1"
+}

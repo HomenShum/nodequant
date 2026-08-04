@@ -1,0 +1,10 @@
+Observable: first exposure for a 378-day relative-momentum candidate
+Captured before evaluator repair on 2026-08-03
+
+Declared lookback days: 378
+First exposure index: 22
+First exposure date: 2008-02-04
+Required history available: false
+
+Root cause: the helper returned zero scores for insufficient history, then the
+ranking rule treated those zeros as a valid tie and selected three assets.

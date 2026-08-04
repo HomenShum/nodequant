@@ -1,0 +1,39 @@
+NodeQuant graph research loop v4 — final observed evidence, 2026-08-03
+
+CAMPAIGN
+- generation 1: 4 experiments
+- generation 2: 5 experiments
+- cumulative graph: 60 nodes, 58 edges, 9 trials
+- stop: FRONTIER_EXHAUSTED
+- authoritative champion: null
+- promotion: BLOCKED
+- policy: sha256:09d5c180fdbc3f57e2227f806dd099eaf5ee39856ccb3ffb82de0c59a3ba05f4
+- trial root: sha256:d53813b4282c70897f431c0ef5d49195a9cb39a31e3d3d827be63471a456be91
+
+NO-OP MEASUREMENT
+- artifact count: 6
+- changed artifacts after third invocation: 0
+- comparison included both SHA-256 and LastWriteTimeUtc ticks
+
+SAFETY/INTEGRITY KNOCKOUTS
+- exact typed schemas for every node and legal edge endpoint pair
+- synthetic promotion accepts BLOCKED/null champion only
+- hostile policy relabeling rejected by compiled local trust root
+- DEVELOPMENT/VALIDATION-only child plan; no full manifest, robustness row,
+  TEST/OPENED_HOLDOUT values, roots or counts cross the process boundary
+- hard subprocess wall-clock termination creates permanent BUDGET_EXCEEDED trial
+- candidate, dataset, policy and result provenance edges required for each trial
+- node/edge/trial hash chains bound to atomic local heads
+- editable summary projection rebuilt from verified graph authority
+- logs and heads are byte-capped before allocation
+- partial tails and anchored orphan experiments recover deterministically
+
+VERIFICATION
+- graph-loop knockout suite: 8 passed in 85.62s
+- broader research/promotion/split/oracle/order suite: 74 passed in 142.13s
+- full repository suite: 650 passed, 29 skipped in 398.81s
+
+VISUAL LIMITATION
+- The selected browser rejected both local before/after evidence rendering and
+  explicitly prohibited file/data/localhost/alternate-surface workarounds.
+  No screenshot was fabricated; terminal and durable artifact evidence remain.

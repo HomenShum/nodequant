@@ -1,0 +1,25 @@
+Observable: breadth-first genuine-data alpha search command
+Captured: 2026-08-03 after implementation
+
+Command:
+uv run --no-sync python -m app.alpha_breadth --policy research/alpha_breadth_policy.json --output evidence/breadth-first-alpha/result.json --raw-directory evidence/real-alpha-search/raw --reuse-raw
+
+Exit code: 5 (honest negative promotion verdict; result written)
+Output:
+{"discovery_candidates": 100, "families": 13, "replication": "FAIL", "replication_champion": "halloween__window-november_april", "result_hash": "sha256:2c005d57004ca141684a430d5056cce03e88a5d8a8db0a75209a3b2ee7408797", "selection_seal": "sha256:22aeaaa04678e138d362cb90e98b7d578f40b98234c5d49aeb147445c66e7828", "total_measured_trials": 116, "verdict": "NO_REPLICATION_SURVIVOR"}
+
+Measured replication comparison:
+                               Halloween   Always-long
+Robust excess-Sharpe floor       0.2259       0.1394
+Full-period excess Sharpe        0.3630       0.2732
+Net CAGR                         5.24%        4.62%
+Maximum drawdown               -31.65%      -52.31%
+
+Decisive failed check:
+Paired 20-day block-bootstrap 95% lower bound on annual active return: -5.39%
+
+What did not change:
+- promotion_eligible remains false;
+- provider remains secondary/unofficial;
+- adjusted closes remain non-executable observations;
+- all failed and successful trials remain counted.

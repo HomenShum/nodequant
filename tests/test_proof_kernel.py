@@ -28,7 +28,9 @@ def bars():
 
 def test_gate_passes_all_twentyfive_with_zero_of_every_failure_mode(bars):
     gate = pk.run_gate(25, bars)
-    assert gate == {
+    assert gate["packetHashes"] == [canonical_hash(packet) for packet in pk.packets(25, bars)]
+    assert gate["barsHash"] == pk.bars_hash(bars)
+    assert {key: value for key, value in gate.items() if key not in {"packetHashes", "barsHash"}} == {
         "status": "PASS",
         "packetsExpected": 25,
         "packetsPassed": 25,

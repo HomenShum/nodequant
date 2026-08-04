@@ -1,0 +1,24 @@
+{
+  "canonical_task_name": "/root/oracle_rung2",
+  "access_statement": "I read only the three named frozen spec inputs and wrote only independent_oracle/rung2/implementation.",
+  "inputs": {
+    "manifest.json": "sha256:14438e51f6a3774f21a7c07925c4bc71162bc88a87212daf28989aa5c5d8b38a",
+    "bars.csv": "sha256:7ecd94bbeb1505b556bc58a6a37ff9871c82258c1d8daf3c31a6372f261bb9ac",
+    "output-schema.json": "sha256:530597ac59d5325ca3a16bab6fbcabad43c5456ec5156e8418cbfb8fd231e630"
+  },
+  "implementation": {
+    "language": "PowerShell 7, .NET standard library only",
+    "replay.ps1": "sha256:37263ea4af56250ff08073905553fce91f55c2d1966ddb092036ab45df63f7cd",
+    "test-replay.ps1": "sha256:36ed1bbd26492d4bd6ac1ce5b02c83d5445063bbac21c1e00ef67b0f018afaca"
+  },
+  "output": {
+    "oracle-output.json": "sha256:da07e2d0c685524bc3d1f604c647c526c9766ae2f44a3db237834f21a16060d5",
+    "signal_count": 25
+  },
+  "test": {
+    "command": "& 'D:\\VSCode Projects\\stock-ai-dipsea\\independent_oracle\\rung2\\implementation\\test-replay.ps1' -FrozenManifestPath 'D:\\VSCode Projects\\stock-ai-dipsea\\independent_oracle\\spec\\manifest.json' -FrozenBarsPath 'D:\\VSCode Projects\\stock-ai-dipsea\\independent_oracle\\spec\\bars.csv'",
+    "result": "PASS: 5 scenario groups (cold start, rising edges/execution fallback, sustained bounds, malformed rows, full-corpus determinism/schema)",
+    "exit_code": 0
+  },
+  "completed_at_utc": "2026-08-04T10:12:28.9409431Z"
+}

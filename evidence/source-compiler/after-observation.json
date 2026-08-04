@@ -1,0 +1,107 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "fresh isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "original Notion strategy snapshot absent from checkout"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "caption": "strategy source compiler · immutable snapshot and human ambiguity lock required",
+    "visible_rows": [
+      [
+        "source snapshot",
+        "NOT_RUN"
+      ],
+      [
+        "literal clauses",
+        "NOT_RUN"
+      ],
+      [
+        "byte spans",
+        "NOT_RUN"
+      ],
+      [
+        "unresolved ambiguity",
+        "NOT_RUN"
+      ],
+      [
+        "contradictions",
+        "NOT_RUN"
+      ],
+      [
+        "human lock",
+        "NOT_RUN"
+      ],
+      [
+        "V0 literal",
+        "NOT_RUN"
+      ],
+      [
+        "V0 reconstructed",
+        "NOT_RUN"
+      ],
+      [
+        "V0 repaired",
+        "NOT_RUN"
+      ]
+    ],
+    "absence_preservation_line": "original Notion strategy snapshot absent · compiler will preserve underspecified and contradictory clauses as variants",
+    "source_compiler_overflow": {
+      "client_width": 622,
+      "scroll_width": 622,
+      "overflowing": false
+    },
+    "source_compiler_payload": {
+      "source_status": "NOT_RUN",
+      "source_hash": null,
+      "clause_root_hash": null,
+      "snapshot_root_hash": null,
+      "clause_count": null,
+      "unresolved_ambiguity_count": null,
+      "contradictory_clause_count": null,
+      "byte_spans_verified": false,
+      "human_lock_verified": false,
+      "literal_version_ready": false,
+      "reconstructed_version_ready": false,
+      "repaired_version_ready": false,
+      "evidence_scope": "source_structure_diagnostic_human_lock_required"
+    },
+    "all_nine_render_not_run": true,
+    "console_errors": [],
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 4500
+    },
+    "artifact": "after.png",
+    "capture_note": "request, payload, DOM, console, responsive layout, and no-horizontal-overflow verified at 1100x1000; pixel-only height expanded after verification; width and DPR unchanged"
+  }
+}

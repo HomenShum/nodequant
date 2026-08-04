@@ -1,0 +1,48 @@
+- generic [ref=f3e1] [box=0,0,1728,1117]:
+  - generic [ref=f3e3] [box=0,0,1728,1117]:
+    - generic [ref=f3e6] [box=0,0,255,1117]:
+      - list [ref=f3e9] [box=8,8,239,48]:
+        - listitem [ref=f3e10] [box=8,8,239,48]:
+          - link "NodeQuant" [ref=f3e11] [cursor=pointer] [box=8,8,239,48]:
+            - /url: /
+      - generic [ref=f3e19] [box=8,73,239,108]:
+        - button "New Thread" [ref=f3e20] [box=8,73,239,32]
+        - searchbox "Search threads" [ref=f3e23] [box=10,111,235,32]
+        - generic [ref=f3e25] [box=8,149,239,32]:
+          - button "New Chat" [ref=f3e26] [box=8,149,239,32]
+          - button "More options" [ref=f3e28] [box=217,153,24,24]
+      - button "Toggle Sidebar" [ref=f3e30] [box=247,0,16,1117]
+    - main [ref=f3e31] [box=256,0,1470,1117]:
+      - generic [ref=f3e32] [box=256,0,1470,64]:
+        - button "Toggle Sidebar" [ref=f3e33] [box=272,18,28,28]
+        - separator [box=308,24,0,16]
+        - navigation "breadcrumb" [ref=f3e35] [box=324,22,193,20]:
+          - list [ref=f3e36] [box=324,22,193,20]:
+            - listitem [ref=f3e37] [box=324,22,73,20]:
+              - link "NodeQuant" [ref=f3e38] [cursor=pointer] [box=324,22,73,19]:
+                - /url: /
+            - listitem [ref=f3e39] [box=403,25,14,14]
+            - listitem [ref=f3e42] [box=423,22,94,20]:
+              - link "Proof Kernel v0" [disabled] [ref=f3e43] [box=423,22,94,20]
+        - generic [ref=f3e44] [box=1542,14,168,36]:
+          - link "Market Map" [ref=f3e45] [cursor=pointer] [box=1542,14,128,36]:
+            - /url: /market-map
+          - button "Toggle dark mode" [ref=f3e49] [box=1678,16,32,32]
+      - generic [ref=f3e59] [box=632,64,704,1053]:
+        - generic [ref=f3e121] [box=648,80,672,156]:
+          - paragraph [ref=f3e125] [box=792,96,503,24]: Explain the difference between this structural map and live market flow.
+          - generic [ref=f3e126] [box=648,152,672,114]:
+            - alert [ref=f3e128] [box=656,160,656,46]:
+              - generic [ref=f3e129] [box=669,173,630,20]: "{\"detail\":\"Not Found\"}"
+            - generic [ref=f3e131] [box=652,212,80,24]:
+              - button "Copy" [disabled] [box=652,212,24,24]
+              - button "Refresh" [ref=f3e132] [box=680,212,24,24]
+              - button "More" [ref=f3e134] [box=708,212,24,24]
+        - generic [ref=f3e114] [box=648,999,672,94]:
+          - textbox "Message input" [active] [ref=f3e115] [box=657,1008,654,40]:
+            - /placeholder: Send a message...
+          - generic [ref=f3e116] [box=657,1056,654,28]:
+            - button "Add Attachment" [ref=f3e117] [box=657,1056,28,28]
+            - generic [ref=f3e119] [box=1283,1056,28,28]:
+              - button "Send message" [disabled] [box=1283,1056,28,28]
+  - alert [ref=f3e120] [box=-1,1116,1,1]

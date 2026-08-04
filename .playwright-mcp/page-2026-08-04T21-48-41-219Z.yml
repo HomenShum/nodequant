@@ -1,0 +1,35 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - list [ref=e9]:
+      - listitem [ref=e10]:
+        - link "NodeQuant" [ref=e11] [cursor=pointer]:
+          - /url: /
+    - generic [ref=e19]:
+      - button "New Thread" [ref=e20]
+      - searchbox "Search threads" [ref=e23]
+      - generic [ref=e25]:
+        - button "New Chat" [ref=e26]
+        - button "More options" [ref=e28]
+    - button "Toggle Sidebar" [ref=e30]
+  - main [ref=e31]:
+    - generic [ref=e32]:
+      - button "Toggle Sidebar" [ref=e33]
+      - separator
+      - navigation "breadcrumb" [ref=e35]:
+        - list [ref=e36]:
+          - listitem [ref=e37]:
+            - link "NodeQuant" [ref=e38] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e39]
+          - listitem [ref=e42]:
+            - link "Proof Kernel v0" [disabled] [ref=e43]
+      - button "Toggle dark mode" [ref=e45]
+    - generic [ref=e55]:
+      - heading "How can I help you today?" [level=1] [ref=e57]
+      - generic [ref=e60]:
+        - textbox "Message input" [ref=e61]:
+          - /placeholder: Send a message...
+        - generic [ref=e62]:
+          - button "Add Attachment" [ref=e63]
+          - generic [ref=e65]:
+            - button "Send message" [disabled]

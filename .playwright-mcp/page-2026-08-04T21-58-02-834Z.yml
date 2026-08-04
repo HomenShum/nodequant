@@ -1,0 +1,41 @@
+- generic [ref=f4e1]:
+  - generic [ref=f4e3]:
+    - generic [ref=f4e6]:
+      - list [ref=f4e9]:
+        - listitem [ref=f4e10]:
+          - link "NodeQuant" [ref=f4e11] [cursor=pointer]:
+            - /url: /
+      - generic [ref=f4e19]:
+        - button "New Thread" [ref=f4e20]
+        - searchbox "Search threads" [ref=f4e23]
+        - generic [ref=f4e25]:
+          - button "New Chat" [ref=f4e26]
+          - button "More options" [ref=f4e28]
+      - button "Toggle Sidebar" [ref=f4e30]
+    - main [ref=f4e31]:
+      - generic [ref=f4e32]:
+        - button "Toggle Sidebar" [ref=f4e33]
+        - separator
+        - navigation "breadcrumb" [ref=f4e35]:
+          - list [ref=f4e36]:
+            - listitem [ref=f4e37]:
+              - link "NodeQuant" [ref=f4e38] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=f4e39]
+            - listitem [ref=f4e42]:
+              - link "Proof Kernel v0" [disabled] [ref=f4e43]
+        - generic [ref=f4e44]:
+          - link "Market Map" [ref=f4e45] [cursor=pointer]:
+            - /url: /market-map
+          - button "Toggle dark mode" [ref=f4e49]
+      - generic [ref=f4e59]:
+        - generic [ref=f4e121]:
+          - paragraph [ref=f4e125]: Review the current proof kernel.
+          - generic [ref=f4e126]: ●
+        - generic [ref=f4e114]:
+          - textbox "Message input" [active] [ref=f4e115]:
+            - /placeholder: Send a message...
+          - generic [ref=f4e116]:
+            - button "Add Attachment" [ref=f4e117]
+            - button "Stop generating" [ref=f4e130]
+  - alert [ref=f4e120]

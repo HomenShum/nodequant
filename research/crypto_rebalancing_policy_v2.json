@@ -1,0 +1,61 @@
+{
+  "version": "nodequant-crypto-rebalancing-policy-v2",
+  "frozen_at_utc": "2026-08-04T11:08:22.3434810Z",
+  "purpose": "one_primary_monthly_fixed_weight_crypto_rebalancing_premium_falsifier",
+  "claim_boundary": "current_availability_fixed_universe_coinbase_daily_open_diagnostic_not_unbiased_market_portfolio_or_execution_evidence",
+  "supersedes": {
+    "policy_hash": "sha256:86930a8df8e264048eeab0bd834a9b01164ab594436331678c5e7c566c6f0e1f",
+    "status": "INVALID_PROVIDER_OVERLAP_CONTRACT",
+    "reason": "The v1 parser rejected documented cross-chunk boundary repeats even when byte-level opens agreed; v1 produced no result and its five products are opened and excluded from v2."
+  },
+  "evaluator_hash": "sha256:600a94f00d54a05b236506a62d957b9b2fe9b1d701bd50ebff115ab267156b57",
+  "sources": [
+    {"id": "hanicova-vojtko", "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3982120", "claim": "Original crypto study compares fixed-weight daily and monthly rebalancing with buy-and-hold."},
+    {"id": "liu-viswanathan", "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6522260", "claim": "Adversarial prior: optimal rebalance frequency is not universal and depends on autocorrelation and expected-return dispersion."},
+    {"id": "coinbase-candles", "url": "https://docs.cdp.coinbase.com/api-reference/exchange-api/rest-api/products/get-product-candles", "claim": "Official endpoint defines time as bucket start, caps responses at 300 and may return candles preceding start or omit no-tick intervals."}
+  ],
+  "provider": {
+    "host": "api.exchange.coinbase.com",
+    "endpoint": "/products/{product_id}/candles",
+    "granularity_seconds": 86400,
+    "timestamp_semantics": "UTC bucket start; use each bucket open as the first trade of that UTC day",
+    "overlap_rule": "deduplicate a repeated UTC bucket only when its open is exactly equal; fail on conflict",
+    "timeout_seconds": 30,
+    "maximum_response_bytes": 200000,
+    "maximum_candles_per_request": 300,
+    "chunk_days": 250
+  },
+  "data": {
+    "state_at_policy_freeze": "ALL_FIVE_V2_PRODUCT_CANDLE_BYTES_UNREAD",
+    "products": ["DOGE-USD", "XLM-USD", "ATOM-USD", "ETC-USD", "ZEC-USD"],
+    "selection_rule": "fresh fixed currently available non-stablecoin USD spot products selected before v2 outcomes; all five v1 products prohibited",
+    "start_date": "2021-07-01",
+    "end_exclusive": "2026-01-01",
+    "minimum_common_days": 1600,
+    "missing_bucket_rule": "fail unless every UTC date in the closed window has one common nonconflicting daily open for every product"
+  },
+  "portfolio": {
+    "candidate_id": "monthly_equal_weight_fresh_5_crypto_vs_initial_equal_buy_hold",
+    "strategy": "reset to 20 percent per product at the first UTC daily open of each calendar month, then let weights drift",
+    "benchmark": "20 percent per product at the first window open, then buy and hold with drifting weights",
+    "return_interval": "consecutive UTC daily opens",
+    "initial_purchase_cost": "same initial allocation on both sleeves and excluded from active difference",
+    "turnover": "one_way half-L1 distance from pre-rebalance drifting weights to equal weights",
+    "shorting": false,
+    "leverage": false
+  },
+  "costs": {"primary_one_way_bps": 25, "one_way_bps_sensitivity": [0, 25, 50], "application": "charge strategy rebalance turnover only; buy-and-hold has no post-initial trades"},
+  "folds": [
+    {"id": "2021H2-2023", "start": "2021-07-02", "end": "2023-12-31"},
+    {"id": "2024-2025", "start": "2024-01-01", "end": "2025-12-31"}
+  ],
+  "bootstrap": {"method": "circular_moving_block_over_daily_active_returns", "seed": 20260804, "samples": 10000, "block_days": 30, "quantile": 0.05},
+  "gate": {
+    "minimum_positive_folds": 2,
+    "remove_best_days": 10,
+    "requirements": ["one_sided_95pct_block_lower_bound_on_annual_active_mean_above_zero", "2_of_2_folds_positive", "active_sharpe_after_removing_best_10_days_above_zero"]
+  },
+  "trial_accounting": {"candidate_count": 1, "selection_rule": "no universe, frequency, dates, costs, folds, seed, missing-data, overlap or gate changes after any v2 product candle byte"},
+  "promotion_eligible": false,
+  "promotion_ceiling": "SURVIVORSHIP_BIASED_PUBLIC_CRYPTO_ALLOCATION_DIAGNOSTIC_ONLY"
+}

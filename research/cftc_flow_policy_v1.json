@@ -1,0 +1,35 @@
+{
+  "version": "nodequant-cftc-flow-policy-v1",
+  "frozen_at_utc": "2026-08-04T09:42:51.3711873Z",
+  "purpose": "one_primary_cftc_producer_hedging_pressure_cross_sectional_falsifier",
+  "claim_boundary": "official_positioning_to_liquid_etf_proxy_diagnostic_not_execution_or_promotion_evidence",
+  "evaluator_hash": "sha256:2e9185a5063721cbf0a98dd36186269148ad525086dcd094abec1eacfbf0a430",
+  "sources": [
+    {"id": "cftc-cot", "url": "https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm", "claim": "CFTC publishes Tuesday positions, generally on Friday at 3:30 p.m. Eastern."},
+    {"id": "cftc-pre", "url": "https://publicreporting.cftc.gov/Commitments-of-Traders/Disaggregated-Futures-Only/72hh-3qpy", "claim": "Official Disaggregated Futures Only API with producer/merchant positions and open interest."},
+    {"id": "de-roon-2000", "url": "https://doi.org/10.1111/0022-1082.00253", "claim": "Primary research reports that own and cross-market hedging pressure affect futures returns."}
+  ],
+  "cftc_provider": {"host": "publicreporting.cftc.gov", "user_agent": "nodequant-research/0.1", "timeout_seconds": 60, "maximum_response_bytes": 12000000},
+  "cftc_data": {"dataset_id": "72hh-3qpy", "state_at_policy_freeze": "SCHEMA_READ_OBSERVATION_ROWS_UNREAD", "report_start": "2013-01-01", "report_end": "2025-12-31", "maximum_rows": 10000},
+  "universe": [
+    {"contract_market_code": "067651", "contract": "WTI crude oil", "etf_symbol": "USO"},
+    {"contract_market_code": "023651", "contract": "natural gas", "etf_symbol": "UNG"},
+    {"contract_market_code": "088691", "contract": "gold", "etf_symbol": "GLD"},
+    {"contract_market_code": "084691", "contract": "silver", "etf_symbol": "SLV"},
+    {"contract_market_code": "085692", "contract": "copper", "etf_symbol": "CPER"},
+    {"contract_market_code": "002602", "contract": "corn", "etf_symbol": "CORN"},
+    {"contract_market_code": "005602", "contract": "soybeans", "etf_symbol": "SOYB"},
+    {"contract_market_code": "001602", "contract": "wheat SRW", "etf_symbol": "WEAT"}
+  ],
+  "signal": {"definition": "rank (producer_short-producer_long)/open_interest descending and hold top three", "top_count": 3, "publication_embargo_calendar_days": 70, "minimum_complete_reports": 600},
+  "price_provider": {"host": "query1.finance.yahoo.com", "timeout_seconds": 60, "maximum_response_bytes": 5000000},
+  "price_data": {"state_at_policy_freeze": "UNREAD", "download_start": "2013-01-01", "download_end_exclusive": "2026-04-01", "maximum_rows_per_symbol": 4000, "minimum_common_rows": 2500},
+  "evaluation": {"rebalance": "first common adjusted close strictly after each embargo date", "benchmark": "equal_weight_same_eight_etf_universe", "minimum_rebalances": 550},
+  "costs": {"primary_one_way_bps": 10, "one_way_bps_sensitivity": [0, 10, 25], "turnover": "half_L1_change_in_strategy_weights_at_rebalance; benchmark buy-and-hold return stream has no recurring turnover charge"},
+  "folds": [{"id": "early", "start": "2014-01-01", "end": "2019-12-31"}, {"id": "late", "start": "2020-01-01", "end": "2026-03-31"}],
+  "bootstrap": {"method": "circular_moving_block", "seed": 20260804, "samples": 5000, "block_days": 20, "quantile": 0.05},
+  "gate": {"minimum_positive_folds": 2, "remove_best_days": 10, "requirements": ["one_sided_95pct_block_lower_bound_on_annual_active_mean_above_zero", "2_of_2_folds_positive", "active_sharpe_after_removing_best_10_days_above_zero"]},
+  "trial_accounting": {"candidate_count": 1, "selection_rule": "no tuning or substitutions after CFTC observation rows are opened"},
+  "promotion_eligible": false,
+  "promotion_ceiling": "PUBLIC_POSITIONING_TO_ETF_PROXY_DIAGNOSTIC_ONLY"
+}

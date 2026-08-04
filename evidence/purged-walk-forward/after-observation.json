@@ -1,0 +1,471 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "fresh isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "caption": "purged walk-forward · 30 bars · all evaluation folds end before TEST · not promotion evidence",
+    "headers": [
+      "variant",
+      "WF1",
+      "WF2",
+      "WF3"
+    ],
+    "visible_rows": [
+      [
+        "baseline",
+        "-$21.92 · 1ep",
+        "-$67.25 · 2ep",
+        "-$44.22 · 1ep"
+      ],
+      [
+        "without-uptrend",
+        "$12.83 · 2ep",
+        "-$67.25 · 2ep",
+        "-$44.22 · 1ep"
+      ],
+      [
+        "without-pullback",
+        "$74.83 · 2ep",
+        "$32.47 · 1ep",
+        "$92.74 · 2ep"
+      ],
+      [
+        "fast-15",
+        "-$16.52 · 1ep",
+        "-$75.16 · 2ep",
+        "-$6.46 · 1ep"
+      ],
+      [
+        "fast-25",
+        "-$53.47 · 1ep",
+        "-$63.70 · 2ep",
+        "-$44.22 · 1ep"
+      ],
+      [
+        "slow-40",
+        "-$21.92 · 1ep",
+        "-$67.25 · 2ep",
+        "-$44.22 · 1ep"
+      ],
+      [
+        "slow-60",
+        "-$21.92 · 1ep",
+        "-$67.25 · 2ep",
+        "-$44.22 · 1ep"
+      ],
+      [
+        "hold-15",
+        "-$8.62 · 1ep",
+        "-$13.94 · 2ep",
+        "-$22.37 · 2ep"
+      ],
+      [
+        "hold-45",
+        "-$50.16 · 1ep",
+        "-$121.76 · 2ep",
+        "-$62.20 · 1ep"
+      ]
+    ],
+    "caveat": "purge verified true · access provenance self-attested · PBO remains NOT_RUN",
+    "matrix_note": "matrix sha256:28c86746cd1641e9e0562bce05e4c6ca7cd0f5ff8f59d568c8cc1dc5eb135fed",
+    "walk_forward_overflow": {
+      "client_width": 622,
+      "scroll_width": 622,
+      "overflowing": false
+    },
+    "walk_forward_payload": {
+      "rows": [
+        {
+          "variant_id": "baseline",
+          "folds": [
+            {
+              "fold_id": "WF1",
+              "net_pnl_micros": -21923424,
+              "episode_count": 1
+            },
+            {
+              "fold_id": "WF2",
+              "net_pnl_micros": -67245910,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF3",
+              "net_pnl_micros": -44222072,
+              "episode_count": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "without-uptrend",
+          "folds": [
+            {
+              "fold_id": "WF1",
+              "net_pnl_micros": 12834703,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF2",
+              "net_pnl_micros": -67245910,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF3",
+              "net_pnl_micros": -44222072,
+              "episode_count": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "without-pullback",
+          "folds": [
+            {
+              "fold_id": "WF1",
+              "net_pnl_micros": 74829795,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF2",
+              "net_pnl_micros": 32466414,
+              "episode_count": 1
+            },
+            {
+              "fold_id": "WF3",
+              "net_pnl_micros": 92738335,
+              "episode_count": 2
+            }
+          ]
+        },
+        {
+          "variant_id": "fast-15",
+          "folds": [
+            {
+              "fold_id": "WF1",
+              "net_pnl_micros": -16518036,
+              "episode_count": 1
+            },
+            {
+              "fold_id": "WF2",
+              "net_pnl_micros": -75164958,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF3",
+              "net_pnl_micros": -6462646,
+              "episode_count": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "fast-25",
+          "folds": [
+            {
+              "fold_id": "WF1",
+              "net_pnl_micros": -53474955,
+              "episode_count": 1
+            },
+            {
+              "fold_id": "WF2",
+              "net_pnl_micros": -63699594,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF3",
+              "net_pnl_micros": -44222072,
+              "episode_count": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "slow-40",
+          "folds": [
+            {
+              "fold_id": "WF1",
+              "net_pnl_micros": -21923424,
+              "episode_count": 1
+            },
+            {
+              "fold_id": "WF2",
+              "net_pnl_micros": -67245910,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF3",
+              "net_pnl_micros": -44222072,
+              "episode_count": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "slow-60",
+          "folds": [
+            {
+              "fold_id": "WF1",
+              "net_pnl_micros": -21923424,
+              "episode_count": 1
+            },
+            {
+              "fold_id": "WF2",
+              "net_pnl_micros": -67245910,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF3",
+              "net_pnl_micros": -44222072,
+              "episode_count": 1
+            }
+          ]
+        },
+        {
+          "variant_id": "hold-15",
+          "folds": [
+            {
+              "fold_id": "WF1",
+              "net_pnl_micros": -8620922,
+              "episode_count": 1
+            },
+            {
+              "fold_id": "WF2",
+              "net_pnl_micros": -13940007,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF3",
+              "net_pnl_micros": -22369935,
+              "episode_count": 2
+            }
+          ]
+        },
+        {
+          "variant_id": "hold-45",
+          "folds": [
+            {
+              "fold_id": "WF1",
+              "net_pnl_micros": -50161306,
+              "episode_count": 1
+            },
+            {
+              "fold_id": "WF2",
+              "net_pnl_micros": -121759421,
+              "episode_count": 2
+            },
+            {
+              "fold_id": "WF3",
+              "net_pnl_micros": -62202323,
+              "episode_count": 1
+            }
+          ]
+        }
+      ],
+      "fold_plan_hash": "sha256:807b383be6aa0aa8f9948ac39c696b2369cb401fd450a55eb5d2885b7cb8267b",
+      "matrix_root_hash": "sha256:28c86746cd1641e9e0562bce05e4c6ca7cd0f5ff8f59d568c8cc1dc5eb135fed",
+      "manifest_hash": "sha256:b78da52c6871ae6c8c199a72b338b1f25bbf065391febe18fef686de20bf2702",
+      "bars_hash": "sha256:27d753ebebafbb3843e705fbca16da84634ad994b51e091cd54ae7ace3337f7f",
+      "robustness_result_root": "sha256:8f16d8440cfe21c3e7392a22c90c396ac13ace63fcddb453be602dc6ecaf3a21",
+      "folds_end_before_test": true,
+      "purge_verified": true,
+      "access_provenance_verified": false,
+      "evidence_scope": "post_hoc_synthetic_fold_diagnostic_not_promotion_evidence"
+    },
+    "raw_matrix": {
+      "baseline": [
+        [
+          "WF1",
+          -21923424,
+          1
+        ],
+        [
+          "WF2",
+          -67245910,
+          2
+        ],
+        [
+          "WF3",
+          -44222072,
+          1
+        ]
+      ],
+      "without-uptrend": [
+        [
+          "WF1",
+          12834703,
+          2
+        ],
+        [
+          "WF2",
+          -67245910,
+          2
+        ],
+        [
+          "WF3",
+          -44222072,
+          1
+        ]
+      ],
+      "without-pullback": [
+        [
+          "WF1",
+          74829795,
+          2
+        ],
+        [
+          "WF2",
+          32466414,
+          1
+        ],
+        [
+          "WF3",
+          92738335,
+          2
+        ]
+      ],
+      "fast-15": [
+        [
+          "WF1",
+          -16518036,
+          1
+        ],
+        [
+          "WF2",
+          -75164958,
+          2
+        ],
+        [
+          "WF3",
+          -6462646,
+          1
+        ]
+      ],
+      "fast-25": [
+        [
+          "WF1",
+          -53474955,
+          1
+        ],
+        [
+          "WF2",
+          -63699594,
+          2
+        ],
+        [
+          "WF3",
+          -44222072,
+          1
+        ]
+      ],
+      "slow-40": [
+        [
+          "WF1",
+          -21923424,
+          1
+        ],
+        [
+          "WF2",
+          -67245910,
+          2
+        ],
+        [
+          "WF3",
+          -44222072,
+          1
+        ]
+      ],
+      "slow-60": [
+        [
+          "WF1",
+          -21923424,
+          1
+        ],
+        [
+          "WF2",
+          -67245910,
+          2
+        ],
+        [
+          "WF3",
+          -44222072,
+          1
+        ]
+      ],
+      "hold-15": [
+        [
+          "WF1",
+          -8620922,
+          1
+        ],
+        [
+          "WF2",
+          -13940007,
+          2
+        ],
+        [
+          "WF3",
+          -22369935,
+          2
+        ]
+      ],
+      "hold-45": [
+        [
+          "WF1",
+          -50161306,
+          1
+        ],
+        [
+          "WF2",
+          -121759421,
+          2
+        ],
+        [
+          "WF3",
+          -62202323,
+          1
+        ]
+      ]
+    },
+    "baseline_all_negative": true,
+    "without_pullback_all_positive": true,
+    "pbo_row": {
+      "status": "NOT_RUN",
+      "detail": "a 3-fold post-hoc matrix exists, but global trial completeness and pre-test registration are unverified.",
+      "observation": "observed 3"
+    },
+    "console_errors": [],
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 3600
+    },
+    "artifact": "after.png",
+    "capture_note": "request, payload, DOM, console, responsive layout, and no-horizontal-overflow verified at 1100x1000; pixel-only height expanded after verification so the complete panel fits without fixed-composer occlusion; width and DPR unchanged"
+  }
+}

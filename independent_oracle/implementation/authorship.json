@@ -1,0 +1,12 @@
+{
+  "canonical_task_name": "/root/frozen_oracle",
+  "input_hashes": {
+    "spec/manifest.json": "sha256:14438e51f6a3774f21a7c07925c4bc71162bc88a87212daf28989aa5c5d8b38a",
+    "spec/output-schema.json": "sha256:530597ac59d5325ca3a16bab6fbcabad43c5456ec5156e8418cbfb8fd231e630",
+    "spec/bars.csv": "sha256:7ecd94bbeb1505b556bc58a6a37ff9871c82258c1d8daf3c31a6372f261bb9ac"
+  },
+  "implementation_hash": "sha256:28ed1fa98f26fdfaca9bfa32141467d7c6a45fdbaed707f9916fe56d6a1052bd",
+  "output_hash": "sha256:98efaddc2218f3b2e01c636ef3d16e35b4a82dea3c00b1d19125c0c99ecb7ff3",
+  "timestamp_utc": "2026-08-03T22:22:17.921368+00:00",
+  "access_statement": "I accessed only the three named spec inputs: spec/manifest.json, spec/output-schema.json, and spec/bars.csv."
+}

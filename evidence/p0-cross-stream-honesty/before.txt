@@ -1,0 +1,1 @@
+{'acceptable': True, 'flat_pnl_residual_micros': 0, 'cross_stream_reconciliation': 'ABSENT'}

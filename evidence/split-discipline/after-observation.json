@@ -1,0 +1,128 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_count": 4,
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "split_blocker_present": true,
+    "split_footer_text": "splits tagged true · access provenance self-attested",
+    "split_discipline_receipt": {
+      "manifest_hash": "sha256:04f674891f45666b81f3054e04ac830fb9c906fe67ea6540ac66a5dbc4285dc0",
+      "manifest_matches_policy": true,
+      "strategy_matches": true,
+      "chronological": true,
+      "point_count": 579,
+      "untagged_points": 0,
+      "candidate_frozen_before_test_declared": true,
+      "optimizer_test_access_declared": false,
+      "provenance_verified": false
+    },
+    "splits": [
+      {
+        "split_id": "DEVELOPMENT",
+        "start_utc": "2026-01-05T14:30:00Z",
+        "end_utc": "2026-01-06T10:29:00Z",
+        "promotion_eligible": false
+      },
+      {
+        "split_id": "VALIDATION",
+        "start_utc": "2026-01-06T10:30:00Z",
+        "end_utc": "2026-01-06T18:29:00Z",
+        "promotion_eligible": false
+      },
+      {
+        "split_id": "TEST",
+        "start_utc": "2026-01-06T18:30:00Z",
+        "end_utc": "2026-01-07T02:29:00Z",
+        "promotion_eligible": true
+      },
+      {
+        "split_id": "OPENED_HOLDOUT",
+        "start_utc": "2026-01-07T02:30:00Z",
+        "end_utc": "2026-01-07T06:29:00Z",
+        "promotion_eligible": false
+      }
+    ],
+    "curve": {
+      "view_box": "0 0 640 176",
+      "split_band_ids": [
+        "DEVELOPMENT",
+        "VALIDATION",
+        "TEST",
+        "OPENED_HOLDOUT"
+      ],
+      "split_labels": [
+        "DEVELOPMENT",
+        "VALIDATION",
+        "TEST",
+        "HOLDOUT"
+      ],
+      "split_curve_ids": [
+        "DEVELOPMENT",
+        "VALIDATION",
+        "TEST"
+      ],
+      "polyline_count": 4
+    },
+    "curve_note": "equity rebased within each split · absolute equity retained in payload",
+    "absolute_equity_payload_count": 579,
+    "absolute_equity_payload_hash": "sha256:a090044c7e6af01c4cd396d15cd46a425b450c18fcb833785a391c1cb600a55f",
+    "visible_metrics": {
+      "final equity": "$99,447.58",
+      "realised P&L": "-$518.42",
+      "max drawdown": "-$554.90",
+      "fees": "$34.00",
+      "modelled spread": "$1.03",
+      "modelled slippage": "$0.52"
+    },
+    "journal_footer_visible": true,
+    "oracle_footer_text": "oracle same_author_diverse_implementation · matched true · provenance self-attested",
+    "policy_hash": "sha256:121fa55d0a04c382c7c28331e51767de0ef8966f1d28fc676510dab0af659a27",
+    "unchanged_neighbors": {
+      "heading": "Backtest review",
+      "verdict_badge": "BLOCKED → PAPER_SHADOW",
+      "strategy": "spy-pullback@0.1.0",
+      "footer_text": "curve matched true · unauthorized fills 0 · early entries 0 · price mismatches 0 · 579 events\njournal PASS · mismatches 0\noracle same_author_diverse_implementation · matched true · provenance self-attested\nsplits tagged true · access provenance self-attested\npolicy sha256:121fa55d0a04c382c7c28331e51767de0ef8966f1d28fc676510dab0af659a27"
+    },
+    "panel_css_box": {
+      "x": 349,
+      "y": 88,
+      "width": 656,
+      "height": 695.734375
+    },
+    "console_errors": [],
+    "artifact": "after.png"
+  }
+}

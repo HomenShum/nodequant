@@ -1,0 +1,36 @@
+Source-compiler AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: one POST /api/kernel/review through the chat composer, HTTP 200
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 4500 CSS px for the complete unobscured panel
+- Source-compiler section client width and scroll width: 622 px / 622 px; no horizontal overflow
+- Zero browser console errors
+- Gate verdict remains BLOCKED with four promotion blockers.
+- Caption: strategy source compiler · immutable snapshot and human ambiguity lock required
+
+Visible source-compiler state
+- source snapshot: NOT_RUN
+- literal clauses: NOT_RUN
+- byte spans: NOT_RUN
+- unresolved ambiguity: NOT_RUN
+- contradictions: NOT_RUN
+- human lock: NOT_RUN
+- V0 literal: NOT_RUN
+- V0 reconstructed: NOT_RUN
+- V0 repaired: NOT_RUN
+
+Absence and preservation
+- Original Notion strategy snapshot is absent.
+- Compiler will preserve underspecified and contradictory clauses as variants.
+- Source, clause-root, and snapshot-root hashes are null.
+- Clause count is null in the payload and rendered NOT_RUN, not a measured clean zero.
+- Ambiguity and contradiction counts are null.
+- Byte spans, human lock, and all three V0 readiness flags are false.
+- Evidence scope: source_structure_diagnostic_human_lock_required
+
+Judgment
+- APPROVED: the after UI materially satisfies the intended proof boundary.
+- All nine source/variant checks render NOT_RUN and are visible without clipping or horizontal overflow.
+- The panel does not infer missing source language or imply human approval.

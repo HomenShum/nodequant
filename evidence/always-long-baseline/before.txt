@@ -1,0 +1,10 @@
+Observable: first invested row for the always-long benchmark
+Captured before evaluator repair on 2026-08-03
+
+Replication panel first date: 2008-01-02
+First invested index: 22
+First invested date: 2008-02-04
+Cash days before investment: 22
+
+This contradicts the frozen candidate name and benchmark contract: always-long
+was actually delayed-long, while daily calendar strategies could invest earlier.

@@ -1,0 +1,52 @@
+Null benchmarks AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: POST /api/kernel/review through the chat composer
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 1700 CSS px so the complete panel is unobscured
+- Exactly one request, HTTP 200, zero browser console errors
+- Caption: TEST nulls - synthetic timing diagnostic - not promotion evidence
+- DOM contains no significance or Sharpe claim
+
+Rendered TEST-only values
+- strategy TEST net P&L: -$42.70
+- buy and hold TEST net P&L: $61.28
+- matched random median (128 trials): $11.08
+- matched random P95: $70.30
+- strategy empirical percentile: 14.06%
+- matched episodes - seed: 2 - 240803
+
+Exact payload
+- split_id: TEST
+- strategy_net_pnl_micros: -42701743
+- buy_hold_net_pnl_micros: 61279623
+- matched_random_trial_count: 128
+- matched_random_seed: 240803
+- matched_episode_count: 2
+- random_median_pnl_micros: 11083750
+- random_p95_pnl_micros: 70303876
+- strategy_percentile_bps: 1406
+- ledger_root_hash: sha256:eb88cb9122348a8ab89ad5c028da5faba1dbf9a497c74494c5f3c0184dd20282
+- bars_hash: sha256:27d753ebebafbb3843e705fbca16da84634ad994b51e091cd54ae7ace3337f7f
+- packet_set_hash: sha256:e64de8ea94397a07f68ed1bf192221d7cd0ecdc4d7d25b9f7c4b5cff539d9207
+- journal_root_hash: sha256:36be10d76fbcba78efb318f01a047abeb64520a8f2afe0145e23720936a69f83
+- manifest_hash: sha256:129297c42df4e04e7564870856705c53c0e0cc525e1e2215e3eec48ec811d265
+- evidence_scope: synthetic_timing_diagnostic_not_promotion_evidence
+
+Unchanged neighbors
+- Blockers: SYNTHETIC_CORPUS; MARKET_DATA_CONFORMANCE_NOT_RUN; ORACLE_NOT_INDEPENDENT_ENOUGH; SPLIT_DISCIPLINE_NOT_PROVEN
+- Split bands: DEVELOPMENT; VALIDATION; TEST; OPENED_HOLDOUT
+- Absolute equity payload: 579 points, sha256:a090044c7e6af01c4cd396d15cd46a425b450c18fcb833785a391c1cb600a55f
+- Economics: final equity $99,447.58; realised P&L -$518.42; max drawdown -$554.90; fees $34.00; modelled spread $1.03; modelled slippage $0.52
+- Split performance remains DEVELOPMENT/VALIDATION/TEST plus OPENED_HOLDOUT NOT_RUN
+- Execution stress remains five rows, each showing 17 exec - 8 collision - 0 tail
+- Journal/oracle/split provenance footer unchanged
+
+Expected seal movement
+- Previous policy: sha256:121fa55d0a04c382c7c28331e51767de0ef8966f1d28fc676510dab0af659a27
+- Current policy: sha256:d43ce2609622099a2b96a92c132a05145a33ae4e2c4a0875c12a155b6b877519
+- Reason: frozen null trial count and seed are now sealed in the experiment manifest
+
+Interpretation
+This is a synthetic timing diagnostic on TEST only. It is not promotion evidence and makes no statistical-significance or Sharpe claim.

@@ -1,0 +1,3 @@
+COMMAND: uv run --no-sync python -m app.factor_premia --help
+EXIT_CODE: 1
+STDERR: D:\VSCode Projects\stock-ai-dipsea\.venv\Scripts\python.exe: No module named app.factor_premia

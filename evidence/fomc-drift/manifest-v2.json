@@ -1,0 +1,511 @@
+{
+  "created_at_utc": "2026-08-04T10:18:42.851002+00:00",
+  "events": [
+    {
+      "decision_date": "2016-01-27",
+      "meeting_heading": "January 26-27 Meeting - 2016",
+      "source_id": "2016",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160127a.htm"
+    },
+    {
+      "decision_date": "2016-03-16",
+      "meeting_heading": "March 15-16 Meeting - 2016",
+      "source_id": "2016",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160316a.htm"
+    },
+    {
+      "decision_date": "2016-04-27",
+      "meeting_heading": "April 26-27 Meeting - 2016",
+      "source_id": "2016",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160427a.htm"
+    },
+    {
+      "decision_date": "2016-06-15",
+      "meeting_heading": "June 14-15 Meeting - 2016",
+      "source_id": "2016",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160615a.htm"
+    },
+    {
+      "decision_date": "2016-07-27",
+      "meeting_heading": "July 26-27 Meeting - 2016",
+      "source_id": "2016",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160727a.htm"
+    },
+    {
+      "decision_date": "2016-09-21",
+      "meeting_heading": "September 20-21 Meeting - 2016",
+      "source_id": "2016",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160921a.htm"
+    },
+    {
+      "decision_date": "2016-11-02",
+      "meeting_heading": "November 1-2 Meeting - 2016",
+      "source_id": "2016",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20161102a.htm"
+    },
+    {
+      "decision_date": "2016-12-14",
+      "meeting_heading": "December 13-14 Meeting - 2016",
+      "source_id": "2016",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20161214a.htm"
+    },
+    {
+      "decision_date": "2017-02-01",
+      "meeting_heading": "Jan/Feb 31-1 Meeting - 2017",
+      "source_id": "2017",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170201a.htm"
+    },
+    {
+      "decision_date": "2017-03-15",
+      "meeting_heading": "March 14-15 Meeting - 2017",
+      "source_id": "2017",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170315a.htm"
+    },
+    {
+      "decision_date": "2017-05-03",
+      "meeting_heading": "May 2-3 Meeting - 2017",
+      "source_id": "2017",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170503a.htm"
+    },
+    {
+      "decision_date": "2017-06-14",
+      "meeting_heading": "June 13-14 Meeting - 2017",
+      "source_id": "2017",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170614a.htm"
+    },
+    {
+      "decision_date": "2017-07-26",
+      "meeting_heading": "July 25-26 Meeting - 2017",
+      "source_id": "2017",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170726a.htm"
+    },
+    {
+      "decision_date": "2017-09-20",
+      "meeting_heading": "September 19-20 Meeting - 2017",
+      "source_id": "2017",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170920a.htm"
+    },
+    {
+      "decision_date": "2017-11-01",
+      "meeting_heading": "Oct/Nov 31-1 Meeting - 2017",
+      "source_id": "2017",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20171101a.htm"
+    },
+    {
+      "decision_date": "2017-12-13",
+      "meeting_heading": "December 12-13 Meeting - 2017",
+      "source_id": "2017",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20171213a.htm"
+    },
+    {
+      "decision_date": "2018-01-31",
+      "meeting_heading": "January 30-31 Meeting - 2018",
+      "source_id": "2018",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180131a.htm"
+    },
+    {
+      "decision_date": "2018-03-21",
+      "meeting_heading": "March 20-21 Meeting - 2018",
+      "source_id": "2018",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180321a.htm"
+    },
+    {
+      "decision_date": "2018-05-02",
+      "meeting_heading": "May 1-2 Meeting - 2018",
+      "source_id": "2018",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180502a.htm"
+    },
+    {
+      "decision_date": "2018-06-13",
+      "meeting_heading": "June 12-13 Meeting - 2018",
+      "source_id": "2018",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180613a.htm"
+    },
+    {
+      "decision_date": "2018-08-01",
+      "meeting_heading": "Jul/Aug 31-1 Meeting - 2018",
+      "source_id": "2018",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180801a.htm"
+    },
+    {
+      "decision_date": "2018-09-26",
+      "meeting_heading": "September 25-26 Meeting - 2018",
+      "source_id": "2018",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180926a.htm"
+    },
+    {
+      "decision_date": "2018-11-08",
+      "meeting_heading": "November 7-8 Meeting - 2018",
+      "source_id": "2018",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20181108a.htm"
+    },
+    {
+      "decision_date": "2018-12-19",
+      "meeting_heading": "December 18-19 Meeting - 2018",
+      "source_id": "2018",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20181219a.htm"
+    },
+    {
+      "decision_date": "2019-01-30",
+      "meeting_heading": "January 29-30 Meeting - 2019",
+      "source_id": "2019",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190130a.htm"
+    },
+    {
+      "decision_date": "2019-03-20",
+      "meeting_heading": "March 19-20 Meeting - 2019",
+      "source_id": "2019",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190320a.htm"
+    },
+    {
+      "decision_date": "2019-05-01",
+      "meeting_heading": "April/May 30-1 Meeting - 2019",
+      "source_id": "2019",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190501a.htm"
+    },
+    {
+      "decision_date": "2019-06-19",
+      "meeting_heading": "June 18-19 Meeting - 2019",
+      "source_id": "2019",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190619a.htm"
+    },
+    {
+      "decision_date": "2019-07-31",
+      "meeting_heading": "July 30-31 Meeting - 2019",
+      "source_id": "2019",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190731a.htm"
+    },
+    {
+      "decision_date": "2019-09-18",
+      "meeting_heading": "September 17-18 Meeting - 2019",
+      "source_id": "2019",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190918a.htm"
+    },
+    {
+      "decision_date": "2019-10-30",
+      "meeting_heading": "October 29-30 Meeting - 2019",
+      "source_id": "2019",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20191030a.htm"
+    },
+    {
+      "decision_date": "2019-12-11",
+      "meeting_heading": "December 10-11 Meeting - 2019",
+      "source_id": "2019",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20191211a.htm"
+    },
+    {
+      "decision_date": "2020-01-29",
+      "meeting_heading": "January 28-29 Meeting - 2020",
+      "source_id": "2020",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200129a.htm"
+    },
+    {
+      "decision_date": "2020-04-29",
+      "meeting_heading": "April 28-29 Meeting - 2020",
+      "source_id": "2020",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200429a.htm"
+    },
+    {
+      "decision_date": "2020-06-10",
+      "meeting_heading": "June 9-10 Meeting - 2020",
+      "source_id": "2020",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200610a.htm"
+    },
+    {
+      "decision_date": "2020-07-29",
+      "meeting_heading": "July 28-29 Meeting - 2020",
+      "source_id": "2020",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200729a.htm"
+    },
+    {
+      "decision_date": "2020-09-16",
+      "meeting_heading": "September 15-16 Meeting - 2020",
+      "source_id": "2020",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200916a.htm"
+    },
+    {
+      "decision_date": "2020-11-05",
+      "meeting_heading": "November 4-5 Meeting - 2020",
+      "source_id": "2020",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20201105a.htm"
+    },
+    {
+      "decision_date": "2020-12-16",
+      "meeting_heading": "December 15-16 Meeting - 2020",
+      "source_id": "2020",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20201216a.htm"
+    },
+    {
+      "decision_date": "2021-01-27",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210127a.htm"
+    },
+    {
+      "decision_date": "2021-03-17",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210317a.htm"
+    },
+    {
+      "decision_date": "2021-04-28",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210428a.htm"
+    },
+    {
+      "decision_date": "2021-06-16",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210616a.htm"
+    },
+    {
+      "decision_date": "2021-07-28",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210728a.htm"
+    },
+    {
+      "decision_date": "2021-09-22",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210922a.htm"
+    },
+    {
+      "decision_date": "2021-11-03",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20211103a.htm"
+    },
+    {
+      "decision_date": "2021-12-15",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20211215a.htm"
+    },
+    {
+      "decision_date": "2022-01-26",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220126a.htm"
+    },
+    {
+      "decision_date": "2022-03-16",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220316a.htm"
+    },
+    {
+      "decision_date": "2022-05-04",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220504a.htm"
+    },
+    {
+      "decision_date": "2022-06-15",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220615a.htm"
+    },
+    {
+      "decision_date": "2022-07-27",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220727a.htm"
+    },
+    {
+      "decision_date": "2022-09-21",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220921a.htm"
+    },
+    {
+      "decision_date": "2022-11-02",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20221102a.htm"
+    },
+    {
+      "decision_date": "2022-12-14",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20221214a.htm"
+    },
+    {
+      "decision_date": "2023-02-01",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230201a.htm"
+    },
+    {
+      "decision_date": "2023-03-22",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230322a.htm"
+    },
+    {
+      "decision_date": "2023-05-03",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230503a.htm"
+    },
+    {
+      "decision_date": "2023-06-14",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230614a.htm"
+    },
+    {
+      "decision_date": "2023-07-26",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm"
+    },
+    {
+      "decision_date": "2023-09-20",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230920a.htm"
+    },
+    {
+      "decision_date": "2023-11-01",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20231101a.htm"
+    },
+    {
+      "decision_date": "2023-12-13",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20231213a.htm"
+    },
+    {
+      "decision_date": "2024-01-31",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240131a.htm"
+    },
+    {
+      "decision_date": "2024-03-20",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240320a.htm"
+    },
+    {
+      "decision_date": "2024-05-01",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240501a.htm"
+    },
+    {
+      "decision_date": "2024-06-12",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240612a.htm"
+    },
+    {
+      "decision_date": "2024-07-31",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240731a.htm"
+    },
+    {
+      "decision_date": "2024-09-18",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240918a.htm"
+    },
+    {
+      "decision_date": "2024-11-07",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20241107a.htm"
+    },
+    {
+      "decision_date": "2024-12-18",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm"
+    },
+    {
+      "decision_date": "2025-01-29",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250129a.htm"
+    },
+    {
+      "decision_date": "2025-03-19",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm"
+    },
+    {
+      "decision_date": "2025-05-07",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250507a.htm"
+    },
+    {
+      "decision_date": "2025-06-18",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250618a.htm"
+    },
+    {
+      "decision_date": "2025-07-30",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250730a.htm"
+    },
+    {
+      "decision_date": "2025-09-17",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm"
+    },
+    {
+      "decision_date": "2025-10-29",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm"
+    },
+    {
+      "decision_date": "2025-12-10",
+      "meeting_heading": "FOMC Search",
+      "source_id": "2021-2025",
+      "statement_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251210a.htm"
+    }
+  ],
+  "limitations": [
+    "Statement links prove realized scheduled decision dates, not the date on which each schedule was first announced.",
+    "Notation votes and non-meeting actions are excluded by the registered heading rule."
+  ],
+  "manifest_hash": "sha256:2b19db2f22f4d53cf15b1992e31b871a0166d12ddd3bcfa70d8807860c944d07",
+  "policy_hash": "sha256:9fcca96a606914ab4d2fbb650263ed6d49092cd475b080d4f6c78b02973e2fcb",
+  "quality": {
+    "events": 79,
+    "events_by_year": {
+      "2016": 8,
+      "2017": 8,
+      "2018": 8,
+      "2019": 8,
+      "2020": 7,
+      "2021": 8,
+      "2022": 8,
+      "2023": 8,
+      "2024": 8,
+      "2025": 8
+    },
+    "first_event": "2016-01-27",
+    "last_event": "2025-12-10"
+  },
+  "raw_hashes": {
+    "2016": "sha256:0c60ef12027e2c7e5c55e7f2101debd0810d534fa14383a3444c29f83e4785f9",
+    "2017": "sha256:09c1bc89f3fe905016dcafd5e9ccdf690a3dd84c021867553e77f84e147bbc35",
+    "2018": "sha256:b22c7795ffef95901bf3ae595b4138323e8392e2606033b86be571e09e87ab98",
+    "2019": "sha256:eaa0f387aae128432a9634143195ffe33470eb3491530b41e51943559670cc84",
+    "2020": "sha256:156813a15de712bf97e37e622052d45f1544dfddc00af0bd4d3b4929738b38b3",
+    "2021-2025": "sha256:205e7856e598f33f0499ceee01b98af7f5ebd7202b24bb77ede62cfd728577b7"
+  },
+  "version": "nodequant-fomc-drift-manifest-v1"
+}

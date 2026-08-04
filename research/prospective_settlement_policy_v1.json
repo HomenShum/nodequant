@@ -1,0 +1,38 @@
+{
+  "version": "nodequant-prospective-settlement-policy-v1",
+  "frozen_at_utc": "2026-08-04T06:40:00Z",
+  "purpose": "freeze_future_packet_settlement_before_the_first_eligible_entry_close",
+  "packet": {
+    "path": "evidence/prospective-alpha-v3/packet-2026-08.json",
+    "packet_hash": "sha256:2eaa1e24d1501e205efcdb8fcce5aa6c0df09d512fcd803bb9ae12042143a5df"
+  },
+  "evaluator_hash": "sha256:3ab1114c5f9857fc37d2c457fab441fd0a808aab27f9dc748efd8b01264138a6",
+  "data": {
+    "provider": "Yahoo Finance chart endpoint",
+    "provider_authority": "secondary_unofficial_diagnostic_source",
+    "start": "2008-01-01",
+    "end_exclusive": "2026-10-01",
+    "interval": "1d",
+    "price_field": "adjclose",
+    "risky_symbols": ["SPTM", "EWC", "BWX", "DBB", "ICF"],
+    "cash_proxy_symbol": "BIL",
+    "maximum_symbols": 6,
+    "maximum_response_bytes_per_symbol": 2500000,
+    "maximum_rows_per_symbol": 7000,
+    "minimum_common_rows": 4500
+  },
+  "settlement": {
+    "exchange_timezone": "America/New_York",
+    "regular_close_local_time": "16:00:00",
+    "regular_close_utc_time_for_frozen_window": "20:00:00",
+    "authority_time_rule": "later_of_packet_seal_and_settlement_policy_freeze",
+    "entry_rule": "first_common_regular_close_strictly_after_authority_time",
+    "return_start_rule": "first_close_to_close_interval_after_entry",
+    "evaluation_end_rule": "first_common_regular_close_in_the_calendar_month_after_entry",
+    "rebalance_inside_packet": false,
+    "cash_return_source": "BIL_adjusted_close",
+    "entry_one_way_bps_on_risky_notional": 10,
+    "exit_one_way_bps_on_risky_notional": 10
+  },
+  "promotion_ceiling": "SINGLE_PROSPECTIVE_PACKET_DIAGNOSTIC_ONLY"
+}

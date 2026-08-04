@@ -1,0 +1,8 @@
+experiment manifest=0
+purged walk-forward=0
+Deflated Sharpe=0
+option chain=0
+reasoning frames=0
+two nested loops=0
+source snapshot=0
+ambiguity ledger=0

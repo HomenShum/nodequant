@@ -1,0 +1,38 @@
+Execution-lifecycle AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: one POST /api/kernel/review through the chat composer, HTTP 200
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 3900 CSS px for the complete unobscured panel
+- Lifecycle section client width and scroll width: 622 px / 622 px; no horizontal overflow
+- Zero browser console errors
+- Gate verdict remains BLOCKED with four promotion blockers.
+- Caption: execution lifecycle scenarios · synthetic diagnostic · not broker evidence
+
+Visible lifecycle rows
+- full-fill | COMPLETE | fill 10 | remain 0 | 50ms
+- partial-then-fill | COMPLETE | fill 10 | remain 0 | 130ms
+- partial-then-cancel | CANCELLED_REMAINDER | fill 3 | remain 7 | 100ms
+- venue-reject | REJECTED | fill 0 | remain 10 | 20ms
+- order-expiry | EXPIRED_REMAINDER | fill 0 | remain 10 | 500ms
+- latency-budget-breach | LATENCY_BREACH | fill 10 | remain 0 | 1500ms
+
+Coverage and authority
+- partial/cancel/reject/expiry/latency covered
+- expectation mismatches: 0
+- Every scenario reports expectation_matched true.
+- Suite hash: sha256:65743a15503f29c0e46c21f33956df37ee39cc66387af28806d0e4ce177ab48c
+- Runner hash: sha256:629d819bb185766008bf5cfecf8e55108049b9ef8432c6ec14c6109b4f640ee8
+- Evidence scope: synthetic_state_machine_diagnostic_not_broker_evidence
+
+Unchanged blockers
+- SYNTHETIC_CORPUS
+- MARKET_DATA_CONFORMANCE_NOT_RUN
+- ORACLE_NOT_INDEPENDENT_ENOUGH
+- SPLIT_DISCIPLINE_NOT_PROVEN
+
+Judgment
+- APPROVED: the after UI materially satisfies the intended proof boundary.
+- All six terminal scenarios and their conserved quantities are visible and aligned without clipping or horizontal overflow.
+- The UI explicitly prevents the synthetic state-machine suite from being mistaken for broker evidence.

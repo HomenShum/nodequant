@@ -1,0 +1,42 @@
+Execution stress AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: POST /api/kernel/review through the chat composer
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 1500 CSS px so the complete panel is unobscured
+- Exactly one request, HTTP 200, zero browser console errors
+- Caption: execution stress - modelled counterfactual - not observed execution
+- Headers: scenario | delay | cost | final equity | max DD | episodes | packet outcome
+
+Rendered rows
+- baseline | 0 bars | 1x | $99,447.58 | -$554.90 | 17 | 17 exec - 8 collision - 0 tail
+- cost-2x  | 0 bars | 2x | $99,412.03 | -$589.40 | 17 | 17 exec - 8 collision - 0 tail
+- cost-4x  | 0 bars | 4x | $99,340.93 | -$659.07 | 17 | 17 exec - 8 collision - 0 tail
+- delay-1  | 1 bars | 1x | $99,466.19 | -$537.83 | 17 | 17 exec - 8 collision - 0 tail
+- delay-5  | 5 bars | 1x | $99,370.02 | -$634.17 | 17 | 17 exec - 8 collision - 0 tail
+
+Payload packet accounting and hashes
+- baseline | attempted 25 | executed 17 | collision 8 | tail 0 | ledger sha256:eb88cb9122348a8ab89ad5c028da5faba1dbf9a497c74494c5f3c0184dd20282 | curve sha256:9ca8a12b16cceee37d37d88a9482fd8a95cb00bfc92607d01d8045c7f27c9211
+- cost-2x  | attempted 25 | executed 17 | collision 8 | tail 0 | ledger sha256:81b234a1fe074f58af5665794f51674f0ae181069446ce9bf1b24f3dc1276d3b | curve sha256:76f1aa1ff776b34d380f7cce346fa120695a84e3e505458532e2e4b4549c0ae6
+- cost-4x  | attempted 25 | executed 17 | collision 8 | tail 0 | ledger sha256:2fe671b3624d469a28e8a1e12f995f4fc2c46b60fa113c1bb40bf83c25268a23 | curve sha256:32948a225e0b60c93c1540175c58f80fe7b3f088058d6351c0513a213bac3173
+- delay-1  | attempted 25 | executed 17 | collision 8 | tail 0 | ledger sha256:9df2dfd2c79756675461b94c3b1edfcd68a8f16b18f8626b02b811a8b830ad3a | curve sha256:5a5b0b15ccf2fa1379af7ed1c272366d187ec2a38b4bddd9d0e75f6d2105a36e
+- delay-5  | attempted 25 | executed 17 | collision 8 | tail 0 | ledger sha256:9154b1913cfaf8f87f1f688e9e7238e249476bc486686d742c8bbbe6c1cbfcb5 | curve sha256:4ae3d0433c319d195c6cf270ea203c81b64f0c826646555e140c5e401a26b1c2
+
+Bounded engine
+- MAX_STRESS_SCENARIOS = 32
+- MAX_STRESS_BARS = 100000
+- MAX_STRESS_PACKETS = 10000
+- Duplicate packet IDs reject before execution stress can corrupt counts
+
+Unchanged neighbors
+- Blockers: SYNTHETIC_CORPUS; MARKET_DATA_CONFORMANCE_NOT_RUN; ORACLE_NOT_INDEPENDENT_ENOUGH; SPLIT_DISCIPLINE_NOT_PROVEN
+- Split bands: DEVELOPMENT; VALIDATION; TEST; OPENED_HOLDOUT
+- Absolute equity payload: 579 points, sha256:a090044c7e6af01c4cd396d15cd46a425b450c18fcb833785a391c1cb600a55f
+- Economics: final equity $99,447.58; realised P&L -$518.42; max drawdown -$554.90; fees $34.00; modelled spread $1.03; modelled slippage $0.52
+- Policy: sha256:121fa55d0a04c382c7c28331e51767de0ef8966f1d28fc676510dab0af659a27
+- OPENED_HOLDOUT remains NOT_RUN - no observations
+- Journal/oracle/split provenance footer unchanged
+
+Interpretation
+The stress table is diagnostic only. It exposes all packet outcomes so attempted packets cannot silently disappear, and it does not clear any promotion blocker.

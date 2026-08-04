@@ -1,0 +1,10 @@
+Observable: `uv run --no-sync python -m app.real_alpha --policy research/real_alpha_policy.json`
+
+Before implementation (2026-08-03):
+
+```text
+D:\VSCode Projects\stock-ai-dipsea\.venv\Scripts\python.exe: No module named app.real_alpha
+```
+
+The repository had no command capable of fetching genuine daily market data and
+issuing a preregistered, costed, temporally held-out alpha-search verdict.

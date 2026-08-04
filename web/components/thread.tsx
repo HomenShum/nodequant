@@ -8,6 +8,10 @@ import {
 import { ThreadFollowupSuggestions } from "@/components/follow-up-suggestions";
 import { MarkdownText } from "@/components/markdown-text";
 import {
+  MarketMapLauncher,
+  type MarketMapSummary,
+} from "@/components/market-map-launcher";
+import {
   Reasoning,
 } from "@/components/reasoning";
 import { ToolFallback } from "@/components/tool-fallback";
@@ -71,9 +75,9 @@ export type ThreadComponents = {
     | ComponentType<PropsWithChildren<{ group: ThreadGroupPart }>>
     | undefined;
 };
-
 export type ThreadProps = {
   components?: ThreadComponents | undefined;
+  marketMapSummary: MarketMapSummary;
   onSend?: ((text: string) => void | Promise<void>) | undefined;
 };
 
@@ -90,21 +94,27 @@ const isNewChatView = (s: AssistantState) =>
 
 export const Thread: FC<ThreadProps> = ({
   components = EMPTY_COMPONENTS,
+  marketMapSummary,
   onSend,
 }) => {
   const isEmpty = useAuiState(isNewChatView);
 
   return (
     <ThreadComponentsContext.Provider value={components}>
-      <ThreadRoot isEmpty={isEmpty} onSend={onSend} />
+      <ThreadRoot
+        isEmpty={isEmpty}
+        marketMapSummary={marketMapSummary}
+        onSend={onSend}
+      />
     </ThreadComponentsContext.Provider>
   );
 };
 
 const ThreadRoot: FC<{
   isEmpty: boolean;
+  marketMapSummary: MarketMapSummary;
   onSend?: ((text: string) => void | Promise<void>) | undefined;
-}> = ({ isEmpty, onSend }) => {
+}> = ({ isEmpty, marketMapSummary, onSend }) => {
   const { Welcome = ThreadWelcome } = useContext(ThreadComponentsContext);
 
   return (
@@ -130,7 +140,11 @@ const ThreadRoot: FC<{
           )}
         >
           <AuiIf condition={isNewChatView}>
-            <Welcome />
+            {Welcome === ThreadWelcome ? (
+              <ThreadWelcome marketMapSummary={marketMapSummary} />
+            ) : (
+              <Welcome />
+            )}
           </AuiIf>
 
           <div
@@ -180,12 +194,15 @@ const ThreadScrollToBottom: FC = () => {
   );
 };
 
-const ThreadWelcome: FC = () => {
+const ThreadWelcome: FC<{ marketMapSummary?: MarketMapSummary }> = ({
+  marketMapSummary,
+}) => {
   return (
-    <div className="aui-thread-welcome-root mb-6 flex flex-col items-center px-4 text-center">
+    <div className="aui-thread-welcome-root mb-5 flex flex-col items-center gap-4 px-1 text-center sm:px-4">
       <h1 className="aui-thread-welcome-message-inner fade-in slide-in-from-bottom-1 animate-in fill-mode-both text-2xl font-semibold duration-200">
-        How can I help you today?
+        Start with the market, then interrogate it.
       </h1>
+      {marketMapSummary ? <MarketMapLauncher summary={marketMapSummary} /> : null}
     </div>
   );
 };

@@ -1,0 +1,161 @@
+{
+  "created_at_utc": "2026-08-04T06:19:52.387310+00:00",
+  "data": {
+    "observed_through": "2026-07-31",
+    "panel_hash": "sha256:74f59543c52db9834902b3e81c05dd4fc4a44731f54c1cd2866e55cf310204ff",
+    "quality": {
+      "common_rows": 4674,
+      "first_common_date": "2008-01-02",
+      "last_common_date": "2026-07-31",
+      "noncommon_rows_dropped": {
+        "BIL": 0,
+        "BWX": 0,
+        "DBB": 0,
+        "EWC": 0,
+        "ICF": 0,
+        "SPTM": 0
+      },
+      "strictly_increasing_dates": true,
+      "symbols": {
+        "BIL": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 1,
+          "provider_rows": 4675,
+          "usable_rows": 4674
+        },
+        "BWX": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 1,
+          "provider_rows": 4675,
+          "usable_rows": 4674
+        },
+        "DBB": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 1,
+          "provider_rows": 4675,
+          "usable_rows": 4674
+        },
+        "EWC": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 1,
+          "provider_rows": 4675,
+          "usable_rows": 4674
+        },
+        "ICF": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 1,
+          "provider_rows": 4675,
+          "usable_rows": 4674
+        },
+        "SPTM": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 1,
+          "provider_rows": 4675,
+          "usable_rows": 4674
+        }
+      }
+    },
+    "raw_hashes": {
+      "BIL": "sha256:01ae8e94a61871329207b6fbb1f48656ad6a865c59d7ee770fb058fa17adb12a",
+      "BWX": "sha256:e78dcc9ca5856b6caf47d3fa8c97ba98e8bff5012b82bcf90270fb93cf4d2c3b",
+      "DBB": "sha256:aaf7829f136bf0ae30c61b1d9d0133f3f3bd93a0928c0c96e63b0383adbd847e",
+      "EWC": "sha256:e802c73eedaa4b9857ee1b5d2668cbffc4852042cde76c157f4230cc5d33bcf8",
+      "ICF": "sha256:c85bb10df44e6cd8b7a50bc372b05cd26315ad9ab9ce85fc2adfc5b4546db49d",
+      "SPTM": "sha256:f6a0f563fcffc5aa30e6288175a8d9ddcca115f6a65da723130da001b705fb4d"
+    },
+    "signal_cutoff": "2026-06-30"
+  },
+  "evaluator_hash": "sha256:1bec844062b59b40555a58fa5046d51472516d5183e3db76a198f21794debe4b",
+  "forecasts": [
+    {
+      "cash_weight": 0.0,
+      "risky_weights": {
+        "BWX": 0.0,
+        "DBB": 0.0,
+        "EWC": 0.3333333333333333,
+        "ICF": 0.3333333333333333,
+        "SPTM": 0.3333333333333333
+      },
+      "role": "PRIMARY",
+      "strategy_id": "composite_momentum__top_n-3"
+    },
+    {
+      "cash_weight": 0.0,
+      "risky_weights": {
+        "BWX": 0.3195146641787495,
+        "DBB": 0.13771409107695518,
+        "EWC": 0.1868065837349782,
+        "ICF": 0.1684390449343549,
+        "SPTM": 0.1875256160749623
+      },
+      "role": "COMPARISON",
+      "strategy_id": "inverse_volatility__volatility_days-63"
+    },
+    {
+      "cash_weight": 0.0,
+      "risky_weights": {
+        "BWX": 0.3195146641787495,
+        "DBB": 0.13771409107695518,
+        "EWC": 0.1868065837349782,
+        "ICF": 0.1684390449343549,
+        "SPTM": 0.1875256160749623
+      },
+      "role": "COMPARISON",
+      "strategy_id": "correlation_gated_inverse_volatility__volatility_days-63_correlation_days-126_maximum_correlation_bps-5000"
+    },
+    {
+      "cash_weight": 0.0,
+      "risky_weights": {
+        "BWX": 0.3195146641787495,
+        "DBB": 0.13771409107695518,
+        "EWC": 0.1868065837349782,
+        "ICF": 0.1684390449343549,
+        "SPTM": 0.1875256160749623
+      },
+      "role": "COMPARISON",
+      "strategy_id": "synthesis__correlation_gated_inverse_volatility__inverse_volatility"
+    },
+    {
+      "cash_weight": 0.0,
+      "risky_weights": {
+        "BWX": 0.2,
+        "DBB": 0.2,
+        "EWC": 0.2,
+        "ICF": 0.2,
+        "SPTM": 0.2
+      },
+      "role": "BENCHMARK",
+      "strategy_id": "always_long"
+    }
+  ],
+  "future_gate": {
+    "minimum_complete_packets": 24,
+    "minimum_complete_sessions": 504,
+    "minimum_packets_beating_benchmark": 14,
+    "paired_active_annual_return_95pct_lower_must_exceed": 0.0,
+    "paired_block_bootstrap_days": 20,
+    "paired_block_bootstrap_samples": 5000,
+    "primary_endpoint": "net_active_return_vs_always_long"
+  },
+  "outcome_boundary": {
+    "evaluation_end_rule": "first_common_close_in_the_next_calendar_month",
+    "first_return_interval_starts_after": "2026-07-31",
+    "first_return_rule": "first_common_close_to_close_return_after_the_latest_observed_session",
+    "outcomes_present": false
+  },
+  "packet_hash": "sha256:b5963e00436ea04159275b60fb372391bc6219dc1e85bf48ca63bce1c8ac5d89",
+  "policy_hash": "sha256:2f8ac40f8b978345ab3d0653849bf2dcd8f7776c0253511b76967fc780aa715b",
+  "promotion_ceiling": "PROSPECTIVE_DIAGNOSTIC_ONLY_NO_LIVE_CAPITAL",
+  "promotion_eligible": false,
+  "source_result_hash": "sha256:8534370821ef4537fb242c135f0bf22d4c407007f21a62408f9e5548cd7de384",
+  "status": "INVALIDATED_STALE_CUTOFF_AND_UNBOUND_SEAL_TIME",
+  "_evidence_status": "INVALIDATED_STALE_CUTOFF_AND_UNBOUND_SEAL_TIME",
+  "invalidation_reason": "The provider returned a null August 3 adjusted close; v1 required a later-month usable row to recognize July 31 as a completed month end and did not bind created_at_utc into packet_hash.",
+  "version": "nodequant-prospective-alpha-packet-v1"
+}

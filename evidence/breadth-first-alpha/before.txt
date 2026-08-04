@@ -1,0 +1,12 @@
+Observable: breadth-first genuine-data alpha search command
+Captured: 2026-08-03 before implementation
+
+Command:
+uv run --no-sync python -m app.alpha_breadth --policy research/alpha_breadth_policy.json --output evidence/breadth-first-alpha/result.json --raw-directory evidence/real-alpha-search/raw --reuse-raw
+
+Exit code: 1
+Output:
+D:\VSCode Projects\stock-ai-dipsea\.venv\Scripts\python.exe: No module named app.alpha_breadth
+
+Interpretation:
+No breadth-first genuine-data experiment runner or cross-family scoreboard exists.

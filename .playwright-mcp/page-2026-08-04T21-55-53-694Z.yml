@@ -1,0 +1,470 @@
+- generic [active] [ref=f2e1]:
+  - main [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - generic [ref=f2e4]:
+        - generic [ref=f2e5]:
+          - paragraph [ref=f2e6]: NODEQUANT / U.S. LARGE-CAP MARKET ACTIVITY GRAPH
+          - heading "The whole market. One inspectable surface." [level=1] [ref=f2e7]
+          - paragraph [ref=f2e8]: 504 equity holdings grouped into 11 stable sector regions. Area is official IVV portfolio weight. This snapshot proves structural coverage—not live volume, money flow, return, or causality.
+        - generic [ref=f2e9]:
+          - link "EVIDENCE GRAPH" [ref=f2e10] [cursor=pointer]:
+            - /url: /research-graph
+          - link "PROOF KERNEL" [ref=f2e11] [cursor=pointer]:
+            - /url: /
+      - generic [ref=f2e12]:
+        - generic [ref=f2e13]:
+          - generic [ref=f2e14]:
+            - button "STRUCTURE LIVE" [ref=f2e15]
+            - button "ACTIVITY FEED REQUIRED" [disabled] [ref=f2e16]
+            - button "ROTATION FEED REQUIRED" [disabled] [ref=f2e17]
+            - button "OPTIONS FEED REQUIRED" [disabled] [ref=f2e18]
+            - button "ATTENTION FEED REQUIRED" [disabled] [ref=f2e19]
+            - generic [ref=f2e20]: AS OF 2026-08-03 · OFFICIAL HOLDINGS
+          - generic [ref=f2e21]:
+            - img "Full structural map of 504 U.S. large-cap equity holdings in 11 sectors" [ref=f2e22]:
+              - generic [ref=f2e23]:
+                - generic [ref=f2e25]: INFORMATION TECHNOLOGY
+                - generic [ref=f2e26]: 36.56% · 73
+              - generic [ref=f2e27]:
+                - generic [ref=f2e29]: FINANCIALS
+                - generic [ref=f2e30]: 12.35% · 76
+              - generic [ref=f2e31]:
+                - generic [ref=f2e33]: COMMUNICATION SERVICES
+                - generic [ref=f2e34]: 10.16% · 24
+              - generic [ref=f2e35]:
+                - generic [ref=f2e37]: CONSUMER DISCRETIONARY
+                - generic [ref=f2e38]: 9.49% · 47
+              - generic [ref=f2e39]:
+                - generic [ref=f2e41]: HEALTH CARE
+                - generic [ref=f2e42]: 8.93% · 60
+              - generic [ref=f2e43]:
+                - generic [ref=f2e45]: INDUSTRIALS
+                - generic [ref=f2e46]: 8.71% · 82
+              - generic [ref=f2e47]:
+                - generic [ref=f2e49]: CONSUMER STAPLES
+                - generic [ref=f2e50]: 4.57% · 34
+              - generic [ref=f2e51]:
+                - generic [ref=f2e53]: ENERGY
+                - generic [ref=f2e54]: 3.26% · 21
+              - generic [ref=f2e55]:
+                - generic [ref=f2e57]: UTILITIES
+                - generic [ref=f2e58]: 2.11% · 31
+              - generic [ref=f2e59]:
+                - generic [ref=f2e61]: REAL ESTATE
+                - generic [ref=f2e62]: 1.86% · 31
+              - generic [ref=f2e63]:
+                - generic [ref=f2e65]: MATERIALS
+                - generic [ref=f2e66]: 1.77% · 25
+              - generic [ref=f2e67] [cursor=pointer]:
+                - generic: NVDA
+                - generic: 7.64%
+              - generic [ref=f2e69] [cursor=pointer]:
+                - generic: AAPL
+                - generic: 6.81%
+              - generic [ref=f2e71] [cursor=pointer]:
+                - generic: MSFT
+                - generic: 5.53%
+              - generic [ref=f2e73] [cursor=pointer]:
+                - generic: AVGO
+                - generic: 2.84%
+              - generic [ref=f2e75] [cursor=pointer]:
+                - generic: MU
+                - generic: 1.43%
+              - generic [ref=f2e77] [cursor=pointer]:
+                - generic: AMD
+                - generic: 1.21%
+              - generic [ref=f2e79] [cursor=pointer]: CSCO
+              - generic [ref=f2e81] [cursor=pointer]:
+                - generic: INTC
+                - generic: 0.66%
+              - generic [ref=f2e83] [cursor=pointer]:
+                - generic: AMAT
+                - generic: 0.63%
+              - generic [ref=f2e85] [cursor=pointer]:
+                - generic: LRCX
+                - generic: 0.56%
+              - generic [ref=f2e87] [cursor=pointer]:
+                - generic: PLTR
+                - generic: 0.44%
+              - generic [ref=f2e89] [cursor=pointer]:
+                - generic: PANW
+                - generic: 0.43%
+              - generic [ref=f2e91] [cursor=pointer]: TXN
+              - generic [ref=f2e93] [cursor=pointer]: ORCL
+              - generic [ref=f2e95] [cursor=pointer]:
+                - generic: KLAC
+                - generic: 0.36%
+              - generic [ref=f2e97] [cursor=pointer]:
+                - generic: IBM
+                - generic: 0.32%
+              - generic [ref=f2e99] [cursor=pointer]:
+                - generic: CRWD
+                - generic: 0.31%
+              - generic [ref=f2e101] [cursor=pointer]:
+                - generic: APH
+                - generic: 0.31%
+              - generic [ref=f2e103] [cursor=pointer]:
+                - generic: ANET
+                - generic: 0.29%
+              - generic [ref=f2e105] [cursor=pointer]:
+                - generic: SNDK
+                - generic: 0.29%
+              - generic [ref=f2e107] [cursor=pointer]: STX
+              - generic [ref=f2e109] [cursor=pointer]: WDC
+              - generic [ref=f2e111] [cursor=pointer]: ADI
+              - generic [ref=f2e113] [cursor=pointer]: MRVL
+              - generic [ref=f2e115] [cursor=pointer]: QCOM
+              - generic [ref=f2e117] [cursor=pointer]: CRM
+              - generic [ref=f2e121] [cursor=pointer]: NOW
+              - generic [ref=f2e123] [cursor=pointer]: GLW
+              - generic [ref=f2e127] [cursor=pointer]: FTNT
+              - generic [ref=f2e129] [cursor=pointer]: ADBE
+              - generic [ref=f2e131] [cursor=pointer]: CDNS
+              - generic [ref=f2e133] [cursor=pointer]: DDOG
+              - generic [ref=f2e135] [cursor=pointer]: INTU
+              - generic [ref=f2e137] [cursor=pointer]: SNPS
+              - generic [ref=f2e139] [cursor=pointer]: MSI
+              - generic [ref=f2e141] [cursor=pointer]: HPE
+              - generic [ref=f2e143] [cursor=pointer]: MPWR
+              - generic [ref=f2e149] [cursor=pointer]: TER
+              - generic [ref=f2e151] [cursor=pointer]: NXPI
+              - generic [ref=f2e153] [cursor=pointer]: COHR
+              - generic [ref=f2e155] [cursor=pointer]: CIEN
+              - generic [ref=f2e157] [cursor=pointer]: KEYS
+              - generic [ref=f2e159] [cursor=pointer]: ADSK
+              - generic [ref=f2e213] [cursor=pointer]:
+                - generic: JPM
+                - generic: 1.44%
+              - generic [ref=f2e215] [cursor=pointer]:
+                - generic: BRKB
+                - generic: 1.44%
+              - generic [ref=f2e217] [cursor=pointer]:
+                - generic: V
+                - generic: 0.93%
+              - generic [ref=f2e219] [cursor=pointer]:
+                - generic: MA
+                - generic: 0.70%
+              - generic [ref=f2e221] [cursor=pointer]:
+                - generic: BAC
+                - generic: 0.62%
+              - generic [ref=f2e223] [cursor=pointer]:
+                - generic: GS
+                - generic: 0.46%
+              - generic [ref=f2e225] [cursor=pointer]:
+                - generic: WFC
+                - generic: 0.41%
+              - generic [ref=f2e227] [cursor=pointer]: MS
+              - generic [ref=f2e229] [cursor=pointer]: C
+              - generic [ref=f2e231] [cursor=pointer]: AXP
+              - generic [ref=f2e233] [cursor=pointer]: SCHW
+              - generic [ref=f2e235] [cursor=pointer]: BLK
+              - generic [ref=f2e237] [cursor=pointer]: COF
+              - generic [ref=f2e239] [cursor=pointer]: SPGI
+              - generic [ref=f2e241] [cursor=pointer]: CB
+              - generic [ref=f2e243] [cursor=pointer]: PGR
+              - generic [ref=f2e245] [cursor=pointer]: BNY
+              - generic [ref=f2e247] [cursor=pointer]: PNC
+              - generic [ref=f2e249] [cursor=pointer]: BX
+              - generic [ref=f2e251] [cursor=pointer]: USB
+              - generic [ref=f2e253] [cursor=pointer]: CME
+              - generic [ref=f2e255] [cursor=pointer]: MRSH
+              - generic [ref=f2e257] [cursor=pointer]: ICE
+              - generic [ref=f2e259] [cursor=pointer]: TRV
+              - generic [ref=f2e261] [cursor=pointer]: AON
+              - generic [ref=f2e291] [cursor=pointer]: PRU
+              - generic [ref=f2e293] [cursor=pointer]: NDAQ
+              - generic [ref=f2e297] [cursor=pointer]: AIG
+              - generic [ref=f2e299] [cursor=pointer]: HIG
+              - generic [ref=f2e303] [cursor=pointer]: MTB
+              - generic [ref=f2e365] [cursor=pointer]:
+                - generic: GOOGL
+                - generic: 3.34%
+              - generic [ref=f2e367] [cursor=pointer]:
+                - generic: GOOG
+                - generic: 2.69%
+              - generic [ref=f2e369] [cursor=pointer]:
+                - generic: META
+                - generic: 1.98%
+              - generic [ref=f2e371] [cursor=pointer]:
+                - generic: NFLX
+                - generic: 0.47%
+              - generic [ref=f2e373] [cursor=pointer]:
+                - generic: VZ
+                - generic: 0.30%
+              - generic [ref=f2e375] [cursor=pointer]:
+                - generic: DIS
+                - generic: 0.26%
+              - generic [ref=f2e377] [cursor=pointer]:
+                - generic: T
+                - generic: 0.25%
+              - generic [ref=f2e379] [cursor=pointer]: APP
+              - generic [ref=f2e381] [cursor=pointer]: CMCSA
+              - generic [ref=f2e383] [cursor=pointer]: TMUS
+              - generic [ref=f2e385] [cursor=pointer]: WBD
+              - generic [ref=f2e387] [cursor=pointer]: EA
+              - generic [ref=f2e389] [cursor=pointer]: TTWO
+              - generic [ref=f2e413] [cursor=pointer]:
+                - generic: AMZN
+                - generic: 4.25%
+              - generic [ref=f2e415] [cursor=pointer]:
+                - generic: TSLA
+                - generic: 1.38%
+              - generic [ref=f2e417] [cursor=pointer]: HD
+              - generic [ref=f2e419] [cursor=pointer]:
+                - generic: MCD
+                - generic: 0.29%
+              - generic [ref=f2e421] [cursor=pointer]: TJX
+              - generic [ref=f2e423] [cursor=pointer]: BKNG
+              - generic [ref=f2e425] [cursor=pointer]: LOW
+              - generic [ref=f2e427] [cursor=pointer]: SBUX
+              - generic [ref=f2e435] [cursor=pointer]: MAR
+              - generic [ref=f2e437] [cursor=pointer]: DASH
+              - generic [ref=f2e441] [cursor=pointer]: HLT
+              - generic [ref=f2e443] [cursor=pointer]: ABNB
+              - generic [ref=f2e445] [cursor=pointer]: F
+              - generic [ref=f2e447] [cursor=pointer]: NKE
+              - generic [ref=f2e449] [cursor=pointer]: GRMN
+              - generic [ref=f2e451] [cursor=pointer]: AZO
+              - generic [ref=f2e457] [cursor=pointer]: CVNA
+              - generic [ref=f2e459] [cursor=pointer]: YUM
+              - generic [ref=f2e463] [cursor=pointer]: CCL
+              - generic [ref=f2e465] [cursor=pointer]: EXPE
+              - generic [ref=f2e507] [cursor=pointer]:
+                - generic: LLY
+                - generic: 1.35%
+              - generic [ref=f2e509] [cursor=pointer]:
+                - generic: JNJ
+                - generic: 0.94%
+              - generic [ref=f2e511] [cursor=pointer]:
+                - generic: ABBV
+                - generic: 0.66%
+              - generic [ref=f2e513] [cursor=pointer]:
+                - generic: UNH
+                - generic: 0.58%
+              - generic [ref=f2e515] [cursor=pointer]:
+                - generic: MRK
+                - generic: 0.48%
+              - generic [ref=f2e517] [cursor=pointer]: TMO
+              - generic [ref=f2e519] [cursor=pointer]:
+                - generic: AMGN
+                - generic: 0.31%
+              - generic [ref=f2e521] [cursor=pointer]:
+                - generic: ABT
+                - generic: 0.29%
+              - generic [ref=f2e523] [cursor=pointer]: GILD
+              - generic [ref=f2e525] [cursor=pointer]: PFE
+              - generic [ref=f2e527] [cursor=pointer]: CVS
+              - generic [ref=f2e529] [cursor=pointer]: BMY
+              - generic [ref=f2e531] [cursor=pointer]: ISRG
+              - generic [ref=f2e533] [cursor=pointer]: DHR
+              - generic [ref=f2e535] [cursor=pointer]: VRTX
+              - generic [ref=f2e537] [cursor=pointer]: SYK
+              - generic [ref=f2e539] [cursor=pointer]: MDT
+              - generic [ref=f2e541] [cursor=pointer]: MCK
+              - generic [ref=f2e543] [cursor=pointer]: ELV
+              - generic [ref=f2e549] [cursor=pointer]: BSX
+              - generic [ref=f2e551] [cursor=pointer]: HCA
+              - generic [ref=f2e553] [cursor=pointer]: COR
+              - generic [ref=f2e555] [cursor=pointer]: CAH
+              - generic [ref=f2e557] [cursor=pointer]: EW
+              - generic [ref=f2e559] [cursor=pointer]: BDX
+              - generic [ref=f2e561] [cursor=pointer]: HUM
+              - generic [ref=f2e563] [cursor=pointer]: IDXX
+              - generic [ref=f2e569] [cursor=pointer]: WAT
+              - generic [ref=f2e625] [cursor=pointer]:
+                - generic: GE
+                - generic: 0.59%
+              - generic [ref=f2e627] [cursor=pointer]:
+                - generic: CAT
+                - generic: 0.58%
+              - generic [ref=f2e629] [cursor=pointer]:
+                - generic: RTX
+                - generic: 0.45%
+              - generic [ref=f2e631] [cursor=pointer]:
+                - generic: GEV
+                - generic: 0.41%
+              - generic [ref=f2e633] [cursor=pointer]:
+                - generic: BA
+                - generic: 0.28%
+              - generic [ref=f2e635] [cursor=pointer]:
+                - generic: UNP
+                - generic: 0.26%
+              - generic [ref=f2e637] [cursor=pointer]:
+                - generic: ETN
+                - generic: 0.26%
+              - generic [ref=f2e639] [cursor=pointer]:
+                - generic: DE
+                - generic: 0.23%
+              - generic [ref=f2e641] [cursor=pointer]: UBER
+              - generic [ref=f2e643] [cursor=pointer]: PH
+              - generic [ref=f2e645] [cursor=pointer]: LMT
+              - generic [ref=f2e647] [cursor=pointer]: HWM
+              - generic [ref=f2e649] [cursor=pointer]: ADP
+              - generic [ref=f2e651] [cursor=pointer]: PWR
+              - generic [ref=f2e653] [cursor=pointer]: TT
+              - generic [ref=f2e655] [cursor=pointer]: VRT
+              - generic [ref=f2e657] [cursor=pointer]: GD
+              - generic [ref=f2e659] [cursor=pointer]: CSX
+              - generic [ref=f2e661] [cursor=pointer]: MMM
+              - generic [ref=f2e663] [cursor=pointer]: CMI
+              - generic [ref=f2e665] [cursor=pointer]: JCI
+              - generic [ref=f2e667] [cursor=pointer]: EMR
+              - generic [ref=f2e669] [cursor=pointer]: WM
+              - generic [ref=f2e671] [cursor=pointer]: UPS
+              - generic [ref=f2e673] [cursor=pointer]: HON
+              - generic [ref=f2e675] [cursor=pointer]: NSC
+              - generic [ref=f2e677] [cursor=pointer]: ITW
+              - generic [ref=f2e679] [cursor=pointer]: NOC
+              - generic [ref=f2e681] [cursor=pointer]: TDG
+              - generic [ref=f2e683] [cursor=pointer]: URI
+              - generic [ref=f2e709] [cursor=pointer]: CARR
+              - generic [ref=f2e711] [cursor=pointer]: AXON
+              - generic [ref=f2e713] [cursor=pointer]: RSG
+              - generic [ref=f2e715] [cursor=pointer]: UAL
+              - generic [ref=f2e717] [cursor=pointer]: ODFL
+              - generic [ref=f2e719] [cursor=pointer]: PAYX
+              - generic [ref=f2e789] [cursor=pointer]:
+                - generic: WMT
+                - generic: 0.74%
+              - generic [ref=f2e791] [cursor=pointer]:
+                - generic: COST
+                - generic: 0.65%
+              - generic [ref=f2e793] [cursor=pointer]:
+                - generic: PG
+                - generic: 0.52%
+              - generic [ref=f2e795] [cursor=pointer]:
+                - generic: KO
+                - generic: 0.51%
+              - generic [ref=f2e797] [cursor=pointer]:
+                - generic: PM
+                - generic: 0.45%
+              - generic [ref=f2e799] [cursor=pointer]:
+                - generic: PEP
+                - generic: 0.29%
+              - generic [ref=f2e801] [cursor=pointer]: MO
+              - generic [ref=f2e803] [cursor=pointer]: MDLZ
+              - generic [ref=f2e805] [cursor=pointer]: CL
+              - generic [ref=f2e807] [cursor=pointer]: TGT
+              - generic [ref=f2e809] [cursor=pointer]: MNST
+              - generic [ref=f2e811] [cursor=pointer]: KDP
+              - generic [ref=f2e813] [cursor=pointer]: SYY
+              - generic [ref=f2e857] [cursor=pointer]:
+                - generic: XOM
+                - generic: 0.98%
+              - generic [ref=f2e859] [cursor=pointer]:
+                - generic: CVX
+                - generic: 0.55%
+              - generic [ref=f2e861] [cursor=pointer]: COP
+              - generic [ref=f2e867] [cursor=pointer]: WMB
+              - generic [ref=f2e869] [cursor=pointer]: PSX
+              - generic [ref=f2e871] [cursor=pointer]: EOG
+              - generic [ref=f2e873] [cursor=pointer]: SLB
+              - generic [ref=f2e875] [cursor=pointer]: KMI
+              - generic [ref=f2e883] [cursor=pointer]: DVN
+              - generic [ref=f2e899] [cursor=pointer]:
+                - generic: NEE
+                - generic: 0.28%
+              - generic [ref=f2e901] [cursor=pointer]: SO
+              - generic [ref=f2e903] [cursor=pointer]: DUK
+              - generic [ref=f2e905] [cursor=pointer]: CEG
+              - generic [ref=f2e911] [cursor=pointer]: SRE
+              - generic [ref=f2e913] [cursor=pointer]: ETR
+              - generic [ref=f2e917] [cursor=pointer]: XEL
+              - generic [ref=f2e919] [cursor=pointer]: EXC
+              - generic [ref=f2e961] [cursor=pointer]: WELL
+              - generic [ref=f2e963] [cursor=pointer]: PLD
+              - generic [ref=f2e965] [cursor=pointer]: EQIX
+              - generic [ref=f2e967] [cursor=pointer]: AMT
+              - generic [ref=f2e969] [cursor=pointer]: SPG
+              - generic [ref=f2e971] [cursor=pointer]: DLR
+              - generic [ref=f2e973] [cursor=pointer]: O
+              - generic [ref=f2e1023] [cursor=pointer]: LIN
+              - generic [ref=f2e1029] [cursor=pointer]: SHW
+              - generic [ref=f2e1031] [cursor=pointer]: ECL
+              - generic [ref=f2e1033] [cursor=pointer]: CRH
+              - generic [ref=f2e1035] [cursor=pointer]: APD
+              - generic [ref=f2e1037] [cursor=pointer]: NUE
+            - generic [ref=f2e1073]: 504 EQUITIES / 11 SECTORS / 504 IN FOCUS
+        - complementary [ref=f2e1074]:
+          - generic [ref=f2e1075]:
+            - text: FIND ANY CONSTITUENT
+            - textbox "Search market map" [ref=f2e1076]:
+              - /placeholder: MU, semiconductors, health care…
+          - generic [ref=f2e1077]:
+            - button "ALL 11" [ref=f2e1078]
+            - button "INFORMATION TECHNOLOGY" [ref=f2e1079]
+            - button "FINANCIALS" [ref=f2e1080]
+            - button "COMMUNICATION SERVICES" [ref=f2e1081]
+            - button "CONSUMER DISCRETIONARY" [ref=f2e1082]
+            - button "HEALTH CARE" [ref=f2e1083]
+            - button "INDUSTRIALS" [ref=f2e1084]
+            - button "CONSUMER STAPLES" [ref=f2e1085]
+            - button "ENERGY" [ref=f2e1086]
+            - button "UTILITIES" [ref=f2e1087]
+            - button "REAL ESTATE" [ref=f2e1088]
+            - button "MATERIALS" [ref=f2e1089]
+          - generic [ref=f2e1090]:
+            - paragraph [ref=f2e1091]: MARKET → INFORMATION TECHNOLOGY
+            - heading "NVDA" [level=2] [ref=f2e1092]
+            - paragraph [ref=f2e1093]: NVIDIA CORP
+            - generic [ref=f2e1094]:
+              - generic [ref=f2e1095]:
+                - term [ref=f2e1096]: PORTFOLIO WEIGHT
+                - definition [ref=f2e1097]: 7.6433%
+              - generic [ref=f2e1098]:
+                - term [ref=f2e1099]: FUND MARKET VALUE
+                - definition [ref=f2e1100]: $67.65B
+              - generic [ref=f2e1101]:
+                - term [ref=f2e1102]: CURRENT CLAIM
+                - definition [ref=f2e1103]: Structural membership and weight only
+          - generic [ref=f2e1104]:
+            - paragraph [ref=f2e1105]: AUTHORITY RECEIPT
+            - paragraph [ref=f2e1106]: Official IVV holdings · 2026-08-03
+            - paragraph [ref=f2e1107]: sha256:f128a79c538f59a71ac01c8f67049276795ada35acabcb19103ec07ebc9b13ea
+            - link "OPEN ORIGINAL SOURCE" [ref=f2e1108] [cursor=pointer]:
+              - /url: https://www.ishares.com/varnish-api/blk-one01-product-data/product-data/api/v2/get-product-data?appSubType=ISHARES&appType=PRODUCT_PAGE&component=holdings.all&locale=en_US&portfolioId=239726&targetSite=us-ishares&userType=individual&excludeContent=true&asOfDate=20260803&includeConfig=true
+      - region "Sector rotation river" [ref=f2e1109]:
+        - generic [ref=f2e1110]:
+          - generic [ref=f2e1111]:
+            - paragraph [ref=f2e1112]: SECTOR ROTATION RIVER / STRUCTURAL BASELINE
+            - paragraph [ref=f2e1113]: Band width is portfolio weight. Intraday activity history is not attached yet.
+          - generic [ref=f2e1114]: NO TEMPORAL CLAIM
+        - generic [ref=f2e1115]:
+          - button "INFORMATION TECHNOLOGY 36.56%" [ref=f2e1116]:
+            - generic [ref=f2e1117]: INFORMATION TECHNOLOGY
+            - generic [ref=f2e1118]: 36.56%
+          - button "FINANCIALS 12.35%" [ref=f2e1119]:
+            - generic [ref=f2e1120]: FINANCIALS
+            - generic [ref=f2e1121]: 12.35%
+          - button "COMMUNICATION SERVICES 10.16%" [ref=f2e1122]:
+            - generic [ref=f2e1123]: COMMUNICATION SERVICES
+            - generic [ref=f2e1124]: 10.16%
+          - button "CONSUMER DISCRETIONARY 9.49%" [ref=f2e1125]:
+            - generic [ref=f2e1126]: CONSUMER DISCRETIONARY
+            - generic [ref=f2e1127]: 9.49%
+          - button "HEALTH CARE 8.93%" [ref=f2e1128]:
+            - generic [ref=f2e1129]: HEALTH CARE
+            - generic [ref=f2e1130]: 8.93%
+          - button "INDUSTRIALS 8.71%" [ref=f2e1131]:
+            - generic [ref=f2e1132]: INDUSTRIALS
+            - generic [ref=f2e1133]: 8.71%
+          - button "CONSUMER STAPLES 4.57%" [ref=f2e1134]:
+            - generic [ref=f2e1135]: CONSUMER STAPLES
+            - generic [ref=f2e1136]: 4.57%
+          - button "ENERGY 3.26%" [ref=f2e1137]:
+            - generic [ref=f2e1138]: ENERGY
+            - generic [ref=f2e1139]: 3.26%
+          - button "UTILITIES 2.11%" [ref=f2e1140]:
+            - generic [ref=f2e1141]: UTILITIES
+            - generic [ref=f2e1142]: 2.11%
+          - button "REAL ESTATE 1.86%" [ref=f2e1143]:
+            - generic [ref=f2e1144]: REAL ESTATE
+            - generic [ref=f2e1145]: 1.86%
+          - button "MATERIALS 1.77%" [ref=f2e1146]:
+            - generic [ref=f2e1147]: MATERIALS
+            - generic [ref=f2e1148]: 1.77%
+      - generic [ref=f2e1149]:
+        - paragraph [ref=f2e1150]: "RECONCILIATION: 504/504 EQUITIES · 0 UNMAPPED · 0 DUPLICATES"
+        - paragraph [ref=f2e1151]: "WEIGHT COVERAGE: 99.76673% · CASH/DERIVATIVES EXCLUDED"
+        - paragraph [ref=f2e1152]: "REPLAY HASH: sha256:f128a79c538f59a71…"
+  - alert [ref=f2e1153]

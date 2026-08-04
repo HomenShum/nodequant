@@ -1,0 +1,36 @@
+NodeQuant graph research loop v2 — observed 2026-08-03 (SUPERSEDED/REFUTED)
+
+This evidence is retained as failed-trial history. Independent review later
+found forbidden split aggregates in the child argument graph and a forged
+projection fast path; v3-after.txt is the current evidence.
+
+BEFORE (pre-change, preserved separately in before.txt)
+- `python -m app.research_loop` failed because the module did not exist.
+- Browser screenshot of the local text artifact was blocked by browser security;
+  no screenshot was fabricated.
+
+AFTER — bounded real execution
+- generation 1: 4 experiments, prior trials 0, trial count 4
+- generation 2: 5 experiments, prior trials 4, trial count 9
+- generation 2 stop reason: FRONTIER_EXHAUSTED
+- graph: 58 nodes, 56 edges, 9 trials, all three anchored roots verified
+- authoritative champion: null
+- repository promotion verdict: BLOCKED
+- repository blockers recomputed by app.promotion.evaluate:
+  SYNTHETIC_CORPUS, MARKET_DATA_CONFORMANCE_NOT_RUN,
+  ORACLE_NOT_INDEPENDENT_ENOUGH, SPLIT_DISCIPLINE_NOT_PROVEN
+- research outer blockers add:
+  GLOBAL_TRIAL_COMPLETENESS_NOT_EXTERNALLY_ANCHORED,
+  DEFLATED_SHARPE_NOT_RUN, PBO_NOT_RUN
+
+CONVERGENCE MEASUREMENT
+- A third run returned the existing generation-2 summary.
+- SHA-256 values for nodes.jsonl, edges.jsonl, trial-registry.jsonl,
+  heads.json, frontier.json and latest-summary.json were identical before and
+  after the third run.
+
+VERIFICATION
+- direct knockout suite: 8 passed in 65.78s
+- broader research/promotion/split/oracle/order suite: 74 passed in 135.98s
+- screenshot: pending a permitted rendered capture; the prior local-file browser
+  route was explicitly blocked and is not treated as visual evidence.

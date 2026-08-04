@@ -1,0 +1,8 @@
+experiment manifest=1
+purged walk-forward=1
+Deflated Sharpe=1
+option chain=1
+reasoning frames=1
+two nested loops=1
+source snapshot=1
+ambiguity ledger=1

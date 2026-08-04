@@ -1,0 +1,35 @@
+Observable: drift-aware breadth-first genuine-data alpha search
+Captured: 2026-08-03
+
+Policy: sha256:f51991e81396b24cb8ea69891358da01269cfc423b78e1a79af2e9a85c5a9e48
+Evaluator: sha256:63706d3ff8954202dceb728e555e0c6dcefd730c94096eab7d16ce5bec5962c8
+Selection seal: sha256:fe6d38d21113a63d0616dad1e864e5ffe5e18a01b8efb3f8ed51f7a5199bf8c5
+Result: sha256:8534370821ef4537fb242c135f0bf22d4c407007f21a62408f9e5548cd7de384
+
+Breadth:
+- 100 frozen discovery candidates
+- 13 strategy families
+- 1 deterministic synthesis
+- 14 sealed replication candidates plus baseline
+- 116 total measured trials
+
+Replication data:
+- SPTM, EWC, BWX, DBB, ICF, BIL
+- 4,529 common rows, 2008-01-02 through 2025-12-31
+- zero null, duplicate, invalid, or noncommon rows
+
+                                  Composite momentum   Always-long
+Robust excess-Sharpe floor              0.3761            0.2291
+Full-period excess Sharpe               0.4728            0.3357
+Net CAGR                                6.77%             5.44%
+Maximum drawdown                      -31.44%           -50.39%
+Annualized turnover                     4.0715            0.3612
+
+Passed: robust-floor improvement and positive CAGR.
+Failed: only 1 of 3 folds beat baseline; paired 20-day block-bootstrap 95%
+lower annual active return = -4.29%.
+Discovery status of replication winner: NOT SURVIVOR.
+Verdict: NO_REPLICATION_SURVIVOR. Promotion remains false.
+
+Independent raw-JSON/Numpy recount reproduced every displayed metric and the
+bootstrap bound to less than 1e-12.

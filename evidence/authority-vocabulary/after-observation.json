@@ -1,0 +1,202 @@
+{
+  "contract": {
+    "production_registry_source": [
+      "decision-packet",
+      "backtest-review",
+      "evidence-packet",
+      "option-structure",
+      "trade-intent",
+      "risk-gate-verdict",
+      "execution-receipt",
+      "position-state",
+      "adjudication-verdict",
+      "research-diagram"
+    ],
+    "production_assistant": {
+      "nodequant_panels_mounted": true,
+      "trialscope_panels_mounted": false,
+      "freeform_mounted": false,
+      "default_route": "/api/nodequant-chat"
+    },
+    "real_network": {
+      "request": {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/nodequant-chat"
+      },
+      "response": {
+        "status": 200,
+        "url": "http://127.0.0.1:18318/api/nodequant-chat"
+      }
+    },
+    "representative_intercept": {
+      "requests": [
+        {
+          "method": "POST",
+          "url": "http://127.0.0.1:18318/api/nodequant-chat"
+        }
+      ],
+      "responses": [
+        {
+          "status": 200,
+          "intercept_path": "/api/nodequant-chat",
+          "backend_status": 200,
+          "backend_path": "/api/kernel/review"
+        }
+      ]
+    },
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "fresh production build and isolated local backend/frontend",
+    "data_source": "strict representative authority payloads through production NodeQuant renderers; real backtest-review from backend"
+  },
+  "capture": {
+    "registered_vocabulary": [
+      "decision-packet",
+      "evidence-packet",
+      "option-structure",
+      "trade-intent",
+      "risk-gate-verdict",
+      "execution-receipt",
+      "position-state",
+      "adjudication-verdict",
+      "backtest-review",
+      "research-diagram"
+    ],
+    "rendered_top_level_panels": [
+      "decision-packet",
+      "evidence-packet",
+      "option-structure",
+      "trade-intent",
+      "risk-gate-verdict",
+      "execution-receipt",
+      "position-state",
+      "adjudication-verdict",
+      "backtest-review",
+      "research-diagram"
+    ],
+    "panel_counts": {
+      "decision-packet": 1,
+      "evidence-packet": 1,
+      "option-structure": 1,
+      "trade-intent": 1,
+      "risk-gate-verdict": 1,
+      "execution-receipt": 1,
+      "position-state": 1,
+      "adjudication-verdict": 1,
+      "backtest-review": 1,
+      "research-diagram": 1
+    },
+    "unknown_panels": [],
+    "panel_authority": {
+      "decision-packet": null,
+      "evidence-packet": "typed",
+      "option-structure": "typed",
+      "trade-intent": "typed",
+      "risk-gate-verdict": "typed",
+      "execution-receipt": "typed",
+      "position-state": "typed",
+      "adjudication-verdict": "typed",
+      "backtest-review": null,
+      "research-diagram": "quarantined"
+    },
+    "panel_overflow": [
+      {
+        "name": "decision-packet",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      },
+      {
+        "name": "evidence-packet",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      },
+      {
+        "name": "option-structure",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      },
+      {
+        "name": "trade-intent",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      },
+      {
+        "name": "risk-gate-verdict",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      },
+      {
+        "name": "execution-receipt",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      },
+      {
+        "name": "position-state",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      },
+      {
+        "name": "adjudication-verdict",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      },
+      {
+        "name": "backtest-review",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      },
+      {
+        "name": "research-diagram",
+        "client_width": 654,
+        "scroll_width": 654,
+        "overflowing": false
+      }
+    ],
+    "research_diagram": {
+      "payload": {
+        "nodes": [
+          {
+            "node_id": "n_0123456789abcdef",
+            "concept": "HYPOTHESIS"
+          },
+          {
+            "node_id": "n_fedcba9876543210",
+            "concept": "QUESTION"
+          }
+        ],
+        "edges": [
+          {
+            "source_id": "n_0123456789abcdef",
+            "target_id": "n_fedcba9876543210",
+            "relation": "LEADS_TO"
+          }
+        ]
+      },
+      "text": "research-diagram\n\ngenerated · quarantined · no facts, figures or verdicts\n2 controlled-concept nodes · 1 edges",
+      "computed_style": {
+        "border_top_style": "dashed",
+        "border_top_color": "rgb(184, 183, 178)",
+        "authority": "quarantined"
+      }
+    },
+    "console_errors": [],
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 5600
+    },
+    "artifact": "after.png"
+  }
+}

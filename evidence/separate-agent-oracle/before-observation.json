@@ -1,0 +1,67 @@
+{
+  "provenance": {
+    "artifact": "before.png",
+    "reused_from": "../order-journal-reconciliation/after.png",
+    "sha256": "950D853454CFF007B3EEE29684766EB7007E89635AF4ADFAD23CD76B60C65BFA",
+    "base_pixels_recaptured": false,
+    "byte_identical": true
+  },
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "viewport_css": {"width": 1100, "height": 1000},
+    "device_scale_factor": 2,
+    "theme": "light",
+    "trigger": "review the backtest",
+    "request_count": 1,
+    "response_status": 200,
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "before": {
+    "verdict": "BLOCKED",
+    "blocker_count": 3,
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH"
+    ],
+    "oracle_independence": "same_author_diverse_implementation",
+    "oracle_artifact_match_visible": false,
+    "cross_stream_reconciliation": "PASS",
+    "journal_total_mismatches": 0,
+    "event_count": 579,
+    "visible_metrics": {
+      "final_equity": "$99,447.58",
+      "realised_pnl": "-$518.42",
+      "max_drawdown": "-$554.90",
+      "fees": "$34.00",
+      "modelled_spread": "$1.03",
+      "modelled_slippage": "$0.52"
+    },
+    "policy_hash": "sha256:89692876223a170132116218e6251fcb4533518af429209433b2d0dff8d0b066",
+    "console_errors": []
+  },
+  "boundaries": [
+    {
+      "label": "CHANGE A · oracle blocker",
+      "before": "ORACLE_NOT_INDEPENDENT_ENOUGH is visible",
+      "rejected_after": "REJECTED: blocker removal lacked immutable execution provenance; ORACLE_NOT_INDEPENDENT_ENOUGH must remain"
+    },
+    {
+      "label": "CHANGE B · honest oracle footer",
+      "before": "no oracle artifact status is visible",
+      "revised_after": "footer adds exactly: oracle same_author_diverse_implementation · matched true · provenance self-attested"
+    }
+  ],
+  "unchanged_neighbors": [
+    "header",
+    "BLOCKED to PAPER_SHADOW badge",
+    "strategy identity",
+    "equity and drawdown curve",
+    "all six summary metrics and modeled costs",
+    "journal PASS and zero mismatches",
+    "579 event count",
+    "policy hash except an enforcement-source hash change",
+    "surrounding chat chrome"
+  ]
+}

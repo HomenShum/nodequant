@@ -1,0 +1,10 @@
+Observable: `uv run --no-sync python -m app.scientific_events --demo`
+Captured before behavior-changing edits on 2026-08-03.
+
+Result:
+D:\VSCode Projects\stock-ai-dipsea\.venv\Scripts\python.exe: No module named app.scientific_events
+
+Repository authority at capture time:
+docs/THREAD_GAP_AUDIT.md classified the clinical-trial/publication plane as
+NOT BUILT: no historical scientific-event log, record-version store,
+entity-blinded replay, or market-event adjudication.

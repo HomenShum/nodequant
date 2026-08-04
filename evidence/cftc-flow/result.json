@@ -1,0 +1,128 @@
+{
+  "cost_sensitivities": {
+    "0": {
+      "active": {
+        "annualized_mean": 0.02004474797162917,
+        "annualized_volatility": 0.1290599429396155,
+        "cagr": 0.011799405198668067,
+        "days": 3277,
+        "sharpe": 0.1553134730658272
+      },
+      "benchmark": {
+        "annualized_mean": 0.008529823796195856,
+        "annualized_volatility": 0.151878677863957,
+        "cagr": -0.003000243476613873,
+        "days": 3277,
+        "sharpe": 0.056162088820896336
+      },
+      "strategy": {
+        "annualized_mean": 0.028574571767825033,
+        "annualized_volatility": 0.17993884505168134,
+        "cagr": 0.012511848767807754,
+        "days": 3277,
+        "sharpe": 0.15880157372143827
+      }
+    },
+    "10": {
+      "active": {
+        "annualized_mean": 0.01585371959201367,
+        "annualized_volatility": 0.12907975821361434,
+        "cagr": 0.0075651762758235375,
+        "days": 3277,
+        "sharpe": 0.12282111317389766
+      },
+      "benchmark": {
+        "annualized_mean": 0.008529823796195856,
+        "annualized_volatility": 0.151878677863957,
+        "cagr": -0.003000243476613873,
+        "days": 3277,
+        "sharpe": 0.056162088820896336
+      },
+      "strategy": {
+        "annualized_mean": 0.02438354338820952,
+        "annualized_volatility": 0.17996565282741817,
+        "cagr": 0.00827209157180131,
+        "days": 3277,
+        "sharpe": 0.13548998381148114
+      }
+    },
+    "25": {
+      "active": {
+        "annualized_mean": 0.009567177022590419,
+        "annualized_volatility": 0.1291295934907463,
+        "cagr": 0.0012442997980570691,
+        "days": 3277,
+        "sharpe": 0.07408973236856062
+      },
+      "benchmark": {
+        "annualized_mean": 0.008529823796195856,
+        "annualized_volatility": 0.151878677863957,
+        "cagr": -0.003000243476613873,
+        "days": 3277,
+        "sharpe": 0.056162088820896336
+      },
+      "strategy": {
+        "annualized_mean": 0.018097000818786263,
+        "annualized_volatility": 0.18002028726628366,
+        "cagr": 0.001942980219105106,
+        "days": 3277,
+        "sharpe": 0.10052756327411819
+      }
+    }
+  },
+  "created_at_utc": "2026-08-04T09:45:04.737070+00:00",
+  "data": {
+    "common_rows": 3331,
+    "raw_hashes": {
+      "CORN": "sha256:ecb52dbb7a7462f6ada21073c95d2a6902d073ababcc914551c8af0765f23d68",
+      "CPER": "sha256:8abfa63bdc7c3d2054cd8777361f08e464427ce2a3665a4063b4aff89d240b6b",
+      "GLD": "sha256:724b7328bf78e7de372c38a07498b631a1999a35bc9e2c21d307616dc2db0267",
+      "SLV": "sha256:39f67eee6f235b0ad19a8b358e2273a0afd77c6da1ac1523670674d0d6f33759",
+      "SOYB": "sha256:de1a7fde82850026907186083053140818acea72e978b546d3862433b4f788f5",
+      "UNG": "sha256:6d2675d3dc157e2c0cb2e23f5a00f9f41a51adbbc906dc90222d7814306cb8e3",
+      "USO": "sha256:d4dceb8dbad0be2ba9e476aa68de34737b1b2251d80485ef6bd5750e98992bf7",
+      "WEAT": "sha256:5250b118e115bb7987e037c692493a0086556a4522501ae8f777eb7496e2c365"
+    },
+    "rebalance_count": 678
+  },
+  "evaluator_hash": "sha256:2e9185a5063721cbf0a98dd36186269148ad525086dcd094abec1eacfbf0a430",
+  "limitations": [
+    "The 70-day publication embargo is conservative because the CFTC does not provide complete historical release timestamps.",
+    "ETF adjusted closes are secondary, revisable proxies for futures and embed roll and fund effects.",
+    "The equal-weight ETF universe is a research benchmark, not a collateralized futures implementation.",
+    "Historical evidence cannot replace the sealed prospective packet."
+  ],
+  "manifest_hash": "sha256:2da057db2fcbd93bdadc8e295cdd5b2dfadf4999d77fa0e93d871fef190ace1c",
+  "policy_hash": "sha256:1e912eb74cda6a64b78b511d36aae9a48f56b688182c4e7fd4f6751dcf1df190",
+  "primary": {
+    "active_annualized_mean_block_bootstrap_onesided_95pct_lower": -0.03677978840536357,
+    "checks": {
+      "bootstrap_lower_positive": false,
+      "minimum_positive_folds": false,
+      "remove_best_days_sharpe_positive": false
+    },
+    "folds": {
+      "early": {
+        "annualized_mean": -0.0334613284066876,
+        "annualized_volatility": 0.12092277741766085,
+        "cagr": -0.03992648742098148,
+        "days": 1510,
+        "sharpe": -0.2767165055357102
+      },
+      "late": {
+        "annualized_mean": 0.0782458249728253,
+        "annualized_volatility": 0.1404127345306671,
+        "cagr": 0.07077548102152642,
+        "days": 1569,
+        "sharpe": 0.5572559015702089
+      }
+    },
+    "positive_folds": 1,
+    "remove_best_days_active_sharpe": -0.10947142606395083
+  },
+  "promotion_ceiling": "PUBLIC_POSITIONING_TO_ETF_PROXY_DIAGNOSTIC_ONLY",
+  "promotion_eligible": false,
+  "result_hash": "sha256:2cdf0a3fb2b66d3cd332577a667d57ee839e9d08bf90afbf1d0835ed59b2a226",
+  "verdict": "CFTC_HEDGING_PRESSURE_FAILS",
+  "version": "nodequant-cftc-flow-result-v1"
+}

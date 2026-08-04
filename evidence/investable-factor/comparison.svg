@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#07111f"/>
+  <text x="50" y="62" fill="#e6f1ff" font-family="Segoe UI" font-size="30" font-weight="700">Before / after proof · investable factor falsifier</text>
+  <rect x="50" y="100" width="410" height="740" rx="14" fill="#0d2034" stroke="#8ea6bf"/>
+  <text x="80" y="155" fill="#8ea6bf" font-family="Segoe UI" font-size="22" font-weight="700">BEFORE · 08:51:16Z</text>
+  <text x="80" y="215" fill="#d4e4f3" font-family="Consolas" font-size="17">nodequant-investable-factor</text>
+  <text x="80" y="247" fill="#fb7185" font-family="Consolas" font-size="19">exit 127 · command absent</text>
+  <text x="80" y="315" fill="#d4e4f3" font-family="Segoe UI" font-size="18">No frozen policy</text>
+  <text x="80" y="352" fill="#d4e4f3" font-family="Segoe UI" font-size="18">No evaluator</text>
+  <text x="80" y="389" fill="#d4e4f3" font-family="Segoe UI" font-size="18">No ETF return bytes</text>
+  <text x="80" y="426" fill="#d4e4f3" font-family="Segoe UI" font-size="18">No measured translation</text>
+  <line x1="80" y1="470" x2="430" y2="470" stroke="#17324c"/>
+  <text x="80" y="515" fill="#8ea6bf" font-family="Segoe UI" font-size="15">Source receipt</text>
+  <text x="80" y="548" fill="#d4e4f3" font-family="Consolas" font-size="14">evidence/investable-factor/</text>
+  <text x="80" y="572" fill="#d4e4f3" font-family="Consolas" font-size="14">before.txt</text>
+  <text x="80" y="645" fill="#8ea6bf" font-family="Segoe UI" font-size="15">Change boundary</text>
+  <text x="80" y="678" fill="#d4e4f3" font-family="Segoe UI" font-size="15">One portfolio, one benchmark,</text>
+  <text x="80" y="702" fill="#d4e4f3" font-family="Segoe UI" font-size="15">one preregistered gate.</text>
+  <rect x="490" y="100" width="1060" height="740" rx="14" fill="#091827" stroke="#fb7185"/>
+  <text x="520" y="155" fill="#fb7185" font-family="Segoe UI" font-size="22" font-weight="700">AFTER · VERIFIED FALSIFICATION</text>
+  <image href="after.png" x="515" y="178" width="1010" height="606" preserveAspectRatio="xMidYMid meet"/>
+  <text x="520" y="815" fill="#8ea6bf" font-family="Segoe UI" font-size="14">Independent raw-JSON reconstruction matched panel, returns, bootstrap, folds, turnover, and semantic identity exactly.</text>
+</svg>

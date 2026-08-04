@@ -1,0 +1,63 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_count": 4,
+    "blocker_codes": [
+      "CROSS_STREAM_RECONCILIATION_NOT_IMPLEMENTED",
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH"
+    ],
+    "visible_metrics": {
+      "final equity": "$99,447.58",
+      "realised P&L": "-$518.42",
+      "max drawdown": "-$554.90",
+      "fees": "$34.00",
+      "modelled spread": "$1.03",
+      "modelled slippage": "$0.52"
+    },
+    "unchanged_neighbors": {
+      "heading": "Backtest review",
+      "verdict_badge": "BLOCKED → PAPER_SHADOW",
+      "strategy": "spy-pullback@0.1.0",
+      "curve_count": 1,
+      "footer_text": "curve matched true · unauthorized fills 0 · early entries 0 · price mismatches 0 · 579 events\npolicy sha256:736912f17699cf10a332b7edadb4bd42cd6f337206f64c9955be1bda4a99518d"
+    },
+    "panel_css_box": {
+      "x": 349,
+      "y": 172,
+      "width": 656,
+      "height": 612.359375
+    },
+    "console_errors": [],
+    "artifact": "after.png"
+  }
+}

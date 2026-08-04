@@ -1,0 +1,41 @@
+Robustness-neighborhood AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: one POST /api/kernel/review through the chat composer, HTTP 200
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 2800 CSS px for the complete unobscured panel
+- Robustness client width and scroll width: 622 px / 622 px; no horizontal clipping
+- Zero browser console errors
+- Caption: post-hoc synthetic ablations + neighbors - self-attested access - not promotion evidence
+- Key: F/S/H fast/slow/hold; ep episodes; A/C/T/X attempted/collision/tail/cross-boundary
+
+Visible rows
+- baseline | 20/50/30 | -$310.04 | -$199.68 | -$42.70 | NOT_RUN | 10/5/2/0 | 25/8/0/0
+- without-uptrend | 20/50/30 | -$91.48 | -$95.11 | NOT_RUN | NOT_RUN | 17/2/0/0 | 25/6/0/0
+- without-pullback | 20/50/30 | $318.46 | $158.24 | $132.99 | $52.12 | 10/4/4/2 | 22/0/0/2
+- fast-15 | 15/50/30 | -$190.14 | -$6.46 | NOT_RUN | NOT_RUN | 11/1/0/0 | 25/12/0/1
+- fast-25 | 25/50/30 | -$450.52 | -$193.01 | -$203.10 | -$65.45 | 11/5/4/2 | 25/3/0/0
+- slow-40 | 20/40/30 | -$353.13 | -$199.68 | -$23.37 | NOT_RUN | 11/5/1/0 | 25/8/0/0
+- slow-60 | 20/60/30 | -$310.04 | -$199.68 | -$42.70 | NOT_RUN | 10/5/2/0 | 25/8/0/0
+- hold-15 | 20/50/15 | -$66.93 | -$50.07 | -$6.72 | NOT_RUN | 10/5/2/0 | 25/8/0/0
+- hold-45 | 20/50/45 | -$584.27 | -$309.33 | -$106.93 | NOT_RUN | 10/5/2/0 | 25/8/0/0
+
+Honesty boundaries
+- without-uptrend TEST and H/O render NOT_RUN, never zero.
+- OPENED_HOLDOUT observed for 2/9 variants; the suite is post-hoc and unusable for selection.
+- The suite is self-attested synthetic diagnostic evidence, not promotion evidence.
+
+Authority and parity
+- Baseline exactly matches bound ledger split P&L in micros: DEVELOPMENT -310041297; VALIDATION -199681445; TEST -42701743.
+- suite_hash: sha256:10ca89c5c47aed29ceac03712b6e293fbfddfc54d2a605c5ec4e1abfd3b645dd
+- journal_root_hash: sha256:36be10d76fbcba78efb318f01a047abeb64520a8f2afe0145e23720936a69f83
+- manifest_hash: sha256:a4403529631123c8cff8c74415f656cf1d235a95c8b8726abdf89bef75e707fc
+- bars_hash: sha256:27d753ebebafbb3843e705fbca16da84634ad994b51e091cd54ae7ace3337f7f
+- packet_set_hash: sha256:e64de8ea94397a07f68ed1bf192221d7cd0ecdc4d7d25b9f7c4b5cff539d9207
+
+Unchanged blockers
+- SYNTHETIC_CORPUS
+- MARKET_DATA_CONFORMANCE_NOT_RUN
+- ORACLE_NOT_INDEPENDENT_ENOUGH
+- SPLIT_DISCIPLINE_NOT_PROVEN

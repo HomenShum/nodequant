@@ -269,10 +269,11 @@ the original design:
 - **The panel found a bug the tests could not.** Fees rendered `$0.00` while
   being 3,400 micros. Fixed at the root (a realistic fee), not in the formatter.
 
-**The promotion gate is the honest headline: BLOCKED, on five computed
+**The promotion gate is the honest headline: BLOCKED, on six computed
 grounds** — synthetic corpus, market-data conformance never run, a same-author
-oracle, no spread model, no slippage model. Every kernel check is green and the
-strategy still cannot be promoted. That gap is the product.
+oracle, no spread model, no slippage model, and no independent cross-stream
+execution reconciliation. Every kernel check is green and the strategy still
+cannot be promoted. That gap is the product.
 
 A later pass closed three more: a position was marked only at exit, so it was
 carried at its entry price for the whole hold and drawdown was understated by

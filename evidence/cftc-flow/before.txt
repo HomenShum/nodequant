@@ -1,0 +1,4 @@
+Before: no nodequant-cftc-flow command, no official CFTC positioning manifest, no CFTC-to-return authority boundary, and no event/flow evidence in the research graph.
+
+Probe: `uv run nodequant-cftc-flow --help`
+Observed before implementation: command not found.

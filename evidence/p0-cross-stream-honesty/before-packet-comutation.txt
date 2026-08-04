@@ -1,0 +1,7 @@
+scenario=packet_and_fill_co_mutation
+packet_hash_changed=True
+receipt_acceptable=True
+unauthorized_fills=0
+cross_stream=NOT_RUN
+promotion=PROMOTABLE
+blockers=

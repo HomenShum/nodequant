@@ -1,0 +1,26 @@
+{
+  "version": "nodequant-crypto-rebalancing-invalidation-v1",
+  "created_at_utc": "2026-08-04T11:06:00Z",
+  "status": "INVALID_PROVIDER_OVERLAP_CONTRACT",
+  "policy_hash": "sha256:86930a8df8e264048eeab0bd834a9b01164ab594436331678c5e7c566c6f0e1f",
+  "evaluator_hash": "sha256:52cebb9cc5c0d1f40a372dcae7b9a4a25be71e4b2cb11d7bc085d3226a7ebaa7",
+  "observed": {
+    "products": 5,
+    "raw_files": 35,
+    "unique_days_per_product": 1646,
+    "repeated_chunk_boundary_days_per_product": 6,
+    "conflicting_repeats": 0,
+    "result_file_created": false
+  },
+  "reason": "The official endpoint may return candles preceding a declared start. Adjacent chunks repeated six boundary dates with identical values, while the frozen parser rejected every repetition instead of deduplicating only exact matches.",
+  "post_outcome_diagnostic": {
+    "primary_one_way_bps": 25,
+    "strategy_cagr": 0.10555359017504995,
+    "buy_hold_cagr": 0.0425239702219109,
+    "annual_active_mean": 0.03332510954802893,
+    "active_sharpe": 0.16004417080494787,
+    "fold_annual_means": [0.03475892512441839, 0.03153675760643933],
+    "remove_best_10_active_sharpe": -0.41592775945362653,
+    "authority": "diagnostic_only_not_a_registered_result"
+  }
+}

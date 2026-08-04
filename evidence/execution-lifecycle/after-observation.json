@@ -1,0 +1,182 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "fresh isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "bounded synthetic execution-lifecycle state-machine scenarios"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "caption": "execution lifecycle scenarios · synthetic diagnostic · not broker evidence",
+    "headers": [
+      "scenario",
+      "outcome",
+      "fill",
+      "remain",
+      "latency"
+    ],
+    "visible_rows": [
+      [
+        "full-fill",
+        "COMPLETE",
+        "10",
+        "0",
+        "50ms"
+      ],
+      [
+        "partial-then-fill",
+        "COMPLETE",
+        "10",
+        "0",
+        "130ms"
+      ],
+      [
+        "partial-then-cancel",
+        "CANCELLED_REMAINDER",
+        "3",
+        "7",
+        "100ms"
+      ],
+      [
+        "venue-reject",
+        "REJECTED",
+        "0",
+        "10",
+        "20ms"
+      ],
+      [
+        "order-expiry",
+        "EXPIRED_REMAINDER",
+        "0",
+        "10",
+        "500ms"
+      ],
+      [
+        "latency-budget-breach",
+        "LATENCY_BREACH",
+        "10",
+        "0",
+        "1500ms"
+      ]
+    ],
+    "coverage_line": "partial/cancel/reject/expiry/latency covered · expectation mismatches 0",
+    "suite_note": "suite sha256:65743a15503f29c0e46c21f33956df37ee39cc66387af28806d0e4ce177ab48c",
+    "lifecycle_overflow": {
+      "client_width": 622,
+      "scroll_width": 622,
+      "overflowing": false
+    },
+    "execution_lifecycle_payload": {
+      "observations": [
+        {
+          "scenario_id": "full-fill",
+          "outcome": "COMPLETE",
+          "terminal_event": "ORDER_FILLED",
+          "filled_qty": 10,
+          "remaining_qty": 0,
+          "terminal_latency_ms": 50,
+          "expectation_matched": true
+        },
+        {
+          "scenario_id": "partial-then-fill",
+          "outcome": "COMPLETE",
+          "terminal_event": "ORDER_FILLED",
+          "filled_qty": 10,
+          "remaining_qty": 0,
+          "terminal_latency_ms": 130,
+          "expectation_matched": true
+        },
+        {
+          "scenario_id": "partial-then-cancel",
+          "outcome": "CANCELLED_REMAINDER",
+          "terminal_event": "ORDER_CANCELLED",
+          "filled_qty": 3,
+          "remaining_qty": 7,
+          "terminal_latency_ms": 100,
+          "expectation_matched": true
+        },
+        {
+          "scenario_id": "venue-reject",
+          "outcome": "REJECTED",
+          "terminal_event": "ORDER_REJECTED",
+          "filled_qty": 0,
+          "remaining_qty": 10,
+          "terminal_latency_ms": 20,
+          "expectation_matched": true
+        },
+        {
+          "scenario_id": "order-expiry",
+          "outcome": "EXPIRED_REMAINDER",
+          "terminal_event": "ORDER_EXPIRED",
+          "filled_qty": 0,
+          "remaining_qty": 10,
+          "terminal_latency_ms": 500,
+          "expectation_matched": true
+        },
+        {
+          "scenario_id": "latency-budget-breach",
+          "outcome": "LATENCY_BREACH",
+          "terminal_event": "ORDER_FILLED",
+          "filled_qty": 10,
+          "remaining_qty": 0,
+          "terminal_latency_ms": 1500,
+          "expectation_matched": true
+        }
+      ],
+      "suite_hash": "sha256:65743a15503f29c0e46c21f33956df37ee39cc66387af28806d0e4ce177ab48c",
+      "runner_hash": "sha256:629d819bb185766008bf5cfecf8e55108049b9ef8432c6ec14c6109b4f640ee8",
+      "scenario_count": 6,
+      "expectation_mismatches": 0,
+      "covers_partial_fill": true,
+      "covers_cancel": true,
+      "covers_reject": true,
+      "covers_expiry": true,
+      "covers_latency_breach": true,
+      "evidence_scope": "synthetic_state_machine_diagnostic_not_broker_evidence"
+    },
+    "runner_hash": "sha256:629d819bb185766008bf5cfecf8e55108049b9ef8432c6ec14c6109b4f640ee8",
+    "suite_hash": "sha256:65743a15503f29c0e46c21f33956df37ee39cc66387af28806d0e4ce177ab48c",
+    "coverage_flags": {
+      "partial_fill": true,
+      "cancel": true,
+      "reject": true,
+      "expiry": true,
+      "latency_breach": true
+    },
+    "console_errors": [],
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 3900
+    },
+    "artifact": "after.png",
+    "capture_note": "request, payload, DOM, console, responsive layout, and no-horizontal-overflow verified at 1100x1000; pixel-only height expanded after verification so the complete panel fits without fixed-composer occlusion; width and DPR unchanged"
+  }
+}

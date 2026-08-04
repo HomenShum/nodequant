@@ -1,0 +1,126 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "fresh isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "statistical_caption": "TEST statistical controls · diagnostic status · not promotion evidence",
+    "statistical_rows": [
+      {
+        "check_id": "test_confidence_interval",
+        "data_status": "NOT_RUN",
+        "status": "NOT_RUN",
+        "detail": "TEST has 2 episodes; frozen minimum is 30.",
+        "observation": "observed 2 · required 30"
+      },
+      {
+        "check_id": "candidate_trial_ledger",
+        "data_status": "NOT_RUN",
+        "status": "NOT_RUN",
+        "detail": "no immutable ledger of tried candidates and failures exists.",
+        "observation": "observed NOT_RUN"
+      },
+      {
+        "check_id": "deflated_sharpe",
+        "data_status": "NOT_RUN",
+        "status": "NOT_RUN",
+        "detail": "requires return sampling plus the complete candidate-trial ledger.",
+        "observation": "observed NOT_RUN"
+      },
+      {
+        "check_id": "probability_of_backtest_overfitting",
+        "data_status": "NOT_RUN",
+        "status": "NOT_RUN",
+        "detail": "requires a frozen candidate-by-purged-fold performance matrix.",
+        "observation": "observed NOT_RUN"
+      }
+    ],
+    "statistical_summary": "completed TEST episodes 2 · cross-boundary excluded 0",
+    "statistical_overflow": {
+      "client_width": 622,
+      "scroll_width": 622,
+      "overflowing": false
+    },
+    "statistical_payload": {
+      "split_id": "TEST",
+      "episode_count": 2,
+      "excluded_cross_boundary_episodes": 0,
+      "ledger_root_hash": "sha256:eb88cb9122348a8ab89ad5c028da5faba1dbf9a497c74494c5f3c0184dd20282",
+      "manifest_hash": "sha256:83d6e8055ed5d1101c832da079c1fff735306a31570a6a954b16f0c2a6c54180",
+      "checks": [
+        {
+          "check_id": "test_confidence_interval",
+          "status": "NOT_RUN",
+          "observed": 2,
+          "required": 30,
+          "detail": "TEST has 2 episodes; frozen minimum is 30."
+        },
+        {
+          "check_id": "candidate_trial_ledger",
+          "status": "NOT_RUN",
+          "observed": null,
+          "required": null,
+          "detail": "no immutable ledger of tried candidates and failures exists."
+        },
+        {
+          "check_id": "deflated_sharpe",
+          "status": "NOT_RUN",
+          "observed": null,
+          "required": null,
+          "detail": "requires return sampling plus the complete candidate-trial ledger."
+        },
+        {
+          "check_id": "probability_of_backtest_overfitting",
+          "status": "NOT_RUN",
+          "observed": null,
+          "required": null,
+          "detail": "requires a frozen candidate-by-purged-fold performance matrix."
+        }
+      ],
+      "evidence_scope": "diagnostic_status_not_promotion_evidence"
+    },
+    "authority_binding": {
+      "review_ledger_root_hash": "sha256:eb88cb9122348a8ab89ad5c028da5faba1dbf9a497c74494c5f3c0184dd20282",
+      "promotion_manifest_hash": "sha256:83d6e8055ed5d1101c832da079c1fff735306a31570a6a954b16f0c2a6c54180",
+      "policy_hash": "sha256:ac00f76ae80f1fc43a9623b3203857356e85c932b70d0d749a81606c0d28e701"
+    },
+    "console_errors": [],
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 2400
+    },
+    "artifact": "after.png",
+    "capture_note": "request, DOM, console, responsive layout, and no-horizontal-overflow verified at 1100x1000; pixel-only height expanded after verification so the complete panel fits without fixed-composer occlusion; width and DPR unchanged"
+  }
+}

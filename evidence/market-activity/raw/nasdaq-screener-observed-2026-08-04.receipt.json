@@ -1,0 +1,7 @@
+{
+  "http_status": 200,
+  "provider_date_utc": "2026-08-04T22:18:16Z",
+  "raw_sha256": "sha256:117e803e1474e12696d9ee6f67fe2e3050bccf493b1bd521f34b5873970770ab",
+  "retrieved_at_utc": "2026-08-04T22:18:17.272923Z",
+  "url": "https://api.nasdaq.com/api/screener/stocks?tableonly=true&limit=10000&download=true"
+}

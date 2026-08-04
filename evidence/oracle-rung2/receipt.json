@@ -1,0 +1,30 @@
+{
+  "version": "nodequant-independent-oracle-rung2-receipt-v1",
+  "created_at_utc": "2026-08-04T10:12:28.9409431Z",
+  "status": "SEPARATE_AGENT_REPLAY_MATCHED_PROVENANCE_NOT_MACHINE_VERIFIABLE",
+  "task": "/root/oracle_rung2",
+  "inputs": {
+    "manifest": "sha256:14438e51f6a3774f21a7c07925c4bc71162bc88a87212daf28989aa5c5d8b38a",
+    "bars": "sha256:7ecd94bbeb1505b556bc58a6a37ff9871c82258c1d8daf3c31a6372f261bb9ac",
+    "output_schema": "sha256:530597ac59d5325ca3a16bab6fbcabad43c5456ec5156e8418cbfb8fd231e630"
+  },
+  "implementation": {
+    "language": "PowerShell 7 and .NET standard library only",
+    "replay": "sha256:37263ea4af56250ff08073905553fce91f55c2d1966ddb092036ab45df63f7cd",
+    "tests": "sha256:36ed1bbd26492d4bd6ac1ce5b02c83d5445063bbac21c1e00ef67b0f018afaca",
+    "authorship": "sha256:936f805dcf5d78404296eedaa248231a5b5812851274532b1e4bbfeb4a0adaa2"
+  },
+  "output": {
+    "sha256": "sha256:da07e2d0c685524bc3d1f604c647c526c9766ae2f44a3db237834f21a16060d5",
+    "signals": 25,
+    "semantic_equal_to_prior_replay": true
+  },
+  "verification": {
+    "scenario_groups": 5,
+    "agent_test": "PASS",
+    "forbidden_project_reference_search": "PASS",
+    "promotion_and_oracle_tests": "PASS"
+  },
+  "promotion_eligible": false,
+  "limitation": "Fresh-task and bounded-read provenance was observed by the current orchestrator but is not independently machine-verifiable from local artifacts."
+}

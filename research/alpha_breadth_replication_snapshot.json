@@ -1,0 +1,15 @@
+{
+  "version": "nodequant-alpha-replication-snapshot-v1",
+  "captured_after_selection": true,
+  "policy_hash": "sha256:4e2ac00927f9d24e3ae7a1dbceae4d964a463bf62c1db93a1479ae11022b28ec",
+  "selection_seal_hash": "sha256:22aeaaa04678e138d362cb90e98b7d578f40b98234c5d49aeb147445c66e7828",
+  "replication_raw_hashes": {
+    "BIL": "sha256:dd6eea4ddbffaccfca48c72262e96a375a678984c67593a780f4d8173dc7bf16",
+    "DBC": "sha256:5bddd6e84a8c50bb1cef672b9decf5076691923e16cc35cd2a685b1c0e4887a7",
+    "EEM": "sha256:0485b33a09bc56d12021888399001045a749fd09262fb6388e01dd8fc1180e26",
+    "EFA": "sha256:643baf65a071a7c95a276e97c526decb0dd4f6295a7242656915f40f35745a93",
+    "HYG": "sha256:c3171d2257ea828a3bdc01c2972982f4d2aed88b0bf3dc6ddfcdf601d81fa58e",
+    "VNQ": "sha256:3fbd5958ecc0ae4e591b1f0bc1393f7c6ab92092f607cc6f3a56e850d2cfdb13"
+  },
+  "replication_panel_hash": "sha256:d11f51f8c93c4e13fb0b608e397dd485b6d992ee12ba79481064ced779e836ab"
+}

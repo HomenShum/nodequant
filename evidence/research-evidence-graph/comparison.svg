@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">
+  <rect width="1800" height="1050" fill="#07111f"/>
+  <text x="50" y="58" fill="#e6f1ff" font-family="Segoe UI" font-size="30" font-weight="700">Research evidence graph · before / current verified state</text>
+  <text x="50" y="91" fill="#8ea6bf" font-family="Segoe UI" font-size="16">Real route 404 before · 146 content-addressed nodes / 150 typed edges after · contradiction attention</text>
+  <rect x="45" y="120" width="520" height="870" rx="14" fill="#0d2034" stroke="#8ea6bf"/>
+  <text x="72" y="165" fill="#8ea6bf" font-family="Segoe UI" font-size="22" font-weight="700">BEFORE · HTTP 404</text>
+  <image href="before.png" x="72" y="195" width="466" height="324" preserveAspectRatio="xMidYMid meet"/>
+  <text x="72" y="570" fill="#d4e4f3" font-family="Segoe UI" font-size="18">No route</text>
+  <text x="72" y="608" fill="#d4e4f3" font-family="Segoe UI" font-size="18">No temporal projection</text>
+  <text x="72" y="646" fill="#d4e4f3" font-family="Segoe UI" font-size="18">No evidence traversal</text>
+  <text x="72" y="684" fill="#d4e4f3" font-family="Segoe UI" font-size="18">No contradiction surface</text>
+  <text x="72" y="755" fill="#8ea6bf" font-family="Consolas" font-size="14">captured before implementation</text>
+  <rect x="600" y="120" width="1155" height="870" rx="14" fill="#091827" stroke="#2dd4bf"/>
+  <text x="630" y="165" fill="#2dd4bf" font-family="Segoe UI" font-size="22" font-weight="700">CURRENT · HTTP 200 · ZERO CONSOLE ERRORS</text>
+  <image href="after.png" x="630" y="190" width="1095" height="760" preserveAspectRatio="xMidYMid meet"/>
+  <text x="630" y="970" fill="#8ea6bf" font-family="Segoe UI" font-size="14">Exact search 1/0 · impossible search explicit empty state · earliest cutoff 1/0 · graph root 0b8241a505b2…</text>
+</svg>

@@ -1,0 +1,65 @@
+{
+  "provenance": {
+    "artifact": "before.png",
+    "reused_from": "../execution-cost-authority/after.png",
+    "sha256": "04F0B2B021E6861A0171726FDEF9630E428A293E9067FA29C9AE28CB8804A4B5",
+    "base_pixels_recaptured": false
+  },
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "trigger": "review the backtest",
+    "request_count": 1,
+    "response_status": 200,
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "before": {
+    "verdict": "BLOCKED",
+    "blocker_count": 4,
+    "blocker_codes": [
+      "CROSS_STREAM_RECONCILIATION_NOT_IMPLEMENTED",
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH"
+    ],
+    "event_count": 579,
+    "visible_metrics": {
+      "final_equity": "$99,447.58",
+      "realised_pnl": "-$518.42",
+      "max_drawdown": "-$554.90",
+      "fees": "$34.00",
+      "modelled_spread": "$1.03",
+      "modelled_slippage": "$0.52"
+    },
+    "policy_hash": "sha256:736912f17699cf10a332b7edadb4bd42cd6f337206f64c9955be1bda4a99518d",
+    "console_errors": []
+  },
+  "boundaries": [
+    {
+      "label": "CHANGE A · reconciliation blocker",
+      "before": "CROSS_STREAM_RECONCILIATION_NOT_IMPLEMENTED is visible",
+      "after": "only that blocker disappears; synthetic, conformance and oracle blockers remain"
+    },
+    {
+      "label": "CHANGE B · journal receipt footer",
+      "before": "no journal reconciliation status is visible",
+      "after": "journal reconciliation PASS and zero named mismatches are visible"
+    }
+  ],
+  "unchanged_neighbors": [
+    "header",
+    "BLOCKED to PAPER_SHADOW badge",
+    "strategy identity",
+    "equity and drawdown curve",
+    "all six summary metrics",
+    "579 event count",
+    "policy hash",
+    "surrounding chat chrome"
+  ]
+}

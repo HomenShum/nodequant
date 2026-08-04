@@ -1,0 +1,31 @@
+20:
+21:- 20 commits on `main`, single branch, tree clean.
+22:- **504 passed, 29 skipped.** `(cd web && npx tsc --noEmit)` clean.
+23:  `node web/lib/money.mjs` runs.
+24:- Proof Kernel v0 (`decision-packet`) and the review surface (`backtest-review`)
+25:  both render in the chat UI and are DOM-verified in both pass and fail states.
+26:- The promotion gate returns **BLOCKED on five grounds**, deliberately. That is
+27:  the product, not a defect: every kernel check is green and the strategy still
+28:  cannot be promoted.
+29:
+30:```bash
+130:## Known-open, honestly
+131:
+132:- **Cross-stream reconciliation is `NOT_RUN`.** The blind flat-P&L scalar was
+133:  removed from the receipt and promotion policy. The current packet authority now
+134:  freezes the kernel's one-unit quantity, but execution authenticity still needs
+135:  the independent order-lifecycle stream above.
+136:- **Two load-sensitive tests.** `test_attack1b_l2_store_is_tenant_namespaced` and
+266:  no cash movement passed both the identity and the differential oracle, because
+267:  both reducers read the same fabricated event. Event-consistency and
+268:  negative-position checks close it.
+269:- **The panel found a bug the tests could not.** Fees rendered `$0.00` while
+270:  being 3,400 micros. Fixed at the root (a realistic fee), not in the formatter.
+271:
+272:**The promotion gate is the honest headline: BLOCKED, on five computed
+273:grounds** — synthetic corpus, market-data conformance never run, a same-author
+274:oracle, no spread model, no slippage model. Every kernel check is green and the
+275:strategy still cannot be promoted. That gap is the product.
+276:
+277:A later pass closed three more: a position was marked only at exit, so it was
+278:carried at its entry price for the whole hold and drawdown was understated by

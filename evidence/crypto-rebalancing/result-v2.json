@@ -1,0 +1,148 @@
+{
+  "cost_sensitivities": {
+    "0": {
+      "active": {
+        "annual_mean": 0.05360884351259258,
+        "annual_sharpe": 0.2836097969200593,
+        "annual_volatility": 0.18902324283142882,
+        "days": 1644,
+        "positive_fraction": 0.5237226277372263
+      },
+      "annual_one_way_turnover": 0.7616505946824128,
+      "buy_hold_cagr": 0.02693429667132108,
+      "strategy_cagr": 0.11275564456113174
+    },
+    "25": {
+      "active": {
+        "annual_mean": 0.051705981256289724,
+        "annual_sharpe": 0.27353811785397425,
+        "annual_volatility": 0.18902660317306297,
+        "days": 1644,
+        "positive_fraction": 0.5231143552311436
+      },
+      "annual_one_way_turnover": 0.7616505946824128,
+      "buy_hold_cagr": 0.02693429667132108,
+      "strategy_cagr": 0.11066323049021509
+    },
+    "50": {
+      "active": {
+        "annual_mean": 0.04980311899998684,
+        "annual_sharpe": 0.26346236561072756,
+        "annual_volatility": 0.18903314287237602,
+        "days": 1644,
+        "positive_fraction": 0.5225060827250608
+      },
+      "annual_one_way_turnover": 0.7616505946824128,
+      "buy_hold_cagr": 0.02693429667132108,
+      "strategy_cagr": 0.10857409483715563
+    }
+  },
+  "created_at_utc": "2026-08-04T11:09:19.092406+00:00",
+  "data": {
+    "common_days": 1645,
+    "first_open": "2021-07-01",
+    "last_open": "2025-12-31",
+    "products": [
+      "DOGE-USD",
+      "XLM-USD",
+      "ATOM-USD",
+      "ETC-USD",
+      "ZEC-USD"
+    ]
+  },
+  "evaluator_hash": "sha256:600a94f00d54a05b236506a62d957b9b2fe9b1d701bd50ebff115ab267156b57",
+  "limitations": [
+    "Current-availability fixed universe creates survivorship and listing-selection bias.",
+    "Coinbase daily opens are first trades, not executable quotes.",
+    "Fees, spread, slippage, taxes, custody, staking yield, capacity and delistings are not fully represented."
+  ],
+  "policy_hash": "sha256:f7dc55096fbe29dc46e0e3587910aae5f4504849f7d4129632a505fc518a120b",
+  "primary": {
+    "active": {
+      "annual_mean": 0.051705981256289724,
+      "annual_sharpe": 0.27353811785397425,
+      "annual_volatility": 0.18902660317306297,
+      "days": 1644,
+      "positive_fraction": 0.5231143552311436
+    },
+    "annual_active_mean_block_onesided_95pct_lower": -0.10109003109867201,
+    "annual_one_way_turnover": 0.7616505946824128,
+    "buy_hold_cagr": 0.02693429667132108,
+    "checks": {
+      "bootstrap_lower_positive": false,
+      "minimum_positive_folds": true,
+      "remove_best_active_sharpe_positive": false
+    },
+    "folds": {
+      "2021H2-2023": {
+        "annual_mean": 0.0761167833413962,
+        "annual_sharpe": 0.4899598327035027,
+        "annual_volatility": 0.15535310909345088,
+        "days": 913,
+        "positive_fraction": 0.5169769989047097
+      },
+      "2024-2025": {
+        "annual_mean": 0.02121752393248367,
+        "annual_sharpe": 0.09463902667045848,
+        "annual_volatility": 0.22419423232621546,
+        "days": 731,
+        "positive_fraction": 0.53077975376197
+      }
+    },
+    "positive_folds": 2,
+    "remove_best_10_active_sharpe": -0.37900926534141655,
+    "strategy_cagr": 0.11066323049021509
+  },
+  "promotion_ceiling": "SURVIVORSHIP_BIASED_PUBLIC_CRYPTO_ALLOCATION_DIAGNOSTIC_ONLY",
+  "promotion_eligible": false,
+  "raw_hashes": {
+    "ATOM-USD": [
+      "sha256:0b4354a7ae392d9eb67ffc38edf785863505b4a14c87f63bff07e31c68422ff1",
+      "sha256:d75d88204aba846f2f4a299a5f30c19811272a35bb734f1fea61ed801e3d57f5",
+      "sha256:c6bfd904a8b8f1fdfc4dbc8f72cb373c91f5e5f24edcdb6e278a8be0d0ed0c8d",
+      "sha256:a3003d584ea81bd8c3c4c9ac0889904ea19414d940b70c4e96bd847a06ea5c3d",
+      "sha256:bd2f298044902b3d8567ae7d255027f17fc61f8204828b3942e8959912a477fd",
+      "sha256:22ad763cdce962bcd6330b4ab525865db650fb8d3365370d61a5825a5ae82eb1",
+      "sha256:79dda9d852be5ada20357eb8342e5994a092513ccda21e72f4b6a60442be0824"
+    ],
+    "DOGE-USD": [
+      "sha256:13c53f5b616d8f9b7d2baa79f4d9b95a4e5b525b18e74ae6a94e0919726ed2fb",
+      "sha256:027e889bc3af087274ef2a966a062f587fdd4e3e373869372be3ceaac32204cb",
+      "sha256:09676e9b76049f52d8e5cd9600c969df315684caa9a97ec727c040911bfdc9a0",
+      "sha256:c3376ba303da8c6896774547491b8c8eb0afc2248ba68e5dbd0e32009421f587",
+      "sha256:7790586da5fcb657fa8549ae49c0b09a97875dd82ae2c705ca567df7bf59b1a8",
+      "sha256:44258d38ef69a83d0fdcc010dc28d3e68fa3cb3884c6007ae19e0052e14463c4",
+      "sha256:b6c251813a4e980141f9ba0784fa8ac487e4e31b871b48729b5ec4732f6b7e1d"
+    ],
+    "ETC-USD": [
+      "sha256:fe8d8c43a7bb47dbf7a3698d7272938f97520dfb342d27e1aec5b926dcb0857f",
+      "sha256:c2c9cf426de2cf574118655fb8612a46d5e1db15bcd0f08ad7fb1b8342536629",
+      "sha256:321e46d29f500cf563da88122bc135b4b4bb592f1e0fb98a00ec571dd47208bf",
+      "sha256:0b9685b706aefd8375e5ad32f3ae1d9869d42dd13efceee7093ef641bd24e38b",
+      "sha256:9778ea7f65402b0a56073755ed8b92ead5667a5c1d5b5f5e9c0e1fa72487e02b",
+      "sha256:50e195277ed10110b8ffb215bb5cf47ebf578cad77d0196b5269987e811542c7",
+      "sha256:e3d93c571d799a69b88ff8b78bebcec3afd19788ded5746e83a067c603b18623"
+    ],
+    "XLM-USD": [
+      "sha256:6772f861bae8ada416a21dcb4ddca269e4b441b8c0844de339c9b7625d61e9d0",
+      "sha256:73d21bbad27a3b149db1c677e73c9c98bebba5603928035ad2dc7cf4247ae9a2",
+      "sha256:20032cc874c1cf1cbfa6ab53fa9a7adb6f8753ba674b74d55940acef4d7911b9",
+      "sha256:5f9207ea901cc6cdb08b8015ae46c6bf88d97263c594b30ce57efe2cec249bdf",
+      "sha256:95dad37037fd10f586a148eb10c63cee6e4e1255d8d07047b6d5f2527a97a562",
+      "sha256:aa63135af4fc47ade9534f8c3d942be31d3bcacb56e7b7d7173bc481d6c60f2d",
+      "sha256:268454000cbca6b007b1232ec514015604077a8ef049dbc993669093bdf93d2d"
+    ],
+    "ZEC-USD": [
+      "sha256:e8272e70746d3a056b55bc3c8d7c6acf5af341aac0af7f98ba8e4e8bfeefc05a",
+      "sha256:e0821157f1c1a859bcf23a7b024f48c5098536857611b8f10d645ffc812ae226",
+      "sha256:5c506d41c9ff487ac053f9931ab5d1e9783a6d7bd3c07cea883501c8c4a42603",
+      "sha256:24e05d4a2aab3a2c478c49aaa6fd0fa5cfdb5ffd10c36ebcce0ae0842ac93a23",
+      "sha256:2352b96887d70a2e2542e5b8fe23dcf7f06e143998bcb59e325a9b979f520016",
+      "sha256:04fdef81dd1031de3945501681aeca8127cc661985e215874d9490487d36933a",
+      "sha256:ed56a6543e1cd562522d997626da92a10f8f481e589da7598209efb386a2ddf7"
+    ]
+  },
+  "result_hash": "sha256:e82a5319893ca2015b864c5ab0cfa601f3cbdf3c6d2ae78ec4ab99cae5474ec9",
+  "verdict": "CRYPTO_REBALANCING_PREMIUM_FAILS",
+  "version": "nodequant-crypto-rebalancing-result-v1"
+}

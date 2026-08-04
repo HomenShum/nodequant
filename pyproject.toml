@@ -18,6 +18,21 @@ dependencies = [
 
 [project.scripts]
 trialscope = "app.cli:main"
+nodequant-research = "app.research_loop:main"
+nodequant-science = "app.scientific_events:main"
+nodequant-alpha = "app.real_alpha:main"
+nodequant-alpha-breadth = "app.alpha_breadth:main"
+nodequant-prospective-alpha = "app.prospective_alpha:main"
+nodequant-prospective-settlement = "app.prospective_settlement:main"
+nodequant-crypto-seasonality = "app.crypto_seasonality:main"
+nodequant-factor-premia = "app.factor_premia:main"
+nodequant-investable-factor = "app.investable_factor:main"
+nodequant-insider-cluster = "app.insider_cluster:main"
+nodequant-cftc-flow = "app.cftc_flow:main"
+nodequant-fomc-drift = "app.fomc_drift:main"
+nodequant-research-graph = "app.research_evidence_graph:main"
+nodequant-crypto-rebalancing = "app.crypto_rebalancing:main"
+nodequant-market-map = "app.market_activity_map:main"
 
 [project.optional-dependencies]
 dev = [

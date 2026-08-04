@@ -1,0 +1,38 @@
+{
+  "version": "nodequant-insider-cluster-policy-v1",
+  "frozen_at_utc": "2026-08-04T09:37:35.5311398Z",
+  "purpose": "one_primary_sec_form4_cluster_purchase_calendar_time_falsifier",
+  "claim_boundary": "public_event_signal_diagnostic_not_execution_or_promotion_evidence",
+  "evaluator_hash": "sha256:95d0b64db6e875e6eab0315f6c8736c77a154ed74561b0c4e9e7953631f09f49",
+  "sources": [
+    {"id": "sec-insider-data", "url": "https://www.sec.gov/data-research/sec-markets-data/insider-transactions-data-sets", "claim": "Official quarterly as-filed flattened Forms 3, 4 and 5 data from January 2006 onward."},
+    {"id": "sec-insider-schema", "url": "https://www.sec.gov/files/insider_transactions_readme.pdf", "claim": "Official table keys, types, filing-date semantics and transaction code P definition."},
+    {"id": "jeng-metrick-zeckhauser", "url": "https://doi.org/10.3386/w6913", "claim": "Rolling purchase portfolios avoid long-horizon event-study inference defects and historically earned positive abnormal returns."},
+    {"id": "lakonishok-lee", "url": "https://doi.org/10.1093/rfs/14.1.79", "claim": "Historical informativeness is concentrated in insider purchases rather than sales."},
+    {"id": "overlap-falsifier", "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6883638", "claim": "Recent direct warning that overlapping cluster-buy observations can inflate conventional significance."}
+  ],
+  "sec_provider": {"host": "www.sec.gov", "user_agent": "nodequant-research HomenShum github.com/HomenShum/nodequant", "timeout_seconds": 60, "maximum_response_bytes": 20000000, "maximum_uncompressed_member_bytes": 200000000},
+  "sec_data": {
+    "state_at_policy_freeze": "INDEX_AND_SCHEMA_READ_ARCHIVE_BYTES_UNREAD",
+    "sources": [
+      {"id": "2024q1", "url": "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2024q1_form345.zip", "filename": "2024q1_form345.zip"},
+      {"id": "2024q2", "url": "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2024q2_form345.zip", "filename": "2024q2_form345.zip"},
+      {"id": "2024q3", "url": "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2024q3_form345.zip", "filename": "2024q3_form345.zip"},
+      {"id": "2024q4", "url": "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2024q4_form345.zip", "filename": "2024q4_form345.zip"},
+      {"id": "2025q1", "url": "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2025q1_form345.zip", "filename": "2025q1_form345.zip"},
+      {"id": "2025q2", "url": "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2025q2_form345.zip", "filename": "2025q2_form345.zip"},
+      {"id": "2025q3", "url": "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2025q3_form345.zip", "filename": "2025q3_form345.zip"},
+      {"id": "2025q4", "url": "https://www.sec.gov/files/structureddata/data/insider-transactions-data-sets/2025q4_form345.zip", "filename": "2025q4_form345.zip"}
+    ]
+  },
+  "signal": {"document_type": "4", "transaction_code": "P", "acquired_disposed": "A", "allowed_security_title_terms": ["common stock", "common shares", "ordinary shares"], "cluster_calendar_days": 30, "minimum_distinct_owners": 2, "minimum_combined_purchase_usd": 250000, "issuer_cooldown_calendar_days": 90, "allowed_symbol_regex": "[A-Z0-9.-]{1,10}", "maximum_events": 1000},
+  "price_provider": {"host": "query1.finance.yahoo.com", "user_agent": "nodequant-research/0.1", "timeout_seconds": 30, "maximum_response_bytes": 2000000},
+  "price_data": {"state_at_policy_freeze": "UNREAD", "start": "2024-01-01", "end_exclusive": "2026-08-01", "maximum_symbols": 250, "maximum_rows_per_symbol": 800},
+  "portfolio": {"candidate_id": "sec_form4_cluster_purchase_2x30d_250k", "benchmark_symbol": "SPY", "entry": "first_common_adjusted_close_strictly_after_sec_filing_date", "holding_sessions": 63, "construction": "calendar_time_equal_weight_active_event_sleeves_cash_when_empty", "shorting": false, "leverage": false},
+  "costs": {"primary_one_way_bps": 10, "one_way_bps_sensitivity": [0, 10, 25], "scope": "entry_and_exit_each_event_sleeve_only"},
+  "folds": [{"id": "2024", "start": "2024-01-01", "end": "2024-12-31"}, {"id": "2025", "start": "2025-01-01", "end": "2025-12-31"}],
+  "bootstrap": {"method": "circular_moving_block_percentile", "seed": 240804, "samples": 10000, "block_days": 20, "one_sided_confidence": 0.95},
+  "gate": {"minimum_events": 30, "minimum_unique_issuers": 15, "minimum_event_coverage": 0.9, "minimum_positive_folds": 2, "remove_best_days": 10},
+  "trial_accounting": {"candidate_count": 1, "parameter_search": false},
+  "promotion_ceiling": "PUBLIC_EVENT_DIAGNOSTIC_NOT_POINT_IN_TIME_UNIVERSE_EXECUTION_OR_PROMOTION_EVIDENCE"
+}

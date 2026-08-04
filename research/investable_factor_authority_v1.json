@@ -1,0 +1,16 @@
+{
+  "version": "nodequant-investable-factor-authority-v1",
+  "authority": "external_notion_preregistration",
+  "notion_page": "https://app.notion.com/p/3b09539b8f9a81a0a3d8c401d02e8480",
+  "notion_section": "19. Investable factor-proxy preregistration — 2026-08-04",
+  "notion_refetch_as_of_utc": "2026-08-04T08:56:47.511Z",
+  "policy_hash": "sha256:90d50e7f96ceceb791ba3f3574d7fea57a7c10393143af0a1569b80380034aa2",
+  "evaluator_hash": "sha256:ccf8f175ea31c81a5489c1093fad55b9f2a72245b86319585add6b9be12eeb1e",
+  "candidate_id": "equal_mtum_qual_vlue",
+  "candidate_count": 1,
+  "benchmark": "SPY",
+  "gate": "bootstrap_lower_positive_and_three_of_four_folds_positive_and_remove_best_twelve_sharpe_positive",
+  "return_bytes_state": "UNREAD_AT_AUTHORITY_FREEZE",
+  "authorized_action": "fetch_exactly_four_frozen_yahoo_chart_responses_once_then_evaluate_without_search",
+  "promotion_eligible": false
+}

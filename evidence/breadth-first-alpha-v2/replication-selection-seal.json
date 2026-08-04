@@ -1,0 +1,170 @@
+{
+  "candidate_ids": [
+    "absolute_trend__lookback_days-84",
+    "composite_momentum__top_n-3",
+    "correlation_gated_inverse_volatility__volatility_days-63_correlation_days-126_maximum_correlation_bps-5000",
+    "dual_momentum__lookback_days-63_top_n-3",
+    "halloween__window-november_april",
+    "inverse_volatility__volatility_days-63",
+    "inverse_volatility_trend__lookback_days-63_volatility_days-42",
+    "moving_average__lookback_days-126",
+    "option_expiration_week__week_offset-1",
+    "relative_momentum__lookback_days-378_top_n-3",
+    "short_term_reversal__lookback_days-5_top_n-2",
+    "turn_of_month__window-turn",
+    "volatility_managed_equal__volatility_days-21_target_volatility_bps-1200",
+    "synthesis__correlation_gated_inverse_volatility__inverse_volatility"
+  ],
+  "candidates": [
+    {
+      "family": "absolute_trend",
+      "id": "absolute_trend__lookback_days-84",
+      "lookback_days": 84,
+      "rule": "absolute_trend",
+      "source_ids": [
+        "moskowitz-ooi-pedersen-tsmom"
+      ]
+    },
+    {
+      "family": "composite_momentum",
+      "id": "composite_momentum__top_n-3",
+      "rule": "composite_momentum",
+      "source_ids": [
+        "moskowitz-ooi-pedersen-tsmom",
+        "antonacci-optimal-momentum"
+      ],
+      "top_n": 3
+    },
+    {
+      "correlation_days": 126,
+      "family": "correlation_gated_inverse_volatility",
+      "id": "correlation_gated_inverse_volatility__volatility_days-63_correlation_days-126_maximum_correlation_bps-5000",
+      "maximum_correlation_bps": 5000,
+      "rule": "correlation_gated_inverse_volatility",
+      "source_ids": [
+        "baltas-trend-risk-parity"
+      ],
+      "volatility_days": 63
+    },
+    {
+      "family": "dual_momentum",
+      "id": "dual_momentum__lookback_days-63_top_n-3",
+      "lookback_days": 63,
+      "rule": "dual_momentum",
+      "source_ids": [
+        "antonacci-optimal-momentum",
+        "clare-trend-momentum"
+      ],
+      "top_n": 3
+    },
+    {
+      "family": "halloween",
+      "id": "halloween__window-november_april",
+      "rule": "halloween",
+      "source_ids": [
+        "bouman-jacobsen-halloween"
+      ],
+      "window": "november_april"
+    },
+    {
+      "family": "inverse_volatility",
+      "id": "inverse_volatility__volatility_days-63",
+      "rule": "inverse_volatility",
+      "source_ids": [
+        "lohre-diversifying-risk-parity"
+      ],
+      "volatility_days": 63
+    },
+    {
+      "family": "inverse_volatility_trend",
+      "id": "inverse_volatility_trend__lookback_days-63_volatility_days-42",
+      "lookback_days": 63,
+      "rule": "inverse_volatility_trend",
+      "source_ids": [
+        "baltas-trend-risk-parity"
+      ],
+      "volatility_days": 42
+    },
+    {
+      "family": "moving_average",
+      "id": "moving_average__lookback_days-126",
+      "lookback_days": 126,
+      "rule": "moving_average",
+      "source_ids": [
+        "faber-tactical-asset-allocation"
+      ]
+    },
+    {
+      "family": "option_expiration_week",
+      "id": "option_expiration_week__week_offset-1",
+      "rule": "option_expiration_week",
+      "source_ids": [
+        "stivers-sun-option-expiration"
+      ],
+      "week_offset": 1
+    },
+    {
+      "family": "relative_momentum",
+      "id": "relative_momentum__lookback_days-378_top_n-3",
+      "lookback_days": 378,
+      "rule": "relative_momentum",
+      "source_ids": [
+        "jegadeesh-titman-momentum",
+        "antonacci-optimal-momentum"
+      ],
+      "top_n": 3
+    },
+    {
+      "family": "short_term_reversal",
+      "id": "short_term_reversal__lookback_days-5_top_n-2",
+      "lookback_days": 5,
+      "rule": "short_term_reversal",
+      "source_ids": [
+        "jegadeesh-short-term-reversal"
+      ],
+      "top_n": 2
+    },
+    {
+      "family": "turn_of_month",
+      "id": "turn_of_month__window-turn",
+      "rule": "turn_of_month",
+      "source_ids": [
+        "mcconnell-xu-turn-of-month"
+      ],
+      "window": "turn"
+    },
+    {
+      "family": "volatility_managed_equal",
+      "id": "volatility_managed_equal__volatility_days-21_target_volatility_bps-1200",
+      "rule": "volatility_managed_equal",
+      "source_ids": [
+        "moreira-muir-volatility-managed",
+        "cederburg-volatility-managed-oos"
+      ],
+      "target_volatility_bps": 1200,
+      "volatility_days": 21
+    },
+    {
+      "family": "synthesis",
+      "id": "synthesis__correlation_gated_inverse_volatility__inverse_volatility",
+      "parents": [
+        "correlation_gated_inverse_volatility__volatility_days-63_correlation_days-126_maximum_correlation_bps-5000",
+        "inverse_volatility__volatility_days-63"
+      ],
+      "rule": "equal_weight_parent_positions"
+    }
+  ],
+  "discovery_panel_hash": "sha256:6c27e1c2b0865c82b4825f4e6d0391e2ffbbab3a2b5cdea2cf90ce9081499ae0",
+  "discovery_trial_count": 101,
+  "seal_hash": "sha256:22aeaaa04678e138d362cb90e98b7d578f40b98234c5d49aeb147445c66e7828",
+  "selection_rule": {
+    "maximum_syntheses_for_replication": 3,
+    "minimum_floor_improvement": 0.05,
+    "minimum_folds_beating_baseline": 4,
+    "objective": "minimum_of_fold_sharpe_25th_percentile_25bps_sharpe_and_remove_best_days_sharpe",
+    "remove_best_days": 5,
+    "stress_one_way_bps": 25,
+    "tie_break": "lexicographic_candidate_id"
+  },
+  "version": "nodequant-alpha-replication-selection-v1"
+}

@@ -18,12 +18,15 @@ tautological. Without it you will re-derive decisions or "fix" a scope choice.
 
 ## State as of 2026-08-03
 
-- 20 commits on `main`, single branch, tree clean.
-- **504 passed, 29 skipped.** `(cd web && npx tsc --noEmit)` clean.
+- 20 commits on `main`, single branch. The cross-stream honesty audit described
+  below is a local working-tree patch; it is deliberately not committed or pushed
+  without explicit publication authority.
+- **658 passed, 29 skipped** on the final full run (8m03s).
+  `(cd web && npm run build)` clean.
   `node web/lib/money.mjs` runs.
 - Proof Kernel v0 (`decision-packet`) and the review surface (`backtest-review`)
   both render in the chat UI and are DOM-verified in both pass and fail states.
-- The promotion gate returns **BLOCKED on five grounds**, deliberately. That is
+- The promotion gate returns **BLOCKED on four grounds**, deliberately. That is
   the product, not a defect: every kernel check is green and the strategy still
   cannot be promoted.
 
@@ -50,14 +53,21 @@ bars -> packets -> ledger events -> equity curve -> summary -> promotion gate
 | `app/ledger.py` | Integer-microdollar append-only event ledger, equity reduction, `CurveReductionReceipt` |
 | `app/promotion.py` | The promotion gate and its frozen policy |
 | `app/main.py` | `/api/kernel/chat`, `/api/kernel/review` (SSE, AI SDK v7 frames) |
-| `web/components/nodequant-panels.tsx` | The two renderers |
+| `app/experiment.py`, `robustness.py`, `trial_ledger.py`, `walk_forward.py` | Frozen diagnostic experiment batch and multiple-testing inputs |
+| `app/research_graph.py`, `research_evaluator.py`, `research_loop.py` | Bounded content-addressed research DAG, independent diagnostic score and resumable CLI |
+| `app/scientific_events.py` | Versioned scientific clocks, exact source-span receipts and deterministic registry-version replay |
+| `app/execution_lifecycle.py`, `option_market.py`, `source_compiler.py` | Honest synthetic/external readiness boundaries |
+| `app/authority_panels.py` | Exact ten strict panel schemas and research-tier quarantine |
+| `web/components/nodequant-panels.tsx` | All ten closed renderers plus the review scoreboards |
 | `web/lib/money.mjs` | Money formatting + its invariant |
 
 Everything under `app/ctgov.py`, `executor.py`, `entities.py`, `neuromap.py`,
 `planner.py`, `models.py` and `web/components/trialscope-panels.tsx` is the
-**TrialScope** lineage — a prior query-to-visualisation service. It still runs and
-is still tested. It comes out with the domain cut, deliberately not before, so
-the app keeps working while the vocabulary is replaced one panel at a time.
+**TrialScope** lineage — a prior query-to-visualisation service. It still runs,
+is still tested and remains available at its explicit API route, but its legacy
+panels (including freeform) are no longer mounted in the NodeQuant runtime. The
+default UI proxies `/api/nodequant-chat` to `/api/kernel/review` and mounts
+exactly the ten NodeQuant panel types.
 
 ## The traps — read these before writing a check
 
@@ -100,11 +110,13 @@ Not oversights — scope decisions, each of which blocks promotion by design:
 - **Synthetic fixture, not market data.** `fixture_bars()` is a closed sine
   formula. It proves the verifier, not SPY. No gaps, halts, splits, late prints
   or revisions.
-- **The oracle is differential, not independent** — same author, different
-  shape. It catches transcription and accumulation drift, not a shared
-  misconception. Recorded on the wire as `same_author_diverse_implementation`.
-- **No spread, no slippage, no partial fills, one position at a time, fixed
-  hold, one unit.** Absent costs bias the curve upward only.
+- **The frozen third replay matches but its task provenance is self-attested.**
+  The 25 signals match and the implementation is diverse; without an immutable
+  orchestrator record it remains `same_author_diverse_implementation` and does
+  not clear `ORACLE_NOT_INDEPENDENT_ENOUGH`.
+- **Partial fills are not modelled; one position at a time, fixed hold, one
+  unit.** Spread, slippage and commission are now frozen adverse per-fill models,
+  visibly labelled modelled rather than observed.
 - **Options are not modelled yet.** Underlying only. `EventType` has no
   `ASSIGNMENT` / `EXPIRY` / `CORPORATE_ACTION`.
 
@@ -117,28 +129,76 @@ Not oversights — scope decisions, each of which blocks promotion by design:
    provider or self-certify market-data conformance. Feed it an actual export,
    retain the raw snapshot, then build the gap/halt/split/revision conformance
    suite before changing that gate from `NOT_RUN`.
-2. **A separate-agent oracle**: give a fresh agent only the frozen manifest, the
-   raw fixture and the output schema — no access to either implementation — and
-   have it write a third replay path. That lifts `semantic_independence` from
-   `LIMITED` and clears one blocker.
-3. **Spread and slippage**, which clears two more.
-4. **The order-lifecycle journal** (`ORDER_CREATED` … `ORDER_FILLED`). Only then
-   does the P&L identity become a genuine cross-stream reconciliation rather than
-   a tautology — see trap 1.
-5. The remaining eight panels of the ten-panel vocabulary (DESIGN.md §3).
+2. **Provider-independent market conformance** using the exact contract in
+   `docs/MARKET_DATA_PLAN.md`; credentials/licensed files are the external
+   boundary, not a missing label in code.
+3. **Immutable run-controller provenance** for both the frozen oracle task and
+   optimizer split access. Repository-authored JSON cannot certify either.
+4. **External research authority.** Run `nodequant-research --max-experiments 4`
+   to execute/resume the bounded local DAG. A compiled local trust root rejects
+   substituted policies; atomic heads bind hash-chained nodes, edges and trials;
+   the optimizer subprocess receives no TEST/OPENED_HOLDOUT bars and has a hard
+   wall-clock kill budget. It refuses an authoritative champion on the synthetic
+   corpus. Next evidence is an externally immutable controller for
+   global completeness/preregistration/split access, then synchronized returns
+   for Deflated Sharpe/PBO.
+5. **Real execution/options evidence.** Synthetic partial/cancel/reject/expiry/
+   latency scenarios and strict option snapshot counters exist. Next requires
+   broker lifecycle receipts and OPRA/OCC point-in-time data; do not turn the
+   diagnostic suite or caller snapshot into authority.
+6. **Scientific archive authority.** `nodequant-science --demo` proves the
+   deterministic 25-event/diff contract but remains BLOCKED. Supply frozen real
+   ClinicalTrials.gov history bytes plus a supported re-fetch/external checkpoint
+   and point-in-time market labels; do not treat the undocumented internal
+   history endpoint or caller provenance labels as authority.
+
+## Thread-to-repo gap map
+
+This is the larger boundary behind the four immediate blockers. The Stock AI
+thread specifies a complete research and market-time system; this repository is
+still the proof kernel plus its first review surface. None of the rows below is
+silently implied by a green kernel receipt.
+
+| Thread contract | Repository state | Evidence required to close it |
+|---|---|---|
+| Source snapshot, legacy-rule compiler and ambiguity ledger | **COMPILER/ENVELOPE BUILT; INPUT BLOCKED** | Byte spans and source/clause/combined roots built; original bytes and human lock absent, all V0 readiness false |
+| Frozen experiment manifest and chronological development/validation/test/opened-holdout splits | **GEOMETRY + METRICS BUILT; ACCESS PROOF BLOCKED** | Four persistent bands, every point tagged, split-local metrics and empty holdout `NOT_RUN`; immutable run-controller proof still required |
+| Null benchmarks, indicator ablations, parameter-neighbour stability, delay/cost stress and multiple-testing controls | **DIAGNOSTICS BUILT; GLOBAL CONTROL BLOCKED** | Buy/hold + 128 random nulls, nine variants, three purged folds and trial batch built; global history/preregistration/Deflated Sharpe/PBO absent |
+| Point-in-time option chain and relative-value selection | **STRICT VALIDATOR BUILT; DATA/SELECTOR BLOCKED** | Exact stale/future/duplicate/definition/size/IV/provenance counters built; OPRA/OCC replay and selector absent |
+| Realistic order and option lifecycle | **JOURNAL + COSTS + SYNTHETIC FAILURE SUITE BUILT** | Partial/cancel/reject/expiry/latency transitions tested; canonical fill policy, broker receipts, assignment and corporate actions remain |
+| Two nested loops: slow research and fast event-driven market time | **BOUNDED SLOW LOOP BUILT; MARKET-TIME LOOP NOT BUILT** | Locally anchored graph loop preserves trials, hard-kills timed-out evaluators and makes exhausted resumes byte-stable; external checkpoint signing, materiality wakes, knowledge-time isolation, deterministic risk, monitoring and adjudication remain |
+| Ten typed panels | **10 OF 10 SCHEMAS/RENDERERS; PRODUCERS PARTIAL** | Runtime is exact NodeQuant vocabulary; generated diagrams cannot carry arbitrary content or enter risk. Seven market-time producers remain |
+| Three-target promotion ladder | **HEADING ONLY** | Recover the thread's actual Signal-shadow → Execution-shadow → Live-capital criteria; do not infer gates from the titles |
+
+The current work also closes packet-set binding, per-fill cost authority,
+cross-stream order reconciliation, and split geometry/metrics. It does not turn
+self-attested provenance or external-data absence into PASS.
 
 ## Known-open, honestly
 
-- **`flat_pnl_residual_micros` is still rendered.** It is real (its sides are not
-  literally identical) but weaker than its name implies, and it is blind to fee
-  deletion. The design thread wants it off the panel until the order journal
-  exists. Not yet done.
-- **Two load-sensitive tests.** `test_attack1b_l2_store_is_tenant_namespaced` and
-  `test_pacing_is_shared_across_concurrent_callers` have each failed once under
-  full-suite CPU contention and pass 5/5 in isolation. Not characterised to the
-  standard applied to `test_burst_cap_reduces_a_concurrent_noisy_neighbours_share`
-  (which was measured over 80 paired runs and fixed). If either recurs, measure
-  before touching the assertion.
+- **The first genuine daily-data alpha search is negative.** Eighteen
+  preregistered absolute-trend, moving-average, relative-momentum, dual-momentum,
+  and falsifier trials used a frozen 4,677-row SPY/QQQ/IWM/TLT/GLD/BIL panel.
+  `composite_top2` passed every 2020–2022 test gate but failed 2023–2025:
+  0.818 excess Sharpe versus 1.224 always-long, with a −13.8% paired-block-
+  bootstrap lower bound on annual active return. Only 6 of 18 full years had
+  positive active return. See `docs/REAL_ALPHA_SEARCH.md` and
+  `evidence/real-alpha-search/after.png`. Do not tune another daily rule on the
+  now-open panel and call it out of sample; the next honest rung is licensed
+  intraday executable data or prospective post-2026-08-03 packets.
+
+- **Cross-stream reconciliation is `PASS` for the synthetic simulator, not a
+  broker receipt.** The separate 136-event order journal reconciles lifecycle,
+  quantities, timestamps, prices, costs, cash, fees, marks and IDs. External
+  execution authenticity still requires a broker/provider stream.
+- **One load-sensitive test.** `test_attack1b_l2_store_is_tenant_namespaced` has
+  failed once under full-suite CPU contention and passes 5/5 in isolation. It is
+  not characterised to the standard applied to
+  `test_burst_cap_reduces_a_concurrent_noisy_neighbours_share` (80 paired runs).
+  The former pacing risk has been measured and fixed with a bounded FIFO
+  condition queue; a 50-caller burst plus cancellation now releases in arrival
+  order and leaves zero waiters. If the remaining test recurs, measure before
+  touching the assertion.
 - **The curve samples at event times**, not every bar. With marks now emitted per
   held bar the gap is small, but drawdown is strictly "sampled at event times".
 - **Provider replay is not built.** `FactReceipt` now carries bounded replay

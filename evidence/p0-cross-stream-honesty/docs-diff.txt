@@ -1,0 +1,81 @@
+diff --git a/evidence/p0-cross-stream-honesty/before-docs.txt b/evidence/p0-cross-stream-honesty/after-docs.txt
+index 3154c86..99da429 100644
+--- a/evidence/p0-cross-stream-honesty/before-docs.txt
++++ b/evidence/p0-cross-stream-honesty/after-docs.txt
+@@ -3,17 +3,17 @@
+ 122:   have it write a third replay path. That lifts `semantic_independence` from
+ 123:   `LIMITED` and clears one blocker.
+ 124:3. **Spread and slippage**, which clears two more.
+-125:4. **The order-lifecycle journal** (`ORDER_CREATED` … `ORDER_FILLED`). Only then
+-126:   does the P&L identity become a genuine cross-stream reconciliation rather than
+-127:   a tautology — see trap 1.
++125:4. **The order-lifecycle journal** (`ORDER_CREATED` … `ORDER_FILLED`). It must
++126:   independently reconcile authorised quantity, fills, cash, fees, marks and IDs.
++127:   A second cost-basis calculation alone does not make the P&L identity evidence.
+ 128:5. The remaining eight panels of the ten-panel vocabulary (DESIGN.md §3).
+ 129:
+ 130:## Known-open, honestly
+ 131:
+-132:- **`flat_pnl_residual_micros` is still rendered.** It is real (its sides are not
+-133:  literally identical) but weaker than its name implies, and it is blind to fee
+-134:  deletion. The design thread wants it off the panel until the order journal
+-135:  exists. Not yet done.
++132:- **Cross-stream reconciliation is `NOT_RUN`.** The blind flat-P&L scalar was
++133:  removed from the receipt and promotion policy. The current packet authority now
++134:  freezes the kernel's one-unit quantity, but execution authenticity still needs
++135:  the independent order-lifecycle stream above.
+ 136:- **Two load-sensitive tests.** `test_attack1b_l2_store_is_tenant_namespaced` and
+ 154:**Conservation is incomplete as built.** The thread wants inventory and P&L
+ 155:conservation with a frozen cost-basis policy:
+@@ -27,27 +27,28 @@
+ 163:
+ 164:?? **That last identity is TAUTOLOGICAL as currently derivable** — I measured it:
+ 165:0 residual on the honest ledger *and* 0 on a ledger with fabricated inventory,
+-166:because `position_value` appears on both sides. It only becomes real evidence
+-167:once `remaining_cost_basis` comes from an **independent inventory stream** — i.e.
+-168:after the order journal exists. Do not put it on the panel before then.
+-169:
+-170:**Keep the financial ledger separate from the order journal.** A second
+-171:append-only lifecycle stream, not yet built:
+-172:
+-173:```
+-174:ORDER_CREATED  ORDER_APPROVED  ORDER_SUBMITTED  ORDER_PARTIALLY_FILLED
+-175:ORDER_FILLED   ORDER_CANCELLED ORDER_REJECTED   ORDER_EXPIRED
+-176:```
+-177:
+-178:Every `ORDER_FILL` financial event references exactly one lifecycle order. This
+-179:is what turns the P&L identity into a genuine cross-stream reconciliation.
+-180:
+-296:manifest.
+-297:
+-298:## 8. Panel rules the thread set
++166:because `position_value` appears on both sides. An independent cost-basis value
++167:alone is still insufficient: the other stream must independently author and
++168:reconcile quantities as well as cash, fees, fills, marks and IDs. Do not put a
++169:P&L residual on the panel before those mutations are demonstrably detectable.
++170:
++171:**Keep the financial ledger separate from the order journal.** A second
++172:append-only lifecycle stream, not yet built:
++173:
++174:```
++175:ORDER_CREATED  ORDER_APPROVED  ORDER_SUBMITTED  ORDER_PARTIALLY_FILLED
++176:ORDER_FILLED   ORDER_CANCELLED ORDER_REJECTED   ORDER_EXPIRED
++177:```
++178:
++179:Every `ORDER_FILL` financial event references exactly one lifecycle order. The
++180:journal is necessary but not sufficient: its quantities and postings must be
++181:independent authorities, or both streams can share the same fabricated inventory.
++297:hand-calculated minimal case, or an explicit domain decision recorded in the
++298:manifest.
+ 299:
+-300:- **Show no reconciliation residual today.** Better to show nothing than a number
+-301:  that can only ever be zero. (`flat_pnl_residual_micros` is still rendered —
+-302:  known-open in HANDOFF.md.)
+-303:- **A non-zero authoritative monetary value may never render as zero.** Enforced
+-304:  with a runnable self-check in `web/lib/money.mjs`. The architecture can be
++300:## 8. Panel rules the thread set
++301:
++302:- **Show no reconciliation residual today.** Better to expose reconciliation as
++303:  `NOT_RUN` than show a scalar blind to coherent inventory fabrication. The old
++304:  `flat_pnl_residual_micros` field has been removed from the receipt and policy.
++305:- **A non-zero authoritative monetary value may never render as zero.** Enforced

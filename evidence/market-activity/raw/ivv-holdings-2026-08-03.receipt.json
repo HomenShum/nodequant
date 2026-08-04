@@ -1,0 +1,8 @@
+{
+  "http_status": 200,
+  "provider": "iShares / BlackRock product-data API",
+  "raw_sha256": "sha256:8db25b2fd03427083e42d962629fed515e5d3a3016554c032f4d63e60787415e",
+  "retrieved_at_utc": "2026-08-04T20:36:41Z",
+  "retrieval_method": "authenticated-free browser network capture; response body saved byte-for-byte",
+  "url": "https://www.ishares.com/varnish-api/blk-one01-product-data/product-data/api/v2/get-product-data?appSubType=ISHARES&appType=PRODUCT_PAGE&component=holdings.all&locale=en_US&portfolioId=239726&targetSite=us-ishares&userType=individual&excludeContent=true&asOfDate=20260803&includeConfig=true"
+}

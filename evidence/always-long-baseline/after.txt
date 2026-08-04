@@ -1,0 +1,9 @@
+Observable: first invested row for the always-long benchmark
+Captured after evaluator repair on 2026-08-03
+
+Panel first date: 2008-01-02
+First invested index: 1
+Cash days before investment: 1 unusable first-return row only
+
+The benchmark now carries equal risky exposure for every measurable return and
+pays initial-entry turnover cost. All other allocation rules are unchanged.

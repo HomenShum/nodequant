@@ -1,0 +1,64 @@
+Observable: `uv run --no-sync python -m app.real_alpha --policy research/real_alpha_policy_g2.json --output evidence/real-alpha-search/result-g2.json --raw-directory evidence/real-alpha-search/raw --reuse-raw`
+
+After implementation (2026-08-03):
+
+```json
+{"champion":"composite_top2","holdout":"FAIL","result_hash":"sha256:2eaf27a08a43e1d92943005fc487b8a1103fb7a966cbc7f8a53de2cc43aae8b7","test":"PASS","verdict":"NO_ROBUST_POSITIVE_ALPHA_FOUND"}
+```
+
+Measured result:
+
+- 4,677 common genuine daily adjusted-close rows, 2007-06-01 through 2025-12-31.
+- 18 cumulative registered trials across two frozen generations.
+- Generation 1: `tsmom_252` improved the accessible robust floor by 0.349 but failed 2016-2019 test.
+- Generation 2: `composite_top2` passed 2020-2022 test at 0.495 excess Sharpe versus 0.331 always-long.
+- Generation 2 final holdout: 0.818 excess Sharpe versus 1.224 always-long; FAIL.
+- Paired 20-day block-bootstrap 95% lower bound on annual active return: -13.8%.
+- Positive active calendar years: 6 of 18.
+- Frozen-byte rerun produced the identical stable result hash.
+- Promotion eligible: false.
+
+Independent recount (standalone raw-JSON/Numpy implementation; no import from
+`app.real_alpha`):
+
+```text
+rows 4677 2007-06-01 2025-12-31
+test_candidate     Sharpe 0.4945098321  CAGR 0.0786313954  drawdown -0.2183630236
+test_always_long   Sharpe 0.3310658857  CAGR 0.0488380597  drawdown -0.2554794092
+holdout_candidate  Sharpe 0.8184063539  CAGR 0.1616502072  drawdown -0.1109854369
+holdout_always_long Sharpe 1.2244954241 CAGR 0.2074472937  drawdown -0.1284170392
+bootstrap_lower -0.1378285169
+```
+
+The first recount attempt was rejected because it retained prior monthly members
+instead of replacing the target vector, accidentally creating leverage. Correcting
+that independent implementation reproduced every load-bearing runner figure.
+
+Regression proof:
+
+```text
+663 passed, 29 skipped in 589.62s (0:09:49)
+```
+
+Backend reliability audit:
+
+1. BOUND — six-symbol, 2 MB/symbol, 6,000-row/symbol caps.
+2. HONEST_STATUS — no-alpha exits nonzero and records a negative verdict; provider failures are errors.
+3. HONEST_SCORES — no hardcoded score floor; all scores derive from frozen return arrays.
+4. TIMEOUT — provider calls have a 30-second connect/read/write/pool budget.
+5. SSRF — HTTPS and exact `query1.finance.yahoo.com` hostname required before fetch.
+6. BOUND_READ — streamed body aborts beyond the frozen byte cap.
+7. ERROR_BOUNDARY — filesystem, JSON, validation, and HTTP failures produce bounded stderr and exit 2.
+8. DETERMINISTIC — sorted-key hashes; timestamps excluded from result identity; frozen-byte replay matched twice.
+
+Visual observation:
+
+- `after.png` renders the test/holdout comparison and all 18 annual active-return slices.
+- SHA-256: `5252CFEEC340CF81D53F55AACDA7F357CE655D0AAAA1031E0482388D376129D2`.
+- The honest before observable is terminal text because no result renderer or command existed before implementation; no retrospective screenshot was fabricated.
+
+What did not change:
+
+- The sealed proof kernel, promotion evidence vocabulary, and `REAL_BAR_REPLAY` boundary were not weakened.
+- Intraday and options strategies remain blocked on licensed executable quotes and provider conformance.
+- No commit, push, deploy, trade, order, or live-capital action occurred.

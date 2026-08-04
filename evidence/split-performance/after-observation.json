@@ -1,0 +1,179 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_count": 4,
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "split_band_ids": [
+      "DEVELOPMENT",
+      "VALIDATION",
+      "TEST",
+      "OPENED_HOLDOUT"
+    ],
+    "split_performance_caption": "split-local performance · sampled at event times",
+    "split_performance_headers": [
+      "split",
+      "net P&L",
+      "max DD",
+      "underwater",
+      "episodes in interval",
+      "recovery"
+    ],
+    "split_performance_rows": [
+      {
+        "split_id": "DEVELOPMENT",
+        "cells": [
+          "DEVELOPMENT",
+          "-$310.04",
+          "-$312.74",
+          "58980s",
+          "10",
+          "unrecovered (censored)"
+        ]
+      },
+      {
+        "split_id": "VALIDATION",
+        "cells": [
+          "VALIDATION",
+          "-$199.68",
+          "-$200.93",
+          "26880s",
+          "5",
+          "unrecovered (censored)"
+        ]
+      },
+      {
+        "split_id": "TEST",
+        "cells": [
+          "TEST",
+          "-$42.70",
+          "-$51.97",
+          "7620s",
+          "2",
+          "unrecovered (censored)"
+        ]
+      },
+      {
+        "split_id": "OPENED_HOLDOUT",
+        "cells": [
+          "OPENED_HOLDOUT",
+          "NOT_RUN — no observations"
+        ]
+      }
+    ],
+    "split_metrics_payload": [
+      {
+        "split_id": "DEVELOPMENT",
+        "point_count": 341,
+        "start_equity_micros": 100000000000,
+        "end_equity_micros": 99689958703,
+        "net_pnl_micros": -310041297,
+        "max_drawdown_micros": -312744165,
+        "peak_at_utc": "2026-01-05T16:58:00Z",
+        "trough_at_utc": "2026-01-06T09:07:00Z",
+        "recovered_at_utc": null,
+        "decline_duration_seconds": 58140,
+        "recovery_duration_seconds": null,
+        "total_time_underwater_seconds": 58980,
+        "episodes_in_drawdown_interval": 10,
+        "had_drawdown": true,
+        "observation_censored": true,
+        "sampled_at_event_times": true
+      },
+      {
+        "split_id": "VALIDATION",
+        "point_count": 170,
+        "start_equity_micros": 99689958703,
+        "end_equity_micros": 99490277258,
+        "net_pnl_micros": -199681445,
+        "max_drawdown_micros": -200931169,
+        "peak_at_utc": "2026-01-06T10:43:00Z",
+        "trough_at_utc": "2026-01-06T18:06:00Z",
+        "recovered_at_utc": null,
+        "decline_duration_seconds": 26580,
+        "recovery_duration_seconds": null,
+        "total_time_underwater_seconds": 26880,
+        "episodes_in_drawdown_interval": 5,
+        "had_drawdown": true,
+        "observation_censored": true,
+        "sampled_at_event_times": true
+      },
+      {
+        "split_id": "TEST",
+        "point_count": 68,
+        "start_equity_micros": 99490277258,
+        "end_equity_micros": 99447575515,
+        "net_pnl_micros": -42701743,
+        "max_drawdown_micros": -51967086,
+        "peak_at_utc": "2026-01-06T19:36:00Z",
+        "trough_at_utc": "2026-01-06T21:41:00Z",
+        "recovered_at_utc": null,
+        "decline_duration_seconds": 7500,
+        "recovery_duration_seconds": null,
+        "total_time_underwater_seconds": 7620,
+        "episodes_in_drawdown_interval": 2,
+        "had_drawdown": true,
+        "observation_censored": true,
+        "sampled_at_event_times": true
+      }
+    ],
+    "holdout_not_run": true,
+    "event_time_disclosure_visible": true,
+    "censored_disclosure_visible": true,
+    "absolute_equity_payload_count": 579,
+    "absolute_equity_payload_hash": "sha256:a090044c7e6af01c4cd396d15cd46a425b450c18fcb833785a391c1cb600a55f",
+    "visible_metrics": {
+      "final equity": "$99,447.58",
+      "realised P&L": "-$518.42",
+      "max drawdown": "-$554.90",
+      "fees": "$34.00",
+      "modelled spread": "$1.03",
+      "modelled slippage": "$0.52"
+    },
+    "curve_note": "equity rebased within each split · absolute equity retained in payload",
+    "journal_footer_visible": true,
+    "oracle_footer_text": "oracle same_author_diverse_implementation · matched true · provenance self-attested",
+    "split_footer_text": "splits tagged true · access provenance self-attested",
+    "policy_hash": "sha256:121fa55d0a04c382c7c28331e51767de0ef8966f1d28fc676510dab0af659a27",
+    "panel_css_box": {
+      "x": 349,
+      "y": -74,
+      "width": 656,
+      "height": 858.234375
+    },
+    "console_errors": [],
+    "artifact": "after.png"
+  }
+}

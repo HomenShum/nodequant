@@ -1,0 +1,421 @@
+{
+  "created_at_utc": "2026-08-04T04:41:33.172298+00:00",
+  "data": {
+    "panel_hash": "sha256:8cb545fa86cebfb2c54a73ac736758822fc0060268af98f61c6848901f9a4d5c",
+    "provider_authority": "secondary_unofficial_diagnostic_source",
+    "quality": {
+      "common_rows": 4677,
+      "first_common_date": "2007-06-01",
+      "last_common_date": "2025-12-31",
+      "noncommon_rows_dropped": {
+        "BIL": 0,
+        "GLD": 0,
+        "IWM": 0,
+        "QQQ": 0,
+        "SPY": 0,
+        "TLT": 0
+      },
+      "strictly_increasing_dates": true,
+      "symbols": {
+        "BIL": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 4677,
+          "usable_rows": 4677
+        },
+        "GLD": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 4677,
+          "usable_rows": 4677
+        },
+        "IWM": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 4677,
+          "usable_rows": 4677
+        },
+        "QQQ": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 4677,
+          "usable_rows": 4677
+        },
+        "SPY": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 4677,
+          "usable_rows": 4677
+        },
+        "TLT": {
+          "duplicate_rows": 0,
+          "invalid_rows": 0,
+          "null_rows": 0,
+          "provider_rows": 4677,
+          "usable_rows": 4677
+        }
+      }
+    },
+    "raw_hashes": {
+      "BIL": "sha256:7dd064f0a376ae59ae5f312af1d6c44de17655be96c4bde998592e48fedbdba4",
+      "GLD": "sha256:15e2af3ec02e356cbfa04cf04c63cd172766e9f51713b27ad588c9abd2406552",
+      "IWM": "sha256:69654a3f0b3993ffaa437967e511740f24de04742b23d8f53ac6c2ae5a7a5d48",
+      "QQQ": "sha256:224707fd4e1668b0082eb115670d1f779fdf3efe9b59d82aa162a0fa5e53718f",
+      "SPY": "sha256:6096c6853ff664b45a4e2b2d32bc4602a945e574e693f4e5350676b7010b2857",
+      "TLT": "sha256:0df268565fc86f2152e6f9ebd0045c2c95b57c9dec90aecc744feb611dda430c"
+    }
+  },
+  "limitations": [
+    "Yahoo chart data is a secondary unofficial diagnostic source, not exchange-grade conformance evidence.",
+    "Adjusted closes are total-return-like observations, not executable quotes.",
+    "The cost grid excludes taxes, account-specific fees, borrow, and market impact.",
+    "This is research analysis, not investment advice or a return guarantee."
+  ],
+  "opened_holdout": {
+    "always_long": {
+      "annualized_excess_return": 0.149188674124718,
+      "annualized_turnover": 0.0,
+      "days": 752,
+      "excess_sharpe": 1.22449655760098,
+      "max_drawdown": -0.12841696995332708,
+      "net_cagr": 0.2074472979885733
+    },
+    "champion": {
+      "annualized_excess_return": 0.11255495360113066,
+      "annualized_turnover": 6.702127659574468,
+      "days": 752,
+      "excess_sharpe": 0.8184075441237798,
+      "max_drawdown": -0.11098541520860772,
+      "net_cagr": 0.1616502240744866
+    },
+    "checks": {
+      "active_return_bootstrap_lower_positive": false,
+      "holdout_cagr_positive": true,
+      "holdout_excess_sharpe_nonnegative": true
+    },
+    "paired_active_annual_return_bootstrap_95pct_lower": -0.13782840553512457,
+    "status": "FAIL"
+  },
+  "policy_hash": "sha256:3504f0b7b23d5de772890698aa60eb197eb48881445079fa0fdd28c62cb5da75",
+  "promotion_ceiling": "DIAGNOSTIC_ONLY_UNTIL_PROVIDER_REFETCH_AND_MARKET_CONFORMANCE_PASS",
+  "promotion_eligible": false,
+  "result_hash": "sha256:0d6b609352f432a10ebd806d5691f0a56d7a9264354f11049258d62515d0fb76",
+  "selection": {
+    "baseline_id": "always_long",
+    "champion_id": "composite_top2",
+    "pass": true,
+    "robust_floor_improvement": 0.09973102091866126
+  },
+  "test": {
+    "always_long": {
+      "annualized_excess_return": 0.056768145958675194,
+      "annualized_turnover": 0.0,
+      "days": 756,
+      "excess_sharpe": 0.33106512002576793,
+      "max_drawdown": -0.2554794099246408,
+      "net_cagr": 0.04883807824393349
+    },
+    "champion": {
+      "annualized_excess_return": 0.0848117975134385,
+      "annualized_turnover": 4.333333333333333,
+      "days": 756,
+      "excess_sharpe": 0.49450913473444014,
+      "max_drawdown": -0.21836300316816926,
+      "net_cagr": 0.07863138218673127
+    },
+    "champion_at_25bps": {
+      "annualized_excess_return": 0.07831179751343849,
+      "annualized_turnover": 4.333333333333333,
+      "days": 756,
+      "excess_sharpe": 0.4563820364639993,
+      "max_drawdown": -0.22189907157580846,
+      "net_cagr": 0.0716291132550384
+    },
+    "checks": {
+      "leave_one_asset_out_nonnegative": true,
+      "selection_improves_frozen_floor": true,
+      "test_25bps_sharpe_nonnegative": true,
+      "test_cagr_positive": true,
+      "test_drawdown_improves": true,
+      "test_sharpe_beats_always_long": true
+    },
+    "leave_one_asset_out_excess_sharpe": {
+      "GLD": 0.5563606440169859,
+      "IWM": 0.5192666888100099,
+      "QQQ": 0.3298133505515849,
+      "SPY": 0.2756001527158831,
+      "TLT": 0.7675902770857943
+    },
+    "status": "PASS"
+  },
+  "trial_count": 9,
+  "trials": {
+    "always_long": {
+      "annualized_turnover": 0.07952035342379299,
+      "candidate": {
+        "id": "always_long",
+        "lookback_days": 0,
+        "rule": "always_long"
+      },
+      "development_validation": {
+        "DEVELOPMENT": {
+          "annualized_excess_return": 0.08717000638968099,
+          "annualized_turnover": 0.21780466724286948,
+          "days": 1157,
+          "excess_sharpe": 0.5209038272656012,
+          "max_drawdown": -0.31532268568547606,
+          "net_cagr": 0.08615228216428195
+        },
+        "VALIDATION": {
+          "annualized_excess_return": 0.09806834721680051,
+          "annualized_turnover": 0.0,
+          "days": 2012,
+          "excess_sharpe": 1.147244429998141,
+          "max_drawdown": -0.1299864179592939,
+          "net_cagr": 0.10480308000426564
+        }
+      },
+      "robust_excess_sharpe_floor": 0.5209038272656012,
+      "status": "REGISTERED_COMPLETE"
+    },
+    "bottom1_252": {
+      "annualized_turnover": 3.896497317765857,
+      "candidate": {
+        "id": "bottom1_252",
+        "lookback_days": 252,
+        "rule": "bottom_n_lookback",
+        "top_n": 1
+      },
+      "development_validation": {
+        "DEVELOPMENT": {
+          "annualized_excess_return": 0.1535216597444019,
+          "annualized_turnover": 3.702679343128781,
+          "days": 1157,
+          "excess_sharpe": 0.6033412872919992,
+          "max_drawdown": -0.438807069841214,
+          "net_cagr": 0.13982086380522474
+        },
+        "VALIDATION": {
+          "annualized_excess_return": 0.06016995592602605,
+          "annualized_turnover": 4.007952286282306,
+          "days": 2012,
+          "excess_sharpe": 0.39861857965416575,
+          "max_drawdown": -0.4003693580409252,
+          "net_cagr": 0.05550534697505638
+        }
+      },
+      "robust_excess_sharpe_floor": 0.32189871155000854,
+      "status": "REGISTERED_COMPLETE"
+    },
+    "composite_top2": {
+      "annualized_turnover": 4.8507415588513725,
+      "candidate": {
+        "id": "composite_top2",
+        "lookback_days": 252,
+        "rule": "top_n_composite_positive",
+        "top_n": 2
+      },
+      "development_validation": {
+        "DEVELOPMENT": {
+          "annualized_excess_return": 0.1066309760599286,
+          "annualized_turnover": 4.35609334485739,
+          "days": 1157,
+          "excess_sharpe": 0.6823095089741507,
+          "max_drawdown": -0.17931041422426208,
+          "net_cagr": 0.1090546076773724
+        },
+        "VALIDATION": {
+          "annualized_excess_return": 0.10448102725544811,
+          "annualized_turnover": 5.135188866799205,
+          "days": 2012,
+          "excess_sharpe": 0.7993013593744336,
+          "max_drawdown": -0.22476274477871672,
+          "net_cagr": 0.10647599551689568
+        }
+      },
+      "robust_excess_sharpe_floor": 0.6206348481842625,
+      "status": "REGISTERED_COMPLETE"
+    },
+    "dual_top1_252": {
+      "annualized_turnover": 6.282107920479646,
+      "candidate": {
+        "id": "dual_top1_252",
+        "lookback_days": 252,
+        "rule": "top_n_positive_lookback",
+        "top_n": 1
+      },
+      "development_validation": {
+        "DEVELOPMENT": {
+          "annualized_excess_return": 0.07594670604060821,
+          "annualized_turnover": 6.751944684528954,
+          "days": 1157,
+          "excess_sharpe": 0.3716195959617038,
+          "max_drawdown": -0.31590372523634536,
+          "net_cagr": 0.06621288303835637
+        },
+        "VALIDATION": {
+          "annualized_excess_return": 0.046972706810523075,
+          "annualized_turnover": 6.01192842942346,
+          "days": 2012,
+          "excess_sharpe": 0.29356223652097774,
+          "max_drawdown": -0.3576829795452968,
+          "net_cagr": 0.040206740095990234
+        }
+      },
+      "robust_excess_sharpe_floor": 0.1828747829239175,
+      "status": "REGISTERED_COMPLETE"
+    },
+    "dual_top2_252": {
+      "annualized_turnover": 4.691700852003787,
+      "candidate": {
+        "id": "dual_top2_252",
+        "lookback_days": 252,
+        "rule": "top_n_positive_lookback",
+        "top_n": 2
+      },
+      "development_validation": {
+        "DEVELOPMENT": {
+          "annualized_excess_return": 0.08035237280852825,
+          "annualized_turnover": 4.13828867761452,
+          "days": 1157,
+          "excess_sharpe": 0.501091599157919,
+          "max_drawdown": -0.1800072458761104,
+          "net_cagr": 0.07960386903097239
+        },
+        "VALIDATION": {
+          "annualized_excess_return": 0.07250549524098672,
+          "annualized_turnover": 5.009940357852883,
+          "days": 2012,
+          "excess_sharpe": 0.5440388782130249,
+          "max_drawdown": -0.22476274477871638,
+          "net_cagr": 0.0712998438521446
+        }
+      },
+      "robust_excess_sharpe_floor": 0.3926263205396636,
+      "status": "REGISTERED_COMPLETE"
+    },
+    "relative_top1_126": {
+      "annualized_turnover": 9.621962764278953,
+      "candidate": {
+        "id": "relative_top1_126",
+        "lookback_days": 126,
+        "rule": "top_n_lookback",
+        "top_n": 1
+      },
+      "development_validation": {
+        "DEVELOPMENT": {
+          "annualized_excess_return": 0.06467165679618356,
+          "annualized_turnover": 9.365600691443388,
+          "days": 1157,
+          "excess_sharpe": 0.29474905321308736,
+          "max_drawdown": -0.2984631219277488,
+          "net_cagr": 0.05129034909569041
+        },
+        "VALIDATION": {
+          "annualized_excess_return": 0.03360701661717243,
+          "annualized_turnover": 9.76938369781312,
+          "days": 2012,
+          "excess_sharpe": 0.21247604427330877,
+          "max_drawdown": -0.36031646527715,
+          "net_cagr": 0.026699666703363434
+        }
+      },
+      "robust_excess_sharpe_floor": 0.13087381374619855,
+      "status": "REGISTERED_COMPLETE"
+    },
+    "relative_top1_252": {
+      "annualized_turnover": 6.282107920479646,
+      "candidate": {
+        "id": "relative_top1_252",
+        "lookback_days": 252,
+        "rule": "top_n_lookback",
+        "top_n": 1
+      },
+      "development_validation": {
+        "DEVELOPMENT": {
+          "annualized_excess_return": 0.07594670604060821,
+          "annualized_turnover": 6.751944684528954,
+          "days": 1157,
+          "excess_sharpe": 0.3716195959617038,
+          "max_drawdown": -0.31590372523634536,
+          "net_cagr": 0.06621288303835637
+        },
+        "VALIDATION": {
+          "annualized_excess_return": 0.05684620876918377,
+          "annualized_turnover": 6.01192842942346,
+          "days": 2012,
+          "excess_sharpe": 0.35056332604998697,
+          "max_drawdown": -0.3576829795452968,
+          "net_cagr": 0.05016518043345042
+        }
+      },
+      "robust_excess_sharpe_floor": 0.21772930106132243,
+      "status": "REGISTERED_COMPLETE"
+    },
+    "relative_top2_126": {
+      "annualized_turnover": 5.407384032817924,
+      "candidate": {
+        "id": "relative_top2_126",
+        "lookback_days": 126,
+        "rule": "top_n_lookback",
+        "top_n": 2
+      },
+      "development_validation": {
+        "DEVELOPMENT": {
+          "annualized_excess_return": 0.09153248196504724,
+          "annualized_turnover": 4.35609334485739,
+          "days": 1157,
+          "excess_sharpe": 0.4898655765505723,
+          "max_drawdown": -0.30126994803957186,
+          "net_cagr": 0.08713252306592234
+        },
+        "VALIDATION": {
+          "annualized_excess_return": 0.08963970767560964,
+          "annualized_turnover": 6.01192842942346,
+          "days": 2012,
+          "excess_sharpe": 0.6959982925402527,
+          "max_drawdown": -0.231723331886588,
+          "net_cagr": 0.09044865876289054
+        }
+      },
+      "robust_excess_sharpe_floor": 0.4828150644803071,
+      "status": "REGISTERED_COMPLETE"
+    },
+    "relative_top2_252": {
+      "annualized_turnover": 4.135058378037236,
+      "candidate": {
+        "id": "relative_top2_252",
+        "lookback_days": 252,
+        "rule": "top_n_lookback",
+        "top_n": 2
+      },
+      "development_validation": {
+        "DEVELOPMENT": {
+          "annualized_excess_return": 0.07413686136246793,
+          "annualized_turnover": 2.831460674157303,
+          "days": 1157,
+          "excess_sharpe": 0.47526498234822967,
+          "max_drawdown": -0.1800072458761104,
+          "net_cagr": 0.07368983624197667
+        },
+        "VALIDATION": {
+          "annualized_excess_return": 0.07962273987442359,
+          "annualized_turnover": 4.88469184890656,
+          "days": 2012,
+          "excess_sharpe": 0.5974243093727735,
+          "max_drawdown": -0.22476274477871616,
+          "net_cagr": 0.07894969207987401
+        }
+      },
+      "robust_excess_sharpe_floor": 0.41964363643455127,
+      "status": "REGISTERED_COMPLETE"
+    }
+  },
+  "verdict": "NO_ROBUST_POSITIVE_ALPHA_FOUND",
+  "version": "nodequant-real-alpha-result-v1"
+}

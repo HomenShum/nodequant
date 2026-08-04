@@ -1,0 +1,38 @@
+{
+  "version": "nodequant-fomc-drift-policy-v2",
+  "frozen_at_utc": "2026-08-04T10:17:46.8287595Z",
+  "purpose": "one_primary_post_publication_scheduled_fomc_close_to_close_drift_falsifier",
+  "claim_boundary": "daily_bar_proxy_for_post_publication_anomaly_persistence_not_intraday_replication_or_execution_evidence",
+  "supersedes": {"policy_hash": "sha256:2b9277bdcab85ea47a31504e2f4131083464caa1f91d4c024a396a1d94807efd", "status": "INVALID_EVENT_COUNT_AND_MODERN_MARKUP", "reason": "Before IVV bytes, official pages showed seven realized scheduled statement dates in 2020 plus unscheduled emergency meetings, and 2021-2025 calendar rows do not use historical h5 headings."},
+  "evaluator_hash": "sha256:ab3a9fe223e1b3fa1c494d59bbe8b42693882f5d75be564d5878ad9a205ea92b",
+  "sources": [
+    {"id": "fed-calendar", "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm", "claim": "Official scheduled FOMC meetings and statement dates."},
+    {"id": "lucca-moench", "url": "https://www.newyorkfed.org/medialibrary/media/research/staff_reports/sr512.pdf", "claim": "Original evidence of large U.S. equity returns in the 24 hours before scheduled FOMC announcements."},
+    {"id": "kurov-wolfe-gilbert", "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3134546", "claim": "Adversarial prior that the drift essentially disappeared after 2015."}
+  ],
+  "event_provider": {"host": "www.federalreserve.gov", "user_agent": "nodequant-research/0.1", "timeout_seconds": 30, "maximum_response_bytes": 300000},
+  "event_data": {
+    "state_at_policy_freeze": "OFFICIAL_PAGE_BYTES_FROZEN_IVV_BYTES_UNREAD",
+    "start_date": "2016-01-01", "end_date": "2025-12-31", "expected_events": 79,
+    "expected_events_by_year": {"2016": 8, "2017": 8, "2018": 8, "2019": 8, "2020": 7, "2021": 8, "2022": 8, "2023": 8, "2024": 8, "2025": 8},
+    "selection_rule": "historical h5 heading contains Meeting and not unscheduled, or modern fomc-meeting row not notation vote; exact monetaryYYYYMMDDa.htm statement link only",
+    "sources": [
+      {"id": "2016", "url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2016.htm", "filename": "fomc-2016.html"},
+      {"id": "2017", "url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2017.htm", "filename": "fomc-2017.html"},
+      {"id": "2018", "url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2018.htm", "filename": "fomc-2018.html"},
+      {"id": "2019", "url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2019.htm", "filename": "fomc-2019.html"},
+      {"id": "2020", "url": "https://www.federalreserve.gov/monetarypolicy/fomchistorical2020.htm", "filename": "fomc-2020.html"},
+      {"id": "2021-2025", "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm", "filename": "fomc-2021-2025.html"}
+    ]
+  },
+  "price_provider": {"host": "query1.finance.yahoo.com", "timeout_seconds": 60, "maximum_response_bytes": 5000000},
+  "price_data": {"state_at_policy_freeze": "IVV_BYTES_UNREAD", "symbol": "IVV", "download_start": "2015-12-01", "download_end_exclusive": "2026-01-10", "maximum_rows": 2700},
+  "evaluation": {"primary_return": "previous_trading_close_to_scheduled_statement_date_close", "active_baseline": "same_calendar_year_mean_of_non_event_IVV_close_to_close_returns", "events_per_year": 8},
+  "costs": {"primary_one_way_bps": 5, "one_way_bps_sensitivity": [0, 5, 10], "round_trip": "two_one_way_charges_per_event"},
+  "folds": [{"id": "2016-2020", "start": "2016-01-01", "end": "2020-12-31"}, {"id": "2021-2025", "start": "2021-01-01", "end": "2025-12-31"}],
+  "bootstrap": {"method": "circular_moving_block_over_event_sequence", "seed": 20260804, "samples": 10000, "block_events": 4, "quantile": 0.05},
+  "gate": {"minimum_positive_folds": 2, "remove_best_events": 5, "requirements": ["one_sided_95pct_block_lower_bound_on_mean_year_matched_active_return_above_zero", "2_of_2_folds_positive", "event_sharpe_after_removing_best_5_events_above_zero"]},
+  "trial_accounting": {"candidate_count": 1, "selection_rule": "no meeting filters, timing changes, alternative equity proxies or gate changes after IVV bytes"},
+  "promotion_eligible": false,
+  "promotion_ceiling": "POST_PUBLICATION_DAILY_BAR_ANOMALY_DIAGNOSTIC_ONLY"
+}

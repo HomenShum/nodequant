@@ -1,0 +1,8 @@
+scenario=authorized_round_trip_inflated_from_1_to_6
+receipt_acceptable=False
+flat_pnl_residual_micros=ABSENT
+unauthorized_fills=2
+promotion=BLOCKED
+blockers=LEDGER_UNACCEPTABLE,LEDGER_unauthorized_fills
+honest_final_equity_micros=99449124700
+forged_final_equity_micros=99295209700

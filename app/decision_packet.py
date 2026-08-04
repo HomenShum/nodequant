@@ -142,10 +142,39 @@ class Rule(BaseModel):
         return refs
 
 
+class ExecutionCostPolicy(BaseModel):
+    """Frozen adverse fill assumptions, bound into every packet hash.
+
+    These are explicitly *modelled* costs, not observed quotes or market
+    impact.  Positive values keep the synthetic kernel conservative while the
+    real quote/trade replay remains a separate promotion requirement.
+    """
+
+    model_config = ConfigDict(frozen=True)
+
+    version: Annotated[str, Field(min_length=1, max_length=60)] = "fixed-adverse-v1"
+    basis: Literal["bar_close"] = "bar_close"
+    half_spread_ppm: Annotated[int, Field(ge=1, le=100_000)] = 50
+    slippage_ppm: Annotated[int, Field(ge=1, le=100_000)] = 25
+    commission_per_fill_micros: Annotated[
+        int, Field(ge=1, le=1_000_000_000)
+    ] = 1_000_000
+    rounding: Literal["half_even"] = "half_even"
+
+
 class Strategy(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
     id: Annotated[str, Field(min_length=1, max_length=120)]
     version: Annotated[str, Field(min_length=1, max_length=60)]
     config_hash: Annotated[str, Field(min_length=1, max_length=80)]
+    # Sizing is frozen strategy configuration in the kernel. A fill cannot
+    # author its own quantity and still call the packet an authorization.
+    position_qty: Annotated[int, Field(ge=1, le=1_000_000)] = 1
+    hold_bars: Annotated[int, Field(ge=1, le=100_000)] = 30
+    execution_cost_policy: ExecutionCostPolicy = Field(
+        default_factory=ExecutionCostPolicy
+    )
 
 
 class Signal(BaseModel):
@@ -190,6 +219,7 @@ class EvidenceClass(str, Enum):
     """
 
     SYNTHETIC_KERNEL = "SYNTHETIC_KERNEL"
+    UNPROVEN_BAR_INPUT = "UNPROVEN_BAR_INPUT"
     EXTERNAL_BAR_SNAPSHOT = "EXTERNAL_BAR_SNAPSHOT"
     REAL_BAR_REPLAY = "REAL_BAR_REPLAY"
     POINT_IN_TIME_MARKET_REPLAY = "POINT_IN_TIME_MARKET_REPLAY"
@@ -251,6 +281,7 @@ class Assurance(BaseModel):
 
         scope = {
             EvidenceClass.SYNTHETIC_KERNEL: "VERIFIER KERNEL",
+            EvidenceClass.UNPROVEN_BAR_INPUT: "UNPROVEN BAR INPUT",
             EvidenceClass.EXTERNAL_BAR_SNAPSHOT: "EXTERNAL BAR SNAPSHOT",
             EvidenceClass.REAL_BAR_REPLAY: "REAL BAR REPLAY",
             EvidenceClass.POINT_IN_TIME_MARKET_REPLAY: "POINT-IN-TIME REPLAY",

@@ -27,7 +27,7 @@ from __future__ import annotations
 import asyncio
 import random
 import time
-from collections import OrderedDict
+from collections import OrderedDict, deque
 from dataclasses import dataclass, field
 from typing import Any
 
@@ -59,6 +59,11 @@ MAX_CONCURRENT_PROBES = 3
 # requests of which 37 were retries, so a third of the work was spent being
 # rejected. Pacing more slowly issues fewer total requests and finishes sooner.
 MIN_REQUEST_INTERVAL_S = 0.18
+
+# Direct callers of `_pace` are normally bounded by the request semaphore, but
+# the queue is independently bounded so a future call site cannot turn waiting
+# tasks into an unbounded memory collection.
+MAX_PACE_WAITERS = 1024
 
 # Retry policy for 429 and transient 5xx.
 #
@@ -203,7 +208,8 @@ class CTGovClient:
         self._client = client
         self._owns_client = client is None
         self._semaphore = asyncio.Semaphore(MAX_CONCURRENT_PROBES)
-        self._pace_lock = asyncio.Lock()
+        self._pace_condition = asyncio.Condition()
+        self._pace_waiters: deque[object] = deque()
         self._next_slot = 0.0
         self.request_count = 0
         self.retry_count = 0
@@ -231,19 +237,43 @@ class CTGovClient:
         The semaphore bounds how many requests are in flight; it does not stop
         four of them starting in the same millisecond. This does.
         """
-        async with self._pace_lock:
-            loop = asyncio.get_running_loop()
-            now = loop.time()
-            wait = self._next_slot - now
-            self._next_slot = max(now, self._next_slot) + MIN_REQUEST_INTERVAL_S
-        if wait > 0:
-            await asyncio.sleep(wait)
+        loop = asyncio.get_running_loop()
+        token = object()
+        async with self._pace_condition:
+            if len(self._pace_waiters) >= MAX_PACE_WAITERS:
+                raise CTGovError("request pacing queue is full")
+            self._pace_waiters.append(token)
+            try:
+                while True:
+                    wait = self._next_slot - loop.time()
+                    if self._pace_waiters[0] is token and wait <= 0:
+                        self._pace_waiters.popleft()
+                        self._next_slot = loop.time() + MIN_REQUEST_INTERVAL_S
+                        self._pace_condition.notify_all()
+                        return
+                    if self._pace_waiters[0] is not token:
+                        await self._pace_condition.wait()
+                        continue
+                    try:
+                        # A condition wait, rather than sleep, lets a newly
+                        # applied shared cooldown wake the head immediately so
+                        # it recalculates against the extended deadline.
+                        await asyncio.wait_for(self._pace_condition.wait(), timeout=wait)
+                    except TimeoutError:
+                        pass
+            finally:
+                if token in self._pace_waiters:
+                    was_head = self._pace_waiters[0] is token
+                    self._pace_waiters.remove(token)
+                    if was_head:
+                        self._pace_condition.notify_all()
 
     async def _apply_cooldown(self, seconds: float) -> None:
         """Delay the shared schedule so every pending request backs off together."""
-        async with self._pace_lock:
+        async with self._pace_condition:
             loop = asyncio.get_running_loop()
             self._next_slot = max(self._next_slot, loop.time()) + seconds
+            self._pace_condition.notify_all()
 
     async def __aenter__(self) -> "CTGovClient":
         if self._client is None:

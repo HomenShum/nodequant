@@ -1,0 +1,302 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "fresh isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "trial_ledger_caption": "current candidate-trial batch · lineage only · not promotion evidence",
+    "trial_ledger_summary": {
+      "records preserved": "9/9",
+      "batch complete": "true",
+      "global completeness": "UNVERIFIED",
+      "pre-test registration": "UNVERIFIED"
+    },
+    "trial_ledger_headers": [
+      "trial",
+      "definition hash",
+      "result hash"
+    ],
+    "trial_ledger_rows": [
+      [
+        "baseline · 3/4 splits",
+        "c4b5fc9826fc…",
+        "c94c14d4c12a…"
+      ],
+      [
+        "without-uptrend · 2/4 splits",
+        "a3ec6a5f98a3…",
+        "e64043d329cb…"
+      ],
+      [
+        "without-pullback · 4/4 splits",
+        "edabc0296299…",
+        "0d43d65df115…"
+      ],
+      [
+        "fast-15 · 2/4 splits",
+        "2b32bf354ce6…",
+        "08f7a9c2a043…"
+      ],
+      [
+        "fast-25 · 4/4 splits",
+        "55d570cb897f…",
+        "ed25aa4a9f6c…"
+      ],
+      [
+        "slow-40 · 3/4 splits",
+        "bf92463c0fc1…",
+        "df4e5f7d941a…"
+      ],
+      [
+        "slow-60 · 3/4 splits",
+        "bc4784285711…",
+        "fa718afeb906…"
+      ],
+      [
+        "hold-15 · 3/4 splits",
+        "ba419ecaf142…",
+        "6ec9d799bcec…"
+      ],
+      [
+        "hold-45 · 3/4 splits",
+        "962136bc5c72…",
+        "d6c17ffd742b…"
+      ]
+    ],
+    "trial_ledger_notes": [
+      "OPENED_HOLDOUT observed 2/9 · global completeness and pre-test registration unverified",
+      "ledger sha256:d4b3d0f51df71089b7268b3370b2e181072986b8b50f553b67f2d6355781656d"
+    ],
+    "trial_ledger_overflow": {
+      "client_width": 622,
+      "scroll_width": 622,
+      "overflowing": false
+    },
+    "robustness_result_root_hash": "sha256:8f16d8440cfe21c3e7392a22c90c396ac13ace63fcddb453be602dc6ecaf3a21",
+    "robustness_receipt_hash": "sha256:b37a668908b9290b6d7576ae5dd102f4500c7eb870838169f25d384fdea7fa90",
+    "trial_ledger_hash": "sha256:d4b3d0f51df71089b7268b3370b2e181072986b8b50f553b67f2d6355781656d",
+    "trial_ledger_payload": {
+      "records": [
+        {
+          "trial_id": "baseline",
+          "definition_hash": "sha256:c4b5fc9826fc755d2b97afed07008bda6404bb494b1978c6d3a036734184d7db",
+          "result_hash": "sha256:c94c14d4c12aa9714fa99896b5acebec45f9a81eb04eeb93c8830a738f63941c",
+          "development_net_pnl_micros": -310041297,
+          "validation_net_pnl_micros": -199681445,
+          "test_net_pnl_micros": -42701743,
+          "opened_holdout_net_pnl_micros": null,
+          "observed_split_count": 3,
+          "diagnostic_only": true
+        },
+        {
+          "trial_id": "without-uptrend",
+          "definition_hash": "sha256:a3ec6a5f98a3309694f53b9cd6d5c78aff02a4d700dc81333aa9c3747339aab4",
+          "result_hash": "sha256:e64043d329cb0e80ecd5c2a83bd9bd689a3c5833a18eb41781ee5de9dd8b711b",
+          "development_net_pnl_micros": -91483852,
+          "validation_net_pnl_micros": -95110536,
+          "test_net_pnl_micros": null,
+          "opened_holdout_net_pnl_micros": null,
+          "observed_split_count": 2,
+          "diagnostic_only": true
+        },
+        {
+          "trial_id": "without-pullback",
+          "definition_hash": "sha256:edabc0296299d4e48fcbf3de4cf6f0cf5567913327aa9a9dd7b42027554001ed",
+          "result_hash": "sha256:0d43d65df115e937b4a86379e97392d162062ed6cd0e0d244afffbe122a167f0",
+          "development_net_pnl_micros": 318458006,
+          "validation_net_pnl_micros": 158237757,
+          "test_net_pnl_micros": 132993905,
+          "opened_holdout_net_pnl_micros": 52123192,
+          "observed_split_count": 4,
+          "diagnostic_only": true
+        },
+        {
+          "trial_id": "fast-15",
+          "definition_hash": "sha256:2b32bf354ce63edc527f0fe6a20ec0203c1fb6be38793cdea8997e1f6276c6c2",
+          "result_hash": "sha256:08f7a9c2a043f944c866af9f90cef15f58e56577d461454f7ae2a86c90e3d811",
+          "development_net_pnl_micros": -190138291,
+          "validation_net_pnl_micros": -6462646,
+          "test_net_pnl_micros": null,
+          "opened_holdout_net_pnl_micros": null,
+          "observed_split_count": 2,
+          "diagnostic_only": true
+        },
+        {
+          "trial_id": "fast-25",
+          "definition_hash": "sha256:55d570cb897f4d168ddea4974f86250a74eab68bec02871b2b038c7d8c005061",
+          "result_hash": "sha256:ed25aa4a9f6cee47bcc8c0ce35356a9bc13ece57ddeea63cb3e962c573023bc3",
+          "development_net_pnl_micros": -450520001,
+          "validation_net_pnl_micros": -193006916,
+          "test_net_pnl_micros": -203100396,
+          "opened_holdout_net_pnl_micros": -65448440,
+          "observed_split_count": 4,
+          "diagnostic_only": true
+        },
+        {
+          "trial_id": "slow-40",
+          "definition_hash": "sha256:bf92463c0fc1cc8aa3fd2f8bd1793e206af704c2e8d54bf73fae412e2307b992",
+          "result_hash": "sha256:df4e5f7d941ad69966d4144947506122572bac6ff7ebc1983263b76e65aab95e",
+          "development_net_pnl_micros": -353128253,
+          "validation_net_pnl_micros": -199681445,
+          "test_net_pnl_micros": -23374618,
+          "opened_holdout_net_pnl_micros": null,
+          "observed_split_count": 3,
+          "diagnostic_only": true
+        },
+        {
+          "trial_id": "slow-60",
+          "definition_hash": "sha256:bc4784285711d342ef347032f8ae160cbde8ce4ab33278c796e5e0e970f9d015",
+          "result_hash": "sha256:fa718afeb90644c93b8e8d8099f58a6906c42dd9c6c9854edad2e438e7ee73bb",
+          "development_net_pnl_micros": -310041297,
+          "validation_net_pnl_micros": -199681445,
+          "test_net_pnl_micros": -42701743,
+          "opened_holdout_net_pnl_micros": null,
+          "observed_split_count": 3,
+          "diagnostic_only": true
+        },
+        {
+          "trial_id": "hold-15",
+          "definition_hash": "sha256:ba419ecaf1420f3d6caa4915bdc39dd90da90a1957b0987651b4b474673bfa54",
+          "result_hash": "sha256:6ec9d799bcecd051b58c92a3cc9e4bc3ad2298752f722d582103d13afe887724",
+          "development_net_pnl_micros": -66929031,
+          "validation_net_pnl_micros": -50066568,
+          "test_net_pnl_micros": -6717442,
+          "opened_holdout_net_pnl_micros": null,
+          "observed_split_count": 3,
+          "diagnostic_only": true
+        },
+        {
+          "trial_id": "hold-45",
+          "definition_hash": "sha256:962136bc5c72b345329a524cb543935d18e4fd5b5258d1bc083493bd945a6e97",
+          "result_hash": "sha256:d6c17ffd742b215cf195f14579a8000e22a3adcb29ffe4c533f61935087f6d8b",
+          "development_net_pnl_micros": -584268227,
+          "validation_net_pnl_micros": -309329021,
+          "test_net_pnl_micros": -106925325,
+          "opened_holdout_net_pnl_micros": null,
+          "observed_split_count": 3,
+          "diagnostic_only": true
+        }
+      ],
+      "trial_count": 9,
+      "batch_complete": true,
+      "global_completeness_verified": false,
+      "pre_test_registration_verified": false,
+      "opened_holdout_observed_trial_count": 2,
+      "robustness_suite_hash": "sha256:10ca89c5c47aed29ceac03712b6e293fbfddfc54d2a605c5ec4e1abfd3b645dd",
+      "robustness_receipt_hash": "sha256:b37a668908b9290b6d7576ae5dd102f4500c7eb870838169f25d384fdea7fa90",
+      "trial_ledger_hash": "sha256:d4b3d0f51df71089b7268b3370b2e181072986b8b50f553b67f2d6355781656d",
+      "evidence_scope": "current_batch_lineage_not_promotion_evidence"
+    },
+    "statistical_rows": [
+      {
+        "check_id": "test_confidence_interval",
+        "status": "NOT_RUN",
+        "observation": "observed 2 · required 30",
+        "detail": "TEST has 2 episodes; frozen minimum is 30."
+      },
+      {
+        "check_id": "candidate_trial_ledger",
+        "status": "FAIL",
+        "observation": "observed 9",
+        "detail": "current batch preserves 9 trials, but global completeness and pre-test registration are unverified."
+      },
+      {
+        "check_id": "deflated_sharpe",
+        "status": "NOT_RUN",
+        "observation": "observed NOT_RUN",
+        "detail": "requires return sampling plus the complete candidate-trial ledger."
+      },
+      {
+        "check_id": "probability_of_backtest_overfitting",
+        "status": "NOT_RUN",
+        "observation": "observed NOT_RUN",
+        "detail": "requires a frozen candidate-by-purged-fold performance matrix."
+      }
+    ],
+    "full_record_hashes": {
+      "baseline": {
+        "definition_hash": "sha256:c4b5fc9826fc755d2b97afed07008bda6404bb494b1978c6d3a036734184d7db",
+        "result_hash": "sha256:c94c14d4c12aa9714fa99896b5acebec45f9a81eb04eeb93c8830a738f63941c",
+        "observed_split_count": 3
+      },
+      "without-uptrend": {
+        "definition_hash": "sha256:a3ec6a5f98a3309694f53b9cd6d5c78aff02a4d700dc81333aa9c3747339aab4",
+        "result_hash": "sha256:e64043d329cb0e80ecd5c2a83bd9bd689a3c5833a18eb41781ee5de9dd8b711b",
+        "observed_split_count": 2
+      },
+      "without-pullback": {
+        "definition_hash": "sha256:edabc0296299d4e48fcbf3de4cf6f0cf5567913327aa9a9dd7b42027554001ed",
+        "result_hash": "sha256:0d43d65df115e937b4a86379e97392d162062ed6cd0e0d244afffbe122a167f0",
+        "observed_split_count": 4
+      },
+      "fast-15": {
+        "definition_hash": "sha256:2b32bf354ce63edc527f0fe6a20ec0203c1fb6be38793cdea8997e1f6276c6c2",
+        "result_hash": "sha256:08f7a9c2a043f944c866af9f90cef15f58e56577d461454f7ae2a86c90e3d811",
+        "observed_split_count": 2
+      },
+      "fast-25": {
+        "definition_hash": "sha256:55d570cb897f4d168ddea4974f86250a74eab68bec02871b2b038c7d8c005061",
+        "result_hash": "sha256:ed25aa4a9f6cee47bcc8c0ce35356a9bc13ece57ddeea63cb3e962c573023bc3",
+        "observed_split_count": 4
+      },
+      "slow-40": {
+        "definition_hash": "sha256:bf92463c0fc1cc8aa3fd2f8bd1793e206af704c2e8d54bf73fae412e2307b992",
+        "result_hash": "sha256:df4e5f7d941ad69966d4144947506122572bac6ff7ebc1983263b76e65aab95e",
+        "observed_split_count": 3
+      },
+      "slow-60": {
+        "definition_hash": "sha256:bc4784285711d342ef347032f8ae160cbde8ce4ab33278c796e5e0e970f9d015",
+        "result_hash": "sha256:fa718afeb90644c93b8e8d8099f58a6906c42dd9c6c9854edad2e438e7ee73bb",
+        "observed_split_count": 3
+      },
+      "hold-15": {
+        "definition_hash": "sha256:ba419ecaf1420f3d6caa4915bdc39dd90da90a1957b0987651b4b474673bfa54",
+        "result_hash": "sha256:6ec9d799bcecd051b58c92a3cc9e4bc3ad2298752f722d582103d13afe887724",
+        "observed_split_count": 3
+      },
+      "hold-45": {
+        "definition_hash": "sha256:962136bc5c72b345329a524cb543935d18e4fd5b5258d1bc083493bd945a6e97",
+        "result_hash": "sha256:d6c17ffd742b215cf195f14579a8000e22a3adcb29ffe4c533f61935087f6d8b",
+        "observed_split_count": 3
+      }
+    },
+    "console_errors": [],
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 3300
+    },
+    "artifact": "after.png",
+    "capture_note": "request, DOM, console, responsive layout, and no-horizontal-overflow verified at 1100x1000; pixel-only height expanded after verification so the complete panel fits without fixed-composer occlusion; width and DPR unchanged"
+  }
+}

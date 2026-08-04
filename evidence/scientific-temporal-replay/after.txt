@@ -1,0 +1,34 @@
+Observable: `uv run --no-sync python -m app.scientific_events --demo`
+Captured after the final scientific temporal-contract edits on 2026-08-03.
+
+BEFORE
+- module absent; command failed with `No module named app.scientific_events`
+
+AFTER
+- exit code: 0
+- status: BLOCKED
+- trialVersionEventsExpected/Replayed: 25 / 25
+- fieldDiffsExpected/Reproduced: 25 / 25
+- unsupportedScientificFacts: 0
+- postAsOfDocuments: 0
+- versionHashMismatches: 0
+- marketOutcomeLabelsReproduced: 0
+- promotionCeiling: PROSPECTIVE_SHADOW
+- eventRootHash:
+  sha256:75db7b799158122c839febb9e0201bbcd096c9212e39967a610065a88c4c3a60
+- diffRootHash:
+  sha256:363ff9e5e8960e894aeeca31f2aef1454722295519c78561dc03636681db28cf
+- blockers:
+  ARCHIVE_REFETCH_AUTHORITY_NOT_IMPLEMENTED
+  MARKET_OUTCOME_LABELS_INCOMPLETE
+  PUBLIC_HISTORY_ARCHIVE_NOT_PROVEN
+
+What did not change:
+- The existing market/research promotion gate was not modified.
+- Model-authored quantities remain prohibited.
+- The demo is explicitly synthetic and cannot claim historical or market proof.
+
+Verification so far:
+- tests/test_scientific_events.py: 8 passed
+- scientific + authority-panel + market-data slice: 29 passed
+- full repository: 658 passed, 29 skipped in 482.95s

@@ -1,0 +1,13 @@
+{
+  "version": "nodequant-fomc-drift-manifest-receipt-v1",
+  "created_at_utc": "2026-08-04T10:20:57.494818+00:00",
+  "policy_hash": "sha256:fbf46bac88cfee7dbca1d7f9c9b1125735b134580aef2977bee76be12dea061f",
+  "manifest_hash": "sha256:207a8a9739fbff734b74a1dd44a257fbe4443a3982171e97f2c016efbb3d6f76",
+  "raw_file_sha256": "sha256:da374eb0158d56fc4f49fe1a1a8de84b540da49fbb1db875e1493290a4abf411",
+  "events": 79,
+  "events_by_year": {"2016": 8, "2017": 8, "2018": 8, "2019": 8, "2020": 7, "2021": 8, "2022": 8, "2023": 8, "2024": 8, "2025": 8},
+  "first_event": "2016-01-27",
+  "last_event": "2025-12-10",
+  "independent_manifest_hash_rebuild": "MATCH"
+}
+

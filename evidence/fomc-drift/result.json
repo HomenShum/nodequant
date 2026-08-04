@@ -1,0 +1,100 @@
+{
+  "cost_sensitivities": {
+    "0": {
+      "event_net": {
+        "event_sharpe_annualized": 0.24065122239808867,
+        "events": 79,
+        "mean": 0.0009318739461867619,
+        "positive_fraction": 0.4936708860759494,
+        "volatility": 0.010952520913768036
+      },
+      "year_matched_active": {
+        "event_sharpe_annualized": 0.08545832110867367,
+        "events": 79,
+        "mean": 0.00033249048911838003,
+        "positive_fraction": 0.4177215189873418,
+        "volatility": 0.011004488573402419
+      }
+    },
+    "10": {
+      "event_net": {
+        "event_sharpe_annualized": -0.27583756534586773,
+        "events": 79,
+        "mean": -0.001068126053813239,
+        "positive_fraction": 0.35443037974683544,
+        "volatility": 0.010952520913768037
+      },
+      "year_matched_active": {
+        "event_sharpe_annualized": -0.4285913970367804,
+        "events": 79,
+        "mean": -0.001667509510881621,
+        "positive_fraction": 0.3291139240506329,
+        "volatility": 0.011004488573402419
+      }
+    },
+    "5": {
+      "event_net": {
+        "event_sharpe_annualized": -0.017593171473889644,
+        "events": 79,
+        "mean": -6.81260538132389e-05,
+        "positive_fraction": 0.4177215189873418,
+        "volatility": 0.010952520913768036
+      },
+      "year_matched_active": {
+        "event_sharpe_annualized": -0.17156653796405338,
+        "events": 79,
+        "mean": -0.0006675095108816206,
+        "positive_fraction": 0.379746835443038,
+        "volatility": 0.011004488573402419
+      }
+    }
+  },
+  "created_at_utc": "2026-08-04T10:22:02.074339+00:00",
+  "data": {
+    "event_outcomes": 79,
+    "first_event": "2016-01-27",
+    "last_event": "2025-12-10",
+    "price_raw_hash": "sha256:15eab395b83f29fa06b40b14acb344e891673e9b5d34cfb9e379fa6dc4a5eb99",
+    "price_rows": 2542
+  },
+  "evaluator_hash": "sha256:754d1c1703784e4cafadfb38e156228424dd878fc61c8c595066fa7cc9ee118e",
+  "limitations": [
+    "Daily close-to-close returns shift and widen the original 2 p.m.-to-2 p.m. measurement window and include post-announcement trading.",
+    "The year-matched non-event mean is an evaluation baseline, not a live hedge.",
+    "Yahoo adjusted closes are secondary and revisable.",
+    "This event study does not model intraday spreads, slippage, taxes, capacity or cash yield."
+  ],
+  "manifest_hash": "sha256:207a8a9739fbff734b74a1dd44a257fbe4443a3982171e97f2c016efbb3d6f76",
+  "policy_hash": "sha256:fbf46bac88cfee7dbca1d7f9c9b1125735b134580aef2977bee76be12dea061f",
+  "primary": {
+    "active_mean_circular_block_onesided_95pct_lower": -0.0026556203669544113,
+    "checks": {
+      "bootstrap_lower_positive": false,
+      "minimum_positive_folds": false,
+      "remove_best_event_sharpe_positive": false
+    },
+    "folds": {
+      "2016-2020": {
+        "event_sharpe_annualized": -0.38505987335234687,
+        "events": 39,
+        "mean": -0.0010888900288027992,
+        "positive_fraction": 0.3076923076923077,
+        "volatility": 0.007998356376420717
+      },
+      "2021-2025": {
+        "event_sharpe_annualized": -0.054182689463982664,
+        "events": 40,
+        "mean": -0.0002566635059084705,
+        "positive_fraction": 0.45,
+        "volatility": 0.013398264818997991
+      }
+    },
+    "positive_folds": 0,
+    "remove_best_5_event_sharpe": -0.7209415227060653
+  },
+  "promotion_ceiling": "POST_PUBLICATION_DAILY_BAR_ANOMALY_DIAGNOSTIC_ONLY",
+  "promotion_eligible": false,
+  "result_hash": "sha256:4c13693dbe48937e45f1a71dd565344c4241e0b50aebbbd534b0e8b3525ff7ba",
+  "verdict": "POST_PUBLICATION_FOMC_DRIFT_FAILS",
+  "version": "nodequant-fomc-drift-result-v1"
+}

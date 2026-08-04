@@ -1,0 +1,49 @@
+- generic [ref=f4e1] [box=0,0,1728,1117]:
+  - generic [ref=f4e3] [box=0,0,1728,1117]:
+    - generic [ref=f4e6] [box=0,0,255,1117]:
+      - list [ref=f4e9] [box=8,8,239,48]:
+        - listitem [ref=f4e10] [box=8,8,239,48]:
+          - link "NodeQuant" [ref=f4e11] [cursor=pointer] [box=8,8,239,48]:
+            - /url: /
+      - generic [ref=f4e19] [box=8,73,239,108]:
+        - button "New Thread" [ref=f4e20] [box=8,73,239,32]
+        - searchbox "Search threads" [ref=f4e23] [box=10,111,235,32]
+        - generic [ref=f4e25] [box=8,149,239,32]:
+          - button "New Chat" [ref=f4e26] [box=8,149,239,32]
+          - button "More options" [ref=f4e28] [box=217,153,24,24]
+      - button "Toggle Sidebar" [ref=f4e30] [box=247,0,16,1117]
+    - main [ref=f4e31] [box=256,0,1470,1117]:
+      - generic [ref=f4e32] [box=256,0,1470,64]:
+        - button "Toggle Sidebar" [ref=f4e33] [box=272,18,28,28]
+        - separator [box=308,24,0,16]
+        - navigation "breadcrumb" [ref=f4e35] [box=324,22,193,20]:
+          - list [ref=f4e36] [box=324,22,193,20]:
+            - listitem [ref=f4e37] [box=324,22,73,20]:
+              - link "NodeQuant" [ref=f4e38] [cursor=pointer] [box=324,22,73,19]:
+                - /url: /
+            - listitem [ref=f4e39] [box=403,25,14,14]
+            - listitem [ref=f4e42] [box=423,22,94,20]:
+              - link "Proof Kernel v0" [disabled] [ref=f4e43] [box=423,22,94,20]
+        - generic [ref=f4e44] [box=1542,14,168,36]:
+          - link "Market Map" [ref=f4e45] [cursor=pointer] [box=1542,14,128,36]:
+            - /url: /market-map
+          - button "Toggle dark mode" [ref=f4e49] [box=1678,16,32,32]
+      - generic [ref=f4e59] [box=632,-2510,704,3627]:
+        - generic [ref=f4e121] [box=648,-2494,672,3437]:
+          - paragraph [ref=f4e125] [box=1070,-2478,225,24]: Review the current proof kernel.
+          - generic [ref=f4e126] [box=648,-2422,672,3395]:
+            - generic [ref=f4e127] [box=648,-2422,672,3323]:
+              - paragraph [ref=f4e132] [box=656,-2422,656,26]: "25 packets, 579 ledger events. Promotion to paper: BLOCKED (4 blockers)."
+              - generic [ref=f4e133] [box=656,-2384,656,3285]
+            - generic [ref=f4e739] [box=652,919,80,24]:
+              - button "Copy" [ref=f4e740] [box=652,919,24,24]
+              - button "Refresh" [ref=f4e742] [box=680,919,24,24]
+              - button "More" [ref=f4e744] [box=708,919,24,24]
+        - generic [ref=f4e114] [box=648,999,672,94]:
+          - textbox "Message input" [active] [ref=f4e115] [box=657,1008,654,40]:
+            - /placeholder: Send a message...
+          - generic [ref=f4e116] [box=657,1056,654,28]:
+            - button "Add Attachment" [ref=f4e117] [box=657,1056,28,28]
+            - generic [ref=f4e119] [box=1283,1056,28,28]:
+              - button "Send message" [disabled] [box=1283,1056,28,28]
+  - alert [ref=f4e120] [box=-1,1116,1,1]

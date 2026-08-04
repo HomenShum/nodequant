@@ -1,0 +1,85 @@
+{
+  "version": "nodequant-real-daily-alpha-policy-v1",
+  "frozen_at_utc": "2026-08-03T00:00:00Z",
+  "purpose": "diagnostic_real_data_alpha_search_not_promotion_evidence",
+  "data": {
+    "provider": "Yahoo Finance chart endpoint",
+    "provider_authority": "secondary_unofficial_diagnostic_source",
+    "endpoint_template": "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}",
+    "start": "2007-06-01",
+    "end_exclusive": "2026-01-01",
+    "interval": "1d",
+    "price_field": "adjclose",
+    "risky_symbols": ["SPY", "QQQ", "IWM", "TLT", "GLD"],
+    "cash_proxy_symbol": "BIL",
+    "maximum_symbols": 6,
+    "maximum_response_bytes_per_symbol": 2000000,
+    "maximum_rows_per_symbol": 6000,
+    "minimum_common_rows": 4000
+  },
+  "temporal_contract": {
+    "signal_information_cutoff": "previous_month_end_adjusted_close",
+    "execution": "one_full_daily_bar_after_signal_observation",
+    "rebalance": "monthly",
+    "same_bar_execution_allowed": false
+  },
+  "splits": [
+    {"id": "DEVELOPMENT", "start": "2007-06-01", "end": "2011-12-31", "optimizer_accessible": true},
+    {"id": "VALIDATION", "start": "2012-01-01", "end": "2015-12-31", "optimizer_accessible": true},
+    {"id": "TEST", "start": "2016-01-01", "end": "2019-12-31", "optimizer_accessible": false},
+    {"id": "OPENED_HOLDOUT", "start": "2020-01-01", "end": "2025-12-31", "optimizer_accessible": false}
+  ],
+  "candidate_family": "long_cash_absolute_trend",
+  "candidates": [
+    {"id": "always_long", "rule": "always_long", "lookback_days": 0},
+    {"id": "tsmom_63", "rule": "lookback_return_positive", "lookback_days": 63},
+    {"id": "tsmom_126", "rule": "lookback_return_positive", "lookback_days": 126},
+    {"id": "tsmom_252", "rule": "lookback_return_positive", "lookback_days": 252},
+    {"id": "sma_126", "rule": "price_above_sma", "lookback_days": 126},
+    {"id": "sma_210", "rule": "price_above_sma", "lookback_days": 210},
+    {"id": "sma_252", "rule": "price_above_sma", "lookback_days": 252},
+    {"id": "consensus_63_126_252", "rule": "two_of_three_lookback_returns_positive", "lookback_days": 252}
+  ],
+  "controls": [
+    {"id": "inverted_tsmom_252", "rule": "lookback_return_nonpositive", "lookback_days": 252}
+  ],
+  "portfolio": {
+    "risky_allocation": "equal_weight_across_five_risky_symbols",
+    "inactive_allocation": "BIL_cash_proxy",
+    "shorting": false,
+    "leverage": false,
+    "dividends_and_splits": "provider_adjusted_close"
+  },
+  "costs": {
+    "base_one_way_bps": 10,
+    "stress_one_way_bps": [5, 10, 20, 25],
+    "scope": "turnover_charge_only; taxes, borrow, market impact, and account-specific fees excluded"
+  },
+  "selection": {
+    "metric": "robust_excess_sharpe_floor",
+    "annualization_days": 252,
+    "components": [
+      "development_excess_sharpe_at_base_cost",
+      "validation_excess_sharpe_at_base_cost",
+      "development_plus_validation_excess_sharpe_at_25bps",
+      "development_plus_validation_excess_sharpe_after_removing_best_5_days"
+    ],
+    "minimum_improvement_over_always_long": 0.05,
+    "tie_break": "lower_turnover_then_lexicographic_candidate_id"
+  },
+  "test_gate": {
+    "excess_sharpe_improvement_over_always_long": 0.0,
+    "net_cagr_minimum": 0.0,
+    "max_drawdown_must_improve_over_always_long": true,
+    "excess_sharpe_at_25bps_minimum": 0.0,
+    "leave_one_risky_asset_out_excess_sharpe_minimum": 0.0
+  },
+  "holdout_gate": {
+    "net_cagr_minimum": 0.0,
+    "excess_sharpe_minimum": 0.0,
+    "paired_active_mean_bootstrap_lower_bound_minimum": 0.0
+  },
+  "bootstrap": {"seed": 240803, "samples": 5000, "block_days": 20},
+  "trial_accounting": {"registered_candidate_count": 8, "registered_control_count": 1},
+  "promotion_ceiling": "DIAGNOSTIC_ONLY_UNTIL_PROVIDER_REFETCH_AND_MARKET_CONFORMANCE_PASS"
+}

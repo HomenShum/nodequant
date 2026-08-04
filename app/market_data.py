@@ -36,6 +36,7 @@ class BarSnapshot:
     source_locator: str
     source_hash: str
     retrieved_at_utc: datetime
+    raw_bytes: bytes
 
 
 def run_snapshot_gate(snapshot: BarSnapshot, limit: int = 25) -> dict:
@@ -51,6 +52,51 @@ def run_snapshot_gate(snapshot: BarSnapshot, limit: int = 25) -> dict:
         list(snapshot.bars),
         EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
     )
+
+
+def parse_snapshot_bytes(raw: bytes, max_bars: int = MAX_BARS) -> list[tuple[datetime, float]]:
+    """Strict, bounded parser shared by ingestion and later provenance checks."""
+
+    if len(raw) > MAX_BAR_FILE_BYTES:
+        raise ValueError(f"bar snapshot exceeds the {MAX_BAR_FILE_BYTES}-byte read cap")
+    if max_bars < 1 or max_bars > MAX_BARS:
+        raise ValueError(f"max_bars must be between 1 and {MAX_BARS}")
+    try:
+        text = raw.decode("utf-8-sig")
+    except UnicodeDecodeError as exc:
+        raise ValueError("bar snapshot must be UTF-8") from exc
+
+    reader = csv.DictReader(io.StringIO(text, newline=""))
+    if reader.fieldnames != _HEADERS:
+        raise ValueError(f"bar snapshot headers must be exactly {_HEADERS}")
+
+    parsed: list[tuple[datetime, float]] = []
+    previous: datetime | None = None
+    for row_number, row in enumerate(reader, start=2):
+        if len(parsed) >= max_bars:
+            raise ValueError(f"bar snapshot exceeds the {max_bars}-row cap")
+        if None in row or any(value is None for value in row.values()):
+            raise ValueError(f"row {row_number}: expected exactly two columns")
+        try:
+            ts = datetime.fromisoformat(row["timestamp_utc"].replace("Z", "+00:00"))
+        except (AttributeError, TypeError, ValueError) as exc:
+            raise ValueError(f"row {row_number}: invalid timestamp_utc") from exc
+        if ts.tzinfo is None or ts.utcoffset() is None:
+            raise ValueError(f"row {row_number}: timestamp_utc must include an offset")
+        ts = ts.astimezone(timezone.utc)
+        if previous is not None and ts <= previous:
+            raise ValueError(f"row {row_number}: timestamps must be strictly increasing")
+        try:
+            close = float(row["close"])
+        except (TypeError, ValueError) as exc:
+            raise ValueError(f"row {row_number}: close must be numeric") from exc
+        if not math.isfinite(close) or close <= 0:
+            raise ValueError(f"row {row_number}: close must be finite and positive")
+        parsed.append((ts, close))
+        previous = ts
+    if not parsed:
+        raise ValueError("bar snapshot contains no rows")
+    return parsed
 
 
 def load_csv_snapshot(
@@ -90,42 +136,7 @@ def load_csv_snapshot(
     if len(raw) > max_bytes:
         raise ValueError(f"bar snapshot exceeds the {max_bytes}-byte read cap")
 
-    try:
-        text = raw.decode("utf-8-sig")
-    except UnicodeDecodeError as exc:
-        raise ValueError("bar snapshot must be UTF-8") from exc
-
-    reader = csv.DictReader(io.StringIO(text, newline=""))
-    if reader.fieldnames != _HEADERS:
-        raise ValueError(f"bar snapshot headers must be exactly {_HEADERS}")
-
-    parsed: list[tuple[datetime, float]] = []
-    previous: datetime | None = None
-    for row_number, row in enumerate(reader, start=2):
-        if len(parsed) >= max_bars:
-            raise ValueError(f"bar snapshot exceeds the {max_bars}-row cap")
-        if None in row or any(value is None for value in row.values()):
-            raise ValueError(f"row {row_number}: expected exactly two columns")
-        try:
-            ts = datetime.fromisoformat(row["timestamp_utc"].replace("Z", "+00:00"))
-        except (AttributeError, TypeError, ValueError) as exc:
-            raise ValueError(f"row {row_number}: invalid timestamp_utc") from exc
-        if ts.tzinfo is None or ts.utcoffset() is None:
-            raise ValueError(f"row {row_number}: timestamp_utc must include an offset")
-        ts = ts.astimezone(timezone.utc)
-        if previous is not None and ts <= previous:
-            raise ValueError(f"row {row_number}: timestamps must be strictly increasing")
-        try:
-            close = float(row["close"])
-        except (TypeError, ValueError) as exc:
-            raise ValueError(f"row {row_number}: close must be numeric") from exc
-        if not math.isfinite(close) or close <= 0:
-            raise ValueError(f"row {row_number}: close must be finite and positive")
-        parsed.append((ts, close))
-        previous = ts
-
-    if not parsed:
-        raise ValueError("bar snapshot contains no rows")
+    parsed = parse_snapshot_bytes(raw, max_bars)
 
     source_hash = "sha256:" + hashlib.sha256(raw).hexdigest()
     retrieved = retrieved_at_utc.astimezone(timezone.utc)
@@ -153,4 +164,5 @@ def load_csv_snapshot(
         source_locator=source_locator,
         source_hash=source_hash,
         retrieved_at_utc=retrieved,
+        raw_bytes=raw,
     )

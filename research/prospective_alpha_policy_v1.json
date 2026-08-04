@@ -1,0 +1,46 @@
+{
+  "version": "nodequant-prospective-alpha-policy-v1",
+  "frozen_at_utc": "2026-08-04T06:20:00Z",
+  "purpose": "future_time_monthly_forecasts_from_the_opened_v4_research_result",
+  "source_result": {
+    "path": "evidence/breadth-first-alpha-v4/result.json",
+    "semantic_result_hash": "sha256:8534370821ef4537fb242c135f0bf22d4c407007f21a62408f9e5548cd7de384"
+  },
+  "data": {
+    "provider": "Yahoo Finance chart endpoint",
+    "provider_authority": "secondary_unofficial_diagnostic_source",
+    "start": "2008-01-01",
+    "end_exclusive": "2026-08-04",
+    "interval": "1d",
+    "price_field": "adjclose",
+    "risky_symbols": ["SPTM", "EWC", "BWX", "DBB", "ICF"],
+    "cash_proxy_symbol": "BIL",
+    "maximum_symbols": 6,
+    "maximum_response_bytes_per_symbol": 2500000,
+    "maximum_rows_per_symbol": 7000,
+    "minimum_common_rows": 4500
+  },
+  "forecast": {
+    "primary_strategy_id": "composite_momentum__top_n-3",
+    "comparison_strategy_ids": [
+      "inverse_volatility__volatility_days-63",
+      "correlation_gated_inverse_volatility__volatility_days-63_correlation_days-126_maximum_correlation_bps-5000",
+      "synthesis__correlation_gated_inverse_volatility__inverse_volatility"
+    ],
+    "benchmark_id": "always_long",
+    "signal_cutoff_rule": "latest_completed_month_end",
+    "first_return_rule": "first_common_close_to_close_return_after_the_latest_observed_session",
+    "evaluation_end_rule": "first_common_close_in_the_next_calendar_month",
+    "one_way_cost_bps": 10
+  },
+  "future_gate": {
+    "minimum_complete_packets": 24,
+    "minimum_complete_sessions": 504,
+    "minimum_packets_beating_benchmark": 14,
+    "paired_block_bootstrap_days": 20,
+    "paired_block_bootstrap_samples": 5000,
+    "paired_active_annual_return_95pct_lower_must_exceed": 0.0,
+    "primary_endpoint": "net_active_return_vs_always_long"
+  },
+  "promotion_ceiling": "PROSPECTIVE_DIAGNOSTIC_ONLY_NO_LIVE_CAPITAL"
+}

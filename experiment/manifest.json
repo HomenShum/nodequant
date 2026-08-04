@@ -1,0 +1,57 @@
+{
+  "version": "experiment-manifest-v1",
+  "strategy_id": "spy-pullback",
+  "strategy_config_hash": "fast20-slow50-cost-v1",
+  "created_at_utc": "2026-01-06T18:29:00Z",
+  "candidate_frozen_at_utc": "2026-01-06T18:29:00Z",
+  "optimizer_accessible_splits": ["DEVELOPMENT", "VALIDATION"],
+  "split_windows": [
+    {
+      "split_id": "DEVELOPMENT",
+      "start_utc": "2026-01-05T14:30:00Z",
+      "end_utc": "2026-01-06T10:29:00Z",
+      "promotion_eligible": false
+    },
+    {
+      "split_id": "VALIDATION",
+      "start_utc": "2026-01-06T10:30:00Z",
+      "end_utc": "2026-01-06T18:29:00Z",
+      "promotion_eligible": false
+    },
+    {
+      "split_id": "TEST",
+      "start_utc": "2026-01-06T18:30:00Z",
+      "end_utc": "2026-01-07T02:29:00Z",
+      "promotion_eligible": true
+    },
+    {
+      "split_id": "OPENED_HOLDOUT",
+      "start_utc": "2026-01-07T02:30:00Z",
+      "end_utc": "2026-01-07T06:29:00Z",
+      "promotion_eligible": false
+    }
+  ],
+  "rolling_sharpe_window": null,
+  "null_trial_count": 128,
+  "null_seed": 240803,
+  "minimum_confidence_episodes": 30,
+  "robustness_result_root": "sha256:8f16d8440cfe21c3e7392a22c90c396ac13ace63fcddb453be602dc6ecaf3a21",
+  "walk_forward_result_root": "sha256:28c86746cd1641e9e0562bce05e4c6ca7cd0f5ff8f59d568c8cc1dc5eb135fed",
+  "robustness_variants": [
+    {"variant_id": "baseline", "fast_window": 20, "slow_window": 50, "hold_bars": 30, "use_uptrend": true, "use_pullback": true},
+    {"variant_id": "without-uptrend", "fast_window": 20, "slow_window": 50, "hold_bars": 30, "use_uptrend": false, "use_pullback": true},
+    {"variant_id": "without-pullback", "fast_window": 20, "slow_window": 50, "hold_bars": 30, "use_uptrend": true, "use_pullback": false},
+    {"variant_id": "fast-15", "fast_window": 15, "slow_window": 50, "hold_bars": 30, "use_uptrend": true, "use_pullback": true},
+    {"variant_id": "fast-25", "fast_window": 25, "slow_window": 50, "hold_bars": 30, "use_uptrend": true, "use_pullback": true},
+    {"variant_id": "slow-40", "fast_window": 20, "slow_window": 40, "hold_bars": 30, "use_uptrend": true, "use_pullback": true},
+    {"variant_id": "slow-60", "fast_window": 20, "slow_window": 60, "hold_bars": 30, "use_uptrend": true, "use_pullback": true},
+    {"variant_id": "hold-15", "fast_window": 20, "slow_window": 50, "hold_bars": 15, "use_uptrend": true, "use_pullback": true},
+    {"variant_id": "hold-45", "fast_window": 20, "slow_window": 50, "hold_bars": 45, "use_uptrend": true, "use_pullback": true}
+  ],
+  "walk_forward_folds": [
+    {"fold_id": "WF1", "train_start_utc": "2026-01-05T14:30:00Z", "train_end_utc": "2026-01-05T20:29:00Z", "evaluation_start_utc": "2026-01-05T21:00:00Z", "evaluation_end_utc": "2026-01-05T23:59:00Z", "purge_bars": 30},
+    {"fold_id": "WF2", "train_start_utc": "2026-01-05T14:30:00Z", "train_end_utc": "2026-01-06T02:29:00Z", "evaluation_start_utc": "2026-01-06T03:00:00Z", "evaluation_end_utc": "2026-01-06T06:29:00Z", "purge_bars": 30},
+    {"fold_id": "WF3", "train_start_utc": "2026-01-05T14:30:00Z", "train_end_utc": "2026-01-06T10:29:00Z", "evaluation_start_utc": "2026-01-06T11:00:00Z", "evaluation_end_utc": "2026-01-06T14:29:00Z", "purge_bars": 30}
+  ],
+  "provenance": "self_attested_repository_artifact"
+}

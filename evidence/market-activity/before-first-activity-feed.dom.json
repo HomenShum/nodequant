@@ -1,0 +1,10 @@
+{
+  "claimBoundary": true,
+  "feedRequired": [
+    "ACTIVITY FEED REQUIRED",
+    "ROTATION FEED REQUIRED",
+    "OPTIONS FEED REQUIRED",
+    "ATTENTION FEED REQUIRED"
+  ],
+  "activityFields": 0
+}

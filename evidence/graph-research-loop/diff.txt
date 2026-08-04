@@ -1,0 +1,3 @@
+﻿diff --git evidence/graph-research-loop/before.txt evidence/graph-research-loop/after.txt
+index f22b998..8154cb0 100644
+Binary files evidence/graph-research-loop/before.txt and evidence/graph-research-loop/after.txt differ

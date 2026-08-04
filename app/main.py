@@ -311,22 +311,97 @@ async def kernel_review(request: dict[str, Any]) -> StreamingResponse:
         yield _sse({"type": "start", "messageId": "review-0"})
         yield _sse({"type": "start-step"})
 
-        from .decision_packet import CheckStatus, EvidenceClass, OracleIndependence
         from .ledger import build_ledger, curve_receipt, drawdown_micros, reduce_curve, summary
+        from .order_journal import build_order_journal
         from .promotion import evaluate
+        from .experiment import assess_split_discipline, load_manifest
+        from .performance import split_metrics
+        from .stress import StressScenario, run_execution_stress
+        from .benchmarks import evaluate_null_benchmarks
+        from .statistical_adequacy import assess_statistical_adequacy
+        from .robustness import evaluate_robustness
+        from .trial_ledger import build_trial_ledger
+        from .walk_forward import evaluate_walk_forward
+        from .execution_lifecycle import evaluate_execution_lifecycle
+        from .option_market import assess_option_snapshot
+        from .source_compiler import compile_source_snapshot
 
         bars = proof_kernel.fixture_bars()
         packets = list(proof_kernel.packets(25, bars))
         events = build_ledger(bars, packets)
+        journal = build_order_journal(bars, packets)
         points = reduce_curve(events)
-        receipt = curve_receipt(events, bars, packets)
+        receipt = curve_receipt(events, bars, packets, journal)
         kernel_gate = proof_kernel.run_gate(25, bars)
         gate = evaluate(
             kernel_gate=kernel_gate,
-            receipt=receipt,
-            evidence_class=EvidenceClass.SYNTHETIC_KERNEL,
-            oracle_independence=OracleIndependence.SAME_AUTHOR_DIVERSE_IMPLEMENTATION,
-            market_data_conformance=CheckStatus.NOT_RUN,
+            events=events,
+            bars=bars,
+            packets=packets,
+            journal=journal,
+        )
+        manifest, _ = load_manifest()
+        _, split_tags = assess_split_discipline(
+            [point.at_utc for point in points],
+            [(packet.strategy.id, packet.strategy.config_hash) for packet in packets],
+            str(gate.split_discipline.manifest_hash),
+        )
+        performance = split_metrics(points, split_tags, events)
+        stress = run_execution_stress(
+            bars,
+            packets,
+            [
+                StressScenario(scenario_id="baseline"),
+                StressScenario(scenario_id="cost-2x", cost_multiplier=2),
+                StressScenario(scenario_id="cost-4x", cost_multiplier=4),
+                StressScenario(scenario_id="delay-1", entry_delay_bars=1),
+                StressScenario(scenario_id="delay-5", entry_delay_bars=5),
+            ],
+        )
+        null_benchmarks = evaluate_null_benchmarks(
+            bars,
+            packets,
+            events,
+            journal,
+            manifest,
+            trial_count=manifest.null_trial_count,
+            seed=manifest.null_seed,
+            expected_manifest_hash=str(gate.split_discipline.manifest_hash),
+            expected_bars_hash=str(kernel_gate["barsHash"]),
+            expected_packet_hashes=list(kernel_gate["packetHashes"]),
+        )
+        robustness = evaluate_robustness(
+            bars,
+            packets,
+            events,
+            journal,
+            manifest,
+            expected_bars_hash=str(kernel_gate["barsHash"]),
+            expected_packet_hashes=list(kernel_gate["packetHashes"]),
+        )
+        walk_forward = evaluate_walk_forward(
+            bars,
+            packets,
+            manifest,
+            robustness,
+            expected_bars_hash=str(kernel_gate["barsHash"]),
+            expected_packet_hashes=list(kernel_gate["packetHashes"]),
+        )
+        execution_lifecycle = evaluate_execution_lifecycle()
+        option_readiness = assess_option_snapshot(
+            None,
+            None,
+            decision_at_utc=packets[0].signal.decision_at_utc,
+        )
+        source_compiler = compile_source_snapshot(None, None)
+        trial_ledger = build_trial_ledger(robustness)
+        statistical_adequacy = assess_statistical_adequacy(
+            performance,
+            events,
+            manifest,
+            expected_ledger_root_hash=receipt.ledger_root_hash,
+            trial_ledger=trial_ledger,
+            walk_forward=walk_forward,
         )
 
         yield _sse({"type": "text-start", "id": "t0"})
@@ -347,14 +422,26 @@ async def kernel_review(request: dict[str, Any]) -> StreamingResponse:
                 "receipt": receipt.model_dump(mode="json"),
                 "kernel_gate": kernel_gate,
                 "summary": summary(points),
+                "splits": [window.model_dump(mode="json") for window in manifest.split_windows],
+                "split_metrics": [metric.model_dump(mode="json") for metric in performance],
+                "execution_stress": [row.model_dump(mode="json") for row in stress],
+                "null_benchmarks": null_benchmarks.model_dump(mode="json"),
+                "statistical_adequacy": statistical_adequacy.model_dump(mode="json"),
+                "robustness": robustness.model_dump(mode="json"),
+                "trial_ledger": trial_ledger.model_dump(mode="json"),
+                "walk_forward": walk_forward.model_dump(mode="json"),
+                "execution_lifecycle": execution_lifecycle.model_dump(mode="json"),
+                "option_readiness": option_readiness.model_dump(mode="json"),
+                "source_compiler": source_compiler.model_dump(mode="json"),
                 "curve": [
                     {
                         "at_utc": p.at_utc.isoformat(),
                         "equity_micros": p.equity_micros,
                         "drawdown_micros": d,
                         "through_event_seq": p.through_event_seq,
+                        "split_id": split_id.value if split_id else None,
                     }
-                    for p, d in zip(points, drawdown_micros(points))
+                    for p, d, split_id in zip(points, drawdown_micros(points), split_tags)
                 ],
             },
         })

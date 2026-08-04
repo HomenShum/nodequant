@@ -16,5 +16,7 @@ web/dbg*.mjs
 artifacts/*.html
 artifacts/*.svg
 artifacts/
+market-data/raw/
+market-data/cache/
 .serena/
 .review-uv-*/

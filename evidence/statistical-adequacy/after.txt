@@ -1,0 +1,42 @@
+Statistical-adequacy AFTER evidence
+Captured: 2026-08-03
+
+Contract
+- Real UI: one POST /api/kernel/review through the chat composer, HTTP 200
+- Verification viewport: 1100 x 1000 CSS px, DPR 2, light theme
+- Pixel-only height expansion: 1100 x 2400 CSS px for the complete unobscured panel
+- Statistical section client width and scroll width: 622 px / 622 px; no horizontal overflow
+- Zero browser console errors
+- Caption: TEST statistical controls - diagnostic status - not promotion evidence
+
+Visible checks
+- NOT_RUN | test_confidence_interval | TEST has 2 episodes; frozen minimum is 30. | observed 2 - required 30
+- NOT_RUN | candidate_trial_ledger | no immutable ledger of tried candidates and failures exists. | observed NOT_RUN
+- NOT_RUN | deflated_sharpe | requires return sampling plus the complete candidate-trial ledger. | observed NOT_RUN
+- NOT_RUN | probability_of_backtest_overfitting | requires a frozen candidate-by-purged-fold performance matrix. | observed NOT_RUN
+- Summary: completed TEST episodes 2 - cross-boundary excluded 0
+
+Exact payload
+- split_id: TEST
+- episode_count: 2
+- excluded_cross_boundary_episodes: 0
+- ledger_root_hash: sha256:eb88cb9122348a8ab89ad5c028da5faba1dbf9a497c74494c5f3c0184dd20282
+- manifest_hash: sha256:83d6e8055ed5d1101c832da079c1fff735306a31570a6a954b16f0c2a6c54180
+- evidence_scope: diagnostic_status_not_promotion_evidence
+- All four payload statuses are NOT_RUN.
+- Confidence observed/required are 2/30.
+- The other three observed and required fields are null, not zero.
+
+Authority binding
+- Statistical ledger_root_hash equals the review receipt ledger_root_hash.
+- Statistical manifest_hash equals the promotion split-discipline manifest_hash.
+- Policy hash: sha256:ac00f76ae80f1fc43a9623b3203857356e85c932b70d0d749a81606c0d28e701
+
+Unchanged blockers
+- SYNTHETIC_CORPUS
+- MARKET_DATA_CONFORMANCE_NOT_RUN
+- ORACLE_NOT_INDEPENDENT_ENOUGH
+- SPLIT_DISCIPLINE_NOT_PROVEN
+
+Interpretation
+No significance, Sharpe, PBO, or confidence statistic is estimated. These rows expose missing evidence honestly and do not participate in promotion.

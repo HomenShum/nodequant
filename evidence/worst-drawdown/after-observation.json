@@ -1,0 +1,264 @@
+{
+  "contract": {
+    "route": "POST /api/kernel/review",
+    "ui_url": "http://127.0.0.1:18318",
+    "backend_url": "http://127.0.0.1:18317/api/kernel/review",
+    "viewport_css": {
+      "width": 1100,
+      "height": 1000
+    },
+    "device_scale_factor": 2,
+    "theme": "light",
+    "session": "fresh isolated local backend:18317 + frontend:18318",
+    "trigger": "review the backtest",
+    "panel_testid": "backtest-review",
+    "data_source": "proof_kernel.fixture_bars() synthetic closed-form fixture"
+  },
+  "capture": {
+    "request_count": 1,
+    "chat_requests": [
+      {
+        "method": "POST",
+        "url": "http://127.0.0.1:18318/api/trialscope-chat"
+      }
+    ],
+    "responses": [
+      {
+        "status": 200,
+        "url": "http://127.0.0.1:18317/api/kernel/review"
+      }
+    ],
+    "verdict": "BLOCKED",
+    "blocker_codes": [
+      "SYNTHETIC_CORPUS",
+      "MARKET_DATA_CONFORMANCE_NOT_RUN",
+      "ORACLE_NOT_INDEPENDENT_ENOUGH",
+      "SPLIT_DISCIPLINE_NOT_PROVEN"
+    ],
+    "split_band_ids": [
+      "DEVELOPMENT",
+      "VALIDATION",
+      "TEST",
+      "OPENED_HOLDOUT"
+    ],
+    "drawdown_caption": "worst drawdown by split · event-time sampled · recovery may be censored",
+    "drawdown_rows": [
+      {
+        "split_id": "DEVELOPMENT",
+        "summary": [
+          "DEVELOPMENT",
+          "depth -$312.74"
+        ],
+        "facts": {
+          "peak": "2026-01-05 16:58:00Z",
+          "trough": "2026-01-06 09:07:00Z",
+          "recovery": "NOT_OBSERVED (censored)",
+          "decline": "58140s",
+          "recovery time": "NOT_OBSERVED",
+          "interval underwater": "58560s",
+          "overlapping episodes": "10"
+        },
+        "spans": "spans: pkt-spy-1093, pkt-spy-137, pkt-spy-241, pkt-spy-346, pkt-spy-452, pkt-spy-570, pkt-spy-674, pkt-spy-779, pkt-spy-884, pkt-spy-988"
+      },
+      {
+        "split_id": "VALIDATION",
+        "summary": [
+          "VALIDATION",
+          "depth -$200.93"
+        ],
+        "facts": {
+          "peak": "2026-01-06 10:43:00Z",
+          "trough": "2026-01-06 18:06:00Z",
+          "recovery": "NOT_OBSERVED (censored)",
+          "decline": "26580s",
+          "recovery time": "NOT_OBSERVED",
+          "interval underwater": "26880s",
+          "overlapping episodes": "5"
+        },
+        "spans": "spans: pkt-spy-1212, pkt-spy-1317, pkt-spy-1421, pkt-spy-1526, pkt-spy-1630"
+      },
+      {
+        "split_id": "TEST",
+        "summary": [
+          "TEST",
+          "depth -$51.97"
+        ],
+        "facts": {
+          "peak": "2026-01-06 19:36:00Z",
+          "trough": "2026-01-06 21:41:00Z",
+          "recovery": "NOT_OBSERVED (censored)",
+          "decline": "7500s",
+          "recovery time": "NOT_OBSERVED",
+          "interval underwater": "7500s",
+          "overlapping episodes": "2"
+        },
+        "spans": "spans: pkt-spy-1735, pkt-spy-1840"
+      }
+    ],
+    "drawdown_payload": [
+      {
+        "split_id": "DEVELOPMENT",
+        "point_count": 341,
+        "start_equity_micros": 100000000000,
+        "end_equity_micros": 99689958703,
+        "net_pnl_micros": -310041297,
+        "max_drawdown_micros": -312744165,
+        "peak_at_utc": "2026-01-05T16:58:00Z",
+        "trough_at_utc": "2026-01-06T09:07:00Z",
+        "recovered_at_utc": null,
+        "decline_duration_seconds": 58140,
+        "recovery_duration_seconds": null,
+        "worst_drawdown_underwater_seconds": 58560,
+        "total_time_underwater_seconds": 58980,
+        "episodes_in_drawdown_interval": 10,
+        "episode_ids_in_drawdown_interval": [
+          "pkt-spy-1093",
+          "pkt-spy-137",
+          "pkt-spy-241",
+          "pkt-spy-346",
+          "pkt-spy-452",
+          "pkt-spy-570",
+          "pkt-spy-674",
+          "pkt-spy-779",
+          "pkt-spy-884",
+          "pkt-spy-988"
+        ],
+        "had_drawdown": true,
+        "observation_censored": true,
+        "sampled_at_event_times": true
+      },
+      {
+        "split_id": "VALIDATION",
+        "point_count": 170,
+        "start_equity_micros": 99689958703,
+        "end_equity_micros": 99490277258,
+        "net_pnl_micros": -199681445,
+        "max_drawdown_micros": -200931169,
+        "peak_at_utc": "2026-01-06T10:43:00Z",
+        "trough_at_utc": "2026-01-06T18:06:00Z",
+        "recovered_at_utc": null,
+        "decline_duration_seconds": 26580,
+        "recovery_duration_seconds": null,
+        "worst_drawdown_underwater_seconds": 26880,
+        "total_time_underwater_seconds": 26880,
+        "episodes_in_drawdown_interval": 5,
+        "episode_ids_in_drawdown_interval": [
+          "pkt-spy-1212",
+          "pkt-spy-1317",
+          "pkt-spy-1421",
+          "pkt-spy-1526",
+          "pkt-spy-1630"
+        ],
+        "had_drawdown": true,
+        "observation_censored": true,
+        "sampled_at_event_times": true
+      },
+      {
+        "split_id": "TEST",
+        "point_count": 68,
+        "start_equity_micros": 99490277258,
+        "end_equity_micros": 99447575515,
+        "net_pnl_micros": -42701743,
+        "max_drawdown_micros": -51967086,
+        "peak_at_utc": "2026-01-06T19:36:00Z",
+        "trough_at_utc": "2026-01-06T21:41:00Z",
+        "recovered_at_utc": null,
+        "decline_duration_seconds": 7500,
+        "recovery_duration_seconds": null,
+        "worst_drawdown_underwater_seconds": 7500,
+        "total_time_underwater_seconds": 7620,
+        "episodes_in_drawdown_interval": 2,
+        "episode_ids_in_drawdown_interval": [
+          "pkt-spy-1735",
+          "pkt-spy-1840"
+        ],
+        "had_drawdown": true,
+        "observation_censored": true,
+        "sampled_at_event_times": true
+      }
+    ],
+    "drawdown_overflow": {
+      "client_width": 622,
+      "scroll_width": 622,
+      "overflowing": false
+    },
+    "holdout_absent_from_drawdown": true,
+    "holdout_status": {
+      "split_id": "OPENED_HOLDOUT",
+      "text": "OPENED_HOLDOUT\tNOT_RUN — no observations"
+    },
+    "absolute_equity_payload_count": 579,
+    "absolute_equity_payload_hash": "sha256:a090044c7e6af01c4cd396d15cd46a425b450c18fcb833785a391c1cb600a55f",
+    "visible_metrics": {
+      "final equity": "$99,447.58",
+      "realised P&L": "-$518.42",
+      "max drawdown": "-$554.90",
+      "fees": "$34.00",
+      "modelled spread": "$1.03",
+      "modelled slippage": "$0.52"
+    },
+    "stress_rows": [
+      [
+        "baseline",
+        "0 bars",
+        "1×",
+        "$99,447.58",
+        "-$554.90",
+        "17",
+        "17 exec · 8 collision · 0 tail"
+      ],
+      [
+        "cost-2x",
+        "0 bars",
+        "2×",
+        "$99,412.03",
+        "-$589.40",
+        "17",
+        "17 exec · 8 collision · 0 tail"
+      ],
+      [
+        "cost-4x",
+        "0 bars",
+        "4×",
+        "$99,340.93",
+        "-$659.07",
+        "17",
+        "17 exec · 8 collision · 0 tail"
+      ],
+      [
+        "delay-1",
+        "1 bars",
+        "1×",
+        "$99,466.19",
+        "-$537.83",
+        "17",
+        "17 exec · 8 collision · 0 tail"
+      ],
+      [
+        "delay-5",
+        "5 bars",
+        "1×",
+        "$99,370.02",
+        "-$634.17",
+        "17",
+        "17 exec · 8 collision · 0 tail"
+      ]
+    ],
+    "null_values": {
+      "strategy TEST net P&L": "-$42.70",
+      "buy and hold TEST net P&L": "$61.28",
+      "matched random median (128 trials)": "$11.08",
+      "matched random P95": "$70.30",
+      "strategy empirical percentile": "14.06%",
+      "matched episodes · seed": "2 · 240803"
+    },
+    "policy_hash": "sha256:d43ce2609622099a2b96a92c132a05145a33ae4e2c4a0875c12a155b6b877519",
+    "console_errors": [],
+    "pixel_capture_viewport_css": {
+      "width": 1100,
+      "height": 2100
+    },
+    "artifact": "after.png",
+    "capture_note": "request, DOM, console, responsive layout, and no-horizontal-overflow verified at 1100x1000; pixel-only height expanded after verification so the complete panel fits without fixed-composer occlusion; width and DPR unchanged"
+  }
+}

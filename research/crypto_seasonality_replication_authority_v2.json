@@ -1,0 +1,28 @@
+{
+  "version": "nodequant-crypto-seasonality-replication-authority-v2",
+  "frozen_at_utc": "2026-08-04T07:13:10.931Z",
+  "external_anchor": {
+    "system": "notion_page_comment",
+    "page_id": "3b09539b-8f9a-81a0-a3d8-c401d02e8480",
+    "comment_id": "3b29539b-8f9a-8180-b01f-001d0b3ab0cd",
+    "server_datetime_utc": "2026-08-04T07:13:10.931Z"
+  },
+  "policy_hash": "sha256:9748f3b15e755642192ea7595777edb1e1e949d8f5455f8d25842fa7a5499433",
+  "evaluator_hash": "sha256:58c010afc16765b774abeaba0417b813ba565074de17fbe4f9322b1b570ff549",
+  "discovery_panel_hash": "sha256:86605449424c1143fbc2f19d2670c336e667cc1fd6a360cfa442abd055ea4cd9",
+  "discovery_result_hash": "sha256:909019a0d40824702907f418108364e862e54f439c93b6cc4eef12e806687a83",
+  "selection_seal_hash": "sha256:4df483b638a9eddfc4e7a39908d2a48250f5f06489cfb3a1c23ff7faabaf654d",
+  "selected_candidate_ids": [
+    "utc_hour__start-20_duration-1",
+    "utc_session__start-9_duration-12",
+    "week_part__weekday",
+    "weekday__day-2"
+  ],
+  "selection_note": "One deterministic winner per registered family advances as a falsification test even though every family failed the discovery-survivor gate.",
+  "replication_data": {
+    "product_id": "ETH-USD",
+    "start": "2023-01-01T00:00:00Z",
+    "end_exclusive": "2026-01-01T00:00:00Z",
+    "state_at_freeze": "UNREAD"
+  }
+}

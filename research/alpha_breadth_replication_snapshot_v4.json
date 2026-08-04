@@ -1,0 +1,16 @@
+{
+  "version": "nodequant-alpha-replication-snapshot-v4",
+  "captured_after_selection": true,
+  "policy_hash": "sha256:f51991e81396b24cb8ea69891358da01269cfc423b78e1a79af2e9a85c5a9e48",
+  "selection_seal_hash": "sha256:fe6d38d21113a63d0616dad1e864e5ffe5e18a01b8efb3f8ed51f7a5199bf8c5",
+  "evaluator_hash": "sha256:63706d3ff8954202dceb728e555e0c6dcefd730c94096eab7d16ce5bec5962c8",
+  "replication_raw_hashes": {
+    "BIL": "sha256:9078b961898bc53b0fb3beefb239677dd47571750232ebecfdea05d0a7889dec",
+    "BWX": "sha256:0ce44d632c6cd33cd28c3202476ac94932f4e3ee3485a089ac367648f555c65d",
+    "DBB": "sha256:efb40ded0c3539648a2d312b647dcc42acb0bafe6b15806823f85f0e56b17945",
+    "EWC": "sha256:13d87ee95ce7fe06fdc6b7b4434099969cebdeddcc043212ee9f545948b82671",
+    "ICF": "sha256:86b841f2172da9188740e999b0b0eadd7c7f3955f3c56c84991d2eab46deeab7",
+    "SPTM": "sha256:7f08c355cb5ff2ed5c21b094bf7bcd18271f95876cd18b23908c807535c740e3"
+  },
+  "replication_panel_hash": "sha256:88d1757322a82dd743fcde7e670bd7895cbb4fef75907f760e2290c341c8fd7b"
+}

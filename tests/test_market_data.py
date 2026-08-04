@@ -8,6 +8,7 @@ separate NOT_RUN gate after successful ingestion.
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
+from dataclasses import replace
 from datetime import datetime, timezone
 
 import pytest
@@ -16,10 +17,11 @@ from app import ledger as lg
 from app import market_data as md
 from app import promotion as pm
 from app import proof_kernel as pk
+from app.market_conformance import assess_market_data
+from app.order_journal import build_order_journal
 from app.decision_packet import (
     CheckStatus,
     EvidenceClass,
-    OracleIndependence,
     verify,
 )
 
@@ -68,12 +70,14 @@ def test_researcher_can_replay_a_snapshot_without_laundering_conformance(tmp_pat
         EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
     )
     packets = list(pk.packets(25, bars))
+    events = lg.build_ledger(bars, packets)
     promotion = pm.evaluate(
         kernel_gate=gate,
-        receipt=lg.curve_receipt(lg.build_ledger(bars, packets), bars, packets),
-        evidence_class=EvidenceClass.EXTERNAL_BAR_SNAPSHOT,
-        oracle_independence=OracleIndependence.SAME_AUTHOR_DIVERSE_IMPLEMENTATION,
-        market_data_conformance=CheckStatus.NOT_RUN,
+        events=events,
+        bars=bars,
+        packets=packets,
+        journal=build_order_journal(bars, packets),
+        snapshot=snapshot,
     )
 
     assert gate["status"] == "PASS"
@@ -187,3 +191,67 @@ def test_snapshot_assurance_rejects_legacy_receipts_and_cannot_self_promote():
 
     with pytest.raises(ValueError, match="cannot self-award promotable evidence"):
         pk.run_gate(25, bars, EvidenceClass.REAL_BAR_REPLAY)
+
+
+def test_caller_typed_external_label_without_byte_provenance_stays_unproven():
+    """A plausible source name is metadata, not evidence of an external corpus."""
+
+    bars = pk.fixture_bars()
+    forged = [
+        replace(
+            bar,
+            receipt=bar.receipt.model_copy(
+                update={"source": "caller-typed-external"}
+            ),
+        )
+        for bar in bars
+    ]
+
+    receipt = assess_market_data(forged)
+    assert receipt.evidence_class is EvidenceClass.UNPROVEN_BAR_INPUT
+    assert receipt.source_hash_count == 0
+    assert receipt.replay_locator_count == 0
+    assert "not byte-addressed" in receipt.limitation
+    assert not receipt.acceptable
+
+
+def test_fabricated_hash_and_locator_without_ingested_bytes_stay_unproven():
+    bars = pk.fixture_bars()
+    forged_receipt = bars[0].receipt.model_copy(
+        update={
+            "source": "caller-typed-external",
+            "source_hash": "sha256:" + "0" * 64,
+            "probe_inputs": (("source_locator", "made-up"),),
+        }
+    )
+    forged = [replace(bar, receipt=forged_receipt) for bar in bars]
+
+    receipt = assess_market_data(forged)
+    assert receipt.evidence_class is EvidenceClass.UNPROVEN_BAR_INPUT
+    assert not receipt.acceptable
+
+
+def test_unrelated_raw_bytes_cannot_bind_a_fabricated_snapshot():
+    bars = pk.fixture_bars()
+    raw = b"timestamp_utc,close\n2026-01-05T14:30:00Z,1\n"
+    digest = "sha256:" + __import__("hashlib").sha256(raw).hexdigest()
+    receipt = bars[0].receipt.model_copy(
+        update={
+            "source": "scenario-provider",
+            "source_hash": digest,
+            "probe_inputs": (("source_locator", "made-up"),),
+        }
+    )
+    forged_bars = tuple(replace(bar, receipt=receipt) for bar in bars)
+    snapshot = md.BarSnapshot(
+        bars=forged_bars,
+        symbol="SPY",
+        source="scenario-provider",
+        source_locator="made-up",
+        source_hash=digest,
+        retrieved_at_utc=RETRIEVED,
+        raw_bytes=raw,
+    )
+    result = assess_market_data(list(forged_bars), snapshot)
+    assert result.evidence_class is EvidenceClass.UNPROVEN_BAR_INPUT
+    assert not result.acceptable

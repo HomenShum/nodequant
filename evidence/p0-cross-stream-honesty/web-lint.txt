@@ -1,0 +1,65 @@
+
+> web@0.1.0 lint
+> oxlint && oxfmt --check
+
+Checking formatting...
+
+README.md (914ms)
+app/api/chat/route.ts (13ms)
+app/api/trialscope-chat/route.ts (12ms)
+app/assistant.tsx (0ms)
+app/globals.css (28ms)
+app/layout.tsx (13ms)
+app/page.tsx (8ms)
+capture-neuromap.mjs (13ms)
+capture-panels.mjs (0ms)
+capture-review.mjs (15ms)
+capture-threads.mjs (13ms)
+capture-viz.mjs (1ms)
+check-contrast.mjs (0ms)
+components.json (19ms)
+components/attachment.tsx (1ms)
+components/follow-up-suggestions.tsx (4ms)
+components/github.tsx (0ms)
+components/markdown-text.tsx (14ms)
+components/nodequant-panels.tsx (11ms)
+components/reasoning.tsx (1ms)
+components/thread-list.tsx (16ms)
+components/thread.tsx (2ms)
+components/threadlist-sidebar.tsx (10ms)
+components/tool-fallback.tsx (14ms)
+components/tool-group.tsx (9ms)
+components/tooltip-icon-button.tsx (11ms)
+components/trialscope-panels.tsx (13ms)
+components/ui/avatar.tsx (15ms)
+components/ui/breadcrumb.tsx (0ms)
+components/ui/button.tsx (10ms)
+components/ui/collapsible.tsx (9ms)
+components/ui/dialog.tsx (11ms)
+components/ui/input.tsx (12ms)
+components/ui/separator.tsx (13ms)
+components/ui/sheet.tsx (10ms)
+components/ui/sidebar.tsx (12ms)
+components/ui/skeleton.tsx (9ms)
+components/ui/tooltip.tsx (0ms)
+e2e-check.mjs (0ms)
+hooks/use-mobile.ts (13ms)
+lib/money.mjs (13ms)
+lib/new-thread.ts (12ms)
+lib/utils.ts (0ms)
+next.config.ts (0ms)
+package.json (9ms)
+postcss.config.mjs (0ms)
+probe-graph-interaction.mjs (15ms)
+probe-node-finder.mjs (0ms)
+tsconfig.json (17ms)
+
+Format issues found in above 49 files. Run without `--check` to fix.
+Finished in 2055ms on 50 files using 32 threads.
+node.exe : No config found, using defaults. Please add a config file or try `oxfmt --init` if needed.
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "C:\nvm4w\nodejs/node_modules/npm/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (No config found...nit` if needed.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

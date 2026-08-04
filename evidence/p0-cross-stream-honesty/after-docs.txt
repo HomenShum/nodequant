@@ -1,0 +1,54 @@
+120:2. **A separate-agent oracle**: give a fresh agent only the frozen manifest, the
+121:   raw fixture and the output schema — no access to either implementation — and
+122:   have it write a third replay path. That lifts `semantic_independence` from
+123:   `LIMITED` and clears one blocker.
+124:3. **Spread and slippage**, which clears two more.
+125:4. **The order-lifecycle journal** (`ORDER_CREATED` … `ORDER_FILLED`). It must
+126:   independently reconcile authorised quantity, fills, cash, fees, marks and IDs.
+127:   A second cost-basis calculation alone does not make the P&L identity evidence.
+128:5. The remaining eight panels of the ten-panel vocabulary (DESIGN.md §3).
+129:
+130:## Known-open, honestly
+131:
+132:- **Cross-stream reconciliation is `NOT_RUN`.** The blind flat-P&L scalar was
+133:  removed from the receipt and promotion policy. The current packet authority now
+134:  freezes the kernel's one-unit quantity, but execution authenticity still needs
+135:  the independent order-lifecycle stream above.
+136:- **Two load-sensitive tests.** `test_attack1b_l2_store_is_tenant_namespaced` and
+154:**Conservation is incomplete as built.** The thread wants inventory and P&L
+155:conservation with a frozen cost-basis policy:
+156:
+157:```
+158:remaining_cost_basis >= 0
+159:remaining_cost_basis == 0 when position == 0
+160:unrealized_pnl = marked_position_value - remaining_cost_basis
+161:realized + unrealized - fees == equity - initial_capital
+162:```
+163:
+164:⚠️ **That last identity is TAUTOLOGICAL as currently derivable** — I measured it:
+165:0 residual on the honest ledger *and* 0 on a ledger with fabricated inventory,
+166:because `position_value` appears on both sides. An independent cost-basis value
+167:alone is still insufficient: the other stream must independently author and
+168:reconcile quantities as well as cash, fees, fills, marks and IDs. Do not put a
+169:P&L residual on the panel before those mutations are demonstrably detectable.
+170:
+171:**Keep the financial ledger separate from the order journal.** A second
+172:append-only lifecycle stream, not yet built:
+173:
+174:```
+175:ORDER_CREATED  ORDER_APPROVED  ORDER_SUBMITTED  ORDER_PARTIALLY_FILLED
+176:ORDER_FILLED   ORDER_CANCELLED ORDER_REJECTED   ORDER_EXPIRED
+177:```
+178:
+179:Every `ORDER_FILL` financial event references exactly one lifecycle order. The
+180:journal is necessary but not sufficient: its quantities and postings must be
+181:independent authorities, or both streams can share the same fabricated inventory.
+297:hand-calculated minimal case, or an explicit domain decision recorded in the
+298:manifest.
+299:
+300:## 8. Panel rules the thread set
+301:
+302:- **Show no reconciliation residual today.** Better to expose reconciliation as
+303:  `NOT_RUN` than show a scalar blind to coherent inventory fabrication. The old
+304:  `flat_pnl_residual_micros` field has been removed from the receipt and policy.
+305:- **A non-zero authoritative monetary value may never render as zero.** Enforced
