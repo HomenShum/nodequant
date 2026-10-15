@@ -498,5 +498,10 @@ export function MarketMapView() {
               >
                 {mode === "structure" ? "OPEN ORIGINAL SOURCE" : "OPEN PROVIDER LOCATOR"}
               </a>
-              {mode === "activity" && (
-                <p 
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  );
+}
